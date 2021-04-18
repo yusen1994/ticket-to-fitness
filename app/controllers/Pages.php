@@ -7,6 +7,7 @@
     public function index(){
       $data = [
         'title' => 'Ticket To Fitness',
+        'Description'=>'This is a fitness webapp'
       ];
      
       $this->view('pages/index', $data);

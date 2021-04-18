@@ -13,7 +13,7 @@
       //print_r($this->getUrl());
 
       $url = $this->getUrl();
-
+  //['','','paramater']
       // Look in controllers for first value
       if(file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
         // If exists, set as controller
@@ -29,6 +29,7 @@
       $this->currentController = new $this->currentController;
 
       // Check for second part of url
+
       if(isset($url[1])){
         // Check to see if method exists in controller
         if(method_exists($this->currentController, $url[1])){
