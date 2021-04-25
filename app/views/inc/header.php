@@ -24,16 +24,16 @@
       <div class="collapse navbar-collapse" id="toggleMobileMenu">
         <ul class="navbar-nav ms-auto text-center nav-fill w-100">
           <li>
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#"><b>Home</b></a>
           </li>
           <li>
-            <a class="nav-link" href="#">Timetable</a>
+            <a class="nav-link" href="#"><b>Timetable</b></a>
           </li>
           <li>
-            <a class="nav-link" href="#">Gyms</a>
+            <a class="nav-link" href="#"><b>Gyms</b></a>
           </li>
           <li>
-            <a class="nav-link" href="#">Settings</a>
+            <a class="nav-link" href="#"><b>Settings</b></a>
           </li>
         </ul>
       </div>
@@ -43,42 +43,8 @@
 
   </div>
 
-
-
-
-  <!-- <nav class="navbar sticky-top navbar-expand-sm navbar-dark" style="background-color: #ef8830">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="https://localhost/ticket-to-fitness/public/images/50x50-t2f-logo.png" alt="logo">
-      </a>
-      <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" id="menuButton" onclick="openMenu()">
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
-
-
-
-
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-
 
 
 </body>
