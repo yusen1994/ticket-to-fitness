@@ -1,7 +1,7 @@
 <?php
 //Example Model for User
 
-    class Accounts{
+    class Account{
 
         private $db;
 
@@ -61,7 +61,7 @@
             @Param1, data associative array of user information
         */
         public function registerAccount($data){
-            this->db->query('INSERT INTO users (username,firstname,lastname,email,password) VALUES (:username,:firstname,:lastname, :email, :password)');
+            $this->db->query('INSERT INTO users (username,firstname,lastname,email,password) VALUES (:username,:firstname,:lastname, :email, :password)');
       
             // Bind Values
             $this->db->bind(':username', $data['username']);

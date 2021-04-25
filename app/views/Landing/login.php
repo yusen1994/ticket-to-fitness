@@ -15,7 +15,7 @@ files, one for login and registeration-->
 
   				</div>
   				<div class= "card-body">
-  					<form method = "POST">
+  					<form method = "POST" action="<?php echo URLROOT; ?>/accounts/login">
   						 <table>
 							<tr>
 								<td><label for="username">User Name</label></td>
@@ -32,7 +32,7 @@ files, one for login and registeration-->
 
   				<div class="card-footer">
   					<div class="sign_up_link">
-  						<p>Don't have an account?<a href="#">Register</a></p>
+  						<p>Don't have an account?<a href="<?php echo URLROOT; ?>/accounts/register">Register</a></p>
   					</div>
   					<div class="forgot_password_link">
   						<a href="#">Forgot your password?</a>

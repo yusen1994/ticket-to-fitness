@@ -5,7 +5,7 @@ class Accounts extends Controller{
 
         public function __construct(){
 
-            $this->accountsModel = $this->model('Accounts');
+            $this->accountsModel = $this->model('Account');
 
         }
 
@@ -38,7 +38,7 @@ class Accounts extends Controller{
 
                 //Is username exists then check user supplied password with the password hash stored in the database
                 if(!empty($user)){
-                    $verified_user = checkPassword($data['password'], $user->password);
+                    $verified_user = $this->checkPassword($data['password'], $user->password);
                     if($verified_user){
                         //If user is verified then create session
                         $this->createUserSession($verified_user);
@@ -47,15 +47,13 @@ class Accounts extends Controller{
                         $data['loginError'] = 'Username or Password seems Incorrect!';
                         $this->view('Landing\login', $data);
                     }
-                }
-                else{   
+                }else{   
                         //If username doesn't exists, show error.
                         $data['loginError'] = 'Username or Password seems Incorrect!';
                         $this->view('Landing\login', $data);
                     }
                 }
             }
-        }
 
         /*
             Function to check password
@@ -85,7 +83,7 @@ class Accounts extends Controller{
         public function createUserSession($user){
             $_SESSION['user_id'] = $user->id;
             
-            redirect('dashboard');
+            redirect('Dashboard');
           }
 
 
@@ -96,18 +94,18 @@ class Accounts extends Controller{
             unset($_SESSION['user_id']);
             
             session_destroy();
-            redirect('users/login');
+            redirect('Accounts/login');
           }
     
         /*
         Function to display login page
         */
-        public function showLogin(){
+        public function login(){
 
             //Check if the user is already logged in i.e the session is set.
             // If session is set then redirect to dashboard.
             if($this->isLoggedIn()){
-                redirect('dashboard');
+                redirect('Dashboard');
             }
             //If Login button is clicked i.e POST request is made then validate login else show login page
             if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -116,7 +114,7 @@ class Accounts extends Controller{
                 $data = ['username'=>'', 'password'=>'', 'loginError'=>''];
                 $data['username'] = trim($_POST['username']);
                 $data['password'] = trim($_POST['password']);
-                validateLogin($data);
+                $this->validateLogin($data);
                 
             }else{
                 $data = ['username'=>'', 'password'=>'', 'loginError'=>''];
@@ -156,34 +154,40 @@ class Accounts extends Controller{
 
             if(!empty($data['username']) && !empty($data['firstname']) &&!empty($data['lastname']) &&!empty($data['email'])&&!empty($data['password'])&&!empty($data['cpassword'])){
                 //If Fields aren't empty further check
-
+               
                 $checkEmail = $this->accountsModel->checkEmailExists($data['email']);
+                if(!empty($checkEmail->email)){
                 if(($checkEmail->email)==$data['email']){
                     $data['email_err'] = 'The Email already Exists in the system';
                 }
+            }
 
+                
                 $checkUsername = $this->accountsModel->checkUsernameExists($data['username']);
+                if(!empty($checkUsername->username)){
                 if(($checkUsername->username)==$data['username']){
                     $data['username_err'] = 'The Username already Exists in the system';
                 }
+            }
 
                 if(strlen($data['password']) < 6){
                     $data['password_err'] = 'Password must have atleast 6 characters.';
                   }
 
-                if($data['password'] != $data['confirm_password']){
+                if($data['password'] != $data['cpassword']){
                     $data['confirm_password_err'] = 'Password do not match.';
                 }
 
 
             }
+            
             //If no error then proceed to create password has and register user account
-            if(empty($data['username_err']) && !empty($data['firstname_err']) &&!empty($data['lastname_err']) &&!empty($data['email_err'])&&!empty($data['password_err'])&&!empty($data['cpassword_err'])){
-
+            if(empty($data['username_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && empty($data['email_err'])&& empty($data['password_err'])&& empty($data['cpassword_err'])){
+                    
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
                 if($this->accountsModel->registerAccount($data)){
                     // Redirect to login
-                    redirect('users/login');
+                    redirect('Accounts/login');
                   } else {
                     die('Something went wrong');
                   }
@@ -201,7 +205,7 @@ class Accounts extends Controller{
         public function register(){
             //If the user session is already set then redirect to his/her dashboard
             if($this->isLoggedIn()){
-                redirect('dashboard');
+                redirect('Dashboard');
             }
 
             //If Request method is POST then init array.
@@ -224,7 +228,8 @@ class Accounts extends Controller{
                     'cpassword_err'=>'',
                 ];
                 //Function call to validate user data for registeration
-                validateRegister($data);
+               
+                $this->validateRegister($data);
             }else{
                 $data = [
 
@@ -254,9 +259,9 @@ class Accounts extends Controller{
 
     
 
+    
+
 }
-
-
 
 
 
