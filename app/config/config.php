@@ -9,6 +9,6 @@
 
   define('APPROOT', dirname(dirname(__FILE__)));
   // URL Root
-  define('URLROOT', 'localhost');
+  define('URLROOT', 'http://localhost/tickettofitness');
   // Site Name
   define('SITENAME', 'Ticket To Fitness');
