@@ -15,18 +15,18 @@ files, one for login and registeration-->
 
   				</div>
   				<div class= "card-body">
-  					<form>
+  					<form method = "POST">
   						 <table>
 							<tr>
-								<td><label for="user_name">User Name</label></td>
-								<td><input type="text" id="user_name" name="user_name" required title=""></td>
+								<td><label for="username">User Name</label></td>
+								<td><input type="text" id="username" value = "<?php if(!empty($data['username'])) {echo $data['username']; } ?>" name="username" required title=""></td>
 							</tr>
 							<tr>
 								<td><label for="password">Password</label></td>
-								<td><input type="password" id="password" name="password" required></td>
+								<td><input type="password" id="password" name="password" value = "<?php if(!empty($data['password'])) {echo $data['password']; } ?>" required></td>
 							</tr>
 						</table>
-						<p><input type="submit" value="Login"></p>
+						<p><input type="submit" value="Login" name = "login"></p>
   					</form>
   				</div>
 
@@ -37,6 +37,19 @@ files, one for login and registeration-->
   					<div class="forgot_password_link">
   						<a href="#">Forgot your password?</a>
   					</div>
+
+					<div class = "login_error">
+					<?php if (!empty($data['loginError'])){
+						echo "<div class='alert alert-warning' role='alert'>";
+						echo $data['loginError']; 
+						echo "</div>";
+					}
+					?>
+					
+						
+
+					
+					</div>  
 
   				</div>
 
