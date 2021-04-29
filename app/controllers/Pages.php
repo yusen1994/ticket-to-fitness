@@ -8,9 +8,9 @@
       $data = [
         'title' => 'Ticket To Fitness',
         'Description'=>'This is a fitness webapp'
-      ];
+      ]; 
      
-      $this->view('Landing/login', $data);
+      $this->view('Landing/homepage', $data);
     }
 
     public function about(){
