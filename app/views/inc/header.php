@@ -19,8 +19,8 @@
 
   <div class="container">
     <nav class="navbar navbar-sticky-top navbar-expand-lg navbar-light" style="background-color: #ef8830">
-      <a href="#" class="navbar-brand">
-        <img src="https://localhost/ticket-to-fitness/public/images/t2f-logo.png" alt="logo" width="50" height="50">
+      <a class="navbar-brand" href="#">
+        <img src="https://localhost/ticket-to-fitness/public/images/t2f-logo.png" alt="logo" width="50" height="50" class="navbar-image">
         Ticket To Fitness
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle Navigation">
