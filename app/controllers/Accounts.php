@@ -45,12 +45,12 @@ class Accounts extends Controller{
                     }else{
                         //If password doesn't match, show error.
                         $data['loginError'] = 'Username or Password seems Incorrect!';
-                        $this->view('Landing\login', $data);
+                        $this->view('Landing/login', $data);
                     }
                 }else{   
                         //If username doesn't exists, show error.
                         $data['loginError'] = 'Username or Password seems Incorrect!';
-                        $this->view('Landing\login', $data);
+                        $this->view('Landing/login', $data);
                     }
                 }
             }
@@ -118,7 +118,7 @@ class Accounts extends Controller{
                 
             }else{
                 $data = ['username'=>'', 'password'=>'', 'loginError'=>''];
-                $this->view('Landing\login', $data);
+                $this->view('Landing/login', $data);
 
             }
 
