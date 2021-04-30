@@ -3,23 +3,17 @@
 <!--If you would like to create different page for login and register create a folder called accounts instead and create two new
 files, one for login and registeration-->
 <!--Small Change -->
-  
-<div class="container card-test">
-  			<div class="card">
-  				<div class="card-header">
-  					<h4> Register </h4>
-
-  					<div class="icon">
-  						<!-- later -->
-  					</div>
-
-  				</div>
-  				<div class= "card-body">
-  					<form method = "POST" action="<?php echo URLROOT; ?>/accounts/register">
-  						 <table>
-							<tr>
-								<td><label for="username">User Name</label></td>
-								<td><input type="text" id="username" name="username" value = "<?php if(!empty($data['username'])) {echo $data['username']; } ?> " required title=""></td>
+<div class = "container-fluid" id = "container-register">
+            <div class="jumbotron" style="background-color:#ef8830;" >
+               <form method = "POST" action="<?php echo URLROOT; ?>/accounts/register">
+                    <table>
+                        <tr>
+                            
+							<td id="username_slide">
+							
+                                <div class="input-group">
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_prev"><i class="fas fa-arrow-circle-left" style="color:white;"></i></button>
+                                <input class= "form-control form-control-lg" type="text" id="username" value = "<?php if(!empty($data['username'])) {echo $data['username']; } ?>"  name="username" placeholder="username"> 
 								<?php 
 									if(!empty($data['username_err'])){
 										echo "<span>";
@@ -27,67 +21,108 @@ files, one for login and registeration-->
 										echo "</span>";
 									}
 								?>
-							</tr>
-							<tr>
-								<td><label for="firstname">Frist Name</label></td>
-								<td><input type="text" id="firstname" name="firstname" value = "<?php if(!empty($data['firstname'])) {echo $data['firstname']; } ?> "  required title=""></td>
-								<?php 
+                                    <button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_next"><i class="fas fa-arrow-circle-right" style="color:white;"></i></button>
+                                 </div>
+                            </td> 
+
+                            <td id="firstname_slide" class="input_hide">
+                                <div class="input-group">
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_prev1"><i class="fas fa-arrow-circle-left" style="color:white;"></i></button>
+
+                                <input class= "form-control form-control-lg" type="text"  value = "<?php if(!empty($data['firstname'])) {echo $data['firstname']; } ?>" id="firstname" placeholder="firstname" name="firstname"> 
+                                <?php 
 									if(!empty($data['firstname_err'])){
 										echo "<span>";
 										echo $data['firstname_err'];
 										echo "</span>";
 									}
-								?>
-							</tr>
-							<tr>
-								<td><label for="lastname">Last Name</label></td>
-								<td><input type="text" id="lastname" name="lastname" value = "<?php if(!empty($data['lastname'])) {echo $data['lastname']; } ?> "  required title=""></td>
+								?>    
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_next1"><i class="fas fa-arrow-circle-right" style="color:white;"></i></button>
+                                 </div>
+                            </td> 
+                            
+                             <td id="lastname_slide" class="input_hide">
+                                <div class="input-group">
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_prev2"><i class="fas fa-arrow-circle-left" style="color:white;" ></i></button>
+
+                                <input class= "form-control form-control-lg" type="text"  value = "<?php if(!empty($data['lastname'])) {echo $data['lastname']; } ?>" id="lastname" placeholder="lastname" name="lastname"> 
 								<?php 
 									if(!empty($data['lastname_err'])){
 										echo "<span>";
 										echo $data['lastname_err'];
 										echo "</span>";
 									}
-								?>
-							</tr>
-							<tr>
-								<td><label for="email">Email</label></td>
-								<td><input type="email" id="email" name="email" value = "<?php if(!empty($data['email'])) {echo $data['email']; } ?> "  required title=""></td>
+								?>    
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_next2"><i class="fas fa-arrow-circle-right" style="color:white;"></i></button>
+                                 </div>
+                            </td> 
+                            
+                            <td id="email_slide" class="input_hide">
+                                <div class="input-group">
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_prev3"><i class="fas fa-arrow-circle-left" style="color:white;" ></i></button>
+
+                                <input class= "form-control form-control-lg" type="email"  value = "<?php if(!empty($data['email'])) {echo $data['email']; } ?>" id="email"  placeholder="email" name="email"> 
 								<?php 
 									if(!empty($data['email_err'])){
 										echo "<span>";
 										echo $data['email_err'];
 										echo "</span>";
 									}
-								?>	
-							</tr>
-							<tr>
-								<td><label for="password">Password</label></td>
-								<td><input type="password" id="password" name="password" value = "<?php if(!empty($data['password'])) {echo $data['password']; } ?> "  required></td>
-								<?php 
+								?>  
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_next3"><i class="fas fa-arrow-circle-right" style="color:white;"></i></button>
+                                 </div>
+                            </td> 
+                            
+                            <td id="password_slide" class="input_hide">
+                                <div class="input-group">
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_prev4"><i class="fas fa-arrow-circle-left" style="color:white;"></i></button>
+
+                                <input class= "form-control form-control-lg" type="password"  value = "<?php if(!empty($data['password'])) {echo $data['password']; } ?>" id="password" placeholder="password" name="password"> 
+                                <?php 
 									if(!empty($data['password_err'])){
 										echo "<span>";
 										echo $data['password_err'];
 										echo "</span>";
 									}
-								?>
-							</tr>
-							<tr>
-								<td><label for="cpassword">Confirm password</label></td>
-								<td><input type="password" id="cpassword" name="cpassword" value = "<?php if(!empty($data['cpassword'])) {echo $data['cpassword']; } ?> "  required></td>
-								<?php 
+								?>   
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_next4"><i class="fas fa-arrow-circle-right" style="color:white;"></i></button>
+                                 </div>
+                            </td> 
+
+							<td id="cpassword_slide" class="input_hide">
+                                <div class="input-group">
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_prev5"><i class="fas fa-arrow-circle-left" style="color:white;" ></i></button>
+
+                                <input class= "form-control form-control-lg" type="password"  value = "<?php if(!empty($data['cpassword'])) {echo $data['cpassword']; } ?>" id="cpassword" placeholder="confirm password" name="cpassword"> 
+                                <?php 
 									if(!empty($data['cpassword_err'])){
 										echo "<span>";
 										echo $data['cpassword_err'];
 										echo "</span>";
 									}
-								?>	
-							</tr>
-						</table>
-						<p><input type="submit" name = "submit" value="Register"></p>
-  					</form>
-  				</div>
-			</div>
-  		</div>
+								?>	    
+								<button type ="button" class="btn btn-outline-secondary btn-lg" id = "btn_next5"><i class="fas fa-arrow-circle-right" style="color:white;"></i></button>
+                                 </div>
+								<div class="d-flex justify-content-center ">	
+								 <button type="submit" class="btn btn-secondary">Submit</button>
+								</div>	
+                            </td> 
+                            
+
+                             
+                           
+                        </tr>
+                    </table>
+                </form>
+				<a href="<?php echo URLROOT; ?>" class="btn btn-lg btn-outline-light mx-1">Back</a> 
+
+                
+            </div>
+            
+           
+        </div> 
+        
+  
+
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

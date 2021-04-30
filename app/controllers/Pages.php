@@ -10,7 +10,7 @@
         'Description'=>'This is a fitness webapp'
       ]; 
      
-      $this->view('Landing/homepage', $data);
+      $this->view('Landing/Homepage', $data);
     }
 
     public function about(){

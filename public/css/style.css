@@ -1,0 +1,64 @@
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .navbar-brand {
+    padding-left: 15px;
+  }
+  .navbar-toggler {
+  padding-right: 15px;
+  border-color: #ef8830;
+  border-width: 0px;
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+
+  }
+
+  .carousel-item {
+    height: 250px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* Register Page */
+  #container-register{
+
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    background-color: #ef8830;
+
+}
+
+.input_hide{
+    
+    
+    display:none;
+}
+
+/*navbar background*/
+
+#navbar_background{
+
+    background-color: #ef8830;
+   /* background-color:#343A40;*/
+}
+
+/*New Nav Bar*/
+
+.dropdown-toggle::after {
+    display: none;
+  }
+.text-decoration-none{
+  text-decoration: none!important;
+}
+/* Font Awesome Icons have variable width. Added fixed width to fix that.*/
+.icon-width { width: 2rem;}
