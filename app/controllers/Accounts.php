@@ -10,7 +10,7 @@ class Accounts extends Controller{
         }
 
         public function index(){
-            $this->showLogin();
+            $this->login();
         }
 
         /*
@@ -41,7 +41,7 @@ class Accounts extends Controller{
                     $verified_user = $this->checkPassword($data['password'], $user->password);
                     if($verified_user){
                         //If user is verified then create session
-                        $this->createUserSession($verified_user);
+                        $this->createUserSession($user);
                     }else{
                         //If password doesn't match, show error.
                         $data['loginError'] = 'Username or Password seems Incorrect!';
@@ -81,6 +81,7 @@ class Accounts extends Controller{
             @Param1, user object.
          */
         public function createUserSession($user){
+            echo $user->id;
             $_SESSION['user_id'] = $user->id;
             
             redirect('Dashboard');
