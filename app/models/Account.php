@@ -84,10 +84,10 @@
 
 
 
-        public function updateEmalStatus($data){
+        public function updateEmailStatus($data){
             $this->db->query('UPDATE users SET user_email_status = :user_email_status where email = :email');
             $this->db->bind(':user_email_status', $data['user_email_status']);
-            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':email', $data['user_email']);
 
             //Execute
             if($this->db->execute()){

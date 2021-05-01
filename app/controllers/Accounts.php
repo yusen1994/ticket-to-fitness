@@ -187,10 +187,14 @@ class Accounts extends Controller{
 
                     
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-                $data['activation_code'] = createActivationCode();
+                $data['activation_code'] = $this->createActivationCode();
                 if($this->accountsModel->registerAccount($data)){
+
+                    //Send email Verification
+                    $this->verificationEmail($data);
                     // Redirect to login
-                    redirect('Accounts/login');
+                    $data['message'] = 'Please check your email for verification link!';
+                    $this->view('Landing/login', $data); 
                   } else {
                     die('Something went wrong');
                   }
@@ -223,6 +227,7 @@ class Accounts extends Controller{
                     'email'=>trim($_POST['email']),
                     'password'=>trim($_POST['password']),
                     'cpassword'=>trim($_POST['cpassword']),
+                    'message'=>'',
                     'activation_code' => '',
                     'user_email_status'=>'not verified',
                     'username_err'=>'',
@@ -244,6 +249,7 @@ class Accounts extends Controller{
                     'email'=>'',
                     'password'=>'',
                     'cpassword'=>'',
+                    'message'=>'',
                     'activation_code' => '',
                     'user_email_status'=>'not verified',
                     'username_err'=>'',
@@ -266,8 +272,8 @@ class Accounts extends Controller{
         }
 
         public function sendEmail($data){
-
-            $base_url = "http://localhost/tickettofitness/checkActivation/";
+            $URLROOT = URLROOT;
+            $base_url = $URLROOT."'/checkActivation/";
             $to      = $data['email']; // Send email to our user
             $subject = 'Signup | Verification'; // Give the email a subject 
             $hash=$data['activation_code'];
@@ -278,11 +284,10 @@ class Accounts extends Controller{
             
             ------------------------
             Username: '.$data['username'].'
-            Password: '.$data['password'].'
             ------------------------
             
             Please click this link to activate your account:
-            http://www.localhost.com/tickettofitness/checkActivation/hash='.$hash.'&email='.$to.'
+            http://localhost.com/tickettofitness/Accounts/checkActivation?hash='.$hash.'&email='.$to.'
             
             '; // Our message above including the link
                                 
@@ -291,12 +296,12 @@ class Accounts extends Controller{
            }
         
 
-        public function verficationEmail($data){
+        public function verificationEmail($data){
             
 
             //Check if the account exists in the database and the email isn't verified
 
-            $user_exists = $this->accountModel->checkEmailExists($data['email']);
+            $user_exists = $this->accountsModel->checkEmailExists($data['email']);
 
             if(!empty($user_exists)){
 
@@ -331,11 +336,11 @@ class Accounts extends Controller{
 
         public function checkHash($data){
 
-            $user= $this->accountModel->checkEmailExists($data['email']);
+            $user= $this->accountsModel->checkEmailExists($data['user_email']);
             if(!empty($user)){
-                if($user['activation_code']==$data['activation_code_from_user']){
+                if($user->activation_code==$data['activation_code_from_user']){
                     $data['user_email_status'] = 'verified';
-                    if($this->account->updateEmalStatus($data){
+                    if($this->accountsModel->updateEmailStatus($data)){
                         $data['message'] = 'Your Email Address Successfully Verified';
                         $this->view('Landing/login',$data);
                     }else{

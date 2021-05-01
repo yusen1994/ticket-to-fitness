@@ -45,6 +45,12 @@ files, one for login and registeration-->
 						echo "</div>";
 					}
 					?>
+					<?php if (!empty($data['message'])){
+						echo "<div class='alert alert-success' role='alert'>";
+						echo $data['message']; 
+						echo "</div>";
+					}
+					?>
 					
 						
 
