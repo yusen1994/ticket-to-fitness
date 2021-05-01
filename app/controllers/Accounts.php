@@ -184,8 +184,10 @@ class Accounts extends Controller{
             
             //If no error then proceed to create password has and register user account
             if(empty($data['username_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && empty($data['email_err'])&& empty($data['password_err'])&& empty($data['cpassword_err'])){
+
                     
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                $data['activation_code'] = createActivationCode();
                 if($this->accountsModel->registerAccount($data)){
                     // Redirect to login
                     redirect('Accounts/login');
@@ -221,6 +223,8 @@ class Accounts extends Controller{
                     'email'=>trim($_POST['email']),
                     'password'=>trim($_POST['password']),
                     'cpassword'=>trim($_POST['cpassword']),
+                    'activation_code' => '',
+                    'user_email_status'=>'not verified',
                     'username_err'=>'',
                     'firstname_err'=>'',
                     'lastname_err'=>'',
@@ -240,6 +244,8 @@ class Accounts extends Controller{
                     'email'=>'',
                     'password'=>'',
                     'cpassword'=>'',
+                    'activation_code' => '',
+                    'user_email_status'=>'not verified',
                     'username_err'=>'',
                     'firstname_err'=>'',
                     'lastname_err'=>'',
@@ -253,14 +259,99 @@ class Accounts extends Controller{
         }
 
 
+        public function createActivationCode(){
 
+            return md5(rand());
+
+        }
+
+        public function sendEmail($data){
+
+            $base_url = "http://localhost/tickettofitness/checkActivation/";
+            $to      = $data['email']; // Send email to our user
+            $subject = 'Signup | Verification'; // Give the email a subject 
+            $hash=$data['activation_code'];
+            $message = '
+            
+            Thanks for signing up!
+            Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+            
+            ------------------------
+            Username: '.$data['username'].'
+            Password: '.$data['password'].'
+            ------------------------
+            
+            Please click this link to activate your account:
+            http://www.localhost.com/tickettofitness/checkActivation/hash='.$hash.'&email='.$to.'
+            
+            '; // Our message above including the link
+                                
+            $headers = 'From:sndpflashtv@gmail.com' . "\r\n"; // Set from headers
+            mail($to, $subject, $message, $headers); // Send our email
+           }
         
 
+        public function verficationEmail($data){
+            
+
+            //Check if the account exists in the database and the email isn't verified
+
+            $user_exists = $this->accountModel->checkEmailExists($data['email']);
+
+            if(!empty($user_exists)){
+
+                if($user_exists->user_email_status == 'not verified'){
+
+                    //Send Activation Code
+                    $this->sendEmail($data);
 
 
-    
 
-    
+                }
+
+            }
+
+        }
+
+        public function checkActivation(){
+
+            if($_SERVER['REQUEST_METHOD']=='GET'){
+                $data=[
+                    'activation_code_from_user' => $_GET['hash'],
+                    'user_email'=>$_GET['email']
+                ];
+               
+                //check if the hash matches the hash in database;
+                $this->checkHash($data);
+
+            }
+
+
+        }
+
+        public function checkHash($data){
+
+            $user= $this->accountModel->checkEmailExists($data['email']);
+            if(!empty($user)){
+                if($user['activation_code']==$data['activation_code_from_user']){
+                    $data['user_email_status'] = 'verified';
+                    if($this->account->updateEmalStatus($data){
+                        $data['message'] = 'Your Email Address Successfully Verified';
+                        $this->view('Landing/login',$data);
+                    }else{
+                        $data['message'] = 'Something Wrong! Try Again';
+                        $this->view('Landing/login',$data);
+
+                    }
+
+                }else{
+
+                    $data['message'] = 'Something Wrong! Try Again';
+                    $this->view('Landing/login',$data);
+                }
+
+            }
+        }
 
 }
 

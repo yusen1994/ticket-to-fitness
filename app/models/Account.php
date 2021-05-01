@@ -61,7 +61,7 @@
             @Param1, data associative array of user information
         */
         public function registerAccount($data){
-            $this->db->query('INSERT INTO users (username,firstname,lastname,email,password) VALUES (:username,:firstname,:lastname, :email, :password)');
+            $this->db->query('INSERT INTO users (username,firstname,lastname,email,password,activation_code,user_email_status) VALUES (:username,:firstname,:lastname, :email, :password,:activation_code,:user_email_status)');
       
             // Bind Values
             $this->db->bind(':username', $data['username']);
@@ -69,6 +69,9 @@
             $this->db->bind(':lastname', $data['lastname']);
             $this->db->bind(':email', $data['email']);
             $this->db->bind(':password', $data['password']);
+            $this->db->bind(':activation_code', $data['activation_code']);
+            $this->db->bind(':user_email_status', $data['user_email_status']);
+
             
          
             //Execute
@@ -78,6 +81,28 @@
               return false;
             }
         }
+
+
+
+        public function updateEmalStatus($data){
+            $this->db->query('UPDATE users SET user_email_status = :user_email_status where email = :email');
+            $this->db->bind(':user_email_status', $data['user_email_status']);
+            $this->db->bind(':email', $data['email']);
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+              } else {
+                return false;
+              }
+
+            
+        }
+
+
+
+
+
 
 
         }
