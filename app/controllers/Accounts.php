@@ -353,6 +353,115 @@ class Accounts extends Controller{
             }
         }
 
+        public function verifyGymInformation($data){
+            //Check if fields are empty
+            if(empty($data['gym_id'])){
+                $data['gym_id_err'] = 'Please Enter the gym ID';
+            }
+            if(empty($data['gym_name'])){
+                $data['gym_name_err'] = 'Please Enter the Gym name';
+            }
+            if(empty($data['gym_address'])){
+                $data['gym_address_err'] = 'Please Enter the Gym address';
+            }
+            if(empty($data['gym_email'])){
+                $data['gym_email_err'] = 'Please Enter the GymEmail';
+            }
+
+            if(empty($data['phone_number'])){
+                $data['phone_number_err'] = 'Please Enter the phone number';
+            }
+
+            if(empty($data['abn'])){
+                $data['abn_err'] = 'Please Enter the ABN';
+            }
+
+            if(!empty($data['gym_id']) && !empty($data['gym_name']) &&!empty($data['gym_address']) &&!empty($data['gym_email'])&&!empty($data['phone_number'])&&!empty($data['abn'])){
+
+            //If no error then proceed to create password has and register user account
+            if(empty($data['gym_id_err']) && empty($data['gym_name_err']) && empty($data['gym_address_err']) && empty($data['gym_email_err'])&& empty($data['phone_number_err'])&& empty($data['abn_err'])){
+
+                    
+                if($this->accountsModel->registerGym($data)){
+                    // Redirect to login
+                    $this->view('Dashboard/dashboard', $data);
+                } else {
+                    die('Something went wrong');
+                }
+            }else {
+                // Load View
+                $this->view('Dashboard/gymregister', $data);
+            }
+
+    }
+
+
+        public function registerGym(){
+
+            if($this->isLoggedIn()){
+                //Show the register page and let user register for gym account
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                    $data = [
+                        'gym_id'=>trim($_SESSION['user_id']),
+                        'gym_name'=>trim($_POST['gym_name']),
+                        'gym_address'=>trim($_POST['gym_address']),
+                        'gym_email'=>trim($_POST['gym_email']),
+                        'phone_number'=>trim($_POST['phone_number']),
+                        'abn'=>trim($_POST['abn']),
+                        'gym_id_err'=>'',
+                        'gym_name_err'=>'',
+                        'gym_address_err'=>'',
+                        'gym_email_err'=>'',
+                        'phone_number_err'=>'',
+                        'abn_err'=>'',
+                        
+
+                    ];
+
+                    $this->verifyGymInformation();
+
+                }else{
+
+                    $data = [
+                        'gym_id'=>'',
+                        'gym_name'=>'',
+                        'gym_address'=>'',
+                        'gym_email'=>'',
+                        'phone_number'=>'',
+                        'abn'=>'',
+                        'gym_id_err'=>'',
+                        'gym_name_err'=>'',
+                        'gym_address_err'=>'',
+                        'gym_email_err'=>'',
+                        'phone_number_err'=>'',
+                        'abn_err'=>'',
+                    ];
+
+                    $this->view('Dashboard/gymregister', $data);
+                }
+
+            }else{
+                $data['error_message'] = 'You need to login in order to access this page';
+                $this->view('Landing/login', $data);
+            }
+
+
+
+
+
+
+        }
+
+        //Check the user is logged in in order to view the register gym page
+
+
+        //Regiser gym account
+        
+        
+
+
 }
 
 
