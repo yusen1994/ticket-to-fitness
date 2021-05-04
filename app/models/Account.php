@@ -120,14 +120,20 @@
 
         }
 
+        public function updatePassword($data){
+            $this->db->query('UPDATE users SET password = :password where email = :email');
+            $this->db->bind(':password', $data['password']);
+            $this->db->bind(':email', $data['user_email']);
 
+            //Execute
+            if($this->db->execute()){
+                return true;
+              } else {
+                return false;
+              }
 
-
-
-
-
+            
         }
 
-
-
+    }
 ?>
