@@ -451,22 +451,173 @@ class Accounts extends Controller{
                 $data['error_message'] = 'You need to login in order to access this page';
                 $this->view('Landing/login', $data);
             }
+        }
 
 
+        //Reset Password
 
+        public function resetPassword(){
+            if($this->isLoggedIn()){
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+                    $data = [
 
+                        'email'=>trim($_POST['email']),
+                        'email_err'=>'',
+                        'password'=>trim($_POST['password']),
+                        'password_err'=>'',
+                        'message'=>'',
+                        'password_reset_code'=>'',
+
+                    ];
+                    
+                    $email_exists = $this->accountsModel->checkEmailExists($data['email']);
+                    if(!empty($email_exists)){
+
+                        $hash = $this->createPasswordResetToken();
+                        $data['password_reset_code'] = $hash;
+                        $this->sendPasswordResetEmail($data);
+
+                    }else{
+
+                        $data['message'] = 'Email does not exist';
+                        $this->view('Landing/login',$data);
+                    }
+
+                    $this->view('Landing/passwrodreset',$data);
+
+                }else{
+
+                    $data = [
+                        'email'=>'',
+                        'email_err'=>'',
+                        'password'=>'',
+                        'password_err'=>'',
+                        'message'=>'',
+                        'password_reset_code'=>'',
+                    ];
+
+                    $this->view('Landing/login', $data);
+                }
+
+            }else{
+                $data['error_message'] = 'You need to login in order to access this page';
+                $this->view('Landing/login', $data);
+            }
+        } 
+
+        public function createPasswordResetToken(){
+
+            //call function to create password reset token.
+            return md5(rand());
+        }
+
+        public function sendPasswordResetEmail($data){
+            
+            $base_url = URLROOT;
+            $to      = $data['email']; // Send email to our user
+            $subject = 'Password Reset | Verification'; // Give the email a subject 
+            $hash=$data['password_reset_code'];
+            $message = '
+            
+            Thanks for Reset Password!
+            
+                   
+            Please click this link to reset your password:
+            '.$base_url.'/Accounts/checkPasswordResetCode?hash='.$hash.'&email='.$to.'
+            
+            '; // Our message above including the link
+                                
+            $headers = 'From:sndpflashtv@gmail.com' . "\r\n"; // Set from headers
+            mail($to, $subject, $message, $headers); // Send our email
 
         }
 
-        //Check the user is logged in in order to view the register gym page
+        public function checkPasswordResetCode(){
+
+                //Verify if the password reset code coming in the GET request i.e in url parameter is same as in the database
+                //Url/Accounts/CheckPpasswordResetCode?/hash=shakshajkhsakhsakj&email=sndpflashtv@2gmail.com
+            
+            $data =[
+
+                'email'=>'';
+            ];
+            if($_SERVER['REQUEST_METHOD']=='GET'){    
+                
+            $user= $this->accountsModel->checkEmailExists($_GET['email']);
+            if(!empty($user)){
+                if($user->password_reset==$_GET['hash']){
+                    $data['email'] = $_GET['email'];
+                    $this->view('Landing/passwordreset',$data); //We need to store this email in a hidden input field
+                }
+            }
+        }else{
+
+                    $data['message'] = 'Something Wrong! Try Again';
+                    $this->view('Landing/',$data);
+                }
+
+        }
 
 
-        //Regiser gym account
-        
-        
+//Wwhen user enters password and confirm password make request to this function
+        public function updatePassword(){
+            
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+                $data = [
 
+                    'email'=>trim($_POST['email']), //iIT'S BEING STORED IN A HIDDEN FIELD
+                    'password'=>trim($_POST['password']),
+                    'cpassword'=>trim($_POST['cpassword']),
+                    'password_err'=>'',
+                    'message'=>'',
+                ];
+
+                //check is password and confirm password is same
+                if(empty($data['password'])){
+
+                    $data['password_err'] = 'Password cannot be empty';
+                    $this->view('Landing/passwordupdate',$data);
+                }
+                if(empty($data['cpassword'])){
+
+                    $data['password_err'] = 'Confirm Password cannot be empty';
+                    $this->view('Landing/passwordupdate',$data);
+                }
+                if(empty($data['password_err'])){
+                    if($data['password']== $data['cpassword']){
+                        $updated_password = $this->accountsModel->updatePassword($data);
+                        if($updated_password){
+                            $data['message'] = 'Password Changed';
+                            $this->view('Landing/login',$data);
+
+                        }else{
+                            $data['message'] = 'Something Wrong. Try it later';
+                            $this->view('Landing/login',$data);
+                        }    
+                    }else{
+                        $data['password_err'] = 'Your Password didnot match with confirm passwrord !';
+                    }
+                }
+                
+            }else{
+
+                $data = [
+
+                    'email'=>'', 
+                    'password'=>'',
+                    'cpassword'=>'',
+                    'password_err'=>'',
+                    'message'=>'',
+                ];
+
+                $this-view('Landing/passwordupdate',$data);                
+                
+            }
+        }
 }
 
 
