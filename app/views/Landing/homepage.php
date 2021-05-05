@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <!--HTML for homepage goes here, for CSS visit public folder-->
 <!--The html below this line is for display purpose only-->
-
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="py-5 text-center text-white" id="navbar_background" >
 <div class="container py-5">
 <div class="row py-5">

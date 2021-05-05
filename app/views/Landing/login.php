@@ -1,63 +1,44 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<!--HTML for Registeration and Login goes here, for CSS visit public folder-->
-<!--If you would like to create different page for login and register create a folder called accounts instead and create two new
-files, one for login and registeration-->
-<!--Small Change -->
 
-  		<div class="container card-test">
-  			<div class="card">
-  				<div class="card-header">
-  					<h4> Login </h4>
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
+<div class="login-form">
+    <form action="<?php echo URLROOT; ?>/accounts/login" method="post">
+        <h2 class="text-center">Log in</h2>       
+        <div class="form-group">
+		<input type="text" id="username" class="form-control" placeholder="Username" value = "<?php if(!empty($data['username'])) {echo $data['username']; } ?>" name="username" required title="">
+        </div>
+        <div class="form-group">
+		<input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+            <a href="<?php echo URLROOT; ?>/Accounts/resetPassword" class="float-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <p class="text-center"><a href="<?php echo URLROOT; ?>/accounts/register">Create an Account</a></p>
 
-  					<div class="icon">
-  						<!-- later -->
-  					</div>
 
-  				</div>
-  				<div class= "card-body">
-  					<form method = "POST" action="<?php echo URLROOT; ?>/accounts/login">
-  						 <table>
-							<tr>
-								<td><label for="username">User Name</label></td>
-								<td><input type="text" id="username" value = "<?php if(!empty($data['username'])) {echo $data['username']; } ?>" name="username" required title=""></td>
-							</tr>
-							<tr>
-								<td><label for="password">Password</label></td>
-								<td><input type="password" id="password" name="password" value = "<?php if(!empty($data['password'])) {echo $data['password']; } ?>" required></td>
-							</tr>
-						</table>
-						<p><input type="submit" value="Login" name = "login"></p>
-  					</form>
-  				</div>
-
-  				<div class="card-footer">
-  					<div class="sign_up_link">
-  						<p>Don't have an account?<a href="<?php echo URLROOT; ?>/accounts/register">Register</a></p>
-  					</div>
-  					<div class="forgot_password_link">
-  						<a href="#">Forgot your password?</a>
-  					</div>
-
-					<div class = "login_error">
 					<?php if (!empty($data['loginError'])){
 						echo "<div class='alert alert-warning' role='alert'>";
 						echo $data['loginError']; 
 						echo "</div>";
 					}
 					?>
+					<?php if (!empty($data['message'])){
+						echo "<div class='alert alert-success' role='alert'>";
+						echo $data['message']; 
+						echo "</div>";
+					}
+					?>
 					
-						
+		
 
-					
-					</div>  
+					</div>
 
-  				</div>
-
-
-
-  			</div>
-  		</div>
-
+	
     
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 
