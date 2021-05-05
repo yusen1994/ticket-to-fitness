@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="login-form">
 	<form action="<?php echo URLROOT; ?>/accounts/register" method="post">
 		<h2 class="text-center">Register</h2>
@@ -66,7 +66,7 @@
 			?>
 		</div>
 		<div class="form-group">
-			<input type="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" name="cpassword" required>
+			<input type="password" id="cpassword" class="form-control" placeholder="Confirm Password" name="cpassword" required>
 
 			<?php
 			if (!empty($data['cpassword_err'])) {
@@ -81,11 +81,11 @@
 		</div>
 
 	</form>
-	<p class="text-center"><a href="<?php echo URLROOT; ?>/accounts/register">Create an Account</a></p>
+
 	<p class="text-center"><a href="<?php echo URLROOT; ?>">Back</a></p>
 
-</div>
-<div class="login_error">
+
+
 	<?php if (!empty($data['loginError'])) {
 		echo "<div class='alert alert-warning' role='alert'>";
 		echo $data['loginError'];

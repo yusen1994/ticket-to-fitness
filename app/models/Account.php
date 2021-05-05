@@ -26,6 +26,25 @@
                 return $row;
             }
         }
+
+
+        /*
+            Function to check if the username provided by the user exists in the database
+            @Param1, username supplied by the user.
+        */
+        public function fetchUserInformation($userid){
+            
+            $this->db->query('SELECT * FROM users WHERE id = :id');
+            $this->db->bind(':id', $userid);
+            $row=$this->db->single();
+            
+            if($this->db->rowCount() > 0) {
+               
+                return $row;
+            }
+        }
+
+      
         /*
             Function to check if the email supplied by the user already exists in the database
             @Param1, email supplied by the user

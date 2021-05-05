@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="container">
 	<div class="row" id ="container-passwordreset">
 		<div class="col-md-4 col-md-offset-4">

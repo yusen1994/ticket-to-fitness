@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="login-form">
     <form action="<?php echo URLROOT; ?>/accounts/login" method="post">
         <h2 class="text-center">Log in</h2>       
@@ -19,8 +19,8 @@
         </div>        
     </form>
     <p class="text-center"><a href="<?php echo URLROOT; ?>/accounts/register">Create an Account</a></p>
-</div>
-<div class = "login_error">
+
+
 					<?php if (!empty($data['loginError'])){
 						echo "<div class='alert alert-warning' role='alert'>";
 						echo $data['loginError']; 
@@ -35,8 +35,8 @@
 					?>
 					
 		
-</div> 
 
+					</div>
 
 	
     

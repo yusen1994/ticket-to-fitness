@@ -87,3 +87,15 @@ body {
   font-size: 15px;
   font-weight: bold;
 }
+
+/*Dashboard->Userprofile*/
+
+#container-userprofile{
+
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  align-items: center;
+  
+
+}

@@ -391,6 +391,7 @@ class Accounts extends Controller{
                     
                 if($this->accountsModel->registerGym($data)){
                     // Redirect to login
+                    $data['message'] = 'We will contact you shortly! Thanks for applying GYM Account';
                     $this->view('Dashboard/dashboard', $data);
                 } else {
                     die('Something went wrong');
@@ -423,11 +424,12 @@ class Accounts extends Controller{
                         'gym_email_err'=>'',
                         'phone_number_err'=>'',
                         'abn_err'=>'',
+                        'message'=>'',
                         
 
                     ];
 
-                    $this->verifyGymInformation();
+                    $this->verifyGymInformation($data);
 
                 }else{
 
@@ -444,9 +446,11 @@ class Accounts extends Controller{
                         'gym_email_err'=>'',
                         'phone_number_err'=>'',
                         'abn_err'=>'',
+                        'message'=>'',
+                        
                     ];
 
-                    $this->view('Dashboard/gymregister', $data);
+                    $this->view('Dashboard/userprofile', $data);
                 }
 
             }else{
@@ -639,11 +643,3 @@ class Accounts extends Controller{
             }
         }
 }
-
-
-
-
-
-
-
-?>
