@@ -187,7 +187,7 @@ class Accounts extends Controller{
 
                     
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-                $data['activation_code'] = $this->createActivationCode();
+                $data['user_activation_code'] = $this->createActivationCode();
                 if($this->accountsModel->registerAccount($data)){
 
                     //Send email Verification
@@ -228,8 +228,9 @@ class Accounts extends Controller{
                     'password'=>trim($_POST['password']),
                     'cpassword'=>trim($_POST['cpassword']),
                     'message'=>'',
-                    'activation_code' => '',
+                    'user_activation_code' => '',
                     'user_email_status'=>'not verified',
+                    'password_reset'=>'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj',
                     'username_err'=>'',
                     'firstname_err'=>'',
                     'lastname_err'=>'',
@@ -250,8 +251,9 @@ class Accounts extends Controller{
                     'password'=>'',
                     'cpassword'=>'',
                     'message'=>'',
-                    'activation_code' => '',
+                    'user_activation_code' => '',
                     'user_email_status'=>'not verified',
+                    'password_reset'=>'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj',
                     'username_err'=>'',
                     'firstname_err'=>'',
                     'lastname_err'=>'',
@@ -276,7 +278,7 @@ class Accounts extends Controller{
             $base_url = $URLROOT."'/checkActivation/";
             $to      = $data['email']; // Send email to our user
             $subject = 'Signup | Verification'; // Give the email a subject 
-            $hash=$data['activation_code'];
+            $hash=$data['user_activation_code'];
             $message = '
             
             Thanks for signing up!
@@ -338,7 +340,7 @@ class Accounts extends Controller{
 
             $user= $this->accountsModel->checkEmailExists($data['user_email']);
             if(!empty($user)){
-                if($user->activation_code==$data['activation_code_from_user']){
+                if($user->user_activation_code==$data['activation_code_from_user']){
                     $data['user_email_status'] = 'verified';
                     if($this->accountsModel->updateEmailStatus($data)){
                         $data['message'] = 'Your Email Address Successfully Verified';
@@ -397,7 +399,7 @@ class Accounts extends Controller{
                 // Load View
                 $this->view('Dashboard/gymregister', $data);
             }
-
+        }
     }
 
 
@@ -457,7 +459,7 @@ class Accounts extends Controller{
         //Reset Password
 
         public function resetPassword(){
-            if($this->isLoggedIn()){
+         
                 if($_SERVER['REQUEST_METHOD']=='POST'){
                     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -465,10 +467,10 @@ class Accounts extends Controller{
 
                         'email'=>trim($_POST['email']),
                         'email_err'=>'',
-                        'password'=>trim($_POST['password']),
-                        'password_err'=>'',
-                        'message'=>'',
                         'password_reset_code'=>'',
+                        'warning'=>'',
+                        'message'=>'',
+
 
                     ];
                     
@@ -477,34 +479,35 @@ class Accounts extends Controller{
 
                         $hash = $this->createPasswordResetToken();
                         $data['password_reset_code'] = $hash;
-                        $this->sendPasswordResetEmail($data);
+                        if($this->accountsModel->updatePasswordResetHash($data)){
+                            $this->sendPasswordResetEmail($data);
+                        }else{
+                            $data['warning'] = 'Something is wrong please try again later!';
+                            $this->view('Landing/passwordreset',$data);
+                        }
+                        
 
                     }else{
 
-                        $data['message'] = 'Email does not exist';
-                        $this->view('Landing/login',$data);
+                        $data['email_err'] = 'Email does not exist';
+                        $this->view('Landing/passwordreset',$data);
                     }
 
-                    $this->view('Landing/passwrodreset',$data);
+                   
 
                 }else{
 
                     $data = [
                         'email'=>'',
                         'email_err'=>'',
-                        'password'=>'',
-                        'password_err'=>'',
-                        'message'=>'',
                         'password_reset_code'=>'',
+                        'warning'=>'',
+                        'message'=>'',
                     ];
 
-                    $this->view('Landing/login', $data);
+                    $this->view('Landing/passwordreset', $data);
                 }
 
-            }else{
-                $data['error_message'] = 'You need to login in order to access this page';
-                $this->view('Landing/login', $data);
-            }
         } 
 
         public function createPasswordResetToken(){
@@ -530,7 +533,18 @@ class Accounts extends Controller{
             '; // Our message above including the link
                                 
             $headers = 'From:sndpflashtv@gmail.com' . "\r\n"; // Set from headers
-            mail($to, $subject, $message, $headers); // Send our email
+            $result = mail($to, $subject, $message, $headers); // Send our email
+
+            if(!$result){
+                $data['warning'] = 'Something went wrong! Please try again later';
+                $this->view('Landing/passwordreset',$data);
+
+
+            }else{
+                $data['message'] = 'Please check your email for pasword change link';
+                $this->view('Landing/login',$data);
+
+            }
 
         }
 
@@ -541,7 +555,7 @@ class Accounts extends Controller{
             
             $data =[
 
-                'email'=>'';
+                'email'=>'',
             ];
             if($_SERVER['REQUEST_METHOD']=='GET'){    
                 
@@ -549,14 +563,18 @@ class Accounts extends Controller{
             if(!empty($user)){
                 if($user->password_reset==$_GET['hash']){
                     $data['email'] = $_GET['email'];
-                    $this->view('Landing/passwordreset',$data); //We need to store this email in a hidden input field
+                    $this->view('Landing/passwordupdate',$data); //We need to store this email in a hidden input field
+                }else{
+                    $data['warning'] = 'Something Wrong! Try Again';
+                    $this->view('Landing/passwordreset',$data);
                 }
-            }
-        }else{
+            
+            }else{
 
                     $data['message'] = 'Something Wrong! Try Again';
-                    $this->view('Landing/',$data);
+                    $this->view('Landing/login',$data);
                 }
+            }
 
         }
 
@@ -589,6 +607,8 @@ class Accounts extends Controller{
                 }
                 if(empty($data['password_err'])){
                     if($data['password']== $data['cpassword']){
+
+                        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
                         $updated_password = $this->accountsModel->updatePassword($data);
                         if($updated_password){
                             $data['message'] = 'Password Changed';
