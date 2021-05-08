@@ -638,7 +638,7 @@ class Accounts extends Controller{
                     'message'=>'',
                 ];
 
-                $this-view('Landing/passwordupdate',$data);                
+                $this->view('Landing/passwordupdate',$data);                
                 
             }
         }
