@@ -1,8 +1,8 @@
-<?php require APPROOT . '/views/Dashboard/dashboardmenu.php'; ?>
+<?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
 <nav class="nav nav-pills nav-justified mt-4">
-    <a class="nav-item nav-link " href="<?php echo URLROOT; ?>/dashboard">Dashboard</a>
-    <a class="nav-item nav-link active" href="<?php echo URLROOT; ?>/dashboard/userProfile">Profile</a>
+    <a class="nav-item nav-link " href="<?php echo URLROOT; ?>/User">Dashboard</a>
+    <a class="nav-item nav-link active" href="<?php echo URLROOT; ?>/User/userProfile">Profile</a>
     <a class="nav-item nav-link" href="#">Timetable</a>
     <a class="nav-item nav-link " href="#">Manage Class</a>
 
@@ -50,11 +50,23 @@
 
 
             <!-- Register gym model -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registerGymModal">
-                Register Gym Account
-            </button>
 
-            <!-- Modal -->
+            <?php
+                if($_SESSION['partnership_status'] != NULL && $_SESSION['partnership_status'] == true ){
+                   
+                    ?>
+                 <a href="<?php echo URLROOT; ?>/Gym" class="btn btn-success">Switch Gym</a>
+
+                    <?php
+                
+                }else{
+                    echo "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#registerGymModal'>";
+                    echo "Register Gym Account";
+                    echo "</button>";
+                }
+            ?>
+
+            <!-- Modal - Registeration-->
             <div class="modal fade" id="registerGymModal" tabindex="-1" role="dialog" aria-labelledby="registerGymModal" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">

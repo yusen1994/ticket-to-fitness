@@ -83,8 +83,9 @@ class Accounts extends Controller{
         public function createUserSession($user){
             echo $user->id;
             $_SESSION['user_id'] = $user->id;
-            
-            redirect('Dashboard');
+            $_SESSION['partnership_status'] = $user->partnership_status;
+            $_SESSION['email'] = $user->email;
+            redirect('User');
           }
 
 
@@ -93,6 +94,8 @@ class Accounts extends Controller{
         */
         public function logout(){
             unset($_SESSION['user_id']);
+            unset($_SESSION['partnership_status']);
+            unset($_SESSION['email']);
             
             session_destroy();
             redirect('Accounts/login');
@@ -106,7 +109,7 @@ class Accounts extends Controller{
             //Check if the user is already logged in i.e the session is set.
             // If session is set then redirect to dashboard.
             if($this->isLoggedIn()){
-                redirect('Dashboard');
+                redirect('User');
             }
             //If Login button is clicked i.e POST request is made then validate login else show login page
             if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -212,7 +215,7 @@ class Accounts extends Controller{
         public function register(){
             //If the user session is already set then redirect to his/her dashboard
             if($this->isLoggedIn()){
-                redirect('Dashboard');
+                redirect('User');
             }
 
             //If Request method is POST then init array.
@@ -390,15 +393,19 @@ class Accounts extends Controller{
 
                     
                 if($this->accountsModel->registerGym($data)){
+                    $data['partnership_status'] = true;
+                    if($this->accountsModel->updatePartnershipStatus($data)){
                     // Redirect to login
                     $data['message'] = 'We will contact you shortly! Thanks for applying GYM Account';
-                    $this->view('Dashboard/dashboard', $data);
+                    $this->view('User/dashboard', $data);
+
+                    }
                 } else {
                     die('Something went wrong');
                 }
             }else {
                 // Load View
-                $this->view('Dashboard/gymregister', $data);
+                $this->view('User/userprofile', $data);
             }
         }
     }
@@ -418,6 +425,8 @@ class Accounts extends Controller{
                         'gym_email'=>trim($_POST['gym_email']),
                         'phone_number'=>trim($_POST['phone_number']),
                         'abn'=>trim($_POST['abn']),
+                        'partnership_status'=>'',
+                        'email'=>$_SESSION['email'],
                         'gym_id_err'=>'',
                         'gym_name_err'=>'',
                         'gym_address_err'=>'',
@@ -440,6 +449,8 @@ class Accounts extends Controller{
                         'gym_email'=>'',
                         'phone_number'=>'',
                         'abn'=>'',
+                        'partnership_status'=>'',
+                        'email'=>$_SESSION['email'],
                         'gym_id_err'=>'',
                         'gym_name_err'=>'',
                         'gym_address_err'=>'',
@@ -450,7 +461,7 @@ class Accounts extends Controller{
                         
                     ];
 
-                    $this->view('Dashboard/userprofile', $data);
+                    $this->view('User/userprofile', $data);
                 }
 
             }else{
