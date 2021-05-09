@@ -16,5 +16,5 @@
                     echo $data['message'];
                     echo "</div>";
                 }
-            ?>
+   ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

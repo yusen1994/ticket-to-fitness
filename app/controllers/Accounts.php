@@ -1,5 +1,7 @@
 <?php
-
+/*
+    This file contains logic for USER and GYM authentication
+*/
 
 class Accounts extends Controller{
 
@@ -81,7 +83,7 @@ class Accounts extends Controller{
             @Param1, user object.
          */
         public function createUserSession($user){
-            echo $user->id;
+           
             $_SESSION['user_id'] = $user->id;
             $_SESSION['partnership_status'] = $user->partnership_status;
             $_SESSION['email'] = $user->email;
