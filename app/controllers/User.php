@@ -1,7 +1,7 @@
 <?php
 
 
-class Dashboard extends Controller
+class User extends Controller
 {
 
 
@@ -18,7 +18,7 @@ class Dashboard extends Controller
         ];
 
         if (isset($_SESSION['user_id'])) {
-            $this->view('Dashboard/dashboard', $data);
+            $this->view('User/dashboard', $data);
         } else {
             redirect('Accounts/login');
         }
@@ -41,7 +41,7 @@ class Dashboard extends Controller
                 ];
                 
 
-                $this->view('Dashboard/userprofile', $data);
+                $this->view('User/userprofile', $data);
             }
             
         } else {

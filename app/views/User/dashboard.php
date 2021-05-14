@@ -1,9 +1,9 @@
-<?php require APPROOT . '/views/Dashboard/dashboardmenu.php'; ?>
+<?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
 
 <nav class="nav nav-pills nav-justified mt-4">
   <a class="nav-item nav-link active" href="#">Dashboard</a>
-  <a class="nav-item nav-link " href="<?php echo URLROOT;?>/dashboard/userProfile">Profile</a>
+  <a class="nav-item nav-link " href="<?php echo URLROOT;?>/User/userProfile">Profile</a>
   <a class="nav-item nav-link" href="#">Timetable</a>
   <a class="nav-item nav-link " href="#">Manage Class</a>
      
@@ -16,5 +16,5 @@
                     echo $data['message'];
                     echo "</div>";
                 }
-            ?>
+   ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

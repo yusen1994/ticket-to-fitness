@@ -170,5 +170,30 @@
             
         }
 
+        public function updatePartnershipStatus($data){
+            $this->db->query('UPDATE users SET partnership_status = :partnership_status where email = :email');
+            $this->db->bind(':partnership_status', $data['partnership_status']);
+            $this->db->bind(':email', $data['email']);
+              
+            //Execute
+            if($this->db->execute()){
+                return true;
+              } else {
+                return false;
+              }
+        }
+
+        public function fetchGymInformation($gym_id){
+
+            $this->db->query('SELECT * FROM gym_information WHERE gym_id = :gym_id');
+            $this->db->bind(':gym_id', $gym_id);
+            $row=$this->db->single();
+            
+            if($this->db->rowCount() > 0) {
+               
+                return $row;
+            }
+        }
+
     }
 ?>
