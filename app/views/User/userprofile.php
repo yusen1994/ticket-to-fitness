@@ -77,7 +77,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="<?php echo URLROOT; ?>/accounts/registerGym" method="post">
+                            <form action="<?php echo URLROOT; ?>/Accounts/registerGym" method="post">
 
                                 <div class="form-group">
 

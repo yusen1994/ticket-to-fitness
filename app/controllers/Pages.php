@@ -13,7 +13,7 @@ class Pages extends Controller
       'Description' => 'This is a fitness webapp'
     ];
 
-    $this->view('Landing/Homepage', $data);
+    $this->view('Landing/homepage', $data);
   }
 
   public function about()
