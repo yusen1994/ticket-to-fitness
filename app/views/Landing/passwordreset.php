@@ -16,7 +16,7 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                          <input id="email" name="email" placeholder="Email address" class="form-gitcontrol"  type="email">
+                          <input id="email" name="email" placeholder="Email address" class="form-control"  type="email">
                         </div>
                       </div>
                       <div class="form-group">
