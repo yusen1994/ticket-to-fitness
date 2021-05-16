@@ -1,5 +1,5 @@
-body { 
-  padding-top: 65px; 
+body {
+    padding-top: 65px;
 }
 
 .container {
@@ -8,114 +8,153 @@ body {
     padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
-  }
-  .navbar-brand {
-    padding-left: 15px;
-  }
-  .navbar-toggler {
-  padding-right: 15px;
-  border-color: #ef8830;
-  border-width: 0px;
 }
 
-.carousel-fade .carousel-item {
-    opacity: 0;
-    transition-property: opacity;
-    transform: none;
+.navbar-brand {
+    padding-left: 15px;
+}
 
-  }
+.navbar-toggler {
+    padding-right: 15px;
+    border-color: #ef8830;
+    border-width: 0px;
+}
 
-  .carousel-item {
-    height: 250px;
+
+/* Landing Page */
+
+.landing-text-one {
+    font-weight: bold;
+}
+
+.landing-text-two {
+    color: #EF8830;
+    font-weight: bold;
+}
+
+.landing-text-three {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.landing-button {
+    border-radius: 24px;
+    background-color: #EF8830;
+    border-color: #001E4E;
+    font-weight: bold;
+}
+
+.landing-button:hover {
+    color: #f2f2f2;
+}
+
+.content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.landing-col-item {
+    text-align: center;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.img-responsive {
     width: 100%;
-    object-fit: contain;
-  }
+    height: auto;
+}
 
-  
+.img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 45%;
+}
+
+
 /*navbar background*/
 
-#navbar_background{
-
+#navbar_background {
     background-color: #ef8830;
-   /* background-color:#343A40;*/
+    /* background-color:#343A40;*/
 }
+
 
 /*New Nav Bar*/
 
 .dropdown-toggle::after {
     display: none;
-  }
-.text-decoration-none{
-  text-decoration: none!important;
 }
+
+.text-decoration-none {
+    text-decoration: none!important;
+}
+
+
 /* Font Awesome Icons have variable width. Added fixed width to fix that.*/
-.icon-width { width: 2rem;}
+
+.icon-width {
+    width: 2rem;
+}
+
 
 /*Password Reset form Container*/
 
-  #container-passwordreset{
-
+#container-passwordreset {
     display: flex;
     justify-content: center;
     min-height: 100vh;
     align-items: center;
-    
-
 }
+
 
 /*Login Page*/
 
 .login-form {
-  width: 340px;
-  margin: 50px auto;
-  font-size: 15px;
+    width: 340px;
+    margin: 50px auto;
+    font-size: 15px;
 }
+
 .login-form form {
-  margin-bottom: 15px;
-  background: #f7f7f7;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  padding: 30px;
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
 }
+
 .login-form h2 {
-  margin: 0 0 15px;
+    margin: 0 0 15px;
 }
-.form-control, .btn {
-  min-height: 38px;
-  border-radius: 2px;
+
+.form-control,
+.btn {
+    min-height: 38px;
+    border-radius: 2px;
 }
-.btn {        
-  font-size: 15px;
-  font-weight: bold;
+
+.btn {
+    font-size: 15px;
+    font-weight: bold;
 }
+
 
 /*Dashboard->Userprofile*/
 
-#container-userprofile{
-
-  display: flex;
-  justify-content: center;
-  min-height: 80vh;
-  align-items: center;
-  
-
+#container-userprofile {
+    display: flex;
+    justify-content: center;
+    min-height: 80vh;
+    align-items: center;
 }
-
-/*Content display mobile and desktop control */
-@media screen and (min-width: 600px) {
-
-#desktopHide {
-  display:none;
-
-}
-
-}
-
-@media screen and (max-width: 600px) {
-#mobileHide {
-  display: none;
-
-
-}
-
-}
-

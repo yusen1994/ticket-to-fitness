@@ -82,7 +82,7 @@
 
 	</form>
 
-	<p class="text-center"><a href="<?php echo URLROOT; ?>">Back</a></p>
+	<p class="text-center"><a href="<?php echo URLROOT; ?>/accounts/login">Back</a></p>
 
 
 

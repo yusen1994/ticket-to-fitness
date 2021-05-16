@@ -16,13 +16,15 @@
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                          <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
+                          <input id="email" name="email" placeholder="Email address" class="form-gitcontrol"  type="email">
                         </div>
                       </div>
                       <div class="form-group">
                         <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
                       </div>
                       
+                      <p class="text-center"><a href="<?php echo URLROOT; ?>/accounts/login">Cancel</a></p>
+
                       <input type="hidden" class="hide" name="token" id="token" value=""> 
                     </form>
 
