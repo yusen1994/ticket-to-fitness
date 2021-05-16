@@ -1,51 +1,108 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <!--HTML for homepage goes here, for CSS visit public folder-->
-<!--The html below this line is for display purpose only-->
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
-<div class="py-5 text-center text-white" id="navbar_background" >
-<div class="container py-5">
-<div class="row py-5">
-<div class="mx-auto col-lg-10">
-  <h1 class="display-4 mb-4 ">Welcome To Ticket To Fitness </h1>
-  <p class="lead mb-5">We will be back soon! </p> <a href="<?php echo URLROOT; ?>/accounts/login" class="btn btn-lg btn-outline-light mx-1">Login/Register</a> 
-</div>
-</div>
-</div>
-</div>
 
+<head>
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
+</head>
 
+<body>
+  <div class="container-fluid py-2 px-0" style="background-color:#F2F2F2;">
 
-<div class = "container-fluid">
-<div class="carousel slide carousel-fade" data-ride="carousel">
-
-  <div id="carousel-gym-pics" class="carousel-slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="<?php echo URLROOT;?>/images/gym1.jpg" alt="First slide">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-6 px-0">
+        <img class="img-responsive" src="<?php echo URLROOT; ?>/images/gym1.jpg" alt="">
+        <div class="img-overlay">
+          <a href="<?php echo URLROOT; ?>/accounts/login" class="landing-button btn btn-lg mx-1">Register/Login</a> 
+        </div>
       </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="<?php echo URLROOT;?>/images/gym2.jpg" height="250" alt="Second slide">
+    </div>
+
+
+    <div class="container px-0">
+      <div class="content py-5">
+        <div class="row mx-auto">
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/cycle.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/swim.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/meditate.svg">
+          </div>
+        </div>
+        <div class="row justify-content-center py-5">
+          <h3 class="landing-text-one">One Membership</h3>
+          <a href="#">
+            <h3 class="landing-text-two">Multiple Gyms</h3>
+          </a>
+        </div>
+        <div class="row mx-auto">
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/weightlift.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/fight.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/treadmill.svg">
+          </div>
+        </div>
       </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="<?php echo URLROOT;?>/images/gym3.jpg" alt="Third slide">
+    </div>
+
+    <div class="container px-0">
+      <div class="content py-5" style="background-color:#0B518D">
+        <div class="row mx-auto">
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/gymlogo-placeholder.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/gymlogo-placeholder.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/gymlogo-placeholder.svg">
+          </div>
+        </div>
+        <div class="row justify-content-center py-5">
+          <h3 class="landing-text-three">Access to Your</h3>
+          <a href="#">
+            <h3 class="landing-text-two">Favourite Gyms</h3>
+          </a>
+        </div>
+        <div class="row mx-auto">
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/gymlogo-placeholder.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/gymlogo-placeholder.svg">
+          </div>
+          <div class="col landing-col-item">
+            <img src="<?php echo URLROOT; ?>/images/gymlogo-placeholder.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-0">
+      <div class="content py-5">
+        <div class="row justify-content-center">
+          <div class="col">
+            <h3 style="text-align:center;">Testimonials</h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card-one">
-  <div class="card-hearder-signup">
-    <h4>Sign Up Today!</h4>
-  </div>
-  <div class="card-body-signup">
-    <p>Sign up today and get so many gyms blah blah blah more text to come</p>
-  </div>
-</div>
-
-</div>
+</body>
 
 
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 
+<style>
+
+</style>

@@ -23,11 +23,63 @@ body {
 
 /* Landing Page */
 
-.landing-image {
-    height: 100%;
+.landing-text-one {
+    font-weight: bold;
+}
+
+.landing-text-two {
+    color: #EF8830;
+    font-weight: bold;
+}
+
+.landing-text-three {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.landing-button {
+    border-radius: 24px;
+    background-color: #EF8830;
+    border-color: #001E4E;
+    font-weight: bold;
+}
+
+.landing-button:hover {
+    color: #f2f2f2;
+}
+
+.content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.landing-col-item {
+    text-align: center;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.img-responsive {
     width: 100%;
-    padding: 0;
-    object-fit: contain;
+    height: auto;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 45%;
 }
 
 
@@ -100,33 +152,9 @@ body {
 
 /*Dashboard->Userprofile*/
 
-<<<<<<< Updated upstream
-}
-
-/*Content display mobile and desktop control */
-@media screen and (min-width: 600px) {
-
-#desktopHide {
-  display:none;
-
-}
-
-}
-
-@media screen and (max-width: 600px) {
-#mobileHide {
-  display: none;
-
-
-}
-
-}
-
-=======
 #container-userprofile {
     display: flex;
     justify-content: center;
     min-height: 80vh;
     align-items: center;
 }
->>>>>>> Stashed changes
