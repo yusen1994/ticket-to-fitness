@@ -158,3 +158,24 @@ body {
     min-height: 80vh;
     align-items: center;
 }
+
+
+
+/*Content display mobile and desktop control */
+@media screen and (min-width: 600px) {
+
+#desktopHide {
+  display:none;
+
+}
+
+}
+
+@media screen and (max-width: 600px) {
+#mobileHide {
+  display: none;
+
+
+}
+
+}
