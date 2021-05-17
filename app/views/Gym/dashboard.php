@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/Gym/dashboardmenu.php'; ?>
 
-<nav class="nav nav-pills nav-justified mt-4" id="mobileHide"  id="content-desktop">
+<nav class="nav nav-pills nav-justified mt-4" id="mobileHide" id="content-desktop">
     <a class="nav-item nav-link active" href="<?php echo URLROOT; ?>/gym">Dashboard</a>
     <a class="nav-item nav-link " href="<?php echo URLROOT; ?>/Gym/gymprofile">Profile</a>
     <a class="nav-item nav-link" href="#">Manage Timetable</a>
@@ -18,7 +18,7 @@ if (!empty($data['message'])) {
 ?>
 
 <div class="container mt-2">
-    <h2><?php echo $data['gym_name']; ?>
+    <h2><?php echo $_SESSION['gym_name']; ?>
         <hr>
     </h2>
     <p> <b>Your <span style="color:orange;">monthly</span> stats are in! <b></p>
@@ -54,8 +54,7 @@ if (!empty($data['message'])) {
             </div>
 
             <div class="col">
-                <button type="button" class="btn btn-block rounded-pill " style="background-color:orange;"><i class="fas fa-plus"></i> Add activity</button>
-
+                <button type="submit" class="btn btn-block rounded-pill" data-toggle="modal" data-target="#addActivityModal" style="background-color:orange;"><i class="fas fa-plus"></i> Add activity</button>
             </div>
 
 
@@ -64,40 +63,134 @@ if (!empty($data['message'])) {
 
     </div>
 
+    <?php foreach ($data['gym_activity'] as $activity) {
+        echo '<div class="card mt-4 " style="width: auto;">';
+        echo '<img class="rounded mx-auto d-block" style="width:30%;"  src="' . URLROOT . '/images/HIT.jpg" alt="">';
+        echo '<div class="card-body rounded-pill">';
+        echo '<h4 class="card-title">' . $activity->activity_name . '</h4>';
+        echo '<h6 class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</h6>';
+        echo '<p class="card-text">Session Per Week: ' . $activity->sessions_per_week . '</p>';
+        echo '<p class="card-text">' . $activity->description . '</p>';
+        echo '<p class="card-text">Max Capacity: ' . $activity->max_capacity . '</p>';
+        echo '<p class="card-text"><span style="color:red";>Calendar Coming Soon</span></p>';
 
-    <div class="card mt-4 " style="width: auto;">
-        <div class="card-body rounded-pill">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+        echo '<hr>';
+        echo '<h4><b>$' . $activity->price_per_week . '</b></h4>';
+        echo '<a href="#" class="card-link">More Details</a>';
+
+        echo '</div>';
+        echo '</div>';
+    }
+    ?>
+
+
+
+</div>
+
+
+
+<!-- Modal Add Activity -->
+<div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:orange;">
+                <h5 class="modal-title" id="addActivityModalLabel">Add Activity</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form method="POST" action="<?php echo URLROOT; ?>/Gym/addActivity">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="activityName" name="activity_name" placeholder="Name of activity" required>
+
+                        <?php
+
+
+                        if (!empty($data['activity_name_err'])) {
+                            echo '<div class="alert alert-danger" role="alert">';
+                            echo $data['activity_name_err'];
+                            echo '</div>';
+                        }
+
+                      
+                        ?>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <select id="category" class="form-control" name="category" required>
+                            <option value="N/A">Category</option>
+                            <option value="Normal">Normal</option>
+                            <option value="High Intensity">High Intensity</option>
+                            <option value="Yoga">Yoga</option>
+                            <option value="Pilates">Pilates</option>
+                        </select>
+
+                        <?php
+                        if (!empty($data['category_err'])) {
+                            echo '<div class="alert alert-danger" role="alert">';
+                            echo $data['category_err'];
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="sessionsPerWeek" name="sessions_per_week" placeholder="Sessions per week" required>
+                        <?php
+                        if (!empty($data['sessions_per_week_err'])) {
+                            echo '<div class="alert alert-danger" role="alert">';
+                            echo $data['sessions_per_week_err'];
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="maxCapacity" name="max_capacity" placeholder="Max capacity" required>
+                        <?php
+                        if (!empty($data['max_capacity_err'])) {
+                            echo '<div class="alert alert-danger" role="alert">';
+                            echo $data['max_capacity_err'];
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="pricePerWeek" name="price_per_week" placeholder="Price per week" required>
+                        <?php
+                        if (!empty($data['price_per_week_err'])) {
+                            echo '<div class="alert alert-danger" role="alert">';
+                            echo $data['price_per_week_err'];
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Description" required>
+                        <?php
+                        if (!empty($data['description_err'])) {
+                            echo '<div class="alert alert-danger" role="alert">';
+                            echo $data['description'];
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block" class="btn btn-primary">Done</button>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
         </div>
-
     </div>
-
-    <div class="card mt-4 " style="width: auto;">
-        <div class="card-body rounded-pill">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-
-    </div>
-
-    <div class="card mt-4 " style="width: auto;">
-        <div class="card-body rounded-pill">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-
-    </div>
-
 </div>
 
 <nav class="navbar fixed-bottom navbar-expand-sm visible-xs-block " id="desktopHide" style="background-color:orange;">
@@ -113,7 +206,7 @@ if (!empty($data['message'])) {
             <i class="fas fa-map-marked-alt"></i>
         </span>
     </div>
-    <div class="btn-group" role="group" aria-label="Third group" >
+    <div class="btn-group" role="group" aria-label="Third group">
         <span style="font-size: 2em;">
 
             <i class="fas fa-calendar-alt "></i>
