@@ -88,15 +88,28 @@ if (!empty($data['message'])) {
         echo '</div>';
         echo '</div>';
         echo '<div class="col-4">';
-        echo '<input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> ';
         echo '<form method = "post" action = "' . URLROOT . '/Gym/editActivity/delete">';
         echo '<button type="button" class="btn btn-primary mt-5 mr-1 " data-toggle="modal" data-target="#editActivityModal'.$count.'">Edit</button>';
-        
+        echo '<input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> ';
+
         echo '<button type="submit" class="btn btn-danger mt-5 mr-1">Delete</button>';
         echo '</form>';
         echo '<form method = "post" action = "' . URLROOT . '/Gym/editActivity/activate">';
-        echo '<button type="submit" class="btn btn-primary mt-5 mr-1" >Activate</button>';
+        echo '<input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> ';
+        
+        if($activity->status == 0){
+            echo '<input type = "hidden" id = "status" value = "true" name = "status"> ';
+
+            echo '<button type="submit" id = "activateBtn" class="btn btn-primary mt-5 mr-1" >Activate</button>';
+
+        }else{
+            echo '<input type = "hidden" id = "status" value = "false" name = "status"> ';
+
+        echo '<button type="submit" id = "activateBtn" class="btn btn-danger mt-5 mr-1" >Deactivate</button>';
+        }
+        
         echo '</form>';
+
         echo '</div>';
         echo '</div>';
         echo '</div>';

@@ -185,7 +185,32 @@ class Gym extends Controller
                     redirect('Gym/dashboard');
                 }
             }
+
+            if ($param == 'activate') {
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                    if ($_POST['status'] == 'true') {
+                        $_POST['status'] = 1;
+                    } else {
+                        $_POST['status'] = 0;
+                    }
+                    $data = [
+
+                        'activity_id' => $_POST['activity_id'],
+                        'status' => $_POST['status'],
+
+                    ];
+
+                    if ($this->gymModel->updateStatus($data)) {
+                        redirect('Gym/dashboard');
+                    } else {
+                        echo "<script>alert('Something is wrong')</script>";
+                    }
+                }
+            }
         }
+        
+        
     }
 
 
