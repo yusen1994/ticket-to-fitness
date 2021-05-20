@@ -63,8 +63,15 @@ if (!empty($data['message'])) {
 
     </div>
 
-    <?php foreach ($data['gym_activity'] as $activity) {
+    <?php 
+    $count = 1;
+    foreach ($data['gym_activity'] as $activity) {
+        
         echo '<div class="card mt-4 " style="width: auto;">';
+        echo '<div class = "container">';
+        echo '<div class="row">';
+        echo '<div class="col-8">';
+
         echo '<img class="rounded mx-auto d-block" style="width:30%;"  src="' . URLROOT . '/images/HIT.jpg" alt="">';
         echo '<div class="card-body rounded-pill">';
         echo '<h4 class="card-title">' . $activity->activity_name . '</h4>';
@@ -72,22 +79,110 @@ if (!empty($data['message'])) {
         echo '<p class="card-text">Session Per Week: ' . $activity->sessions_per_week . '</p>';
         echo '<p class="card-text">' . $activity->description . '</p>';
         echo '<p class="card-text">Max Capacity: ' . $activity->max_capacity . '</p>';
-        echo '<p class="card-text"><span style="color:red";>Calendar Coming Soon</span></p>';
 
+
+        echo '<p class="card-text"><span style="color:red";>Calendar Coming Soon</span></p>';
         echo '<hr>';
         echo '<h4><b>$' . $activity->price_per_week . '</b></h4>';
         echo '<a href="#" class="card-link">More Details</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="col-4">';
+        echo '<form method = "post" action = "' . URLROOT . '/Gym/editActivity/delete">';
+        echo '<button type="button" class="btn btn-primary mt-5 mr-1 " data-toggle="modal" data-target="#editActivityModal'.$count.'">Edit</button>';
+        echo '<input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> ';
+
+        echo '<button type="submit" class="btn btn-danger mt-5 mr-1">Delete</button>';
+        echo '</form>';
+        echo '<form method = "post" action = "' . URLROOT . '/Gym/editActivity/activate">';
+        echo '<input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> ';
+        
+        if($activity->status == 0){
+            echo '<input type = "hidden" id = "status" value = "true" name = "status"> ';
+
+            echo '<button type="submit" id = "activateBtn" class="btn btn-primary mt-5 mr-1" >Activate</button>';
+
+        }else{
+            echo '<input type = "hidden" id = "status" value = "false" name = "status"> ';
+
+        echo '<button type="submit" id = "activateBtn" class="btn btn-danger mt-5 mr-1" >Deactivate</button>';
+        }
+        
+        echo '</form>';
 
         echo '</div>';
         echo '</div>';
+        echo '</div>';
+        echo '</div>';
+
+       
+        echo '<!--Modal Edit Activity -->
+
+        <div class="modal fade" id="editActivityModal'.$count.'" tabindex="-1" role="dialog" aria-labelledby="editActivityModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:orange;">
+                        <h5 class="modal-title" id="editActivityModalLabel">Add Activity</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <form method="POST" action="'.URLROOT.'/Gym/editActivity/edit">
+                        <input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> 
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="activityName" name="activity_name" value = "' . $activity->activity_name . '" placeholder="Name of activity" required>
+                             
+                            </div>
+        
+                            <div class="form-group">
+        
+                                <select id="category" class="form-control" name="category" required>
+                                    <option value=" ' . $activity->category . '></option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="High Intensity">High Intensity</option>
+                                    <option value="Yoga">Yoga</option>
+                                    <option value="Pilates">Pilates</option>
+                                </select>
+        
+                            </div>
+        
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="sessionsPerWeek" value = "' . $activity->sessions_per_week . '" name="sessions_per_week" placeholder="Sessions per week" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" value = "' . $activity->max_capacity . '" id="maxCapacity" name="max_capacity" placeholder="Max capacity" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="pricePerWeek" value = "' . $activity->price_per_week . '" name="price_per_week" placeholder="Price per week" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <input type="text" class="form-control" value = "' . $activity->description . '" id="description" name="description" placeholder="Description" required>
+                            </div>
+        
+                            <button type="submit" class="btn btn-success btn-block" class="btn btn-primary">Update</button>
+                        </form>
+        
+        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        ';
+        $count++;
+
     }
     ?>
 
 
 
 </div>
-
-
 
 <!-- Modal Add Activity -->
 <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel" aria-hidden="true">
@@ -114,7 +209,7 @@ if (!empty($data['message'])) {
                             echo '</div>';
                         }
 
-                      
+
                         ?>
 
                     </div>
@@ -192,6 +287,7 @@ if (!empty($data['message'])) {
         </div>
     </div>
 </div>
+
 
 <nav class="navbar fixed-bottom navbar-expand-sm visible-xs-block " id="desktopHide" style="background-color:orange;">
     <div class="btn-group" role="group" aria-label="Third group">

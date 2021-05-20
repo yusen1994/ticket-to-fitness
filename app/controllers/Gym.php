@@ -74,6 +74,7 @@ class Gym extends Controller
                     'max_capacity' => trim($_POST['max_capacity']),
                     'price_per_week' => trim($_POST['price_per_week']),
                     'description' => trim($_POST['description']),
+                    'status' => '',
                     'activity_name_err' => '',
                     'category_err' => '',
                     'sessions_per_week_err' => '',
@@ -107,6 +108,7 @@ class Gym extends Controller
                     $gym_add_activity =  $this->gymModel->addActivity($data);
                     if ($gym_add_activity) {
                         echo "<script>alert('SuccessFully Added'); </script>";
+                        $data['status'] = 0;
                         $data['message'] = 'Successfully added';
                         redirect('Gym/dashboard');
                     } else {
@@ -127,6 +129,7 @@ class Gym extends Controller
                     'max_capacity' => '',
                     'price_per_week' => '',
                     'description' => '',
+                    'status' => '',
                     'activity_name_err' => '',
                     'category_err' => '',
                     'sessions_per_week_err' => '',
@@ -142,27 +145,95 @@ class Gym extends Controller
         }
     }
 
+    public function editActivity($param)
+    {
+        if ($this->isGymLoggedIn()) {
+
+            if ($param == 'delete') {
+
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                    $data = [
+
+                        'activity_id' => $_POST['activity_id'],
+
+                    ];
+
+                    $this->gymModel->deleteActivity($data);
+                    redirect('Gym/dashboard');
+                }
+            }
+
+            if ($param == 'edit') {
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                    $data = [
+
+                        'activity_id' => $_POST['activity_id'],
+                        'activity_name' => trim($_POST['activity_name']),
+                        'category' => trim($_POST['category']),
+                        'sessions_per_week' => trim($_POST['sessions_per_week']),
+                        'max_capacity' => trim($_POST['max_capacity']),
+                        'price_per_week' => trim($_POST['price_per_week']),
+                        'description' => trim($_POST['description']),
+
+                    ];
+
+                    $this->gymModel->editActivity($data);
+                    redirect('Gym/dashboard');
+                }
+            }
+
+            if ($param == 'activate') {
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                    if ($_POST['status'] == 'true') {
+                        $_POST['status'] = 1;
+                    } else {
+                        $_POST['status'] = 0;
+                    }
+                    $data = [
+
+                        'activity_id' => $_POST['activity_id'],
+                        'status' => $_POST['status'],
+
+                    ];
+
+                    if ($this->gymModel->updateStatus($data)) {
+                        redirect('Gym/dashboard');
+                    } else {
+                        echo "<script>alert('Something is wrong')</script>";
+                    }
+                }
+            }
+        }
+        
+        
+    }
+
+
+
     public function dashboard()
     {
         if ($this->isGymLoggedIn()) {
             $data = [
 
                 'gym_id' => $_SESSION['user_id'],
-                'gym_activity'=>'',
+                'gym_activity' => '',
             ];
             $gymactivity = $this->gymModel->viewActivity($data);
-            if(!empty($gymactivity)){
+            if (!empty($gymactivity)) {
                 $data['gym_activity'] = $gymactivity;
                 $this->view('Gym/dashboard', $data);
-
             }
 
 
 
             $this->view('Gym/dashboard', $data);
-        }else{
+        } else {
             redirect('Accounts/login');
-
         }
     }
 }
