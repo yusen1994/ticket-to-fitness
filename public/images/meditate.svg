@@ -1,35 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
-  <g id="Group_90" data-name="Group 90" transform="translate(-275 -511)">
-    <g id="Group_21" data-name="Group 21">
-      <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(275 511)" fill="#ef8830" stroke="#707070" stroke-width="1">
-        <circle cx="36" cy="36" r="36" stroke="none"/>
-        <circle cx="36" cy="36" r="35.5" fill="none"/>
+  <g id="Group_21" data-name="Group 21" transform="translate(-275 -510)">
+    <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(275 510)" fill="#ef8830" stroke="#3f3f3f" stroke-width="2">
+      <circle cx="36" cy="36" r="36" stroke="none"/>
+      <circle cx="36" cy="36" r="35" fill="none"/>
+    </g>
+    <g id="meditation" transform="translate(285.858 520.71)">
+      <g id="Group_4" data-name="Group 4" transform="translate(20.073 0.239)">
+        <g id="Group_3" data-name="Group 3" transform="translate(0 0)">
+          <ellipse id="Ellipse_9" data-name="Ellipse 9" cx="6.264" cy="6.712" rx="6.264" ry="6.712"/>
+        </g>
       </g>
-      <g id="meditation" transform="translate(285.858 520.71)">
-        <g id="Group_4" data-name="Group 4" transform="translate(20.073 0.239)">
-          <g id="Group_3" data-name="Group 3" transform="translate(0 0)">
-            <ellipse id="Ellipse_9" data-name="Ellipse 9" cx="6.264" cy="6.712" rx="6.264" ry="6.712"/>
-          </g>
+      <g id="Group_6" data-name="Group 6" transform="translate(30.795 47.613)">
+        <g id="Group_5" data-name="Group 5">
+          <path id="Path_9" data-name="Path 9" d="M309.617,465.7l-8.047,3.018,4,1.5a3.267,3.267,0,0,0,4.207-1.913A3.231,3.231,0,0,0,309.617,465.7Z" transform="translate(-301.57 -465.702)"/>
         </g>
-        <g id="Group_6" data-name="Group 6" transform="translate(30.795 47.613)">
-          <g id="Group_5" data-name="Group 5">
-            <path id="Path_9" data-name="Path 9" d="M309.617,465.7l-8.047,3.018,4,1.5a3.267,3.267,0,0,0,4.207-1.913A3.231,3.231,0,0,0,309.617,465.7Z" transform="translate(-301.57 -465.702)"/>
-          </g>
+      </g>
+      <g id="Group_8" data-name="Group 8" transform="translate(6.539 36.006)">
+        <g id="Group_7" data-name="Group 7">
+          <path id="Path_10" data-name="Path 10" d="M68.407,352.217a3.268,3.268,0,1,0-2.294,6.119l3.525,1.322,9.306-3.49Z" transform="translate(-63.992 -352.012)"/>
         </g>
-        <g id="Group_8" data-name="Group 8" transform="translate(6.539 36.006)">
-          <g id="Group_7" data-name="Group 7">
-            <path id="Path_10" data-name="Path 10" d="M68.407,352.217a3.268,3.268,0,1,0-2.294,6.119l3.525,1.322,9.306-3.49Z" transform="translate(-63.992 -352.012)"/>
-          </g>
+      </g>
+      <g id="Group_10" data-name="Group 10" transform="translate(13.073 36.006)">
+        <g id="Group_9" data-name="Group 9">
+          <path id="Path_11" data-name="Path 11" d="M160.454,354.13a3.276,3.276,0,0,0-4.207-1.913l-26.137,9.8a3.268,3.268,0,1,0,2.294,6.119l26.137-9.8A3.269,3.269,0,0,0,160.454,354.13Z" transform="translate(-127.989 -352.012)"/>
         </g>
-        <g id="Group_10" data-name="Group 10" transform="translate(13.073 36.006)">
-          <g id="Group_9" data-name="Group 9">
-            <path id="Path_11" data-name="Path 11" d="M160.454,354.13a3.276,3.276,0,0,0-4.207-1.913l-26.137,9.8a3.268,3.268,0,1,0,2.294,6.119l26.137-9.8A3.269,3.269,0,0,0,160.454,354.13Z" transform="translate(-127.989 -352.012)"/>
-          </g>
-        </g>
-        <g id="Group_12" data-name="Group 12" transform="translate(0.006 13.134)">
-          <g id="Group_11" data-name="Group 11" transform="translate(0)">
-            <path id="Path_12" data-name="Path 12" d="M49.012,141.058H41.23L35.6,129.8a3.267,3.267,0,0,0-3-1.806H19.688a3.268,3.268,0,0,0-3,1.806l-5.631,11.262H3.273a3.267,3.267,0,0,0,0,6.534h9.8A3.266,3.266,0,0,0,16,145.786l3.612-7.223v12.26l6.534,2.45,6.534-2.451V138.563l3.612,7.223a3.267,3.267,0,0,0,2.922,1.806h9.8a3.267,3.267,0,0,0,0-6.534Z" transform="translate(-0.006 -127.989)"/>
-          </g>
+      </g>
+      <g id="Group_12" data-name="Group 12" transform="translate(0.006 13.134)">
+        <g id="Group_11" data-name="Group 11" transform="translate(0)">
+          <path id="Path_12" data-name="Path 12" d="M49.012,141.058H41.23L35.6,129.8a3.267,3.267,0,0,0-3-1.806H19.688a3.268,3.268,0,0,0-3,1.806l-5.631,11.262H3.273a3.267,3.267,0,0,0,0,6.534h9.8A3.266,3.266,0,0,0,16,145.786l3.612-7.223v12.26l6.534,2.45,6.534-2.451V138.563l3.612,7.223a3.267,3.267,0,0,0,2.922,1.806h9.8a3.267,3.267,0,0,0,0-6.534Z" transform="translate(-0.006 -127.989)"/>
         </g>
       </g>
     </g>
