@@ -10,96 +10,11 @@ body {
     margin-left: auto;
 }
 
-.navbar-brand {
-    padding-left: 15px;
-}
-
-.navbar-toggler {
-    padding-right: 15px;
-    border-color: #ef8830;
-    border-width: 0px;
-}
-
 
 /* Landing Page */
 
-.landing-text-one {
-    font-weight: bold;
-}
-
-.landing-text-two {
-    color: #EF8830;
-    font-weight: bold;
-}
-
-.landing-text-three {
-    color: #FFFFFF;
-    font-weight: bold;
-}
-
-.landing-button {
-    border-radius: 24px;
-    background-color: #EF8830;
-    border-color: #001E4E;
-    font-weight: bold;
-}
-
-.landing-button:hover {
-    color: #f2f2f2;
-}
-
-.content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.landing-col-item {
-    text-align: center;
-}
-
-.img-wrapper {
-    position: relative;
-}
-
-.img-responsive {
-    width: 100%;
-    height: auto;
-}
-
-.img-overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-}
-
-.img-overlay:before {
-    content: ' ';
-    display: block;
-    /* adjust 'height' to position overlay content vertically */
-    height: 45%;
-}
-
-
-/*navbar background*/
-
-#navbar_background {
-    background-color: #ef8830;
-    /* background-color:#343A40;*/
-}
-
 
 /*New Nav Bar*/
-
-.dropdown-toggle::after {
-    display: none;
-}
-
-.text-decoration-none {
-    text-decoration: none!important;
-}
 
 
 /* Font Awesome Icons have variable width. Added fixed width to fix that.*/
@@ -160,42 +75,35 @@ body {
 }
 
 
-
 /*Content display mobile and desktop control */
+
 @media screen and (min-width: 600px) {
-
-#desktopHide {
-  display:none;
-
-}
-
+    #desktopHide {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 600px) {
-#mobileHide {
-  display: none;
-
-
+    #mobileHide {
+        display: none;
+    }
 }
 
-}
 
 /*H1, H2, H3 -> Font family */
 
-h2{
+h2 {
     font-family: 'Poppins', sans-serif;
 }
 
-h1{
+h1 {
     font-family: 'Poppins', sans-serif;
 }
 
-h3{
+h3 {
     font-family: 'Poppins', sans-serif;
 }
 
-p{
-
+p {
     font-family: 'Poppins', sans-serif;
-
 }

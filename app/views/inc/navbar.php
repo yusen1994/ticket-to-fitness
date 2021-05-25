@@ -1,10 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
-  <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
 
-      <span class="ml-2 font-weight-bold"><img src="<?php echo URLROOT; ?>/images/t2f-logo.png" alt="logo" width="50" height="50" class="navbar-image"><a class="font-weight-bold">
-          <h4>Fitch</h4>
-        </a></apan>
-    </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+    <a class="navbar-brand d-flex px-0" href="#">
+      <img src="<?php echo URLROOT; ?>/images/t2f-logo.png" alt="logo" width="50" height="50" class="navbar-image">
+      <h4 class="fitch-title">Fitch</h4>
+    </a>
+
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -20,6 +22,7 @@
             <svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
+
           </a>
           <div class="dropdown-menu shadow-sm sm-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="#">Action</a>
@@ -30,20 +33,36 @@
 
         <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-envelope"></i></span>Contact</a> </li>
       </ul>
-      <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
-        <li class="nav-item"> <a class="nav-link" href="#">
-            <i class="fab fa-twitter"></i><span class="d-lg-none ml-3">Twitter</span>
-          </a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">
-            <i class="fab fa-facebook"></i><span class="d-lg-none ml-3">Facebook</span>
-          </a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">
-            <i class="fab fa-instagram"></i><span class="d-lg-none ml-3">Instagram</span>
-          </a> </li>
-        <li class="nav-item"> <a class="nav-link" href="#">
-            <i class="fab fa-linkedin"></i><span class="d-lg-none ml-3">Linkedin</span>
-          </a> </li>
-      </ul>
+
     </div>
   </div>
 </nav>
+
+<style>
+  .navbar {
+    background-color: #3F3F3F;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.fitch-title {
+    font-weight: bolder;
+    color: #F2F2F2;
+    margin: auto;
+    letter-spacing: 3px;
+    padding-left: 20px;
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+.navbar-toggler {
+    padding-right: 15px;
+    border-color: #3F3F3F;
+    border-width: 0px;
+}
+
+</style>
