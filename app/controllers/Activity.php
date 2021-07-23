@@ -24,84 +24,79 @@ class Activity extends Controller{
     //Param will be type which can be category, credit or frequency
     //Return data, array of rows from database
     //All the database query should be done in ActivityModel.php model
-    public function filterby($type=[], $param="",$asc=true){
+    public function filterby($type, $param){
         //Check if the type is category or credit or frequency
         //if it is category then check what parameter it has like cycling, swimming etc based on that call ActivityModel function to get
-        //filtered result
+     
 
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        //Store category as number so, query becomes easy
+        if($type == 'category'){
+           
+            if($param == 'cycling'){             
+                $data = $this->activityModel->filterByCategory('cycling');
+            }
+            if($param == 'Pilates'){             
+                $data = $this->activityModel->filterByCategory('Pilates');
+                var_dump($data); exit;
+            }
+            if($param == 'weights'){             
+                $data = $this->activityModel->filterByCategory('weights');
+            }
+            if($param == 'swimming'){             
+                $data = $this->activityModel->filterByCategory('swimming');
+            }
+            if($param == 'yoga'){             
+                $data = $this->activityModel->filterByCategory('yoga');
+            }
+            if($param == 'cardio'){             
+                $data = $this->activityModel->filterByCategory('cardio');
+            }
+            if($param == 'HighIntensity'){             
+                $data = $this->activityModel->filterByCategory('HighIntensity');
 
-            $GET = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            }
+        }
 
-            $data = [
+        if($type == 'credits'){
+            if($param == 'high'){
+                $data = $this->activityModel->filterByCredit('high');
+                echo '<pre>';
+                var_dump($data);
+                echo '</pre>';
 
-                'gym_id' => $_SESSION['user_id'],
-                'activity_name' => trim($_GET['activity_name']),
-                'category' => trim($_GET['category']),
-                'sessions_per_week' => trim($_GET['sessions_per_week']),
-                'max_capacity' => trim($_GET['max_capacity']),
-                'price_per_week' => trim($_GET['price_per_week']),
-                'description' => trim($_GET['description']),
-                'status' => '',
-                'activity_name_err' => '',
-                'category_err' => '',
-                'sessions_per_week_err' => '',
-                'max_capacity_err' => '',
-                'price_per_week_err' => '',
-                'message' => '',
-                'description_err' => '',
-            ];
-            $result= []; 
-            if($data['category']) {
-                foreach ($array as $k => $v){
-                    $values[$k] = $v[$key] ?? "";
-                }
-        // Sort the key values in ascending or descending order
-                $asc ? asort($values) : arsort($values);
-        //Destroy variable
-                unset($k,$v);
-        //Rearrange the original array
-                foreach ($values as $k => $v){
-                    $result[$k] = $array[$k];
-                }
-        //Returns the newly sorted array
-                return $result;
+                exit;
             }
 
-            if ($data['sessions_per_week']){
-                foreach ($array as $k => $v){
-                    $values[$k] = $v[$key] ?? "";
-                }
-        // Sort the key values in ascending or descending order
-                $asc ? asort($values) : arsort($values);
-        //Destroy variable
-                unset($k,$v);
-        //Rearrange the original array
-                foreach ($values as $k => $v){
-                    $result[$k] = $array[$k];
-                }
-        //Returns the newly sorted array
-                return $result;
+            if($param == 'low'){
+                $data = $this->activityModel->filterByCredit('low');
+                var_dump($data); exit;
+            }
+        }
+
+        if($type == 'frequency'){
+            if($param == 'high'){
+                $data = $this->activityModel->filterByFrequency('high');
+                echo '<pre>';
+                var_dump($data);
+                echo '</pre>';
+
+                exit;
             }
 
-            if ($data['price_per_week']){
-                foreach ($array as $k => $v){
-                    $values[$k] = $v[$key] ?? "";
-                }
-        // Sort the key values in ascending or descending order
-                $asc ? asort($values) : arsort($values);
-        //Destroy variable
-                unset($k,$v);
-        //Rearrange the original array
-                foreach ($values as $k => $v){
-                    $result[$k] = $array[$k];
-                }
-        //Returns the newly sorted array
-                return $result;
+            if($param == 'low'){
+                $data = $this->activityModel->filterByFrequency('low');
+                echo '<pre>';
+                var_dump($data);
+                echo '</pre>';
+
+                exit;
             }
 
+        }
+       
 
     }
+
 }
-}
+
 ?>
