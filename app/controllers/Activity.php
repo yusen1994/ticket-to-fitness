@@ -102,9 +102,6 @@ class Activity extends Controller{
 
 
     }
-
-   
-
 }
-
+}
 ?>
