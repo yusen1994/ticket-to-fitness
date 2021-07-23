@@ -37,8 +37,10 @@
             </button>
         </div>
     </div>
-    <div class="container" style="padding-top: 20px; height: 500px; background-color: #f3f3f3">
-        <!-- Cards here -->
+</div>
+<!--<div class="container" style="padding-top: 20px; height: 500px; background-color: #f3f3f3">-->
+<!-- Cards here -->
+<!--
         <a href="#" class="card-container">
             <div class="gym-image-container">
                 <img class="gym-image" src="<?php echo URLROOT; ?>/images/golds gym.png">
@@ -77,8 +79,35 @@
             </div>
         </a>
 
+-->
+<div class="container">
+    <div class="row">
+        <?php
+        if ($data['gym_activity'] != NULL) {
+            foreach ($data['gym_activity'] as $activity) {
+                echo '<div class = "col-6">';
+                echo '<div class="card mt-4 " style="width: auto;">';
+                echo '<img class="card-img-top" src="' . URLROOT . '/images/gym1.jpg" alt="Card image cap">';
+                echo '<div class="card-body rounded-pill">';
+                echo '<h6 class="card-title">' . $activity->activity_name . '</h6>';
+                echo '<p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>';
+                echo '<img src';
+                echo '<hr>';
+                echo '<p><b>Credit: ' . $activity->price_per_week . '</b></p>';
+                echo '<a href="#" class="card-link">More Details</a>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+        } else {
+            echo "No Gym activity please check back later!";
+        }
+        ?>
     </div>
 </div>
+
+<br>
+
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

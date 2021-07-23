@@ -53,7 +53,7 @@
               echo '<p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>';
 
               echo '<hr>';
-              echo '<p><b>$' . $activity->price_per_week . '</b></p>';
+              echo '<p><b>Credit: ' . $activity->price_per_week . '</b></p>';
               echo '<a href="#" class="card-link">More Details</a>';
               echo '</div>';
               echo '</div>';

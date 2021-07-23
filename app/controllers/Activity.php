@@ -16,8 +16,12 @@ class Activity extends Controller{
 
 
     public function allactivity(){
+        $activity = $this->activityModel->fetchActiveActivity();
+        if($activity != NULL){
+          $data['gym_activity'] = $activity;
+        }
 
-        $this->view('Landing/activities');
+        $this->view('Landing/activities', $data);
     }
 
     //Param from GET Request
@@ -33,64 +37,61 @@ class Activity extends Controller{
         if($type == 'category'){
            
             if($param == 'cycling'){             
-                $data = $this->activityModel->filterByCategory('cycling');
+                $data['gym_activity'] = $this->activityModel->filterByCategory('cycling');
             }
             if($param == 'Pilates'){             
-                $data = $this->activityModel->filterByCategory('Pilates');
-                var_dump($data); exit;
+                $data['gym_activity']  = $this->activityModel->filterByCategory('Pilates');
+          
             }
             if($param == 'weights'){             
-                $data = $this->activityModel->filterByCategory('weights');
+                $data['gym_activity']  = $this->activityModel->filterByCategory('weights');
             }
             if($param == 'swimming'){             
-                $data = $this->activityModel->filterByCategory('swimming');
+                $data['gym_activity']  = $this->activityModel->filterByCategory('swimming');
             }
             if($param == 'yoga'){             
-                $data = $this->activityModel->filterByCategory('yoga');
+                $data['gym_activity'] = $this->activityModel->filterByCategory('yoga');
             }
             if($param == 'cardio'){             
-                $data = $this->activityModel->filterByCategory('cardio');
+                $data['gym_activity']  = $this->activityModel->filterByCategory('cardio');
             }
             if($param == 'HighIntensity'){             
-                $data = $this->activityModel->filterByCategory('HighIntensity');
+                $data['gym_activity']  = $this->activityModel->filterByCategory('HighIntensity');
 
             }
+
+
+            $this->view('Landing/activities', $data);
         }
 
         if($type == 'credits'){
             if($param == 'high'){
-                $data = $this->activityModel->filterByCredit('high');
-                echo '<pre>';
-                var_dump($data);
-                echo '</pre>';
-
-                exit;
+                $data['gym_activity']  = $this->activityModel->filterByCredit('high');
+               
             }
 
             if($param == 'low'){
-                $data = $this->activityModel->filterByCredit('low');
-                var_dump($data); exit;
+                $data['gym_activity']  = $this->activityModel->filterByCredit('low');
+                
             }
+
+            $this->view('Landing/activities', $data);
+
         }
 
         if($type == 'frequency'){
             if($param == 'high'){
-                $data = $this->activityModel->filterByFrequency('high');
-                echo '<pre>';
-                var_dump($data);
-                echo '</pre>';
-
-                exit;
+                $data['gym_activity']  = $this->activityModel->filterByFrequency('high');
+               
             }
 
             if($param == 'low'){
-                $data = $this->activityModel->filterByFrequency('low');
-                echo '<pre>';
-                var_dump($data);
-                echo '</pre>';
-
-                exit;
+                $data['gym_activity']  = $this->activityModel->filterByFrequency('low');
+                
             }
+
+            $this->view('Landing/activities', $data);
+
 
         }
        
