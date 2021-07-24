@@ -92,17 +92,23 @@
                                     }
                                     ?>
                                 </div>
+                                
+
                                 <div class="form-group">
-                                    <input type="text" id="gymaddress" class="form-control" placeholder="Gym Address" value="<?php if (!empty($data['gym_address'])) {
+                                    <input type="text" id="gymaddress" class="form-control" placeholder="Address" value="<?php if (!empty($data['gym_address'])) {
                                                                                                                                     echo $data['gym_address'];
                                                                                                                                 } ?>" name="gym_address" required title="">
-                                    <?php
-                                    if (!empty($data['gym_address_err'])) {
-                                        echo "<span>";
-                                        echo $data['gym_address_err'];
-                                        echo "</span>";
-                                    }
-                                    ?>
+   
+                                </div>
+
+                                <div class="form-group" id="lat_area">
+                                    <input type="hidden" name = "latitude" id="latitude" class="form-control" placeholder="Latitude">
+   
+                                </div>
+
+                                <div class="form-group" id="long_area">
+                                    <input type="hidden" id="longitude" name = "longitude" class="form-control" placeholder="Longitude">
+   
                                 </div>
                                 <div class="form-group">
                                     <input type="text" id="gymemail" class="form-control" placeholder="Gym Email" value="<?php if (!empty($data['gym_email'])) {
@@ -158,5 +164,7 @@
     </div>
 </div>
 
-
 <?php require APPROOT . '/views/inc/footer.php'; ?>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>
+
+<script src="<?php echo URLROOT; ?>/js/address.js"></script>

@@ -19,12 +19,12 @@
     <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 20px;">
         <div class="col-9">
             <div class="search-input">
-                <span class="search-text-icon"><svg id="loupe" xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.261" viewBox="0 0 19.261 19.261">
+         <span  class="search-text-icon"><svg id="loupe" xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.261" viewBox="0 0 19.261 19.261">
                         <g id="Group_86" data-name="Group 86">
                             <path id="Path_100" data-name="Path 100" d="M19.026,17.894l-5.477-5.477a7.639,7.639,0,1,0-1.135,1.135l5.477,5.477a.8.8,0,1,0,1.135-1.135Zm-11.4-4.248a6.019,6.019,0,1,1,6.019-6.019A6.025,6.025,0,0,1,7.624,13.646Z" transform="translate(0 -0.003)" fill="#001e4e" />
                         </g>
                     </svg></span>
-                <input class="search-input-text" placeholder="Search for something">
+                <input class="search-input-text"  id = "searchField" name = "searchField" placeholder="Search for something"> 
             </div>
         </div>
         <div class="col-3">

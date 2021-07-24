@@ -78,7 +78,8 @@ class ActivityModel
     }
   }
 
-  public function fetchActiveActivity(){
+  public function fetchActiveActivity()
+  {
     $this->db->query('SELECT * FROM gym_activity WHERE status = :status');
     $this->db->bind(':status', 1);
     $row = $this->db->resultSet();
@@ -88,5 +89,16 @@ class ActivityModel
       return $row;
     }
   }
-  
+
+  public function searchByName($param)
+  {
+    $this->db->query('SELECT * FROM gym_activity WHERE activity_name LIKE :query OR category LIKE :query');
+    $this->db->bind(':query', $param."%");
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
 }

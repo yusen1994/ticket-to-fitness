@@ -139,7 +139,7 @@ if (!empty($data['message'])) {
                             <div class="form-group">
         
                                 <select id="category" class="form-control" name="category" required>
-                                    <option value=" ' . $activity->category . '></option>
+                                    <option value=" ' . $activity->category . '"></option>
                                     <option value="Normal">Normal</option>
                                     <option value="High Intensity">High Intensity</option>
                                     <option value="Yoga">Yoga</option>

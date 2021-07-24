@@ -98,6 +98,15 @@ class Activity extends Controller{
 
     }
 
+    public function search(){
+        //Need to filter the param
+
+        //
+        $param = $_POST['data'];
+        $data['gym_activity'] = $this->activityModel->searchByName($param);
+        $this->view('landing/activities', $data);
+    }
+
 }
 
 ?>

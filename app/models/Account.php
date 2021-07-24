@@ -122,10 +122,12 @@
         //Store gym information in the database using id as a primary key
 
         public function registerGym($data){
-            $this->db->query('INSERT INTO `gym_information`(`gym_id`, `gym_name`, `gym_address`, `gym_email`, `phone_number`, `abn`) VALUES (:gym_id, :gym_name, :gym_address,:gym_email,:phone_number,:abn)');
+            $this->db->query('INSERT INTO `gym_information`(`gym_id`, `gym_name`, `gym_address`,`latitude`,`longitude`, `gym_email`, `phone_number`, `abn`) VALUES (:gym_id, :gym_name, :gym_address,:latitude,:longitude,:gym_email,:phone_number,:abn)');
             $this->db->bind(':gym_id', $data['gym_id']);
             $this->db->bind(':gym_name', $data['gym_name']);
             $this->db->bind(':gym_address', $data['gym_address']);
+            $this->db->bind(':latitude', $data['latitude']);
+            $this->db->bind(':longitude', $data['longitude']);
             $this->db->bind(':gym_email', $data['gym_email']);
             $this->db->bind(':phone_number', $data['phone_number']);
             $this->db->bind(':abn', $data['abn']);
