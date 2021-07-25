@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <img src="<?php echo URLROOT; ?>/images/gym1.jpg" class="rounded-circle float-left mw-100" alt="...">
+            <img src="<?php echo URLROOT; ?>/images/gym1.jpg" class="rounded-circle float-left mw-100 pl-2" alt="...">
 
         </div>
 
