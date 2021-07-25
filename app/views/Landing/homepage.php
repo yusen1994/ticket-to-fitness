@@ -43,8 +43,14 @@
       <div class="container">
         <div class="row">
           <?php
+          $count = 1;
+
           if ($data['gym_activity'] != NULL) {
+
             foreach ($data['gym_activity'] as $activity) {
+              if($count >4){
+                break;
+              }
               echo '<div class = "col-6">';
               echo '<div class="card mt-4 " style="width: auto;">';
               echo '<img class="card-img-top" src="' . URLROOT . '/images/gym1.jpg" alt="Card image cap">';
@@ -58,10 +64,14 @@
               echo '</div>';
               echo '</div>';
               echo '</div>';
+
+              $count++;
             }
+           
           } else {
             echo "No Gym activity please check back later!";
           }
+
           ?>
         </div>
       </div>

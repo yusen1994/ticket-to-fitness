@@ -18,14 +18,23 @@
 <div class="container" style="padding-top: 20px;">
     <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 20px;">
         <div class="col-9">
-            <div class="search-input">
-         <span  class="search-text-icon"><svg id="loupe" xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.261" viewBox="0 0 19.261 19.261">
-                        <g id="Group_86" data-name="Group 86">
-                            <path id="Path_100" data-name="Path 100" d="M19.026,17.894l-5.477-5.477a7.639,7.639,0,1,0-1.135,1.135l5.477,5.477a.8.8,0,1,0,1.135-1.135Zm-11.4-4.248a6.019,6.019,0,1,1,6.019-6.019A6.025,6.025,0,0,1,7.624,13.646Z" transform="translate(0 -0.003)" fill="#001e4e" />
-                        </g>
-                    </svg></span>
-                <input class="search-input-text"  id = "searchField" name = "searchField" placeholder="Search for something"> 
-            </div>
+            <form method="POST" action="<?php echo URLROOT; ?>/Activity/search">
+                <div class="search-input p-1">
+                    <button type="submit" style="padding:0; border:none; background:none;"> <span class="search-text-icon"><svg id="loupe" xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.261" viewBox="0 0 19.261 19.261">
+                                <g id="Group_86" data-name="Group 86">
+                                    <path id="Path_100" data-name="Path 100" d="M19.026,17.894l-5.477-5.477a7.639,7.639,0,1,0-1.135,1.135l5.477,5.477a.8.8,0,1,0,1.135-1.135Zm-11.4-4.248a6.019,6.019,0,1,1,6.019-6.019A6.025,6.025,0,0,1,7.624,13.646Z" transform="translate(0 -0.003)" fill="#001e4e" />
+                                </g>
+                            </svg></span></button>
+                    <input class="search-input-text" id="searchField" name="searchField" placeholder="Search for something">
+                </div>
+                <?php if(!empty($data['error'])){ 
+                    
+                echo '<div class="alert alert-primary mt-4" role="alert">';
+                echo $data['error'];
+                echo '</div>';
+            }
+                ?>
+            </form>
         </div>
         <div class="col-3">
             <button type="button" class="filter-btn"><span class="filter-btn-icon">
@@ -83,7 +92,7 @@
 <div class="container">
     <div class="row">
         <?php
-        if ($data['gym_activity'] != NULL) {
+        if (!empty($data['gym_activity'])) {
             foreach ($data['gym_activity'] as $activity) {
                 echo '<div class = "col-6">';
                 echo '<div class="card mt-4 " style="width: auto;">';
