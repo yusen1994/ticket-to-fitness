@@ -15,7 +15,7 @@ class GymModel
 
   public function addActivity($data)
   {
-    $this->db->query('INSERT INTO gym_activity (gym_id,activity_name,category,sessions_per_week,max_capacity,price_per_week,description,status) VALUES (:gym_id,:activity_name,:category, :sessions_per_week, :max_capacity,:price_per_week,:description,:status)');
+    $this->db->query('INSERT INTO gym_activity (gym_id,activity_name,category,sessions_per_week,max_capacity,credit,description,status) VALUES (:gym_id,:activity_name,:category, :sessions_per_week, :max_capacity,:credit,:description,:status)');
 
     // Bind Values
     $this->db->bind(':gym_id', $data['gym_id']);
@@ -23,7 +23,7 @@ class GymModel
     $this->db->bind(':category', $data['category']);
     $this->db->bind(':sessions_per_week', $data['sessions_per_week']);
     $this->db->bind(':max_capacity', $data['max_capacity']);
-    $this->db->bind(':price_per_week', $data['price_per_week']);
+    $this->db->bind(':credit', $data['credit']);
     $this->db->bind(':description', $data['description']);
     $this->db->bind(':status', $data['status']);
 
@@ -70,14 +70,14 @@ class GymModel
   public function editActivity($data)
   {
     $this->db->query('UPDATE gym_activity SET activity_name = :activity_name, category=:category, sessions_per_week=:sessions_per_week,
-            max_capacity=:max_capacity, price_per_week=:price_per_week, description=:description where id = :activity_id');
+            max_capacity=:max_capacity, credit=:credit, description=:description where id = :activity_id');
 
     $this->db->bind(':activity_id', $data['activity_id']);
     $this->db->bind(':activity_name', $data['activity_name']);
     $this->db->bind(':category', $data['category']);
     $this->db->bind(':sessions_per_week', $data['sessions_per_week']);
     $this->db->bind(':max_capacity', $data['max_capacity']);
-    $this->db->bind(':price_per_week', $data['price_per_week']);
+    $this->db->bind(':credit', $data['credit']);
     $this->db->bind(':description', $data['description']);
 
 

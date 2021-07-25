@@ -83,7 +83,7 @@ if (!empty($data['message'])) {
 
         echo '<p class="card-text"><span style="color:red";>Calendar Coming Soon</span></p>';
         echo '<hr>';
-        echo '<h4><b>$' . $activity->price_per_week . '</b></h4>';
+        echo '<h4><b>$' . $activity->credit . '</b></h4>';
         echo '<a href="#" class="card-link">More Details</a>';
         echo '</div>';
         echo '</div>';
@@ -155,7 +155,7 @@ if (!empty($data['message'])) {
                                 <input type="text" class="form-control" value = "' . $activity->max_capacity . '" id="maxCapacity" name="max_capacity" placeholder="Max capacity" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="pricePerWeek" value = "' . $activity->price_per_week . '" name="price_per_week" placeholder="Price per week" required>
+                                <input type="text" class="form-control" id="credit" value = "' . $activity->credit . '" name="credit" placeholder="Credit" required>
                             </div>
         
                             <div class="form-group">
@@ -254,11 +254,11 @@ if (!empty($data['message'])) {
                         ?>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="pricePerWeek" name="price_per_week" placeholder="Price per week" required>
+                        <input type="text" class="form-control" id="credit" name="credit" placeholder="Credit" required>
                         <?php
-                        if (!empty($data['price_per_week_err'])) {
+                        if (!empty($data['credit_err'])) {
                             echo '<div class="alert alert-danger" role="alert">';
-                            echo $data['price_per_week_err'];
+                            echo $data['credit_err'];
                             echo '</div>';
                         }
                         ?>

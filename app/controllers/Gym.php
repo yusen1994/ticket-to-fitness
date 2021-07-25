@@ -72,14 +72,14 @@ class Gym extends Controller
                     'category' => trim($_POST['category']),
                     'sessions_per_week' => trim($_POST['sessions_per_week']),
                     'max_capacity' => trim($_POST['max_capacity']),
-                    'price_per_week' => trim($_POST['price_per_week']),
+                    'credit' => trim($_POST['credit']),
                     'description' => trim($_POST['description']),
                     'status' => '',
                     'activity_name_err' => '',
                     'category_err' => '',
                     'sessions_per_week_err' => '',
                     'max_capacity_err' => '',
-                    'price_per_week_err' => '',
+                    'credit_err' => '',
                     'message' => '',
                     'description_err' => '',
                 ];
@@ -95,15 +95,15 @@ class Gym extends Controller
                 if (empty($data['max_capacity'])) {
                     $data['max_capacity_err'] = 'Please enter max capacity';
                 }
-                if (empty($data['price_per_week'])) {
-                    $data['price_per_week_err'] = 'Please enter price per week';
+                if (empty($data['credit'])) {
+                    $data['credit_err'] = 'Please enter credit amount';
                 }
 
                 if (empty($data['description'])) {
                     $data['description'] = 'Please enter description';
                 }
 
-                if (empty($data['activity_name_err']) && empty($data['category_err']) && empty($data['sessions_per_week_err']) && empty($data['max_capacity_err']) && empty($data['price_per_week_err']) && empty($data['description_err'])) {
+                if (empty($data['activity_name_err']) && empty($data['category_err']) && empty($data['sessions_per_week_err']) && empty($data['max_capacity_err']) && empty($data['credit_err']) && empty($data['description_err'])) {
 
                     $gym_add_activity =  $this->gymModel->addActivity($data);
                     if ($gym_add_activity) {
@@ -127,13 +127,13 @@ class Gym extends Controller
                     'category' => '',
                     'sessions_per_week' => '',
                     'max_capacity' => '',
-                    'price_per_week' => '',
+                    'credit' => '',
                     'description' => '',
                     'status' => '',
                     'activity_name_err' => '',
                     'category_err' => '',
                     'sessions_per_week_err' => '',
-                    'price_per_week_err' => '',
+                    'credit_err' => '',
                     'message' => '',
 
                 ];
@@ -176,7 +176,7 @@ class Gym extends Controller
                         'category' => trim($_POST['category']),
                         'sessions_per_week' => trim($_POST['sessions_per_week']),
                         'max_capacity' => trim($_POST['max_capacity']),
-                        'price_per_week' => trim($_POST['price_per_week']),
+                        'credit' => trim($_POST['credit']),
                         'description' => trim($_POST['description']),
 
                     ];

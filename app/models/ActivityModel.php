@@ -30,7 +30,7 @@ class ActivityModel
   {
 
     if ($param == 'high') {
-      $this->db->query('SELECT * FROM gym_activity WHERE status=:status ORDER BY price_per_week DESC');
+      $this->db->query('SELECT * FROM gym_activity WHERE status=:status ORDER BY credit DESC');
       $this->db->bind(':status', 1);
       $row = $this->db->resultSet();
 
@@ -41,7 +41,7 @@ class ActivityModel
     }
 
     if ($param == 'low') {
-      $this->db->query('SELECT * FROM gym_activity WHERE status=:status ORDER BY price_per_week ASC');
+      $this->db->query('SELECT * FROM gym_activity WHERE status=:status ORDER BY credit ASC');
       $this->db->bind(':status', 1);
       $row = $this->db->resultSet();
 
@@ -120,4 +120,30 @@ class ActivityModel
       return $row;
     }
   }
+
+  public function fetchActivitybyid($id){
+    $this->db->query('SELECT * FROM gym_activity WHERE id = :id');
+    $this->db->bind(':id', $id);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+
+  }
+
+  public function fetchgymInfoByid($gymid){
+    $this->db->query('SELECT * FROM gym_information WHERE gym_id = :id');
+    $this->db->bind(':id', $gymid);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+
+  }
+
+
 }

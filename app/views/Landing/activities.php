@@ -62,12 +62,12 @@
                 </div>
 
                 <div class="form-group" id="lat_area">
-                    <input type="text" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
+                    <input type="hidden" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
 
                 </div>
 
                 <div class="form-group" id="long_area">
-                    <input type="text" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
+                    <input type="hidden" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
 
                 </div>
 
@@ -125,6 +125,7 @@
         <?php
         if (!empty($data['gym_activity'])) {
             foreach ($data['gym_activity'] as $activity) {
+                
                 echo '<div class = "col-6">';
                 echo '<div class="card mt-4 " style="width: auto;">';
                 echo '<img class="card-img-top" src="' . URLROOT . '/images/gym1.jpg" alt="Card image cap">';
@@ -133,8 +134,8 @@
                 echo '<p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>';
                 echo '<img src';
                 echo '<hr>';
-                echo '<p><b>Credit: ' . $activity->price_per_week . '</b></p>';
-                echo '<a href="#" class="card-link">More Details</a>';
+                echo '<p><b>Credit: ' . $activity->credit . '</b></p>';
+                echo '<a href="'.URLROOT.'/Activity/activitydetails/'.$activity->id.'/'.$activity->gym_id.'" class="card-link">More Details</a>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
