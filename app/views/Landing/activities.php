@@ -27,12 +27,12 @@
                             </svg></span></button>
                     <input class="search-input-text" id="searchField" name="searchField" placeholder="Search for something">
                 </div>
-                <?php if(!empty($data['error'])){ 
-                    
-                echo '<div class="alert alert-primary mt-4" role="alert">';
-                echo $data['error'];
-                echo '</div>';
-            }
+                <?php if (!empty($data['error'])) {
+
+                    echo '<div class="alert alert-primary mt-4" role="alert">';
+                    echo $data['error'];
+                    echo '</div>';
+                }
                 ?>
             </form>
         </div>
@@ -44,6 +44,37 @@
                 </span>
                 Filter
             </button>
+            <form method="POST" action="<?php echo URLROOT; ?>/Activity/nearestOffer">
+            <div class="form-group mt-5">
+                <select name="distance">
+                    <option value="">Distance</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="gymaddress" class="form-control" placeholder="Address" value="<?php if (!empty($data['gym_address'])) {
+                                                                                                                echo $data['gym_address'];
+                                                                                                            } ?>" name="gym_address" required title="">
+
+                </div>
+
+                <div class="form-group" id="lat_area">
+                    <input type="text" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
+
+                </div>
+
+                <div class="form-group" id="long_area">
+                    <input type="text" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
+
+                </div>
+
+                <button type="submit">Send</button>
+
+
+            </form>
         </div>
     </div>
 </div>
@@ -120,3 +151,6 @@
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>
+
+<script src="<?php echo URLROOT; ?>/js/address.js"></script>

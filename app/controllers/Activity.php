@@ -107,4 +107,18 @@ class Activity extends Controller
             }
         }
     }
+
+    public function nearestOffer(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data['distance'] = $_POST['distance'];
+            $data['latitude'] = $_POST['latitude'];
+            $data['longitude'] = $_POST['longitude'];
+           
+            $data['gym_activity'] = $this->activityModel->nearestOffer($data);
+            $this->view('landing/activities', $data);
+            
+            
+        }
+    }
 }

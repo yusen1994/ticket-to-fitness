@@ -101,4 +101,23 @@ class ActivityModel
       return $row;
     }
   }
+
+  public function nearestOffer($data){
+    
+    $this->db->query('SELECT * , (3956 * 2 * ASIN(SQRT( POWER(SIN(( :latitude - `gym_information`.`latitude`) *  pi()/180 / 2), 2) +COS( :latitude2 * pi()/180) * COS(`gym_information`.`latitude` * pi()/180) * POWER(SIN(( :longitude - `gym_information`.`longitude`) * pi()/180 / 2), 2) ))) as distance  
+    from gym_activity JOIN gym_information ON gym_information.gym_id = gym_activity.gym_id  
+    having  distance <= :distance 
+    order by distance');
+    $this->db->bind(':latitude', $data['latitude']);
+    $this->db->bind(':latitude2', $data['latitude']);
+
+    $this->db->bind(':longitude', $data['longitude']);
+    $this->db->bind(':distance', $data['distance']);
+    $row = $this->db->resultSet();
+   
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
 }
