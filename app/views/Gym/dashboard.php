@@ -208,6 +208,7 @@ if (!empty($data['message'])) {
 </div>
 
 <!-- Modal Add Activity -->
+
 <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -313,13 +314,13 @@ if (!empty($data['message'])) {
                         ?>
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-block" class="btn btn-primary">Done</button>
+                    <button type="submit" id = "closeAddActivityModal" class="btn btn-success btn-block" class="btn btn-primary">Done</button>
                 </form>
 
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
 
             </div>
         </div>

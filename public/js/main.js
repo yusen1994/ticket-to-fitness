@@ -38,3 +38,10 @@ $(document).on('change', '#'+searchInput, function () {
 });
 
 */
+
+    /*Add activity Modal dispose when clicked close*/
+
+    $("#closeAddActivityModal").click(function(){
+      
+      $("#addActivityModal").modal("dispose");
+ });
