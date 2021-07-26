@@ -48,7 +48,11 @@
                     </tr>
                     <tr>
                         <th scope="row">Session</th>
-                        <td><?php echo $data['gym_activity'][0]->sessions_per_week; ?></td>
+                        <td><?php 
+                        foreach ((unserialize($data['gym_activity'][0]->sessions_per_week)) as $session_per_week) {
+                            echo $session_per_week . "  ";
+                        }
+                         ?></td>
                     </tr>
                     <tr>
                         <th scope="row">Price</th>
