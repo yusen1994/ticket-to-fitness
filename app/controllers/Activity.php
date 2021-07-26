@@ -42,24 +42,22 @@ class Activity extends Controller
             if ($param == 'cycling') {
                 $data['gym_activity'] = $this->activityModel->filterByCategory('cycling');
             }
-            if ($param == 'Pilates') {
-                $data['gym_activity']  = $this->activityModel->filterByCategory('Pilates');
-            }
-            if ($param == 'weights') {
-                $data['gym_activity']  = $this->activityModel->filterByCategory('weights');
-            }
             if ($param == 'swimming') {
                 $data['gym_activity']  = $this->activityModel->filterByCategory('swimming');
             }
             if ($param == 'yoga') {
-                $data['gym_activity'] = $this->activityModel->filterByCategory('yoga');
+                $data['gym_activity']  = $this->activityModel->filterByCategory('yoga');
+            }
+            if ($param == 'weights') {
+                $data['gym_activity']  = $this->activityModel->filterByCategory('weights');
+            }
+            if ($param == 'fight') {
+                $data['gym_activity'] = $this->activityModel->filterByCategory('fight');
             }
             if ($param == 'cardio') {
                 $data['gym_activity']  = $this->activityModel->filterByCategory('cardio');
             }
-            if ($param == 'HighIntensity') {
-                $data['gym_activity']  = $this->activityModel->filterByCategory('HighIntensity');
-            }
+            
 
 
             $this->view('Landing/activities', $data);

@@ -63,10 +63,10 @@ if (!empty($data['message'])) {
 
     </div>
 
-    <?php 
+    <?php
     $count = 1;
     foreach ($data['gym_activity'] as $activity) {
-        
+
         echo '<div class="card mt-4 " style="width: auto;">';
         echo '<div class = "container">';
         echo '<div class="row">';
@@ -77,10 +77,10 @@ if (!empty($data['message'])) {
         echo '<h4 class="card-title">' . $activity->activity_name . '</h4>';
         echo '<h6 class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</h6>';
         echo '<p class="card-text">Session Per Week: ';
-         foreach((unserialize($activity->sessions_per_week)) as $session_per_week){
-            echo $session_per_week."  ";
-        } 
-        echo'</p>';
+        foreach ((unserialize($activity->sessions_per_week)) as $session_per_week) {
+            echo $session_per_week . "  ";
+        }
+        echo '</p>';
         echo '<p class="card-text">' . $activity->description . '</p>';
         echo '<p class="card-text">Max Capacity: ' . $activity->max_capacity . '</p>';
 
@@ -92,25 +92,24 @@ if (!empty($data['message'])) {
         echo '</div>';
         echo '<div class="col-4">';
         echo '<form method = "post" action = "' . URLROOT . '/Gym/editActivity/delete">';
-        echo '<button type="button" class="btn btn-primary mt-5 mr-1 " data-toggle="modal" data-target="#editActivityModal'.$count.'">Edit</button>';
+        echo '<button type="button" class="btn btn-primary mt-5 mr-1 " data-toggle="modal" data-target="#editActivityModal' . $count . '">Edit</button>';
         echo '<input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> ';
 
         echo '<button type="submit" class="btn btn-danger mt-5 mr-1">Delete</button>';
         echo '</form>';
         echo '<form method = "post" action = "' . URLROOT . '/Gym/editActivity/activate">';
         echo '<input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> ';
-        
-        if($activity->status == 0){
+
+        if ($activity->status == 0) {
             echo '<input type = "hidden" id = "status" value = "true" name = "status"> ';
 
             echo '<button type="submit" id = "activateBtn" class="btn btn-primary mt-5 mr-1" >Activate</button>';
-
-        }else{
+        } else {
             echo '<input type = "hidden" id = "status" value = "false" name = "status"> ';
 
-        echo '<button type="submit" id = "activateBtn" class="btn btn-danger mt-5 mr-1" >Deactivate</button>';
+            echo '<button type="submit" id = "activateBtn" class="btn btn-danger mt-5 mr-1" >Deactivate</button>';
         }
-        
+
         echo '</form>';
 
         echo '</div>';
@@ -118,10 +117,10 @@ if (!empty($data['message'])) {
         echo '</div>';
         echo '</div>';
 
-       
+
         echo '<!--Modal Edit Activity -->
 
-        <div class="modal fade" id="editActivityModal'.$count.'" tabindex="-1" role="dialog" aria-labelledby="editActivityModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editActivityModal' . $count . '" tabindex="-1" role="dialog" aria-labelledby="editActivityModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color:orange;">
@@ -132,7 +131,7 @@ if (!empty($data['message'])) {
                     </div>
                     <div class="modal-body">
                         
-                        <form method="POST" action="'.URLROOT.'/Gym/editActivity/edit">
+                        <form method="POST" action="' . URLROOT . '/Gym/editActivity/edit">
                         <input type = "hidden" value = "' . $activity->id . '" name = "activity_id"> 
                             <div class="form-group">
                                 <input type="text" class="form-control" id="activityName" name="activity_name" value = "' . $activity->activity_name . '" placeholder="Name of activity" required>
@@ -143,10 +142,14 @@ if (!empty($data['message'])) {
         
                                 <select id="category" class="form-control" name="category" required>
                                     <option value=" ' . $activity->category . '"></option>
-                                    <option value="Normal">Normal</option>
-                                    <option value="High Intensity">High Intensity</option>
-                                    <option value="Yoga">Yoga</option>
-                                    <option value="Pilates">Pilates</option>
+                                    <option value="cycling">Cycling</option>
+                                    <option value="swimming">Swimming</option>
+                                    <option value="yoga">Yoga</option>
+                                    <option value="weights">Weights</option>
+                                    <option value="fight">Martial Arts</option>
+                                    <option value="cardio">Cardio</option>
+
+
                                 </select>
         
                             </div>
@@ -197,7 +200,6 @@ if (!empty($data['message'])) {
         </div>
         ';
         $count++;
-
     }
     ?>
 
@@ -239,10 +241,12 @@ if (!empty($data['message'])) {
 
                         <select id="category" class="form-control" name="category" required>
                             <option value="N/A">Category</option>
-                            <option value="Normal">Normal</option>
-                            <option value="High Intensity">High Intensity</option>
-                            <option value="Yoga">Yoga</option>
-                            <option value="Pilates">Pilates</option>
+                            <option value="cycling">Cycling</option>
+                            <option value="swimming">Swimming</option>
+                            <option value="yoga">Yoga</option>
+                            <option value="weights">Weights</option>
+                            <option value="fight">Martial Arts</option>
+                            <option value="cardio">Cardio</option>
                         </select>
 
                         <?php
@@ -258,25 +262,25 @@ if (!empty($data['message'])) {
                         <label>Choose Days</label> <br>
 
                         <div class="weekDays-selector">
-  <input type="checkbox" id="weekday-mon" class="weekday" name="sessions_per_week[]" value = "Monday" />
-  <label for="weekday-mon">M</label>
-  <input type="checkbox" id="weekday-tue" class="weekday" name="sessions_per_week[]" value = "Tuesday" />
-  <label for="weekday-tue">T</label>
-  <input type="checkbox" id="weekday-wed" class="weekday" name="sessions_per_week[]" value = "Wednesday" />
-  <label for="weekday-wed">W</label>
-  <input type="checkbox" id="weekday-thu" class="weekday" name="sessions_per_week[]" value = "Thursday"/>
-  <label for="weekday-thu">T</label>
-  <input type="checkbox" id="weekday-fri" class="weekday" name="sessions_per_week[]" value = "Friday" />
-  <label for="weekday-fri">F</label>
-  <input type="checkbox" id="weekday-sat" class="weekday"  name="sessions_per_week[]" value = "Saturday"/>
-  <label for="weekday-sat">S</label>
-  <input type="checkbox" id="weekday-sun" class="weekday"  name="sessions_per_week[]" value = "Sunday"/>
-  <label for="weekday-sun">S</label>
-</div>
-                  
+                            <input type="checkbox" id="weekday-mon" class="weekday" name="sessions_per_week[]" value="Monday" />
+                            <label for="weekday-mon">M</label>
+                            <input type="checkbox" id="weekday-tue" class="weekday" name="sessions_per_week[]" value="Tuesday" />
+                            <label for="weekday-tue">T</label>
+                            <input type="checkbox" id="weekday-wed" class="weekday" name="sessions_per_week[]" value="Wednesday" />
+                            <label for="weekday-wed">W</label>
+                            <input type="checkbox" id="weekday-thu" class="weekday" name="sessions_per_week[]" value="Thursday" />
+                            <label for="weekday-thu">T</label>
+                            <input type="checkbox" id="weekday-fri" class="weekday" name="sessions_per_week[]" value="Friday" />
+                            <label for="weekday-fri">F</label>
+                            <input type="checkbox" id="weekday-sat" class="weekday" name="sessions_per_week[]" value="Saturday" />
+                            <label for="weekday-sat">S</label>
+                            <input type="checkbox" id="weekday-sun" class="weekday" name="sessions_per_week[]" value="Sunday" />
+                            <label for="weekday-sun">S</label>
+                        </div>
+
                     </div>
-                        
-                 
+
+
                     <div class="form-group">
                         <input type="text" class="form-control" id="maxCapacity" name="max_capacity" placeholder="Max capacity" required>
                         <?php

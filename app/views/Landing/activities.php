@@ -4,7 +4,9 @@
 
 <!--Activity page-->
 
-<div class="container-fluid" style="background-color:#F2F2F2;">
+<div class="container-fluid" style="background-color:#
+
+F2F2F2;">
     <div class="row justify-content-center">
         <div class="landing-image col-sm-12 col-lg-6 px-0">
             <img class="activities-responsive" src="<?php echo URLROOT; ?>/images/gym-workout-routines.jpg" alt="">
@@ -37,47 +39,137 @@
             </form>
         </div>
         <div class="col-3">
-            <button type="button" class="filter-btn"><span class="filter-btn-icon">
+            <button type="button" class="filter-btn" data-toggle="modal" data-target="#filterModal"><span class="filter-btn-icon">
                     <svg id="filter-filled-tool-symbol" xmlns="http://www.w3.org/2000/svg" width="14.761" height="14.896" viewBox="0 0 14.761 14.896">
                         <path id="Path_103" data-name="Path 103" d="M10.016,7.039a.919.919,0,0,1,.242.622v6.774a.46.46,0,0,0,.783.328L12.93,12.6c.253-.3.392-.454.392-.754V7.663a.927.927,0,0,1,.242-.622l5.422-5.883A.69.69,0,0,0,18.48,0H5.1a.69.69,0,0,0-.507,1.157Z" transform="translate(-4.41)" />
                     </svg>
+
                 </span>
                 Filter
             </button>
-            <form method="POST" action="<?php echo URLROOT; ?>/Activity/nearestOffer">
-            <div class="form-group mt-5">
-                <select name="distance">
-                    <option value="">Distance</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                </select>
-                </div>
 
-                <div class="form-group">
-                    <input type="text" id="gymaddress" class="form-control" placeholder="Address" value="<?php if (!empty($data['gym_address'])) {
-                                                                                                                echo $data['gym_address'];
-                                                                                                            } ?>" name="gym_address" required title="">
-
-                </div>
-
-                <div class="form-group" id="lat_area">
-                    <input type="hidden" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
-
-                </div>
-
-                <div class="form-group" id="long_area">
-                    <input type="hidden" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
-
-                </div>
-
-                <button type="submit">Send</button>
-
-
-            </form>
         </div>
     </div>
 </div>
+
+<!--Filter Modal-->
+
+<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:orange;">
+                <h3 class="modal-title" id="filterModalLabel"><b>Filter</b></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="filter_body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                <a href = "<?php echo URLROOT;?>/Activity/filterby/credits/low"> <button class="filter_btn text-center"><img src="<?php echo URLROOT; ?>/images/credits_noBG.png">
+                                
+                                </button></a>
+                                    <p> Credits Low </p>
+                                </div>
+                                <div class="col-sm-3">
+                                <a href = "<?php echo URLROOT;?>/Activity/filterby/credits/high"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/credits_noBG.png"></button></a>
+                                    <p> Credits High </p>
+
+                                </div>
+                                <div class="col-sm-3">
+                                <a href = "<?php echo URLROOT;?>/Activity/filterby/frequency/low"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/frequency.png"></button></a>
+                                    <p> Frequency Low </p>
+                                </div>
+                                <div class="col-sm-3">
+                                <a href = "<?php echo URLROOT;?>/Activity/filterby/frequency/high">  <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/frequency.png"></button></a>
+                                    <p> Frequency High </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <h3 style="text-align:center;"><b>CATEGORIES </b></h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                <a href = "<?php echo URLROOT;?>/Activity/filterby/category/cycling">  <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/cycle.png"></button></a>
+                                    <p>Cycling</p>
+                                    <br>
+                                    <a href = "<?php echo URLROOT;?>/Activity/filterby/category/weights"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/weights.png"></button></a>
+                                    <p>Weights</p>
+                                </div>
+                                <div class="col-sm-4">
+                                <a href = "<?php echo URLROOT;?>/Activity/filterby/category/swimming"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/swimmer.png"></button></a>
+                                    <p>Swimming</p>
+                                    <br>
+                                    <a href = "<?php echo URLROOT;?>/Activity/filterby/category/fight">   <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/fight.png"></button></a>
+                                    <p>Martial Arts</p>
+                                </div>
+                                <div class="col-sm-4">
+                                <a href = "<?php echo URLROOT;?>/Activity/filterby/category/yoga"><button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/meditation.png"></button></a>
+                                    <p>Yoga</p>
+                                    <br>
+                                    <a href = "<?php echo URLROOT;?>/Activity/filterby/category/cardio"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/cardio.png"></button></a>
+                                    <p>Cardio</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <form method="POST" action="<?php echo URLROOT; ?>/Activity/nearestOffer">
+                        <h3 style="text-align:center;"><b>Search by Location </b></h3>
+                        <hr>
+
+
+                            <div class="form-group mt-5">
+                                <!-- <select name="distance">
+                        <option value="">Distance</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>-->
+
+                                <input type="hidden" name="distance" value="50">
+                            </div>
+
+                            <div class="form-group">
+                              <input type="text" id="gymaddress" class="form-control" placeholder="Enter Address" value="<?php if (!empty($data['gym_address'])) {
+                                                                                                                                        echo $data['gym_address'];
+                                                                                                                                    } ?>" name="gym_address" required title="">
+
+                            </div>
+
+                            <div class="form-group" id="lat_area">
+                                <input type="hidden" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
+
+                            </div>
+
+                            <div class="form-group" id="long_area">
+                                <input type="hidden" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
+
+                            </div>
+
+                            <button type="submit" class="btn btn-warning">Search</button>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!--<div class="container" style="padding-top: 20px; height: 500px; background-color: #f3f3f3">-->
 <!-- Cards here -->
 <!--
@@ -125,7 +217,7 @@
         <?php
         if (!empty($data['gym_activity'])) {
             foreach ($data['gym_activity'] as $activity) {
-                
+
                 echo '<div class = "col-6">';
                 echo '<div class="card mt-4 " style="width: auto;">';
                 echo '<img class="card-img-top" src="' . URLROOT . '/images/gym1.jpg" alt="Card image cap">';
@@ -135,7 +227,7 @@
                 echo '<img src';
                 echo '<hr>';
                 echo '<p><b>Credit: ' . $activity->credit . '</b></p>';
-                echo '<a href="'.URLROOT.'/Activity/activitydetails/'.$activity->id.'/'.$activity->gym_id.'" class="card-link">More Details</a>';
+                echo '<a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link">More Details</a>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';

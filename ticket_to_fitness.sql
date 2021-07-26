@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2021 at 04:04 PM
+-- Generation Time: Jul 26, 2021 at 01:34 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -53,7 +53,7 @@ CREATE TABLE `gym_activity` (
   `gym_id` int(20) NOT NULL,
   `activity_name` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
-  `sessions_per_week` int(20) NOT NULL,
+  `sessions_per_week` varchar(255) NOT NULL,
   `max_capacity` int(20) NOT NULL,
   `credit` int(20) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -65,9 +65,8 @@ CREATE TABLE `gym_activity` (
 --
 
 INSERT INTO `gym_activity` (`id`, `gym_id`, `activity_name`, `category`, `sessions_per_week`, `max_capacity`, `credit`, `description`, `status`) VALUES
-(30, 17, 'Zap Training', 'Pilates', 20, 10, 70, 'Hello', 1),
-(31, 12, 'Martial Art', 'swimming', 2, 100, 10, 'Hello', 1),
-(32, 17, 'Zap Yoga', 'Yoga', 5, 100, 25, 'Tet', 1);
+(31, 12, 'Martial Art', 'swimming', '2', 100, 10, 'Hello', 1),
+(34, 17, 'Kick Boxing', 'fight', 'a:3:{i:0;s:7:\"Tuesday\";i:1;s:9:\"Wednesday\";i:2;s:8:\"Thursday\";}', 20, 70, 'Beginner fight class', 1);
 
 -- --------------------------------------------------------
 
@@ -173,7 +172,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `gym_activity`
 --
 ALTER TABLE `gym_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `gym_information`
