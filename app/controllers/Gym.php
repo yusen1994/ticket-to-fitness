@@ -70,7 +70,7 @@ class Gym extends Controller
                     'gym_id' => $_SESSION['user_id'],
                     'activity_name' => trim($_POST['activity_name']),
                     'category' => trim($_POST['category']),
-                    'sessions_per_week' => trim($_POST['sessions_per_week']),
+                    'sessions_per_week' => serialize($_POST['sessions_per_week']),
                     'max_capacity' => trim($_POST['max_capacity']),
                     'credit' => trim($_POST['credit']),
                     'description' => trim($_POST['description']),
@@ -83,6 +83,7 @@ class Gym extends Controller
                     'message' => '',
                     'description_err' => '',
                 ];
+
                 if (empty($data['activity_name'])) {
                     $data['activity_name_err'] = 'Please enter activity name';
                 }
@@ -174,7 +175,7 @@ class Gym extends Controller
                         'activity_id' => $_POST['activity_id'],
                         'activity_name' => trim($_POST['activity_name']),
                         'category' => trim($_POST['category']),
-                        'sessions_per_week' => trim($_POST['sessions_per_week']),
+                        'sessions_per_week' => serialize($_POST['sessions_per_week']),
                         'max_capacity' => trim($_POST['max_capacity']),
                         'credit' => trim($_POST['credit']),
                         'description' => trim($_POST['description']),

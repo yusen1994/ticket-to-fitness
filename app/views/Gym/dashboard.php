@@ -76,10 +76,13 @@ if (!empty($data['message'])) {
         echo '<div class="card-body rounded-pill">';
         echo '<h4 class="card-title">' . $activity->activity_name . '</h4>';
         echo '<h6 class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</h6>';
-        echo '<p class="card-text">Session Per Week: ' . $activity->sessions_per_week . '</p>';
+        echo '<p class="card-text">Session Per Week: ';
+         foreach((unserialize($activity->sessions_per_week)) as $session_per_week){
+            echo $session_per_week."  ";
+        } 
+        echo'</p>';
         echo '<p class="card-text">' . $activity->description . '</p>';
         echo '<p class="card-text">Max Capacity: ' . $activity->max_capacity . '</p>';
-
 
         echo '<p class="card-text"><span style="color:red";>Calendar Coming Soon</span></p>';
         echo '<hr>';
@@ -149,8 +152,26 @@ if (!empty($data['message'])) {
                             </div>
         
                             <div class="form-group">
-                                <input type="text" class="form-control" id="sessionsPerWeek" value = "' . $activity->sessions_per_week . '" name="sessions_per_week" placeholder="Sessions per week" required>
-                            </div>
+                            <label>Choose Days</label> <br>
+    
+                            <div class="weekDays-selector2">
+      <input type="checkbox" id="weekday-mon" class="weekday" name="sessions_per_week[]" value = "Monday" />
+      <label for="weekday-mon">M</label>
+      <input type="checkbox" id="weekday-tue" class="weekday" name="sessions_per_week[]" value = "Tuesday" />
+      <label for="weekday-tue">T</label>
+      <input type="checkbox" id="weekday-wed" class="weekday" name="sessions_per_week[]" value = "Wednesday" />
+      <label for="weekday-wed">W</label>
+      <input type="checkbox" id="weekday-thu" class="weekday" name="sessions_per_week[]" value = "Thursday"/>
+      <label for="weekday-thu">T</label>
+      <input type="checkbox" id="weekday-fri" class="weekday" name="sessions_per_week[]" value = "Friday" />
+      <label for="weekday-fri">F</label>
+      <input type="checkbox" id="weekday-sat" class="weekday"  name="sessions_per_week[]" value = "Saturday"/>
+      <label for="weekday-sat">S</label>
+      <input type="checkbox" id="weekday-sun" class="weekday"  name="sessions_per_week[]" value = "Sunday"/>
+      <label for="weekday-sun">S</label>
+    </div>
+                      
+                        </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" value = "' . $activity->max_capacity . '" id="maxCapacity" name="max_capacity" placeholder="Max capacity" required>
                             </div>
@@ -234,15 +255,28 @@ if (!empty($data['message'])) {
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" id="sessionsPerWeek" name="sessions_per_week" placeholder="Sessions per week" required>
-                        <?php
-                        if (!empty($data['sessions_per_week_err'])) {
-                            echo '<div class="alert alert-danger" role="alert">';
-                            echo $data['sessions_per_week_err'];
-                            echo '</div>';
-                        }
-                        ?>
+                        <label>Choose Days</label> <br>
+
+                        <div class="weekDays-selector">
+  <input type="checkbox" id="weekday-mon" class="weekday" name="sessions_per_week[]" value = "Monday" />
+  <label for="weekday-mon">M</label>
+  <input type="checkbox" id="weekday-tue" class="weekday" name="sessions_per_week[]" value = "Tuesday" />
+  <label for="weekday-tue">T</label>
+  <input type="checkbox" id="weekday-wed" class="weekday" name="sessions_per_week[]" value = "Wednesday" />
+  <label for="weekday-wed">W</label>
+  <input type="checkbox" id="weekday-thu" class="weekday" name="sessions_per_week[]" value = "Thursday"/>
+  <label for="weekday-thu">T</label>
+  <input type="checkbox" id="weekday-fri" class="weekday" name="sessions_per_week[]" value = "Friday" />
+  <label for="weekday-fri">F</label>
+  <input type="checkbox" id="weekday-sat" class="weekday"  name="sessions_per_week[]" value = "Saturday"/>
+  <label for="weekday-sat">S</label>
+  <input type="checkbox" id="weekday-sun" class="weekday"  name="sessions_per_week[]" value = "Sunday"/>
+  <label for="weekday-sun">S</label>
+</div>
+                  
                     </div>
+                        
+                 
                     <div class="form-group">
                         <input type="text" class="form-control" id="maxCapacity" name="max_capacity" placeholder="Max capacity" required>
                         <?php
