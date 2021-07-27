@@ -158,20 +158,20 @@ if (!empty($data['message'])) {
                             <label>Choose Days</label> <br>
     
                             <div class="weekDays-selector2">
-      <input type="checkbox" id="weekday-mon" class="weekday" name="sessions_per_week[]" value = "Monday" />
-      <label for="weekday-mon">M</label>
-      <input type="checkbox" id="weekday-tue" class="weekday" name="sessions_per_week[]" value = "Tuesday" />
-      <label for="weekday-tue">T</label>
-      <input type="checkbox" id="weekday-wed" class="weekday" name="sessions_per_week[]" value = "Wednesday" />
-      <label for="weekday-wed">W</label>
-      <input type="checkbox" id="weekday-thu" class="weekday" name="sessions_per_week[]" value = "Thursday"/>
-      <label for="weekday-thu">T</label>
-      <input type="checkbox" id="weekday-fri" class="weekday" name="sessions_per_week[]" value = "Friday" />
-      <label for="weekday-fri">F</label>
-      <input type="checkbox" id="weekday-sat" class="weekday"  name="sessions_per_week[]" value = "Saturday"/>
-      <label for="weekday-sat">S</label>
-      <input type="checkbox" id="weekday-sun" class="weekday"  name="sessions_per_week[]" value = "Sunday"/>
-      <label for="weekday-sun">S</label>
+      <input type="checkbox" id="edit-weekday-mon" class="weekday" name="sessions_per_week[]" value = "Monday" />
+      <label for="edit-weekday-mon">M</label>
+      <input type="checkbox" id="edit-weekday-tue" class="weekday" name="sessions_per_week[]" value = "Tuesday" />
+      <label for="edit-weekday-tue">T</label>
+      <input type="checkbox" id="edit-weekday-wed" class="weekday" name="sessions_per_week[]" value = "Wednesday" />
+      <label for="edit-weekday-wed">W</label>
+      <input type="checkbox" id="edit-weekday-thu" class="weekday" name="sessions_per_week[]" value = "Thursday"/>
+      <label for="edit-weekday-thu">T</label>
+      <input type="checkbox" id="edit-weekday-fri" class="weekday" name="sessions_per_week[]" value = "Friday" />
+      <label for="edit-weekday-fri">F</label>
+      <input type="checkbox" id="edit-weekday-sat" class="weekday"  name="sessions_per_week[]" value = "Saturday"/>
+      <label for="edit-weekday-sat">S</label>
+      <input type="checkbox" id="edit-weekday-sun" class="weekday"  name="sessions_per_week[]" value = "Sunday"/>
+      <label for="edit-weekday-sun">S</label>
     </div>
                       
                         </div>
@@ -263,20 +263,20 @@ if (!empty($data['message'])) {
                         <label>Choose Days</label> <br>
 
                         <div class="weekDays-selector">
-                            <input type="checkbox" id="weekday-mon" class="weekday" name="sessions_per_week[]" value="Monday" />
-                            <label for="weekday-mon">M</label>
-                            <input type="checkbox" id="weekday-tue" class="weekday" name="sessions_per_week[]" value="Tuesday" />
-                            <label for="weekday-tue">T</label>
-                            <input type="checkbox" id="weekday-wed" class="weekday" name="sessions_per_week[]" value="Wednesday" />
-                            <label for="weekday-wed">W</label>
-                            <input type="checkbox" id="weekday-thu" class="weekday" name="sessions_per_week[]" value="Thursday" />
-                            <label for="weekday-thu">T</label>
-                            <input type="checkbox" id="weekday-fri" class="weekday" name="sessions_per_week[]" value="Friday" />
-                            <label for="weekday-fri">F</label>
-                            <input type="checkbox" id="weekday-sat" class="weekday" name="sessions_per_week[]" value="Saturday" />
-                            <label for="weekday-sat">S</label>
-                            <input type="checkbox" id="weekday-sun" class="weekday" name="sessions_per_week[]" value="Sunday" />
-                            <label for="weekday-sun">S</label>
+                            <input type="checkbox" id="add-weekday-mon" class="weekday" name="sessions_per_week[]" value="Monday" />
+                            <label for="add-weekday-mon">M</label>
+                            <input type="checkbox" id="add-weekday-tue" class="weekday" name="sessions_per_week[]" value="Tuesday" />
+                            <label for="add-weekday-tue">T</label>
+                            <input type="checkbox" id="add-weekday-wed" class="weekday" name="sessions_per_week[]" value="Wednesday" />
+                            <label for="add-weekday-wed">W</label>
+                            <input type="checkbox" id="add-weekday-thu" class="weekday" name="sessions_per_week[]" value="Thursday" />
+                            <label for="add-weekday-thu">T</label>
+                            <input type="checkbox" id="add-weekday-fri" class="weekday" name="sessions_per_week[]" value="Friday" />
+                            <label for="add-weekday-fri">F</label>
+                            <input type="checkbox" id="add-weekday-sat" class="weekday" name="sessions_per_week[]" value="Saturday" />
+                            <label for="add-weekday-sat">S</label>
+                            <input type="checkbox" id="add-weekday-sun" class="weekday" name="sessions_per_week[]" value="Sunday" />
+                            <label for="add-weekday-sun">S</label>
                         </div>
 
                     </div>
