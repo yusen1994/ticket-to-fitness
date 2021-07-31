@@ -55,6 +55,33 @@ class Gym extends Controller
         }
     }
 
+
+    public function joinTime($startTime, $endTime)
+    {
+
+        $i = count($startTime);
+        $finalTime = array();
+
+        for ($k = 0; $k < $i; $k++) {
+
+            $finalTime[] = $startTime[$k] . "-" . $endTime[$k];
+        }
+
+        return $finalTime;
+    }
+
+    public function isEmptyArray($array){
+        
+        foreach($array as $single){
+           if(empty($single)){
+               return true;
+               break;
+           }
+        }
+
+        return false;
+       
+    }
     public function addActivity()
     {
 
@@ -64,6 +91,44 @@ class Gym extends Controller
 
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+                $time_monday = $time_tuesday=$time_wednesday=$time_thursday=$time_friday=$time_saturday=$time_sunday = NULL;
+             
+                if (!$this->isEmptyArray($_POST['monday_starttimeArray'])) {
+                    
+                    $time_monday = array();
+                    $time_monday = $this->joinTime($_POST['monday_starttimeArray'], $_POST['monday_endtimeArray']);
+                }
+
+                if (!$this->isEmptyArray($_POST['tuesday_starttimeArray'])) {
+                    $time_tuesday = array();
+                    $time_tuesday = $this->joinTime($_POST['tuesday_starttimeArray'], $_POST['tuesday_endtimeArray']);
+                }
+
+                if (!$this->isEmptyArray($_POST['wednesday_starttimeArray'])) {
+                    $time_wednesday = array();
+                    $time_wednesday = $this->joinTime($_POST['wednesday_starttimeArray'], $_POST['wednesday_endtimeArray']);
+                }
+
+                if (!$this->isEmptyArray($_POST['thursday_starttimeArray'])) {
+            
+                    $time_thursday = array();
+                    $time_thursday = $this->joinTime($_POST['thursday_starttimeArray'], $_POST['thursday_endtimeArray']);
+                }
+
+                if (!$this->isEmptyArray($_POST['friday_starttimeArray'])) {
+                    $time_friday = array();
+                    $time_friday = $this->joinTime($_POST['friday_starttimeArray'], $_POST['friday_endtimeArray']);
+                }
+
+                if (!$this->isEmptyArray($_POST['saturday_starttimeArray'])) {
+                    $time_saturday = array();
+                    $time_saturday = $this->joinTime($_POST['saturday_starttimeArray'], $_POST['saturday_endtimeArray']);
+                }
+
+                if (!$this->isEmptyArray($_POST['sunday_starttimeArray'])) {
+                    $time_sunday = array();
+                    $time_sunday = $this->joinTime($_POST['sunday_starttimeArray'], $_POST['sunday_endtimeArray']);
+                }
 
                 $data = [
 
@@ -74,6 +139,13 @@ class Gym extends Controller
                     'max_capacity' => trim($_POST['max_capacity']),
                     'credit' => trim($_POST['credit']),
                     'description' => trim($_POST['description']),
+                    'time_monday' => $time_monday,
+                    'time_tuesday' => $time_tuesday,
+                    'time_wednesday' => $time_wednesday,
+                    'time_thursday' => $time_thursday,
+                    'time_friday' => $time_friday,
+                    'time_saturday' => $time_saturday,
+                    'time_sunday' => $time_sunday,
                     'status' => '',
                     'activity_name_err' => '',
                     'category_err' => '',
@@ -83,6 +155,7 @@ class Gym extends Controller
                     'message' => '',
                     'description_err' => '',
                 ];
+
 
                 if (empty($data['activity_name'])) {
                     $data['activity_name_err'] = 'Please enter activity name';
@@ -130,6 +203,13 @@ class Gym extends Controller
                     'max_capacity' => '',
                     'credit' => '',
                     'description' => '',
+                    'time_monday'=>'',
+                    'time_tuesday'=>'',
+                    'time_wednesday'=>'',
+                    'time_thursday'=>'',
+                    'time_friday'=>'',
+                    'time_saturday'=>'',
+                    'time_sunday'=>'',
                     'status' => '',
                     'activity_name_err' => '',
                     'category_err' => '',
@@ -210,8 +290,6 @@ class Gym extends Controller
                 }
             }
         }
-        
-        
     }
 
 

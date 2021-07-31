@@ -15,7 +15,8 @@ class GymModel
 
   public function addActivity($data)
   {
-    $this->db->query('INSERT INTO gym_activity (gym_id,activity_name,category,sessions_per_week,max_capacity,credit,description,status) VALUES (:gym_id,:activity_name,:category, :sessions_per_week, :max_capacity,:credit,:description,:status)');
+    $this->db->query('INSERT INTO gym_activity (gym_id,activity_name,category,sessions_per_week,max_capacity,credit,description,status) VALUES (:gym_id,:activity_name,:category, :sessions_per_week, :max_capacity,:credit,:description,:status);
+    SELECT LAST_INSERT_ID()');
 
     // Bind Values
     $this->db->bind(':gym_id', $data['gym_id']);
@@ -31,9 +32,38 @@ class GymModel
 
     //Execute
     if ($this->db->execute()) {
+      $data['activity_id'] = $this->db->lastid(); 
       return true;
     } else {
       return false;
+    }
+
+
+
+
+
+  }
+
+  public function addactivityTime($data){
+    $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
+
+    // Bind Values
+    $this->db->bind(':gym_id', $data['gym_id']);
+    $this->db->bind(':activity_id', $data['activity_id']);
+    $this->db->bind(':day', $data['day']);
+    $this->db->bind(':day', $data['time']);
+    $this->db->bind(':sessions_per_week', unserialize($data['sessions_per_week']));
+  }
+
+  public function getActivityid($data){
+    $this->db->query('SELECT id FROM gym_activity WHERE gym_id = :gym_id and description = :description');
+    $this->db->bind(':gym_id', $data['gym_id']);
+    $this->db->bind(':description', $data['description']);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
     }
   }
 
