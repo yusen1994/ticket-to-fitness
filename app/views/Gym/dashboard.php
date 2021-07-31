@@ -45,7 +45,6 @@ if (!empty($data['message'])) {
     <hr>
 
     <h4><b>Upcoming <span style="color:orange;">Activities</span></b></h4>
-
     <div class="container mt-3">
         <div class="row">
             <div class="col">
