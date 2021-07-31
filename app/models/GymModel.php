@@ -33,6 +33,7 @@ class GymModel
     //Execute
     if ($this->db->execute()) {
       $data['activity_id'] = $this->db->lastid(); 
+      $this->addactivityTime($data);
       return true;
     } else {
       return false;
@@ -45,14 +46,124 @@ class GymModel
   }
 
   public function addactivityTime($data){
-    $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
 
-    // Bind Values
-    $this->db->bind(':gym_id', $data['gym_id']);
-    $this->db->bind(':activity_id', $data['activity_id']);
-    $this->db->bind(':day', $data['day']);
-    $this->db->bind(':day', $data['time']);
-    $this->db->bind(':sessions_per_week', unserialize($data['sessions_per_week']));
+
+    if(!empty($data['time_monday'])){
+      foreach($data['time_monday'] as $mondaytime){
+        $this->db->query('INSERT INTO `gym_activity_timetable`(`activity_id`, `gym_id`, `day`, `time`)VALUES(:activity_id, :gym_id, :day, :time)');
+        $this->db->bind(':activity_id', $data['activity_id']);
+
+        $this->db->bind(':gym_id', $data['gym_id']);
+        $this->db->bind(':day','monday');
+        $this->db->bind(':time', $mondaytime);
+
+        $this->db->execute();
+ 
+
+      }
+
+
+
+    }
+
+    if(!empty($data['time_tuesday'])){
+
+      foreach($data['time_tuesday'] as $tuesdaytime){
+        $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
+
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':gym_id', $data['gym_id']);
+
+        $this->db->bind(':day','tuesday');
+        $this->db->bind(':time', $tuesdaytime);
+
+        $this->db->execute();
+
+      }
+
+    }
+
+    if(!empty($data['time_wednesday'])){
+
+      foreach($data['time_wednesday'] as $wednesdaytime){
+        $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
+
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':gym_id', $data['gym_id']);
+
+        $this->db->bind(':day','wednesday');
+        $this->db->bind(':time', $wednesdaytime);
+
+        $this->db->execute();
+
+      }
+
+    }
+
+    if(!empty($data['time_thursday'])){
+
+      foreach($data['time_thursday'] as $thursdaytime){
+        $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
+
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':gym_id', $data['gym_id']);
+
+        $this->db->bind(':day','thursday');
+        $this->db->bind(':time', $thursdaytime);
+
+        $this->db->execute();
+
+      }
+
+    }
+ 
+    if(!empty($data['time_friday'])){
+
+      foreach($data['time_friday'] as $fridaytime){
+        $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
+
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':gym_id', $data['gym_id']);
+
+        $this->db->bind(':day','friday');
+        $this->db->bind(':time', $fridaytime);
+        $this->db->execute();
+
+      }
+
+    }
+
+    if(!empty($data['time_saturday'])){
+
+      foreach($data['time_saturday'] as $saturdaytime){
+        $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
+
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':gym_id', $data['gym_id']);
+
+        $this->db->bind(':day','saturday');
+        $this->db->bind(':time', $saturdaytime);
+
+        $this->db->execute();
+
+      }
+
+    }
+
+    if(!empty($data['time_sunday'])){
+
+      foreach($data['time_sunday'] as $sundaytime){
+        $this->db->query('INSERT INTO gym_activity_timetable (`activity_id`, `gym_id`, `day`, `time`) VALUES(:activity_id, :gym_id, :day, :time)');
+
+        $this->db->bind(':gym_id', $data['gym_id']);
+        $this->db->bind(':activity_id', $data['activity_id']);
+        $this->db->bind(':day','sunday');
+        $this->db->bind(':time', $sundaytime);
+        $this->db->execute();
+
+      }
+
+    }
   }
 
   public function getActivityid($data){
@@ -69,6 +180,7 @@ class GymModel
 
   public function viewActivity($data)
   {
+    
     $this->db->query('SELECT * FROM gym_activity WHERE gym_id = :gym_id');
     $this->db->bind(':gym_id', $data['gym_id']);
     $row = $this->db->resultSet();

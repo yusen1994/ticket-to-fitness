@@ -130,6 +130,7 @@ class Gym extends Controller
                     $time_sunday = $this->joinTime($_POST['sunday_starttimeArray'], $_POST['sunday_endtimeArray']);
                 }
 
+                
                 $data = [
 
                     'gym_id' => $_SESSION['user_id'],
@@ -155,7 +156,6 @@ class Gym extends Controller
                     'message' => '',
                     'description_err' => '',
                 ];
-
 
                 if (empty($data['activity_name'])) {
                     $data['activity_name_err'] = 'Please enter activity name';
