@@ -209,7 +209,7 @@ if (!empty($data['message'])) {
 
 <!-- Modal Add Activity -->
 
-<div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel" aria-hidden="true">
+<div class="modal fade " id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color:orange;">
@@ -263,23 +263,87 @@ if (!empty($data['message'])) {
                         <label>Choose Days</label> <br>
 
                         <div class="weekDays-selector">
-                            <input type="checkbox" id="add-weekday-mon" class="weekday" name="sessions_per_week[]" value="Monday" />
+                            <input type="checkbox" id="add-weekday-mon" onclick="mondayshowTimePicker();" class="weekday" name="sessions_per_week[]" value="Monday" />
                             <label for="add-weekday-mon">M</label>
-                            <input type="checkbox" id="add-weekday-tue" class="weekday" name="sessions_per_week[]" value="Tuesday" />
+                            <input type="checkbox" id="add-weekday-tue" onclick="tuesdayshowTimePicker();" class="weekday" name="sessions_per_week[]" value="Tuesday" />
                             <label for="add-weekday-tue">T</label>
-                            <input type="checkbox" id="add-weekday-wed" class="weekday" name="sessions_per_week[]" value="Wednesday" />
+                            <input type="checkbox" id="add-weekday-wed"  onclick="wednesdayshowTimePicker();" class="weekday" name="sessions_per_week[]" value="Wednesday" />
                             <label for="add-weekday-wed">W</label>
-                            <input type="checkbox" id="add-weekday-thu" class="weekday" name="sessions_per_week[]" value="Thursday" />
+                            <input type="checkbox" id="add-weekday-thu" onclick="thursdayshowTimePicker();" class="weekday" name="sessions_per_week[]" value="Thursday" />
                             <label for="add-weekday-thu">T</label>
-                            <input type="checkbox" id="add-weekday-fri" class="weekday" name="sessions_per_week[]" value="Friday" />
+                            <input type="checkbox" id="add-weekday-fri"  onclick="fridayshowTimePicker();" class="weekday" name="sessions_per_week[]" value="Friday" />
                             <label for="add-weekday-fri">F</label>
-                            <input type="checkbox" id="add-weekday-sat" class="weekday" name="sessions_per_week[]" value="Saturday" />
+                            <input type="checkbox" id="add-weekday-sat"  onclick="saturdayshowTimePicker();" class="weekday" name="sessions_per_week[]" value="Saturday" />
                             <label for="add-weekday-sat">S</label>
-                            <input type="checkbox" id="add-weekday-sun" class="weekday" name="sessions_per_week[]" value="Sunday" />
+                            <input type="checkbox" id="add-weekday-sun"  onclick="sundayshowTimePicker();" class="weekday" name="sessions_per_week[]" value="Sunday" />
                             <label for="add-weekday-sun">S</label>
                         </div>
 
+                        <div class="monday_time_wrapper" id="monday_time_wrapper" style="display:none;">
+
+                            <input type="text" class="monday_timepicker_start" name="monday_starttimeArray[]" /> to
+                            <input type="text" class="monday_timepicker_end" name="monday_endtimeArray[]" />
+                            <button type="button" class="btn btn-primary mt-2 monday_addmore_Time">Add More</button>
+
+                        </div>
+
+
+                        <div class="tuesday_time_wrapper" id="tuesday_time_wrapper" style="display:none;">
+
+                            <input type="text" class="tuesday_timepicker_start" name="tuesday_starttimeArray[]" /> to
+                            <input type="text" class="tuesday_timepicker_end" name="tuesday_endtimeArray[]" />
+                            <button type="button" class="btn btn-primary mt-2 tuesday_addmore_Time">Add More</button>
+
+                        </div>
+
+
+                        <div class="wednesday_time_wrapper" id="wednesday_time_wrapper" style="display:none;">
+
+                            <input type="text" class="wednesday_timepicker_start" name="wednesday_starttimeArray[]" /> to
+                            <input type="text" class="wednesday_timepicker_end" name="wednesday_endtimeArray[]" />
+                            <button type="button" class="btn btn-primary mt-2 wednesday_addmore_Time">Add More</button>
+
+                        </div>
+
+                        
+                        <div class="thursday_time_wrapper" id="thursday_time_wrapper" style="display:none;">
+
+                            <input type="text" class="thursday_timepicker_start" name="thursday_starttimeArray[]" /> to
+                            <input type="text" class="thursday_timepicker_end" name="thursday_endtimeArray[]" />
+                            <button type="button" class="btn btn-primary mt-2 thursday_addmore_Time">Add More</button>
+
+                        </div>
+
+                        
+                        <div class="friday_time_wrapper" id="friday_time_wrapper" style="display:none;">
+
+                            <input type="text" class="friday_timepicker_start" name="friday_starttimeArray[]" /> to
+                            <input type="text" class="friday_timepicker_end" name="friday_endtimeArray[]" />
+                            <button type="button" class="btn btn-primary mt-2 friday_addmore_Time">Add More</button>
+
+                        </div>
+
+                        
+                        <div class="saturday_time_wrapper" id="saturday_time_wrapper" style="display:none;">
+
+                            <input type="text" class="saturday_timepicker_start" name="saturday_starttimeArray[]" /> to
+                            <input type="text" class="saturday_timepicker_end" name="saturday_endtimeArray[]" />
+                            <button type="button" class="btn btn-primary mt-2 saturday_addmore_Time">Add More</button>
+
+                        </div>
+
+                        
+                        <div class="sunday_time_wrapper" id="sunday_time_wrapper" style="display:none;">
+
+                            <input type="text" class="sunday_timepicker_start" name="sunday_starttimeArray[]" /> to
+                            <input type="text" class="sunday_timepicker_end" name="sunday_endtimeArray[]" />
+                            <button type="button" class="btn btn-primary mt-2 sunday_addmore_Time">Add More</button>
+
+                        </div>
+
+
                     </div>
+
 
 
                     <div class="form-group">
@@ -314,13 +378,13 @@ if (!empty($data['message'])) {
                         ?>
                     </div>
 
-                    <button type="submit" id = "closeAddActivityModal" class="btn btn-success btn-block" class="btn btn-primary">Done</button>
+                    <button type="submit" id="closeAddActivityModal" class="btn btn-success btn-block" class="btn btn-primary">Done</button>
                 </form>
 
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
             </div>
         </div>

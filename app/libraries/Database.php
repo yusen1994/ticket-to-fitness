@@ -69,6 +69,10 @@
       return $this->stmt->execute();
     }
 
+    public function lastid(){
+      return $this->dbh->lastInsertId();
+    }
+
     // Get result set as array of objects
     public function resultSet(){
       $this->execute();

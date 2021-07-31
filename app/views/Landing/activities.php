@@ -69,22 +69,22 @@ F2F2F2;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-3">
-                                <a href = "<?php echo URLROOT;?>/Activity/filterby/credits/low"> <button class="filter_btn text-center"><img src="<?php echo URLROOT; ?>/images/credits_noBG.png">
-                                
-                                </button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/credits/low"> <button class="filter_btn text-center"><img src="<?php echo URLROOT; ?>/images/credits_noBG.png">
+
+                                        </button></a>
                                     <p> Credits Low </p>
                                 </div>
                                 <div class="col-sm-3">
-                                <a href = "<?php echo URLROOT;?>/Activity/filterby/credits/high"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/credits_noBG.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/credits/high"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/credits_noBG.png"></button></a>
                                     <p> Credits High </p>
 
                                 </div>
                                 <div class="col-sm-3">
-                                <a href = "<?php echo URLROOT;?>/Activity/filterby/frequency/low"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/frequency.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/frequency/low"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/frequency.png"></button></a>
                                     <p> Frequency Low </p>
                                 </div>
                                 <div class="col-sm-3">
-                                <a href = "<?php echo URLROOT;?>/Activity/filterby/frequency/high">  <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/frequency.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/frequency/high"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/frequency.png"></button></a>
                                     <p> Frequency High </p>
                                 </div>
                             </div>
@@ -94,24 +94,24 @@ F2F2F2;">
                             <hr>
                             <div class="row">
                                 <div class="col-sm-4">
-                                <a href = "<?php echo URLROOT;?>/Activity/filterby/category/cycling">  <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/cycle.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/category/cycling"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/cycle.png"></button></a>
                                     <p>Cycling</p>
                                     <br>
-                                    <a href = "<?php echo URLROOT;?>/Activity/filterby/category/weights"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/weights.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/category/weights"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/weights.png"></button></a>
                                     <p>Weights</p>
                                 </div>
                                 <div class="col-sm-4">
-                                <a href = "<?php echo URLROOT;?>/Activity/filterby/category/swimming"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/swimmer.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/category/swimming"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/swimmer.png"></button></a>
                                     <p>Swimming</p>
                                     <br>
-                                    <a href = "<?php echo URLROOT;?>/Activity/filterby/category/fight">   <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/fight.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/category/fight"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/fight.png"></button></a>
                                     <p>Martial Arts</p>
                                 </div>
                                 <div class="col-sm-4">
-                                <a href = "<?php echo URLROOT;?>/Activity/filterby/category/yoga"><button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/meditation.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/category/yoga"><button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/meditation.png"></button></a>
                                     <p>Yoga</p>
                                     <br>
-                                    <a href = "<?php echo URLROOT;?>/Activity/filterby/category/cardio"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/cardio.png"></button></a>
+                                    <a href="<?php echo URLROOT; ?>/Activity/filterby/category/cardio"> <button class="filter_btn"><img src="<?php echo URLROOT; ?>/images/cardio.png"></button></a>
                                     <p>Cardio</p>
                                 </div>
 
@@ -119,8 +119,8 @@ F2F2F2;">
                         </div>
 
                         <form method="POST" action="<?php echo URLROOT; ?>/Activity/nearestOffer">
-                        <h3 style="text-align:center;"><b>Search by Location </b></h3>
-                        <hr>
+                            <h3 style="text-align:center;"><b>Search by Location </b></h3>
+                            <hr>
 
 
                             <div class="form-group mt-5">
@@ -135,9 +135,9 @@ F2F2F2;">
                             </div>
 
                             <div class="form-group">
-                              <input type="text" id="gymaddress" class="form-control" placeholder="Enter Address" value="<?php if (!empty($data['gym_address'])) {
-                                                                                                                                        echo $data['gym_address'];
-                                                                                                                                    } ?>" name="gym_address" required title="">
+                                <input type="text" id="gymaddress" class="form-control" placeholder="Enter Address" value="<?php if (!empty($data['gym_address'])) {
+                                                                                                                                echo $data['gym_address'];
+                                                                                                                            } ?>" name="gym_address" required title="">
 
                             </div>
 
