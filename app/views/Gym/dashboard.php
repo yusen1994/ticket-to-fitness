@@ -96,6 +96,5 @@ if (!empty($data['message'])) {
 
 <!-- Content end -->
 </div>
-</div>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

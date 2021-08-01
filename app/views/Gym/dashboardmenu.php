@@ -19,7 +19,6 @@
         </div>
     </div>
 </nav>
-<div class="container">
     <div class="gym_container">
         <!-- Nav start -->
         <div class="gym_nav mt-3">
@@ -39,3 +38,5 @@
             </ul>
         </div>
         <!-- Nav end -->
+
+        

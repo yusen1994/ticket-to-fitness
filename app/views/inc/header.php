@@ -14,7 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/font/iconfont.css">
+ 
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css"> <!--There is already styles location mentioned above but due to 
   some reason the homepage css only takes the path with public -->
 
