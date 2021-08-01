@@ -17,6 +17,7 @@ class Gym extends Controller
             if ($_SESSION['partnership_status'] == true) {
                 $gyminfo = $this->accountsModel->fetchGymInformation($_SESSION['user_id']);
                 $_SESSION['gym_name'] = $gyminfo->gym_name;
+                $_SESSION['gym_address'] = $gyminfo->gym_address;
                 return true;
             }
         } else {
@@ -311,6 +312,28 @@ class Gym extends Controller
 
 
             $this->view('Gym/dashboard', $data);
+        } else {
+            redirect('Accounts/login');
+        }
+    }
+
+
+    public function timetable($day="monday"){
+
+        if ($this->isGymLoggedIn()) {
+            $data = [
+
+                'gym_id' => $_SESSION['user_id'],
+                'day'=>$day,
+                'gym_activity' => '',
+                'gym_address'=>$_SESSION['gym_address']
+            ];
+            $gymactivity = $this->gymModel->viewtimeTable($data);
+            if (!empty($gymactivity)) {
+                $data['gym_activity'] = $gymactivity;
+                $this->view('Gym/timetable', $data);
+            }
+
         } else {
             redirect('Accounts/login');
         }

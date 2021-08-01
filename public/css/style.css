@@ -491,3 +491,20 @@ button:focus
 		}
 
 
+/*Gym Timetable*/
+
+.gym_timetable
+{
+  width: 100%;
+  background-color: #F8F8FF ;
+}
+.buttons_days_of_week, .activities_inside_card 
+{
+  width:100%;
+}
+.activity_card
+{
+  width:100%;
+  border-radius: 30px;
+  border: 3px solid beige;
+}

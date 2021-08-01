@@ -255,4 +255,22 @@ class GymModel
       return $row;
     }
   }
+
+
+
+public function viewtimeTable($data){
+
+  $this->db->query('SELECT gym_activity_timetable.day, gym_activity_timetable.time, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit FROM gym_activity_timetable INNER JOIN gym_activity ON gym_activity_timetable.activity_id = gym_activity.id where gym_activity_timetable.gym_id = :gym_id and gym_activity_timetable.day=:day');
+  $this->db->bind(':gym_id', $data['gym_id']);
+  $this->db->bind(':day', $data['day']);
+
+
+  $row = $this->db->resultSet();
+
+  if ($this->db->rowCount() > 0) {
+
+    return $row;
+  }
+}
+
 }
