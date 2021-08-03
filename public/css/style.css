@@ -10,6 +10,12 @@ body {
     margin-left: auto;
 }
 
+.center-text{
+  text-align: center;
+
+
+}
+
 
 /* Landing Page */
 
@@ -609,5 +615,40 @@ hr {
 }
 
 
-/*User Dashboard*/
+/*User dashboard*/
 
+.userdashboard-menu-active{
+
+  background-color: orange !important;
+}
+
+.number {
+  font-size: 50px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.number-medium {
+  font-size: 30px;
+  margin-left: 5px;
+}
+
+.userdashboard-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userdashboard-btn-group button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid orange;
+  border-radius: 25px;
+  margin: 5px;
+  padding: 0 20px 0 20px;
+  width: 90%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 16px;
+}
