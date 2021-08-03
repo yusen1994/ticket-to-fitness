@@ -42,44 +42,52 @@ if (!empty($data['message'])) {
 
 
 <div class="gym_content">
-    <div class="gym_title"><?php echo $_SESSION['gym_name']; ?></div>
+    <div class="gym_title pl-3"><?php echo $_SESSION['gym_name']; ?></div>
     <div class="gym_date">
-        <ul>
-            <li>
-                <span class="number">18</span>
-                <hr>
-                <span class="desc">total members</span>
-            </li>
-            <li>
-                <span class="number">4</span>
-                <hr>
-                <span class="desc">members this month</span>
-            </li>
-            <li>
-                <span class="number">3</span>
-                <hr>
-                <span class="desc">activites</span>
-            </li>
-            <li>
-                <span class="number">180</span>
-                <hr>
-                <span class="desc">$/month</span>
-            </li>
-            <li>
-                <span class="number">2</span>
-                <hr>
-                <span class="desc">$ this month</span>
-            </li>
-            <li>
-                <span class="number">17</span>
-                <hr>
-                <span class="desc">trainers</span>
-            </li>
-        </ul>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <span class="number" >18</span>
+                        <hr>
+                        <span class="desc">total members</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="number">4</span>
+                        <hr>
+                        <span class="desc">members this month</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="number">3</span>
+                        <hr>
+                        <span class="desc">activites</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <span class="number">180</span>
+                        <hr>
+                        <span class="desc">$/month</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="number ">2</span>
+                        <hr>
+                        <span class="desc">$ this month</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="number">17</span>
+                        <hr>
+                        <span class="desc">trainers</span>
+                    </div>
+                </div>
+            </div>
+
     </div>
+
     <div class="gym_btn-group">
         <button>
-            <a href="<?php echo URLROOT; ?>/gym/activities">
+            <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/gym/activities">
                 <span>Activities</span> </a>
             <span class="iconfont">&#xe60d;</span>
         </button>
@@ -96,5 +104,7 @@ if (!empty($data['message'])) {
 
 <!-- Content end -->
 </div>
+
+
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

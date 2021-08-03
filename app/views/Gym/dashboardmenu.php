@@ -21,19 +21,19 @@
 </nav>
     <div class="gym_container">
         <!-- Nav start -->
-        <div class="gym_nav mt-3">
+        <div class="gym_nav mt-3 text-center">
             <ul>
-                <li class="gym_active">
+                <li class="gym_active ">
                     <img src="<?php echo URLROOT; ?>/images/box.png" alt="">
-                    <a href = "<?php echo URLROOT;?>/gym"><span>Home</span></a>
+                    <a style="text-decoration:none; color:inherit;" href = "<?php echo URLROOT;?>/gym"><span>Home</span></a>
                 </li>
                 <li>
                     <img src="<?php echo URLROOT; ?>/images/calendar.png" alt="">
-                    <a href = "<?php echo URLROOT; ?>/gym/timetable"><span>Manage Timetable</span></a>
+                    <a style="text-decoration:none; color:inherit;" href = "<?php echo URLROOT; ?>/gym/timetable"><span>Manage Timetable</span></a>
                 </li>
                 <li>
                     <img src="<?php echo URLROOT; ?>/images/user.png" alt="">
-                    <a href = "<?php echo URLROOT; ?>/gym/gymprofile"><span>Gym Information</span></a>
+                    <a style="text-decoration:none; color:inherit;" href = "<?php echo URLROOT; ?>/gym/gymprofile"><span>Gym Information</span></a>
                 </li>
             </ul>
         </div>
