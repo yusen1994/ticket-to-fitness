@@ -92,7 +92,7 @@ if (!empty($data['message'])) {
             <span class="iconfont">&#xe60d;</span>
         </button>
         <button>
-            <span>Members</span>
+        <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/gym/members">  <span>Members</span></a>
             <span class="iconfont">&#xe60d;</span>
         </button>
         <button>

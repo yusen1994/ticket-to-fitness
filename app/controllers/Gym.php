@@ -360,10 +360,21 @@ class Gym extends Controller
             if (!empty($gymactivity)) {
                 $data['gym_activity'] = $gymactivity;
                 $this->view('Gym/timetable', $data);
+            }else{
+                $data['error'] = 'No Activity in this time';
+                $this->view('Gym/timetable', $data);
+
             }
 
         } else {
             redirect('Accounts/login');
         }
+    }
+
+
+
+    public function members(){
+
+        $this->view('Gym/members');
     }
 }
