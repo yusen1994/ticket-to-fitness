@@ -273,4 +273,18 @@ public function viewtimeTable($data){
   }
 }
 
+public function members($data){
+
+  $this->db->query('SELECT DISTINCT users.firstname, users.lastname FROM users_activity JOIN users ON users_activity.user_id = users.id where users_activity.gym_id=:gym_id');
+  $this->db->bind(':gym_id', $data['gym_id']);
+ 
+  $row = $this->db->resultSet();
+   
+  if ($this->db->rowCount() > 0) {
+ 
+    return $row;
+  }
+ 
+ }
+
 }
