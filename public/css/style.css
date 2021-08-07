@@ -1,421 +1,404 @@
 body {
-    padding-top: 65px;
+  padding-top: 65px;
 }
 
 .container {
-    width: 100%;
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.center-text{
+.center-text {
   text-align: center;
-
-
 }
-
 
 /* Landing Page */
 
-
 /*New Nav Bar*/
-
 
 /* Font Awesome Icons have variable width. Added fixed width to fix that.*/
 
 .icon-width {
-    width: 2rem;
+  width: 2rem;
 }
-
 
 /*Password Reset form Container*/
 
 #container-passwordreset {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
 }
-
 
 /*Login Page*/
 
 .login-form {
-    width: 340px;
-    margin: 50px auto;
-    font-size: 15px;
+  width: 340px;
+  margin: 50px auto;
+  font-size: 15px;
 }
 
 .login-form form {
-    margin-bottom: 15px;
-    background: #f7f7f7;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    padding: 30px;
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
 
 .login-form h2 {
-    margin: 0 0 15px;
+  margin: 0 0 15px;
 }
 
 .form-control,
 .btn {
-    min-height: 38px;
-    border-radius: 2px;
+  min-height: 38px;
+  border-radius: 2px;
 }
 
 .btn {
-    font-size: 15px;
-    font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 }
-
 
 /*Dashboard->Userprofile*/
 
 #container-userprofile {
-    display: flex;
-    justify-content: center;
-    min-height: 80vh;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  align-items: center;
 }
-
 
 /*Content display mobile and desktop control */
 
 @media screen and (min-width: 600px) {
-    #desktopHide {
-        display: none;
-    }
+  #desktopHide {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    #mobileHide {
-        display: none;
-    }
+  #mobileHide {
+    display: none;
+  }
 }
-
 
 /*H1, H2, H3 -> Font family */
 
 h2 {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 h1 {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 h3 {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /*New LandingPage*/
 
 .landing-image {
-    position: relative;
-    text-align: center;
-  }
+  position: relative;
+  text-align: center;
+}
 
-  .img-responsive {
-    width: 100%;
-  }
+.img-responsive {
+  width: 100%;
+}
 
-  .text-overlay-1 {
-    position: absolute;
-    bottom: 35px;
-    right: 15px;
+.text-overlay-1 {
+  position: absolute;
+  bottom: 35px;
+  right: 15px;
+}
 
-  }
+.text-overlay-2 {
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
+}
 
-  .text-overlay-2 {
-    position: absolute;
-    bottom: 0px;
-    right: 15px;
-  }
+.text-overlay-3 {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
 
-  .text-overlay-3 {
-    position: absolute;
-    top: 10px;
-    left: 15px;
+.text-overlay-4 {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+}
 
-  }
+.land-text-1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
+}
 
-  .text-overlay-4 {
-    position: absolute;
-    top: 10px;
-    left: 100px;
-  }
+.land-text-2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ef8830;
+  text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
+}
 
-  .land-text-1 {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
-  }
+.land-text-3 {
+  font-size: 25px;
+  font-weight: bold;
+}
 
-  .land-text-2 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #EF8830;
-    text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
-  }
+.land-text-4 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #ef8830;
+}
 
-  .land-text-3 {
-    font-size: 25px;
-    font-weight: bold;
+.land-text-5 {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: right;
+}
 
-  }
+.land-login-btn {
+  background-color: #ef8830;
+  font-family: "Poppins";
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  width: 75%;
+  height: 45px;
+}
 
-  .land-text-4 {
-    font-size: 25px;
-    font-weight: bold;
-    color: #EF8830;
-  }
+.land-learnmore-btn {
+  background-color: white;
+  font-family: "Poppins";
+  font-weight: bold;
+  border-radius: 12px;
+  border-color: #ef8830;
+  border-width: thin;
+  width: 75%;
+  height: 45px;
+}
 
-  .land-text-5 {
-    font-size: 25px;
-    font-weight: bold;
-    text-align: right;
+.land-seeall-btn {
+  background-color: white;
+  font-family: "Poppins";
+  font-weight: bold;
+  border-radius: 12px;
+  border-color: #ef8830;
+  border-width: thin;
+  width: 75%;
+  height: 45px;
+}
 
-  }
+.btn-arrow-1 {
+  padding-left: 5px;
+}
 
-  .land-login-btn {
-    background-color: #EF8830;
-    font-family: 'Poppins';
-    font-weight: bold;
-    border-radius: 12px;
-    border: none;
-    width: 75%;
-    height: 45px;
-  }
+.category-btn-left {
+  width: 75%;
+  height: 75px;
+  align-items: left;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 50px;
+  border-color: #3f3f3f;
+  border-width: 2px;
+  text-align: left;
+  position: relative;
+}
 
-  .land-learnmore-btn {
-    background-color: white;
-    font-family: 'Poppins';
-    font-weight: bold;
-    border-radius: 12px;
-    border-color: #EF8830;
-    border-width: thin;
-    width: 75%;
-    height: 45px;
-  }
+.category-col {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 20px;
+}
 
-  .land-seeall-btn {
-    background-color: white;
-    font-family: 'Poppins';
-    font-weight: bold;
-    border-radius: 12px;
-    border-color: #EF8830;
-    border-width: thin;
-    width: 75%;
-    height: 45px;
-  }
+.category-img-left {
+  margin-left: -1px;
+  margin-right: 5px;
+}
 
-  .btn-arrow-1 {
-    padding-left: 5px;
+.category-btn-right {
+  width: 75%;
+  height: 74px;
+  align-items: right;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 50px;
+  border-color: #3f3f3f;
+  border-width: 2px;
+  text-align: right;
+}
 
-  }
+.category-img-right {
+  position: relative;
+  margin-right: -2px;
+}
 
-  .category-btn-left {
-    width: 75%;
-    height: 75px;
-    align-items: left;
-    padding: 0px;
-    margin: 0px;
-    border-radius: 50px;
-    border-color: #3F3F3F;
-    border-width: 2px;
-    text-align: left;
-    position: relative;
-  }
+.btn-arrow-left {
+  position: absolute;
+  top: 35%;
+  right: 10%;
+}
 
-  .category-col {
-    padding: 0px;
-    margin: 0px;
-    padding-top: 20px;
-  }
-
-  .category-img-left {
-    margin-left: -1px;
-    margin-right: 5px;
-  }
-
-  .category-btn-right {
-    width: 75%;
-    height: 74px;
-    align-items: right;
-    padding: 0px;
-    margin: 0px;
-    border-radius: 50px;
-    border-color: #3F3F3F;
-    border-width: 2px;
-    text-align: right;
-  }
-
-  .category-img-right {
-    position: relative;
-    margin-right: -2px;
-  }
-
-  .btn-arrow-left {
-    position: absolute;
-    top: 35%;
-    right: 10%;
-
-  }
-
-
-  .card-container {
-    margin-left: 15px;
-    margin-right: 15px;
-    flex: 1;
-    flex-direction: row;
-    height: 100px;
-    border-style: solid;
-    border-width: 1;
-    border-radius: 24px;
-    border-color: #707070;
-    align-items: center;
-    display: flex;
-    color: black;
-    outline: none;
-    background-color: white;
+.card-container {
+  margin-left: 15px;
+  margin-right: 15px;
+  flex: 1;
+  flex-direction: row;
+  height: 100px;
+  border-style: solid;
+  border-width: 1;
+  border-radius: 24px;
+  border-color: #707070;
+  align-items: center;
+  display: flex;
+  color: black;
+  outline: none;
+  background-color: white;
 }
 
 .card-container:focus {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .credits-container {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .credits-image {
-    height: 20px;
-    width: 24px;
+  height: 20px;
+  width: 24px;
 }
 
 .card-info-col {
-    width: 50%;
+  width: 50%;
 }
 
 .card-category-text {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .card-category-image {
-    height: 18px;
-    width: 18px;
+  height: 18px;
+  width: 18px;
 }
 
 .gym-image-container {
-    width: 20%;
-    height: 80px;
-    margin-left: 15px;
+  width: 20%;
+  height: 80px;
+  margin-left: 15px;
 }
 
 .gym-image {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .card-content {
-    width: 60%;
-    height: 80px;
-    margin-left: 10px;
+  width: 60%;
+  height: 80px;
+  margin-left: 10px;
 }
 
 .gym-name {
-    height: 10px;
-    font-weight: bold;
+  height: 10px;
+  font-weight: bold;
 }
 
 .line-separator {
-    height: 1px;
-    width: 100%;
-    background-color: #f3f3f3;
+  height: 1px;
+  width: 100%;
+  background-color: #f3f3f3;
 }
 
 .gym-info-container {
-    width: 100%;
+  width: 100%;
 }
 
 .text-overlay-5 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .land-text-6 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ef8830;
-    text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
+  font-size: 30px;
+  font-weight: bold;
+  color: #ef8830;
+  text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
 }
 
 .activities-responsive {
-    width: 100%;
-    filter: blur(4px);
+  width: 100%;
+  filter: blur(4px);
 }
 
 .search-text-icon {
-    margin-left: 5px;
-    padding-bottom: 5px;
+  margin-left: 5px;
+  padding-bottom: 5px;
 }
 
 .search-input {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 37px;
-    border-radius: 12px;
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 37px;
+  border-radius: 12px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
 }
 
 .search-input-text {
-    height: 100%;
-    width: 90%;
-    background-color: transparent;
-    border-style: none;
-    outline: none;
+  height: 100%;
+  width: 90%;
+  background-color: transparent;
+  border-style: none;
+  outline: none;
 }
 
 .filter-btn {
-    background-color: #ef8830;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 37px;
-    font-size: 18px;
-    color: black;
-    border-radius: 12px;
-    border-style: none;
-    outline: none;
+  background-color: #ef8830;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 37px;
+  font-size: 18px;
+  color: black;
+  border-radius: 12px;
+  border-style: none;
+  outline: none;
 }
 
 .filter-btn-icon {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .pac-container {
   z-index: 1051 !important;
 }
- 
+
 /*GymActivity add activity day picker*/
 .weekDays-selector input {
-  display: none!important;
+  display: none !important;
 }
 
-.weekDays-selector input[type=checkbox] + label {
+.weekDays-selector input[type="checkbox"] + label {
   display: inline-block;
   border-radius: 6px;
   background: #dddddd;
@@ -427,18 +410,17 @@ p {
   cursor: pointer;
 }
 
-.weekDays-selector input[type=checkbox]:checked + label {
-  background: #2AD705;
+.weekDays-selector input[type="checkbox"]:checked + label {
+  background: #2ad705;
   color: #ffffff;
 }
 
-.weekDays-selector2 input[type=checkbox]:checked + label {
-  background: #2AD705;
+.weekDays-selector2 input[type="checkbox"]:checked + label {
+  background: #2ad705;
   color: #ffffff;
 }
 
-
-.weekDays-selector2 input[type=checkbox] + label {
+.weekDays-selector2 input[type="checkbox"] + label {
   display: inline-block;
   border-radius: 6px;
   background: #dddddd;
@@ -451,70 +433,58 @@ p {
 }
 
 .weekDays-selector2 input {
-  display: none!important;
+  display: none !important;
 }
 
 /*Activity page filter modal css */
 
-button:focus
-		{
-			outline:none;
-		}
+button:focus {
+  outline: none;
+}
 
-		#filter
-		{
-			width: 100%;
-			background-color: #F8F8FF ;
-			margin-top: 20px;
-			display: none;
-		}
-		.filter_header
-		{
-			width: 100%;
-			background-color: #EF8830;
-			text-align:center;
-		}
-		.filter_btn
-		{
-			background-color: #EF8830;
-  			border: none;
-			padding: 12px 16px;
-			font-size: 20px;
-			cursor: pointer;
-			border-radius :50%;
-			
-		}
-		.filter_btn:hover 
-		{
-  			background-color:#db6e11;
-		}
-		.cross_btn
-		{
-			font-size: 45px;
-			text-align:center;
-			color: black !important ;
-
-		}
-
+#filter {
+  width: 100%;
+  background-color: #f8f8ff;
+  margin-top: 20px;
+  display: none;
+}
+.filter_header {
+  width: 100%;
+  background-color: #ef8830;
+  text-align: center;
+}
+.filter_btn {
+  background-color: #ef8830;
+  border: none;
+  padding: 12px 16px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.filter_btn:hover {
+  background-color: #db6e11;
+}
+.cross_btn {
+  font-size: 45px;
+  text-align: center;
+  color: black !important ;
+}
 
 /*Gym Timetable*/
 
-.gym_timetable
-{
+.gym_timetable {
   width: 100%;
-  background-color: #F8F8FF ;
+  background-color: #f8f8ff;
 }
-.buttons_days_of_week, .activities_inside_card 
-{
-  width:100%;
+.buttons_days_of_week,
+.activities_inside_card {
+  width: 100%;
 }
-.activity_card
-{
-  width:100%;
+.activity_card {
+  width: 100%;
   border-radius: 30px;
   border: 3px solid beige;
 }
-
 
 /*Gym Dashboard */
 
@@ -531,7 +501,6 @@ body {
   justify-content: center;
 }
 .gym_nav {
-
 }
 .gym_nav ul {
   height: 100%;
@@ -551,7 +520,6 @@ body {
   cursor: pointer;
 }
 .gym_nav ul li img {
-  
 }
 .gym_nav ul li span {
   padding-top: 10px;
@@ -560,7 +528,7 @@ body {
 .gym_content {
   display: flex;
   flex-direction: column;
-  background-color:#eaeaea;
+  background-color: #eaeaea;
   padding: 0 10px 0 10px;
 }
 .gym_title {
@@ -569,7 +537,6 @@ body {
   padding: 15px 0 15px 0;
 }
 .gym_date {
-
 }
 .gym_date ul {
   flex: 1;
@@ -607,18 +574,16 @@ body {
 }
 .gym_date .number {
   font-size: 50px;
-  font-weight:bold;
+  font-weight: bold;
 }
 hr {
   background-color: #cccccc;
   margin: 5px 0 5px 0;
 }
 
-
 /*User dashboard*/
 
-.userdashboard-menu-active{
-
+.userdashboard-menu-active {
   background-color: orange !important;
 }
 
@@ -655,15 +620,14 @@ hr {
 
 /*Gym Dashboard - Member */
 
-
-gym-a{
+gym-a {
   text-decoration: none;
 }
 gym-a:link {
-  color:black;
+  color: black;
 }
 gym-a:visited {
-  color:black;
+  color: black;
 }
 
 .gym-title {
@@ -671,7 +635,7 @@ gym-a:visited {
   font-weight: bold;
   padding: 15px 0 15px 0;
 }
-.gym-title i{
+.gym-title i {
   font-size: 40px;
 }
 
@@ -687,7 +651,7 @@ gym-a:visited {
   border-radius: 25px;
   height: 50px;
   width: 80%;
-  background-image: url('../images/magnifier.png');
+  background-image: url("../images/magnifier.png");
   background-repeat: no-repeat;
   background-size: 25px 25px;
   background-position: 10px;

@@ -3,7 +3,7 @@ class Pages extends Controller
 {
   public function __construct()
   {
-      $this->gymModel = $this->model('GymModel'); // Model for gym related work
+    $this->gymModel = $this->model('GymModel'); // Model for gym related work
   }
 
   public function index()
@@ -16,10 +16,10 @@ class Pages extends Controller
     ];
 
     $activity = $this->gymModel->fetchActiveActivity();
-    if($activity != NULL){
+    if ($activity != NULL) {
       $data['gym_activity'] = $activity;
     }
-   
+
 
     $this->view('Landing/homepage', $data);
   }
@@ -31,5 +31,22 @@ class Pages extends Controller
     ];
 
     $this->view('pages/about', $data);
+  }
+
+  public function cart()
+  {
+    $data = [
+      'title' => 'My Cart'
+    ];
+
+    $this->view('Landing/cart', $data);
+  }
+  public function buyCredits()
+  {
+    $data = [
+      'title' => 'My Cart'
+    ];
+
+    $this->view('User/buycredits', $data);
   }
 }
