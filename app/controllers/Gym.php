@@ -374,7 +374,23 @@ class Gym extends Controller
 
 
     public function members(){
+        if ($this->isGymLoggedIn())
+        {
+            $data = [
+                'gym_id' => $_SESSION['user_id'],
+            ];
 
-        $this->view('Gym/members');
+            $gym_members = $this->gymModel->members($data);
+
+            $data['gym_members'] = $gym_members;
+            
+            $this->view('Gym/members',$data);
+        }else{
+            $data['error'] = "No members yet!";
+            $this->view('Gym/members',$data);
+
+
+        }
+        
     }
 }
