@@ -99,7 +99,6 @@ class User extends Controller
         //Send message of "All Allocated" if no more allocation
 
 
-
-
     }
+
 }

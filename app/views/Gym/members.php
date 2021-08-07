@@ -7,28 +7,24 @@
     </div>
     <div class="gym-body">
         <div class="gym-member-list">
-            <div class="gym-member">
-                <div class="gym-member-construct">
-                    <div class="gym-member-name">Name</div>
-                    <div class="gym-member-active">Active</div>
-                </div>
-                <div class="gym-member-construct">
-                    <div class="gym-member-attend">Classes attended:3</div>
-                    <div class="gym-member-date">Joined:20 July 6</div>
-                </div>
-                <div class="gym-line"></div>
+
+        <?php foreach ($data['gym_members'] as $single){
+
+            echo '            <div class="gym-member">
+            <div class="gym-member-construct">
+                <div class="gym-member-name">'.$single->firstname." ".$single->lastname.'</div>
+                <div class="gym-member-active">Active</div>
             </div>
-            <div class="gym-member">
-                <div class="gym-member-construct">
-                    <div class="gym-member-name">Name</div>
-                    <div class="gym-member-inactive">Inactive</div>
-                </div>
-                <div class="gym-member-construct">
-                    <div class="gym-member-attend">Classes attended:3</div>
-                    <div class="gym-member-date">Joined:20 July 6</div>
-                </div>
-                <div class="gym-line"></div>
-            </div>
+            <div class="gym-member-construct">
+                <div class="gym-member-attend">Classes attended:3</div>
+                <div class="gym-member-date">Joined:20 July 6</div>
+            </div>      
+            <div class="gym-line"></div>
+        </div>';
+
+        }
+?>  
+          
         </div>
         <div class="gym-desc">
             <p>Active means the are currently</p>
