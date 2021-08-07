@@ -41,4 +41,12 @@ class Pages extends Controller
 
     $this->view('Landing/cart', $data);
   }
+  public function buyCredits()
+  {
+    $data = [
+      'title' => 'My Cart'
+    ];
+
+    $this->view('User/buycredits', $data);
+  }
 }

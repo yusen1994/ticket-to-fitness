@@ -40,17 +40,16 @@
         </div>
     </div>
 
-    <div class= "mt-3">
+    <div class="mt-3">
         <span style="font-size: 24px;font-weight:bold">My <span style="color: #E46E2E">Credits</span></span>
         <div class="userdashboard-btn-group" style="float: right;margin-top: -10px">
-            <button style="height: 35px;">
+            <a class="buy-btn" href="<?php echo URLROOT; ?>/Pages/buyCredits">
                 <span>$ Buy</span>
-
-            </button>
+            </a>
         </div>
     </div>
 
-    <div class="container mt-3">
+    <div class=" container mt-3">
         <div class="row">
             <div class="col-2">
 
@@ -83,15 +82,15 @@
 
     <div class="userdashboard-btn-group mt-3 ">
         <button>
-            <a href = "<?php echo URLROOT ?>/Activity"  style="text-decoration:none; color:inherit;"><span>View Activities</span></a>
+            <a href="<?php echo URLROOT ?>/Activity" style="text-decoration:none; color:inherit;"><span>View Activities</span></a>
             <span class="iconfont">&#xe60d;</span> </a>
         </button>
         <button>
-        <a href = "<?php echo URLROOT ?>/User/userProfile"  style="text-decoration:none; color:inherit;"> <span>My Profile</span></a>
+            <a href="<?php echo URLROOT ?>/User/userProfile" style="text-decoration:none; color:inherit;"> <span>My Profile</span></a>
             <span class="iconfont">&#xe60d;</span>
         </button>
         <button>
-        <a href = "<?php echo URLROOT ?>/User/userProfile"  style="text-decoration:none; color:inherit;"> <span>Register</span></a>
+            <a href="<?php echo URLROOT ?>/User/userProfile" style="text-decoration:none; color:inherit;"> <span>Register</span></a>
             <span class="iconfont">&#xe60d;</span>
         </button>
     </div>
@@ -110,3 +109,19 @@ if (!empty($data['message'])) {
 }
 ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>"
+
+<style>
+    .buy-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid orange;
+        border-radius: 25px;
+        margin: 5px;
+        padding: 0 20px 0 20px;
+        width: 90%;
+        height: 50px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+</style>
