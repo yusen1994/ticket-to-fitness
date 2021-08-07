@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2021 at 09:47 AM
+-- Generation Time: Aug 07, 2021 at 03:06 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -65,19 +65,9 @@ CREATE TABLE `gym_activity` (
 --
 
 INSERT INTO `gym_activity` (`id`, `gym_id`, `activity_name`, `category`, `sessions_per_week`, `max_capacity`, `credit`, `description`, `status`) VALUES
-(31, 12, 'Martial Art', 'swimming', '2', 100, 10, 'Hello', 1),
-(35, 17, 'Martial Art', 'fight', 'a:3:{i:0;s:7:\"Tuesday\";i:1;s:8:\"Thursday\";i:2;s:8:\"Saturday\";}', 20, 100, 'ssa', 1),
-(36, 19, 'Swimming', 'swimming', 'a:2:{i:0;s:7:\"Tuesday\";i:1;s:9:\"Wednesday\";}', 20, 20, 'Swimming', 1),
-(37, 20, 'Spidey Cardio', 'cardio', 'a:2:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";}', 20, 54, 'Spiderman', 0),
-(38, 21, 'Batman Swing', 'yoga', 'a:2:{i:0;s:7:\"Tuesday\";i:1;s:9:\"Wednesday\";}', 20, 100, 'sasa', 1),
-(39, 19, 'Fight', 'fight', 'a:2:{i:0;s:7:\"Tuesday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'Hello', 1),
-(40, 17, 'Swimming', 'swimming', 'a:3:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";i:2;s:9:\"Wednesday\";}', 12, 11, 'sasas', 0),
-(41, 17, 'Swimming', 'swimming', 'a:3:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";i:2;s:9:\"Wednesday\";}', 12, 11, 'sasas', 0),
-(42, 17, 'Swimming', 'swimming', 'a:3:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";i:2;s:9:\"Wednesday\";}', 12, 11, 'sasas', 0),
-(43, 17, 'Swimming', 'swimming', 'a:3:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";i:2;s:9:\"Wednesday\";}', 12, 11, 'sasas', 0),
-(44, 17, 'Swimming', 'swimming', 'a:3:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";i:2;s:9:\"Wednesday\";}', 12, 11, 'sasas', 0),
-(45, 17, 'Swimming', 'swimming', 'a:3:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";i:2;s:9:\"Wednesday\";}', 12, 11, 'sasas', 0),
-(46, 17, 'Pilates', 'yoga', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 122, 'sasas', 0);
+(47, 19, 'Swimming', 'swimming', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'This is swimming class', 1),
+(48, 19, 'karate', 'fight', 'a:2:{i:0;s:7:\"Tuesday\";i:1;s:8:\"Saturday\";}', 12, 202, 'sasa', 1),
+(49, 19, 'High Intensity Workout', 'weights', 'a:1:{i:0;s:7:\"Tuesday\";}', 20, 200, 'sasa', 0);
 
 -- --------------------------------------------------------
 
@@ -98,9 +88,14 @@ CREATE TABLE `gym_activity_timetable` (
 --
 
 INSERT INTO `gym_activity_timetable` (`id`, `activity_id`, `gym_id`, `day`, `time`) VALUES
-(0, 46, 17, 'monday', '12:00 AM-01:00 AM'),
-(0, 46, 17, 'monday', '2:00 PM-3:00 PM'),
-(0, 46, 17, 'wednesday', '01:00 AM-02:30 AM');
+(1, 47, 19, 'monday', '12:00 AM-12:30 AM'),
+(2, 47, 19, 'monday', '1:00 PM-2:00 PM'),
+(3, 47, 19, 'wednesday', '12:30 AM-02:00 AM'),
+(4, 48, 19, 'tuesday', '12:30 AM-01:00 AM'),
+(5, 48, 19, 'saturday', '01:30 AM-02:30 AM'),
+(6, 49, 19, 'monday', '12:30 AM-01:00 AM'),
+(7, 49, 19, 'monday', '2:00 AM-3:00-3:00 AM'),
+(8, 49, 19, 'tuesday', '01:30 AM-04:30 AM');
 
 -- --------------------------------------------------------
 
@@ -168,6 +163,28 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `passwo
 (20, 'spiderman', 'spidey', 'man', 'spidey@gmail.com', '$2y$10$tNDNfHXZr.2cgLc0eCXwfuYxpTLNTgLEk1quRTY6NSOlqwy60mkE6', '0eac06a065e9f6817582de711e08d5b3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
 (21, 'batman', 'batman', 'batman', 'batman@gmail.com', '$2y$10$yXPO5zkHNJROy2ieZ8Bdx.SeBD8gOyrxlX0yDJ6//Jt397zDY5us2', 'e7150a3dfa8a632b2576094c48e79e14', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_activity`
+--
+
+CREATE TABLE `users_activity` (
+  `id` int(20) NOT NULL,
+  `activity_id` int(20) NOT NULL,
+  `user_id` int(20) NOT NULL,
+  `gym_id` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_activity`
+--
+
+INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
+(1, 47, 17, 19),
+(2, 48, 18, 19),
+(3, 47, 17, 19);
+
 --
 -- Indexes for dumped tables
 --
@@ -186,6 +203,12 @@ ALTER TABLE `gym_activity`
   ADD KEY `gym_activity_ibfk_1` (`gym_id`);
 
 --
+-- Indexes for table `gym_activity_timetable`
+--
+ALTER TABLE `gym_activity_timetable`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gym_information`
 --
 ALTER TABLE `gym_information`
@@ -197,6 +220,13 @@ ALTER TABLE `gym_information`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users_activity`
+--
+ALTER TABLE `users_activity`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_activity_fkg` (`activity_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -212,7 +242,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `gym_activity`
 --
 ALTER TABLE `gym_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `gym_activity_timetable`
+--
+ALTER TABLE `gym_activity_timetable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `gym_information`
@@ -227,6 +263,12 @@ ALTER TABLE `users`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `users_activity`
+--
+ALTER TABLE `users_activity`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -235,6 +277,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `gym_activity`
   ADD CONSTRAINT `gym_activity_ibfk_1` FOREIGN KEY (`gym_id`) REFERENCES `gym_information` (`gym_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users_activity`
+--
+ALTER TABLE `users_activity`
+  ADD CONSTRAINT `users_activity_fkg` FOREIGN KEY (`activity_id`) REFERENCES `gym_activity` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
