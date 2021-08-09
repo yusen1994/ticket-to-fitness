@@ -83,13 +83,12 @@ class User extends Controller
 
 
 
-        //Check how many purchase for that particular activity id of the user in user_activity table
+        //Check how many purchase for that particular activity id of the user in user_activity table = 2
 
 
 
 
-        //Check how many already allocated in allocation table for that particular activity id of the user
-
+        //Check how many already allocated in allocation table for that particular activity id of the user = 2
 
 
         //Allow to allocate as much as the total purchase
@@ -99,6 +98,13 @@ class User extends Controller
         //Send message of "All Allocated" if no more allocation
 
 
+    }
+
+
+
+    public function payment(){
+
+        $this->view('User/payment');
     }
 
 }

@@ -21,7 +21,7 @@
         <div class="col-sm-12 col-lg-6">
             <div class="credit-item-container">
 
-                <a href="#" class="credit-item-link">
+                <a href="<?php echo URLROOT?>/user/payment" class="credit-item-link">
                     <div class="credit-item-link">
                         <div>
                             Small Credits Pack
