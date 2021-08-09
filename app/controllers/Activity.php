@@ -8,6 +8,8 @@ class Activity extends Controller
     {
 
         $this->activityModel = $this->model('ActivityModel');
+        $this->userModel = $this->model('userModel');
+
     }
 
     public function index()
@@ -140,7 +142,8 @@ class Activity extends Controller
                 'activity_id' => $activityid,
             ];
             $checkActivityExists = $this->activityModel->checkCart($data);
-            if (($checkActivityExists)) {
+            $checkExistingActivity = $this->userModel->checkActivity($data);
+            if (($checkActivityExists && $checkExistingActivity)) {
                 $data['error'] = "Activity already Added";
                 $this->allactivity($data);
             } else {

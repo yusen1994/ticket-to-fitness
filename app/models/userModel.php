@@ -81,4 +81,24 @@ class userModel
       return false;
     }
   }
+
+  public function checkActivity($data){
+
+    $this->db->query('SELECT * FROM `users_activity` WHERE user_id = :user_id and activity_id=:activity_id');
+    $this->db->bind(':user_id', $data['user_id']);
+    $this->db->bind(':activity_id', $data['activity_id']);
+
+
+   
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return true;
+    }else{
+      return false; 
+    }
+  }
+
+
 }

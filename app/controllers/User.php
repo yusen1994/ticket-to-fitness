@@ -172,28 +172,25 @@ class User extends Controller
             if ($user_id != $data['user_id']) {
                 $data['loginError'] = 'Please login to confirm Cart';
                 $this->view('Landing/login', $data);
-            }else{
+            } else {
                 $getUserCart = $this->userModel->viewCart($data);
-                if(!empty($getUserCart)){
-                    foreach($getUserCart as $single){
+                if (!empty($getUserCart)) {
+                    foreach ($getUserCart as $single) {
 
                         $data['user_id'] = $single->user_id;
                         $data['activity_id'] = $single->activity_id;
                         $data['gym_id'] = $single->gym_id;
+
+
                         $addUserActivity = $this->userModel->addActivity($data);
                         $removecart = $this->userModel->removeCart($data);
                     }
 
                     $this->timetable();
-                }else{
-                    $this->cart();
                 }
-
             }
         }
     }
-
-
 
 
 
