@@ -161,7 +161,7 @@
         background-color: white;
         color: black;
         height: 46px;
-        width: 165px;
+        width: 100%;
         font-weight: bold;
         text-align: center;
         text-decoration: none;
@@ -177,7 +177,7 @@
         background-color: #2BB730;
         color: white;
         height: 46px;
-        width: 165px;
+        width: 100%;
         font-weight: bold;
         text-align: center;
         text-decoration: none;
