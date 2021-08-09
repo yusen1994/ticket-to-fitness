@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2021 at 03:06 AM
+-- Generation Time: Aug 09, 2021 at 04:11 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -45,6 +45,18 @@ INSERT INTO `admin` (`id`, `username`, `firstname`, `lastname`, `password`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(20) NOT NULL,
+  `user_id` int(20) NOT NULL,
+  `activity_id` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gym_activity`
 --
 
@@ -67,7 +79,8 @@ CREATE TABLE `gym_activity` (
 INSERT INTO `gym_activity` (`id`, `gym_id`, `activity_name`, `category`, `sessions_per_week`, `max_capacity`, `credit`, `description`, `status`) VALUES
 (47, 19, 'Swimming', 'swimming', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'This is swimming class', 1),
 (48, 19, 'karate', 'fight', 'a:2:{i:0;s:7:\"Tuesday\";i:1;s:8:\"Saturday\";}', 12, 202, 'sasa', 1),
-(49, 19, 'High Intensity Workout', 'weights', 'a:1:{i:0;s:7:\"Tuesday\";}', 20, 200, 'sasa', 0);
+(49, 19, 'High Intensity Workout', 'weights', 'a:1:{i:0;s:7:\"Tuesday\";}', 20, 200, 'sasa', 0),
+(50, 17, 'Kung Fu', 'fight', 'a:1:{i:0;s:7:\"Tuesday\";}', 12, 12, 'sasa', 0);
 
 -- --------------------------------------------------------
 
@@ -95,7 +108,8 @@ INSERT INTO `gym_activity_timetable` (`id`, `activity_id`, `gym_id`, `day`, `tim
 (5, 48, 19, 'saturday', '01:30 AM-02:30 AM'),
 (6, 49, 19, 'monday', '12:30 AM-01:00 AM'),
 (7, 49, 19, 'monday', '2:00 AM-3:00-3:00 AM'),
-(8, 49, 19, 'tuesday', '01:30 AM-04:30 AM');
+(8, 49, 19, 'tuesday', '01:30 AM-04:30 AM'),
+(9, 50, 17, 'tuesday', '12:00 AM-01:00 AM');
 
 -- --------------------------------------------------------
 
@@ -177,15 +191,6 @@ CREATE TABLE `users_activity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users_activity`
---
-
-INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
-(1, 47, 17, 19),
-(2, 48, 18, 19),
-(3, 47, 17, 19);
-
---
 -- Indexes for dumped tables
 --
 
@@ -193,6 +198,12 @@ INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -239,16 +250,22 @@ ALTER TABLE `admin`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
 -- AUTO_INCREMENT for table `gym_activity`
 --
 ALTER TABLE `gym_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `gym_activity_timetable`
 --
 ALTER TABLE `gym_activity_timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `gym_information`
@@ -266,7 +283,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_activity`
 --
 ALTER TABLE `users_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
