@@ -103,7 +103,8 @@ class userModel
 
   public function MyActivity($data)
   {
-    $this->db->query('SELECT gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week from users_activity inner join gym_activity ON gym_activity.id = users_activity.activity_id WHERE users_activity.user_id=:user_id');
+    $this->db->query('SELECT gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_information.gym_name, gym_information.gym_address, users_activity.activity_id from users_activity inner join gym_activity ON gym_activity.id = users_activity.activity_id
+    Inner Join gym_information ON gym_information.gym_id = gym_activity.gym_id WHERE users_activity.user_id=:user_id');
     $this->db->bind(':user_id', $data['user_id']);
 
     $row = $this->db->resultSet();
@@ -113,4 +114,21 @@ class userModel
       return $row;
     }
   }
+
+  public function removeActivity($data){
+    $this->db->query('DELETE FROM users_activity WHERE user_id = :user_id and activity_id=:activity_id');
+    $this->db->bind(':user_id', $data['user_id']);
+    $this->db->bind(':activity_id', $data['activity_id']);
+
+    //Execute
+    if ($this->db->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+
+
+  }
+
+
 }

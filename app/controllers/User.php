@@ -189,7 +189,7 @@ class User extends Controller
                     $this->timetable();
                 }
             }
-        }else {
+        } else {
             $data['loginError'] = 'Please login to view User Cart';
             $this->view('Landing/login', $data);
         }
@@ -206,14 +206,40 @@ class User extends Controller
             ];
 
             $useractivity = $this->userModel->myActivity($data);
-           $data['myActivity'] = $useractivity;
-           $this->view('User/myactivity', $data);
-
+            $data['myActivity'] = $useractivity;
+            $this->view('User/myactivity', $data);
         } else {
             $data['loginError'] = 'Please login to view User Cart';
             $this->view('Landing/login', $data);
         }
     }
+
+    public function removeActivity($activity_id)
+    {
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+
+                'user_id' => $_SESSION['user_id'],
+            ];
+
+            $data['activity_id'] = $activity_id;
+            $removeActivity = $this->userModel->removeActivity($data);
+
+            if ($removeActivity) {
+                $data['success'] = "Successfully Removed";
+
+                $this->MyActivity();
+            } else {
+                $data['error'] = "Something'\s wrong! Please try again later";
+
+                $this->MyActivity();
+            }
+        }
+    }
+
+
+
 
 
     public function payment()
