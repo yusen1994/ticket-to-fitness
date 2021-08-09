@@ -82,7 +82,11 @@
 
     <div class="userdashboard-btn-group mt-3 ">
         <button>
-            <a href="<?php echo URLROOT ?>/Activity" style="text-decoration:none; color:inherit;"><span>View Activities</span></a>
+            <a href="<?php echo URLROOT ?>/User/MyActivity" style="text-decoration:none; color:inherit;"><span>My Activities</span></a>
+            <span class="iconfont">&#xe60d;</span> </a>
+        </button>
+        <button>
+            <a href="<?php echo URLROOT ?>/Activity" style="text-decoration:none; color:inherit;"><span>ALL Activities</span></a>
             <span class="iconfont">&#xe60d;</span> </a>
         </button>
         <button>

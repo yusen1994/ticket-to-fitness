@@ -189,9 +189,31 @@ class User extends Controller
                     $this->timetable();
                 }
             }
+        }else {
+            $data['loginError'] = 'Please login to view User Cart';
+            $this->view('Landing/login', $data);
         }
     }
 
+
+    public function MyActivity()
+    {
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+
+                'user_id' => $_SESSION['user_id'],
+            ];
+
+            $useractivity = $this->userModel->myActivity($data);
+           $data['myActivity'] = $useractivity;
+           $this->view('User/myactivity', $data);
+
+        } else {
+            $data['loginError'] = 'Please login to view User Cart';
+            $this->view('Landing/login', $data);
+        }
+    }
 
 
     public function payment()

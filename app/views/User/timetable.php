@@ -57,9 +57,9 @@
 											</div>
 
 											<div class = "col-2 text-center">
-											<span style="font-size: 48px; color: green;">
-
-											<i class="fas fa-check-circle"></i>		
+											<span style="font-size: 25px;">Credit: 
+											'.$single->credit.'
+											<!--<i class="fas fa-check-circle"></i>		-->
 											</span>
 		
 											</div>
@@ -70,9 +70,14 @@
                                         
 									</div>
 									<br>
+									<div class="mt-3 btn-group btn-group-lg activities_inside_card" role="group" aria-label="buttons_activities">
 									
+									<button type="button" class="btn"  style="color: Green;"><b>Purchase</b></button>
+								</div>
 								</div>
 							</div>
+
+							
 
 					</div>
 				</div>';
