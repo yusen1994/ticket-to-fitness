@@ -42,7 +42,7 @@ class userModel
   public function viewCart($data)
   {
 
-    $this->db->query('SELECT gym_activity.activity_name, gym_activity.category, gym_activity.credit, cart.user_id, cart.activity_id FROM cart INNER JOIN gym_activity ON gym_activity.id = cart.activity_id WHERE user_id=:user_id');
+    $this->db->query('SELECT gym_activity.activity_name, gym_activity.category, gym_activity.credit, cart.user_id, gym_activity.gym_id, cart.activity_id FROM cart INNER JOIN gym_activity ON gym_activity.id = cart.activity_id WHERE user_id=:user_id');
     $this->db->bind(':user_id', $data['user_id']);
     $row = $this->db->resultSet();
 
@@ -60,6 +60,21 @@ class userModel
     $this->db->bind(':activity_id', $data['activity_id']);
 
     //Execute
+    if ($this->db->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function addActivity($data)
+  {
+    $this->db->query('INSERT INTO `users_activity`(`activity_id`, `user_id`, `gym_id`) VALUES (:activity_id, :user_id, :gym_id)');
+    $this->db->bind(':activity_id', $data['activity_id']);
+    $this->db->bind(':user_id', $data['user_id']);
+    $this->db->bind(':gym_id', $data['gym_id']);
+
+
     if ($this->db->execute()) {
       return true;
     } else {

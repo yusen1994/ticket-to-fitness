@@ -56,7 +56,7 @@ class Activity extends Controller
             if ($param == 'cardio') {
                 $data['gym_activity']  = $this->activityModel->filterByCategory('cardio');
             }
-            
+
 
 
             $this->view('Landing/activities', $data);
@@ -94,39 +94,38 @@ class Activity extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $param = $_POST['searchField'];
-            if(!empty($param)){
-             $data['gym_activity'] = $this->activityModel->searchByName($param);
-             $this->view('landing/activities', $data);
-            }else{
+            if (!empty($param)) {
+                $data['gym_activity'] = $this->activityModel->searchByName($param);
+                $this->view('landing/activities', $data);
+            } else {
                 $data['error'] = "No Gym Offer";
                 $this->view('landing/activities', $data);
-
             }
         }
     }
 
-    public function nearestOffer(){
+    public function nearestOffer()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data['distance'] = $_POST['distance'];
             $data['latitude'] = $_POST['latitude'];
             $data['longitude'] = $_POST['longitude'];
-           
+
             $data['gym_activity'] = $this->activityModel->nearestOffer($data);
             $this->view('landing/activities', $data);
-            
-            
         }
     }
 
 
-    public function activitydetails($activityid, $gymid){
+    public function activitydetails($activityid, $gymid)
+    {
 
         $data['activity'] = $this->activityModel->fetchActivitybyid($activityid);
         $data['gym_info'] = $this->activityModel->fetchgymInfoByid($gymid);
         $data['gym_activity'] = array_merge($data['activity'], $data['gym_info']);
         $data['activity_id'] = $activityid;
-        $this->view('landing/activitydetails',$data);
+        $this->view('landing/activitydetails', $data);
     }
 
 
@@ -140,23 +139,23 @@ class Activity extends Controller
                 'user_id' => $_SESSION['user_id'],
                 'activity_id' => $activityid,
             ];
-
-            $addActivity = $this->activityModel->addToCart($data);
-            if ($addActivity) {
-                $data['success'] = "Activity Added To Cart";
+            $checkActivityExists = $this->activityModel->checkCart($data);
+            if (($checkActivityExists)) {
+                $data['error'] = "Activity already Added";
                 $this->allactivity($data);
-            }else{
-                $data['error'] = "Something'\s Wrong! Please try again later";
-                $this->allactivity($data);
+            } else {
+                $addActivity = $this->activityModel->addToCart($data);
+                if ($addActivity) {
+                    $data['success'] = "Activity Added To Cart";
+                    $this->allactivity($data);
+                } else {
+                    $data['error'] = "Something'\s Wrong! Please try again later";
+                    $this->allactivity($data);
+                }
             }
         } else {
             $data['loginError'] = 'Please login to add activity';
             $this->view('Landing/login', $data);
         }
     }
-
-
-
-
-   
 }

@@ -113,7 +113,11 @@ class User extends Controller
             $userCart = $this->userModel->viewCart($data);
             if (!empty($userCart)) {
                 $data['cart_activities'] = $userCart;
-
+                $count = 0;
+                foreach ($data['cart_activities'] as $single) {
+                    $count += 1;
+                }
+                $data['cart_count'] = $count;
                 $this->view('User/cart', $data);
             } else {
                 $data['cart_activities'] = NULL;
@@ -142,20 +146,53 @@ class User extends Controller
                 $data['activity_id'] = $activity_id;
                 $removeCart = $this->userModel->removeCart($data);
 
-                if($removeCart){
+                if ($removeCart) {
                     $data['success'] = "Successfully Removed";
 
-                    $this->view('User/cart', $data);
-
-                }else{
+                    $this->cart();
+                } else {
                     $data['error'] = "Something'\s wrong! Please try again later";
 
                     $this->view('User/cart', $data);
-
                 }
             }
         }
     }
+
+
+    public function confirmActivity($user_id)
+    {
+
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+
+                'user_id' => $_SESSION['user_id'],
+            ];
+            if ($user_id != $data['user_id']) {
+                $data['loginError'] = 'Please login to confirm Cart';
+                $this->view('Landing/login', $data);
+            }else{
+                $getUserCart = $this->userModel->viewCart($data);
+                if(!empty($getUserCart)){
+                    foreach($getUserCart as $single){
+
+                        $data['user_id'] = $single->user_id;
+                        $data['activity_id'] = $single->activity_id;
+                        $data['gym_id'] = $single->gym_id;
+                        $addUserActivity = $this->userModel->addActivity($data);
+                        $removecart = $this->userModel->removeCart($data);
+                    }
+
+                    $this->timetable();
+                }else{
+                    $this->cart();
+                }
+
+            }
+        }
+    }
+
 
 
 

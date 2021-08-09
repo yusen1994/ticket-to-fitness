@@ -39,7 +39,7 @@
             <div class="col-3 text-center p-4">
 
                 <img src="<?php echo URLROOT;?>/images/calendar.png" alt="">
-                <span>Timetable</span>
+                <a href = "<?php echo URLROOT ?>/User/Timetable"  style="text-decoration:none; color:inherit;">    <span>Timetable</span> </a>
             </div>
 
             <div class="col-3 text-center p-4">

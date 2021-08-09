@@ -68,7 +68,7 @@
                   <ellipse id="Ellipse_21" data-name="Ellipse 21" cx="0.855" cy="0.855" rx="0.855" ry="0.855" transform="translate(15.387 17.097)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
                 </g>
               </svg>
-            </span>View Cart</a> </li>
+            </span>View Cart <?php if(!empty($data['cart_count'])){ echo '<span class="pl-2" style="color:orange;">'.$data['cart_count'].'</span>';} ?></a> </li>
       </ul>
 
     </div>
