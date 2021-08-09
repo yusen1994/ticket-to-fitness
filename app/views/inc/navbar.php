@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
 
-    <a class="navbar-brand d-flex px-0" href="#">
+    <a class="navbar-brand d-flex px-0" href="<?php echo URLROOT; ?>/text">
       <img src="<?php echo URLROOT; ?>/images/t2f-logo.png" alt="logo" width="50" height="50" class="navbar-image">
       <h4 class="fitch-title">Fitch</h4>
     </a>
@@ -13,7 +13,7 @@
 
     <div class="collapse navbar-collapse" id="navbar4">
       <ul class="navbar-nav mr-auto pl-lg-4">
-        <li class="nav-item px-lg-2 active"> <a class="nav-link" href="<?php echo URLROOT ?>"> <span class="d-inline-block d-lg-none icon-width"><svg id="user" xmlns="http://www.w3.org/2000/svg" width="21.371" height="22.251" viewBox="0 0 21.371 22.251">
+        <li class="nav-item px-lg-2 active"> <a class="nav-link" href="<?php echo URLROOT; ?>/Accounts/login"> <span class=" d-inline-block d-lg-none icon-width"><svg id="user" xmlns="http://www.w3.org/2000/svg" width="21.371" height="22.251" viewBox="0 0 21.371 22.251">
                 <g id="Group_28" data-name="Group 28" transform="translate(0 12.533)">
                   <g id="Group_27" data-name="Group 27">
                     <path id="Path_38" data-name="Path 38" d="M28.126,288.389c-6.891,0-10.686,3.163-10.686,8.906a.825.825,0,0,0,.837.812h19.7a.825.825,0,0,0,.837-.812C38.811,291.552,35.016,288.389,28.126,288.389Zm-8.981,8.094c.329-4.294,3.347-6.469,8.981-6.469s8.652,2.176,8.982,6.469Z" transform="translate(-17.44 -288.389)" fill="#f2f2f2" />
@@ -26,7 +26,7 @@
                 </g>
               </svg>
             </span>Register/Login</a> </li>
-        <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><svg id="timetable" xmlns="http://www.w3.org/2000/svg" width="21.371" height="21.862" viewBox="0 0 21.371 21.862">
+        <li class="nav-item px-lg-2"> <a class="nav-link" href="<?php echo URLROOT; ?>/Activity/allactivity"><span class=" d-inline-block d-lg-none icon-width"><svg id="timetable" xmlns="http://www.w3.org/2000/svg" width="21.371" height="21.862" viewBox="0 0 21.371 21.862">
                 <path id="Path_19" data-name="Path 19" d="M20.119,12.479V1.964a.633.633,0,0,0-.626-.64H16.321V.64a.626.626,0,1,0-1.252,0v.683h-2.5V.64a.626.626,0,1,0-1.252,0v.683h-2.5V.64a.626.626,0,1,0-1.252,0v.683h-2.5V.64A.626.626,0,1,0,3.8.64v.683H.626A.633.633,0,0,0,0,1.964v16.7a.633.633,0,0,0,.626.64H11.053a5.6,5.6,0,0,0,4.683,2.562A5.707,5.707,0,0,0,21.371,16.1,5.819,5.819,0,0,0,20.119,12.479ZM3.8,2.6v.64a.626.626,0,1,0,1.252,0V2.6h2.5v.64a.626.626,0,1,0,1.252,0V2.6h2.5v.64a.626.626,0,1,0,1.252,0V2.6h2.5v.64a.626.626,0,1,0,1.252,0V2.6h2.546V5.167H1.252V2.6ZM1.252,18.019V6.447H18.867v4.859a5.515,5.515,0,0,0-3.131-.974,5.605,5.605,0,0,0-4.727,2.631.611.611,0,0,0-.281-.069H9.475a.641.641,0,0,0,0,1.281h.948a5.827,5.827,0,0,0-.287,1.281H9.475a.641.641,0,0,0,0,1.281h.661a5.818,5.818,0,0,0,.287,1.281Zm14.484,2.562A4.484,4.484,0,1,1,20.119,16.1,4.439,4.439,0,0,1,15.736,20.581Zm0,0" transform="translate(0 0)" fill="#f2f2f2" />
                 <path id="Path_20" data-name="Path 20" d="M365.261,304.609H363.3v-1.956a.652.652,0,0,0-1.3,0v2.609a.652.652,0,0,0,.652.652h2.609a.652.652,0,1,0,0-1.3Zm0,0" transform="translate(-350.789 -288.134)" fill="#f2f2f2" />
                 <path id="Path_21" data-name="Path 21" d="M92.956,182h-1.3a.652.652,0,0,0,0,1.3h1.3a.652.652,0,1,0,0-1.3Zm0,0" transform="translate(-91 -173.214)" fill="#f2f2f2" />
