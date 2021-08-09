@@ -145,5 +145,23 @@ class ActivityModel
 
   }
 
+  
+  public function addToCart($data)
+  {
+
+    $this->db->query('INSERT INTO `cart`(`user_id`, `activity_id`) VALUES (:user_id, :activity_id)');
+    $this->db->bind(':user_id', $data['user_id']);
+    $this->db->bind(':activity_id', $data['activity_id']);
+
+
+    if($this->db->execute()){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+
 
 }

@@ -22,7 +22,7 @@
 
 
 					<?php if (!empty($data['loginError'])){
-						echo "<div class='alert alert-warning' role='alert'>";
+						echo "<div class='alert alert-danger text-center' role='alert'>";
 						echo $data['loginError']; 
 						echo "</div>";
 					}

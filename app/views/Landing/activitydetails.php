@@ -25,7 +25,7 @@
             <p><?php //Array with two object, we need to access object 2 from index 0 that has gym info
                 echo $data['gym_activity'][1]->gym_address; ?></p>
 
-            <button type="button" style="color:black" class="btn btn-outline-warning btn-lg btn-block">Add Activity</button>
+           <a style = "text-decoration: none;" href = "<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id'];?>"> <button type="button" style="color:black" class="btn btn-outline-warning btn-lg btn-block">Add Activity</button></a>
 
         </div>
         <div class="col">

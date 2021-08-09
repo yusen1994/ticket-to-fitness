@@ -77,7 +77,8 @@ class User extends Controller
     }
 
 
-    public function allocation($data){
+    public function allocation($data)
+    {
         //Request from timetable UI Users Param! (Activity id of the selected activity along with id from timetable because we need which
         // time is allocated )
 
@@ -100,11 +101,68 @@ class User extends Controller
 
     }
 
+    public function cart()
+    {
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+
+                'user_id' => $_SESSION['user_id'],
+            ];
+
+            $userCart = $this->userModel->viewCart($data);
+            if (!empty($userCart)) {
+                $data['cart_activities'] = $userCart;
+
+                $this->view('User/cart', $data);
+            } else {
+                $data['cart_activities'] = NULL;
+                $this->view('User/cart', $data);
+            }
+        } else {
+            $data['loginError'] = 'Please login to view User Cart';
+            $this->view('Landing/login', $data);
+        }
+    }
+
+    public function removeCart($activity_id, $user_id)
+    {
+
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+
+                'user_id' => $_SESSION['user_id'],
+            ];
+
+            if ($user_id != $data['user_id']) {
+                $data['loginError'] = 'Please login to edit Cart';
+                $this->view('Landing/login', $data);
+            } else {
+                $data['activity_id'] = $activity_id;
+                $removeCart = $this->userModel->removeCart($data);
+
+                if($removeCart){
+                    $data['success'] = "Successfully Removed";
+
+                    $this->view('User/cart', $data);
+
+                }else{
+                    $data['error'] = "Something'\s wrong! Please try again later";
+
+                    $this->view('User/cart', $data);
+
+                }
+            }
+        }
+    }
 
 
-    public function payment(){
+
+
+    public function payment()
+    {
 
         $this->view('User/payment');
     }
-
 }

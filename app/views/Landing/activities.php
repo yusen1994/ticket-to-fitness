@@ -52,6 +52,21 @@ F2F2F2;">
     </div>
 </div>
 
+<?php if (!empty($data['success'])) {
+
+echo '<div class="alert alert-success mt-4" role="alert">';
+echo $data['success'];
+echo '</div>';
+}
+?>
+
+<?php if (!empty($data['error'])) {
+
+echo '<div class="alert alert-danger mt-4" role="alert">';
+echo $data['error'];
+echo '</div>';
+}
+?>
 <!--Filter Modal-->
 
 <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
