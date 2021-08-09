@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background-color: #3F3F3F; padding-top: 20px;">
     <div class="row justify-content-center">
-        <div class="col-sm-1 col-lg-6">
+        <div class="col-6">
             <a href="#" class="float-left">
                 <p style="color: white;">About</p>
             </a>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="row justify-content-center" style="padding-top: 20px;">
-        <div class="col-sm-1 col-lg-6 text-center">
+        <div class="col-12 text-center">
             <div class="social-container">
                 <a href="#">
                     <span class="insta-logo"><svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
@@ -44,7 +44,7 @@
     </div>
 
     <div class="row justify-content-center" style="padding-top: 40px;">
-        <div class="col-sm-1 col-lg-6 text-center">
+        <div class="col-6 text-center">
             <p style="color: white; font-size: 12px;">Copyright (c) 2021 Fitch. All Rights Reserved.</p>
         </div>
     </div>
