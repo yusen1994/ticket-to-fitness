@@ -1,5 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
 
+<!--
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
     <div class="container"> <a class="navbar-brand d-flex align-items-center" href="#">
             <span class="ml-2 font-weight-bold"><img src="<?php echo URLROOT; ?>/images/t2f-logo.png" alt="logo" width="50" height="50" class="navbar-image"><a class="font-weight-bold">
@@ -19,7 +21,7 @@
     </div>
 </nav>
 
-
+-->
 
 <div class="container-fluid p-2">
     <!-- Nav start -->
