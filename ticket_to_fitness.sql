@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2021 at 04:11 PM
+-- Generation Time: Aug 10, 2021 at 02:18 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -53,6 +53,28 @@ CREATE TABLE `cart` (
   `user_id` int(20) NOT NULL,
   `activity_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `credits_pack`
+--
+
+CREATE TABLE `credits_pack` (
+  `id` int(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `total_credit` int(20) NOT NULL,
+  `cost` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `credits_pack`
+--
+
+INSERT INTO `credits_pack` (`id`, `name`, `total_credit`, `cost`) VALUES
+(1, 'Small Credit Pack', 10, 10),
+(2, 'Medium Credit Pack', 20, 20),
+(3, 'Large Credit Pack', 50, 50);
 
 -- --------------------------------------------------------
 
@@ -191,6 +213,45 @@ CREATE TABLE `users_activity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `users_activity`
+--
+
+INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
+(14, 47, 19, 19),
+(16, 47, 17, 19);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_credits`
+--
+
+CREATE TABLE `users_credits` (
+  `id` int(20) NOT NULL,
+  `total_credit` int(20) NOT NULL,
+  `user_id` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_credits`
+--
+
+INSERT INTO `users_credits` (`id`, `total_credit`, `user_id`) VALUES
+(1, 10, 19),
+(2, 20, 19),
+(3, 20, 19),
+(4, 20, 19),
+(5, 20, 19),
+(6, 20, 19),
+(7, 20, 19),
+(8, 20, 19),
+(9, 10, 19),
+(10, 10, 19),
+(11, 20, 19),
+(12, 50, 17),
+(13, 50, 17);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -204,6 +265,12 @@ ALTER TABLE `admin`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `credits_pack`
+--
+ALTER TABLE `credits_pack`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -240,6 +307,12 @@ ALTER TABLE `users_activity`
   ADD KEY `users_activity_fkg` (`activity_id`);
 
 --
+-- Indexes for table `users_credits`
+--
+ALTER TABLE `users_credits`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -253,7 +326,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT for table `credits_pack`
+--
+ALTER TABLE `credits_pack`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `gym_activity`
@@ -283,7 +362,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_activity`
 --
 ALTER TABLE `users_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `users_credits`
+--
+ALTER TABLE `users_credits`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
