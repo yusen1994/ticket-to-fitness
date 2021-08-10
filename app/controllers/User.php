@@ -16,8 +16,12 @@ class User extends Controller
 
         $data = [
             'title' => 'Dashboard',
+            'user_id' => $_SESSION['user_id'],
+
         ];
 
+        $user_credit = $this->userModel->userCredit($data);
+        $data['user_credit'] = $user_credit;
         if (isset($_SESSION['user_id'])) {
             $this->view('User/dashboard', $data);
         } else {
@@ -239,12 +243,69 @@ class User extends Controller
     }
 
 
+    public function Credits()
+    {
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+
+                'user_id' => $_SESSION['user_id'],
+            ];
+
+            $credits = $this->userModel->credits();
+            $data['credits'] = $credits;
+            $this->view('User/buycredits', $data);
+        } else {
+
+            $data['loginError'] = 'Please login to buy Credits';
+            $this->view('Landing/login', $data);
+        }
+    }
 
 
-
-    public function payment()
+    public function checkout($price, $total_credit)
     {
 
-        $this->view('User/payment');
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+                'title' => 'Checkout',
+                'cost' => $price,
+                'total_credit' => $total_credit,
+                
+            ];
+
+            $this->view('User/checkout', $data);
+        } else {
+
+            $data['loginError'] = 'Please login to buy Credits';
+            $this->view('Landing/login', $data);
+        }
+    }
+
+
+    public function confirmPurchase($cost, $credits)
+    {
+
+        if (isset($_SESSION['user_id'])) {
+
+            $data = [
+                'title' => 'Checkout',
+                'cost' => $cost,
+                'total_credit' => $credits,
+                'user_id' => $_SESSION['user_id'],
+            ];
+
+            $confirmPurchase = $this->userModel->confirmPurchase($data);
+            if($confirmPurchase){
+                redirect('User');
+            }
+
+            $this->view('User/checkout', $data);
+        } else {
+
+            $data['loginError'] = 'Please login to buy Credits';
+            $this->view('Landing/login', $data);
+        }
     }
 }

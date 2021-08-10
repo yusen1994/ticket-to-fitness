@@ -43,7 +43,7 @@
     <div class="mt-3">
         <span style="font-size: 24px;font-weight:bold">My <span style="color: #E46E2E">Credits</span></span>
         <div class="userdashboard-btn-group" style="float: right;margin-top: -10px">
-            <a class="buy-btn" href="<?php echo URLROOT; ?>/Pages/buyCredits">
+            <a class="buy-btn" href="<?php echo URLROOT; ?>/User/credits">
                 <span>$ Buy</span>
             </a>
         </div>
@@ -57,7 +57,7 @@
             <div class="col-8">
                 <div class="row text-center">
                     <div class="col-4">
-                        <span class="number-medium">4</span>
+                        <span class="number-medium"><?php echo $data['user_credit']->total_credit; ?></span>
                         <hr>
                         <b><span class="desc">Wallet</span></b>
                     </div>

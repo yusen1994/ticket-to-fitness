@@ -115,7 +115,8 @@ class userModel
     }
   }
 
-  public function removeActivity($data){
+  public function removeActivity($data)
+  {
     $this->db->query('DELETE FROM users_activity WHERE user_id = :user_id and activity_id=:activity_id');
     $this->db->bind(':user_id', $data['user_id']);
     $this->db->bind(':activity_id', $data['activity_id']);
@@ -126,9 +127,48 @@ class userModel
     } else {
       return false;
     }
-
-
   }
 
 
+  public function credits()
+  {
+
+
+    $this->db->query('SELECT * FROM credits_pack');
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
+
+  public function confirmPurchase($data)
+  {
+    $this->db->query('INSERT INTO `users_credits`(`total_credit`, `user_id`) VALUES (:total_credit, :user_id)');
+    $this->db->bind(':total_credit', $data['total_credit']);
+    $this->db->bind(':user_id', $data['user_id']);
+
+
+    if ($this->db->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+  public function userCredit($data){
+
+    $this->db->query('SELECT SUM(`total_credit`) AS `total_credit` FROM `users_credits` WHERE user_id=:user_id');
+
+    $this->db->bind(':user_id', $data['user_id']);
+    $row = $this->db->single();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
 }

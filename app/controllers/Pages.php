@@ -35,21 +35,5 @@ class Pages extends Controller
 
 
 
-  public function buyCredits()
-  {
-    $data = [
-      'title' => 'My Cart'
-    ];
 
-    $this->view('User/buycredits', $data);
-  }
 
-  public function checkout()
-  {
-    $data = [
-      'title' => 'Checkout'
-    ];
-
-    $this->view('Landing/checkout', $data);
-  }
-}
