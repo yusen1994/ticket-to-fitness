@@ -97,6 +97,12 @@
             <a href="<?php echo URLROOT ?>/User/userProfile" style="text-decoration:none; color:inherit;"> <span>Register</span></a>
             <span class="iconfont">&#xe60d;</span>
         </button>
+
+        <button>
+            <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/Accounts/logout">
+                <span>Log Out</span> </a>
+
+        </button>
     </div>
 </div>
 

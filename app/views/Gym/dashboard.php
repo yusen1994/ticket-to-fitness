@@ -99,6 +99,11 @@ if (!empty($data['message'])) {
             <span>Reports</span>
             <span class="iconfont">&#xe60d;</span>
         </button>
+        <button>
+        <a style="text-decoration:none; color:inherit;"  href="<?php echo URLROOT; ?>/Accounts/logout">
+        <span>Log Out</span> </a>
+
+        </button>
     </div>
 </div>
 
