@@ -35,5 +35,5 @@ class Pages extends Controller
 
 
 
-
+}
 
