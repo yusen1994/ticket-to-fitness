@@ -25,29 +25,50 @@
 
 <div class="container-fluid p-2">
     <!-- Nav start -->
-        <div class="row" style="background-color:white;">
+    <div class="row" style="background-color:white;">
 
-            <div class="col-3 text-center userdashboard-menu-active p-4" style="height:auto;">    
-                <img src ="<?php echo URLROOT;?>/images/box.png" alt="">
-                <a href = "<?php echo URLROOT ?>/User"  style="text-decoration:none; color:inherit;">  <span>Home</span> </a>
-            </div>
+        <div class="col-3 text-center p-4 <?php 
+        $url = $_SERVER['REQUEST_URI'];
+        $urlarray=explode("/",$url);
+        $end=$urlarray[count($urlarray)-1]; 
+        
+        if(strpos($end, 'User') !== false){
+echo 'userdashboard-menu-active'; }?>" style="height:auto;">
+            <img src="<?php echo URLROOT; ?>/images/box.png" alt="">
+            <a href="<?php echo URLROOT ?>/User" style="text-decoration:none; color:inherit;"> <span>Home</span> </a>
+        </div>
 
 
-            <div class="col-3 text-center p-4">
-                <img src="<?php echo URLROOT;?>/images/map.png" alt="">
-                <span>Map</span>
-            </div>
+        <div class="col-3 text-center p-4   <?php 
+        $url = $_SERVER['REQUEST_URI'];
+        $urlarray=explode("/",$url);
+        $end=$urlarray[count($urlarray)-1]; 
+        if(strpos($end, 'Map') !== false){
+echo 'userdashboard-menu-active'; }?>/images/map.png" alt="">
+         <img src="<?php echo URLROOT; ?>/images/Map.png" alt="">
+            <a href="<?php echo URLROOT ?>/User/Map" id="menubarTimetable" style="text-decoration:none; color:inherit;"> <span>Map</span>
+        </div>
 
-            <div class="col-3 text-center p-4">
+        <div class="col-3 text-center p-4  <?php 
+        $url = $_SERVER['REQUEST_URI'];
+        $urlarray=explode("/",$url);
+        $end=$urlarray[count($urlarray)-1]; 
+        if(strpos($end, 'Timetable') !== false){
+echo 'userdashboard-menu-active'; }?>">
 
-                <img src="<?php echo URLROOT;?>/images/calendar.png" alt="">
-                <a href = "<?php echo URLROOT ?>/User/Timetable"  style="text-decoration:none; color:inherit;">    <span>Timetable</span> </a>
-            </div>
+            <img src="<?php echo URLROOT; ?>/images/calendar.png" alt="">
+            <a href="<?php echo URLROOT ?>/User/Timetable" id="menubarTimetable" style="text-decoration:none; color:inherit;"> <span>Timetable</span> </a>
+        </div>
 
-            <div class="col-3 text-center p-4">
-                <img src="<?php echo URLROOT;?>/images/user.png" alt="">
-                <span>Social</span>
+        <div class="col-3 text-center p-4   <?php 
+        $url = $_SERVER['REQUEST_URI'];
+        $urlarray=explode("/",$url);
+        $end=$urlarray[count($urlarray)-1]; 
+        if(strpos($end, 'Social') !== false){
+echo 'userdashboard-menu-active'; }?>">
+            <img src="<?php echo URLROOT; ?>/images/user.png" alt="">
+            <span>Social</span>
 
-            </div>
+        </div>
 
     </div>
