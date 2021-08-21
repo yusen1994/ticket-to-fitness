@@ -40,15 +40,20 @@ if (!empty($data['message'])) {
     
 -->
 
-
-<div class="gym_content">
-    <div class="gym_title pl-3"><?php echo $_SESSION['gym_name']; ?></div>
-    <div class="gym_date">
-
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-1 col-lg-6">
+            <div class="gym_title"><?php echo $_SESSION['gym_name']; ?></div>
+            <div class="gym_date">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-1 col-lg-6">
             <div class="container">
                 <div class="row">
                     <div class="col-4 text-center">
-                        <span class="number" >18</span>
+                        <span class="number">18</span>
                         <hr>
                         <span class="desc">total members</span>
                     </div>
@@ -82,33 +87,38 @@ if (!empty($data['message'])) {
                     </div>
                 </div>
             </div>
-
-    </div>
-
-    <div class="gym_btn-group">
-        <button>
-            <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/gym/activities">
-                <span>Activities</span> </a>
-            <span class="iconfont">&#xe60d;</span>
-        </button>
-        <button>
-        <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/gym/members">  <span>Members</span></a>
-            <span class="iconfont">&#xe60d;</span>
-        </button>
-        <button>
-            <span>Reports</span>
-            <span class="iconfont">&#xe60d;</span>
-        </button>
-        <button>
-        <a style="text-decoration:none; color:inherit;"  href="<?php echo URLROOT; ?>/Accounts/logout">
-        <span>Log Out</span> </a>
-
-        </button>
+        </div>
     </div>
 </div>
 
-<!-- Content end -->
+<div class="container-fluid" style="margin-top:50px; margin-bottom:100px;">
+    <div class=" row justify-content-center">
+        <div class="col-sm-1 col-lg-4">
+            <div class="gym_btn-group">
+                <button>
+                    <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/gym/activities">
+                        <span>Activities</span> </a>
+                    <span class="iconfont">&#xe60d;</span>
+                </button>
+                <button>
+                    <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/gym/members"> <span>Members</span></a>
+                    <span class="iconfont">&#xe60d;</span>
+                </button>
+                <button>
+                    <span>Reports</span>
+                    <span class="iconfont">&#xe60d;</span>
+                </button>
+                <button>
+                    <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/Accounts/logout">
+                        <span>Log Out</span> </a>
+
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 
 

@@ -21,18 +21,18 @@
         <div class="col-sm-12 col-lg-6">
             <div class="credit-item-container">
 
-            <?php
+                <?php
 
-            if(!empty($data['credits'])){
+                if (!empty($data['credits'])) {
 
-                foreach($data['credits'] as $single){
-                    echo '<a style="text-decoration: none;" href="'.URLROOT.'/user/checkout/'.$single->cost.'/'.$single->total_credit.'" class="credit-item-link">
+                    foreach ($data['credits'] as $single) {
+                        echo '<a style="text-decoration: none;" href="' . URLROOT . '/user/checkout/' . $single->cost . '/' . $single->total_credit . '" class="credit-item-link">
                     <div class="container rounded p-4 mt-4" style="background-color:white">
                         <div class="row">
                             <div class="col-9">
-                                <b style="font-size:20px">'.$single->name.'</b>
+                                <b style="font-size:20px">' . $single->name . '</b>
                                 <div class="mt-4">
-                                    <img src="'.URLROOT.'/images/credits_noBG.png"><b>'.$single->total_credit.'</b>
+                                    <img src="' . URLROOT . '/images/credits_noBG.png"><b>' . $single->total_credit . '</b>
                                 </div>
                             </div>
 
@@ -57,11 +57,9 @@
 
                     </div>
                 </a>';
-
-
+                    }
                 }
-            }
-                
+
 
                 ?>
 
