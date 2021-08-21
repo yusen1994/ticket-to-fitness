@@ -43,7 +43,7 @@ body {
 
 .login-form form {
   margin-bottom: 15px;
-  background: #f7f7f7;
+  background: #f2f2f2;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   padding: 30px;
 }
@@ -493,7 +493,7 @@ button:focus {
   padding: 0;
 }
 body {
-  background-color: #eaeaea;
+  background-color: #f2f2f2;
 }
 .gym_container {
   display: flex;
@@ -528,7 +528,7 @@ body {
 .gym_content {
   display: flex;
   flex-direction: column;
-  background-color: #eaeaea;
+  background-color: #f2f2f2;
   padding: 0 10px 0 10px;
 }
 .gym_title {
@@ -560,7 +560,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid orange;
+  border: 1px solid #ef8830;
   border-radius: 25px;
   margin: 5px;
   padding: 0 20px 0 20px;
@@ -568,24 +568,21 @@ body {
   height: 50px;
   font-weight: bold;
   font-size: 16px;
+  background-color: white;
 }
 .gym_active {
-  background-color: orange !important;
+  background-color: #ef8830 !important;
 }
 .gym_date .number {
   font-size: 50px;
   font-weight: bold;
 }
 hr {
-  background-color: #cccccc;
+  background-color: #f2f2f2;
   margin: 5px 0 5px 0;
 }
 
 /*User dashboard*/
-
-.userdashboard-menu-active {
-  background-color: orange !important;
-}
 
 .number {
   font-size: 50px;
@@ -608,7 +605,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid orange;
+  border: 1px solid #ef8830;
   border-radius: 25px;
   margin: 5px;
   padding: 0 20px 0 20px;
@@ -616,6 +613,7 @@ hr {
   height: 50px;
   font-weight: bold;
   font-size: 16px;
+  background-color: white;
 }
 
 /*Gym Dashboard - Member */
@@ -640,7 +638,7 @@ gym-a:visited {
 }
 
 .gym-active {
-  background-color: orange !important;
+  background-color: #ef8830 !important;
 }
 
 .gym-form {
@@ -663,7 +661,7 @@ gym-a:visited {
   font-size: 20px;
   font-weight: bold;
   border-radius: 25px;
-  border: 1px solid orange;
+  border: 1px solid #ef8830;
 }
 .gym-form button i {
   font-size: 20px;
@@ -701,7 +699,7 @@ gym-a:visited {
 }
 .gym-member-active {
   font-weight: bold;
-  color: orange;
+  color: #ef8830;
 }
 .gym-member-inactive {
   font-weight: bold;
