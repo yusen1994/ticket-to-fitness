@@ -153,7 +153,7 @@ class ActivityModel
     $this->db->bind(':user_id', $data['user_id']);
     $this->db->bind(':activity_id', $data['activity_id']);
 
-
+    
     if($this->db->execute()){
       return true;
     } else {

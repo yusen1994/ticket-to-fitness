@@ -9,16 +9,16 @@ class Activity extends Controller
 
         $this->activityModel = $this->model('ActivityModel');
         $this->userModel = $this->model('userModel');
-
     }
 
     public function index()
     {
-        $this->allactivity();
+        $data = ['error' => ''];
+        $this->allactivity($data);
     }
 
 
-    public function allactivity()
+    public function allactivity($data = NULL)
     {
         $activity = $this->activityModel->fetchActiveActivity();
         if ($activity != NULL) {
@@ -134,10 +134,10 @@ class Activity extends Controller
     public function addActivity($activityid)
     {
         $url = $_SERVER['HTTP_REFERER'];
-        $url = explode("/",$url,5);// so at second index rest of the string will come.
-       
+        $url = explode("/", $url, 5); // so at second index rest of the string will come.
 
-       
+
+
         if (isset($_SESSION['user_id'])) {
 
             $data = [
@@ -146,24 +146,31 @@ class Activity extends Controller
                 'activity_id' => $activityid,
             ];
             $checkActivityExists = $this->activityModel->checkCart($data);
-            $checkExistingActivity = $this->userModel->checkActivity($data);
-            if (($checkActivityExists && $checkExistingActivity)) {
-                $data['error'] = "Activity already Added";
+            if ($checkActivityExists) {
+                $data['error'] = "Activity already added in the Cart!";
                 $this->allactivity($data);
             } else {
-                $addActivity = $this->activityModel->addToCart($data);
-                if ($addActivity) {
-                    $data['success'] = "Activity Added To Cart";
+                $checkExistingActivity = $this->userModel->checkActivity($data);
+
+
+                if (($checkExistingActivity)) {
+                    $data['error'] = "Activity already Exist! Please check in My Activity";
                     $this->allactivity($data);
                 } else {
-                    $data['error'] = "Something'\s Wrong! Please try again later";
-                    $this->allactivity($data);
+                    $addActivity = $this->activityModel->addToCart($data);
+                    if ($addActivity) {
+                        $data['success'] = "Activity Added To Cart";
+                        $this->allactivity($data);
+                    } else {
+                        $data['error'] = "Something'\s Wrong! Please try again later";
+                        $this->allactivity($data);
+                    }
                 }
             }
         } else {
             $data['loginError'] = 'Please login to add activity';
-   
-            redirect('Accounts/login/continue='.$url[4].'');
+
+            redirect('Accounts/login/continue=' . $url[4] . '');
         }
     }
 }

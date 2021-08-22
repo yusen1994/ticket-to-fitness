@@ -29,7 +29,7 @@ class User extends Controller
         }
     }
 
- 
+
     public function userProfile()
     {
 
@@ -190,8 +190,8 @@ class User extends Controller
                         $addUserActivity = $this->userModel->addActivity($data);
                         $removecart = $this->userModel->removeCart($data);
                     }
-
-                    $this->timetable();
+                    $msg = 'Activity Added! Please allocate time on My Timetable Page';
+                    $this->MyActivity($msg);
                 }
             }
         } else {
@@ -201,18 +201,24 @@ class User extends Controller
     }
 
 
-    public function MyActivity()
+    public function MyActivity($msg = NULL)
     {
         if (isset($_SESSION['user_id'])) {
 
             $data = [
 
                 'user_id' => $_SESSION['user_id'],
+                'success' => $msg
             ];
-
+            
             $useractivity = $this->userModel->myActivity($data);
             $data['myActivity'] = $useractivity;
-            $this->view('User/myactivity', $data);
+            if (!empty($data['myActivity'])) {
+                $this->view('User/myactivity', $data);
+            }else{
+                $data['error'] = 'No Activity Added!';
+                $this->view('User/myactivity', $data);
+            }
         } else {
             $data['loginError'] = 'Please login to view User Cart';
             $this->view('Landing/login', $data);
@@ -273,7 +279,7 @@ class User extends Controller
                 'title' => 'Checkout',
                 'cost' => $price,
                 'total_credit' => $total_credit,
-                
+
             ];
 
             $this->view('User/checkout', $data);
@@ -298,7 +304,7 @@ class User extends Controller
             ];
 
             $confirmPurchase = $this->userModel->confirmPurchase($data);
-            if($confirmPurchase){
+            if ($confirmPurchase) {
                 redirect('User');
             }
 

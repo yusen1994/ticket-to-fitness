@@ -1,5 +1,12 @@
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
+<?php if(!empty($data['success'])){
+    echo '<div class="alert alert-success" role="alert">
+        ' . $data['success'] . '
+    </div>';
+}
+?>
 <?php
+if(!empty($data['myActivity'])){
 foreach ($data['myActivity'] as $single) {
 
     echo '<div class="container" style="padding-top: 20px; background-color: #f3f3f3">
@@ -20,13 +27,13 @@ foreach ($data['myActivity'] as $single) {
                                     <small class="card-cateogry-text">' . $single->category . '</small>
                                 </td>
                                 <td>
-                                    <img class="card-category-image" src="' . URLROOT . '/images/location-#E46E2E.svg">
+                                    <img class="card-category-image" src="' . URLROOT . '/images/location-orange.svg">
                                     <small class="card-cateogry-text">' . $single->gym_address . '</small>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="card-info-col">
-                                    <img class="card-category-image" src="' . URLROOT . '/images/timer-#E46E2E.svg">
+                                    <img class="card-category-image" src="' . URLROOT . '/images/timer-orange.svg">
                                     <small class="card-cateogry-text">';
     foreach ((unserialize($single->sessions_per_week)) as $session_per_week) {
         echo $session_per_week . "  ";
@@ -34,7 +41,7 @@ foreach ($data['myActivity'] as $single) {
     echo '</small>
                                 </td>
                                 <td>
-                                    <img class="card-category-image" src="' . URLROOT . '/images/group-#E46E2E.svg">
+                                    <img class="card-category-image" src="' . URLROOT . '/images/group-orange.svg">
                                     <small class="card-cateogry-text">Unlimited</small>
                                 </td>
                             </tr>
@@ -54,6 +61,16 @@ foreach ($data['myActivity'] as $single) {
             </div>
             </div>';
 }
+}else{
+ 
+			
+        echo '<div class="alert alert-danger" role="alert">
+        ' . $data['error'] . '
+    </div>';
+        
+
+}
+
 
 ?>
 
