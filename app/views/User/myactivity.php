@@ -20,13 +20,13 @@ foreach ($data['myActivity'] as $single) {
                                     <small class="card-cateogry-text">' . $single->category . '</small>
                                 </td>
                                 <td>
-                                    <img class="card-category-image" src="' . URLROOT . '/images/location-orange.svg">
+                                    <img class="card-category-image" src="' . URLROOT . '/images/location-#E46E2E.svg">
                                     <small class="card-cateogry-text">' . $single->gym_address . '</small>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="card-info-col">
-                                    <img class="card-category-image" src="' . URLROOT . '/images/timer-orange.svg">
+                                    <img class="card-category-image" src="' . URLROOT . '/images/timer-#E46E2E.svg">
                                     <small class="card-cateogry-text">';
     foreach ((unserialize($single->sessions_per_week)) as $session_per_week) {
         echo $session_per_week . "  ";
@@ -34,7 +34,7 @@ foreach ($data['myActivity'] as $single) {
     echo '</small>
                                 </td>
                                 <td>
-                                    <img class="card-category-image" src="' . URLROOT . '/images/group-orange.svg">
+                                    <img class="card-category-image" src="' . URLROOT . '/images/group-#E46E2E.svg">
                                     <small class="card-cateogry-text">Unlimited</small>
                                 </td>
                             </tr>
