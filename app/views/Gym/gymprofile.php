@@ -1,24 +1,112 @@
 <?php require APPROOT . '/views/Gym/dashboardmenu.php'; ?>
 
 
+<div class="container-fullwidth"><span class="profile-heading"><i class="fas fa-arrow-left"></i> Gym Profile</span></div>
 
-<div id="container-userprofile">
 
-    <div class="card" style="width: 40rem; height:35rem;">
-        <div class="card-body">
-   
-            
-            <h3 class="card-title">Hello <?php echo $data['gym_name'] ?></h3>
-            <div class="divider py-1 bg-dark"></div>
-            <h5 class="card-title mt-5">Details</h5>
-            <p class="font-weight-normal text-secondary">Gym Address: <?php echo $data['gym_address']; ?></p>
-            <p class="font-weight-normal text-secondary">Email: <?php echo $data['gym_email']; ?></p>
-           
-            <a href="<?php echo URLROOT; ?>/User" class="btn btn-success">Switch User</a>
+
+<div class="container-fullwidth mt-3">
+
+    <div class="container-fullwidth" style="background-color:white;">
+
+        <div class="row m-2">
+            <div class="col-3 mt-3">
+
+                <img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%;" src="<?php echo URLROOT; ?>/images/profile-pic.jpg">
+
+            </div>
+            <div class="col-9 mt-3">
+                <div class="row">
+                    <div class="col-8">
+                        <h4><b><?php echo $data['gym_name'] ?></b></h4>
+                    </div>
+                    <div class="col-4">
+                        <a href="<?php echo URLROOT; ?>" style="color:#E46E2E; text-decoration:none;"> <b>Edit</b></a>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-7">
+                        <p><?php echo $data['gym_email']; ?></p>
+                        <p><?php echo $data['phone_number']; ?></p>
+
+                        <p>Male </p>
+                        <p>4 Aug 1998 </p>
+                    </div>
+                    <div class="col-5">
+
+                        <a href="<?php echo URLROOT; ?>" data-toggle="modal" data-target="#changePasswordModal" style="color:#E46E2E; text-decoration:none; position: absolute; bottom: 0;"><b> Change Password </b> </a>
+
+                    </div>
+                </div>
+                <hr>
+
+                <h4 style="font-weight:bold">Joined: <span style="color: #E46E2E">9 February 2020</h4></span>
+            </div>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-8">
+            <span class="profile-heading">Address</span>
+
+        </div>
+
+        <div class="col-4 text-center">
+            <a href="<?php echo URLROOT; ?>" style="color:#E46E2E; text-decoration:none;"> <b>Edit</b> </a>
 
         </div>
     </div>
+ 
+    <div class="container-fullwidth" style="background-color:white;">
+        <div class="row">
+            <div class="col">
+                <table class="table m-3">
+                    <tbody>
+                        <tr>
+                            <th>Street Number</th>
+                            <td>1</td>
+
+                        </tr>
+                        <tr>
+                            <th>Street</th>
+                            <td>Homely Drive</td>
+
+                        </tr>
+                        <tr>
+                            <th>Suburb/City</th>
+                            <td>North Hobart</td>
+
+                        </tr>
+                        <tr>
+                            <th>State</th>
+                            <td>TAS</td>
+
+                        </tr>
+
+                        <tr>
+                            <th>Post Code</th>
+                            <td>7005</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+    </div>
+
 </div>
+
+<br>
+
+<div class="container-fullwidth m-3">
+<a href="<?php echo URLROOT; ?>/User" class="btn btn-success">Switch User</a>
+
+</div>
+
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

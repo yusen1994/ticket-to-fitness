@@ -70,6 +70,7 @@ class Gym extends Controller
                     'gym_address' => $gyminfo->gym_address,
                     'gym_email' => $gyminfo->gym_email,
                     'abn' => $gyminfo->abn,
+                    'phone_number' => $gyminfo->phone_number,
 
                 ];
 
