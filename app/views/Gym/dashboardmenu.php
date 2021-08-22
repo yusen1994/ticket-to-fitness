@@ -6,7 +6,14 @@
     <div class="row justify-content-center" style="background-color: white;">
         <div class="col-sm-1 col-lg-6">
             <div class="row" style="padding:0px; height:90px;">
-                <div class="col-4 text-center gymdashboard-menu-home p-4" style="padding:0px !important; height:auto;" id="gymdashboard-menu-home">
+                <div class=" col-4 text-center <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+
+                                                if (strpos($end, 'Gym') !== false || strpos($end, 'gym') !== false) {
+                                                    echo 'gymdashboard-menu-active';
+                                                } ?>" style="padding:0px !important; height:auto;">
                     <a href="<?php echo URLROOT ?>/gym" class="menu-clickable" onclick="menuActive('home')">
                         <div class="menu-content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="42.949" height="69.823" viewBox="0 0 42.949 69.823">
@@ -24,7 +31,14 @@
 
                     </a>
                 </div>
-                <div class="col-4 text-center gymdashboard-menu-timetable p-4" style="padding:0px !important; height:auto;" id="gymdashboard-menu-timetable">
+                <div class=" col-4 text-center <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+
+                                                if (strpos($end, 'Timetable') !== false) {
+                                                    echo 'gymdashboard-menu-active';
+                                                } ?>" style="padding:0px !important; height:auto;">
                     <a href="<?php echo URLROOT ?>/gym/Timetable" class="menu-clickable" onclick="menuActive('timetable')">
                         <div class="menu-content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="70.019" viewBox="0 0 64 70.019">
@@ -174,19 +188,7 @@
 </script>
 
 <style>
-    .gymdashboard-menu-home:active {
-        background-color: #ef8830;
-    }
-
-    .gymdashboard-menu-map:active {
-        background-color: #ef8830;
-    }
-
-    .gymdashboard-menu-timetable:active {
-        background-color: #ef8830;
-    }
-
-    .gymdashboard-menu-social:active {
+    .gymdashboard-menu-active {
         background-color: #ef8830;
     }
 
