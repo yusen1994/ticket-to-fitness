@@ -131,9 +131,13 @@ class Activity extends Controller
     }
 
 
-    public function addActivity($activityid = 0)
+    public function addActivity($activityid)
     {
+        $url = $_SERVER['HTTP_REFERER'];
+        $url = explode("/",$url,5);// so at second index rest of the string will come.
+       
 
+       
         if (isset($_SESSION['user_id'])) {
 
             $data = [
@@ -158,7 +162,8 @@ class Activity extends Controller
             }
         } else {
             $data['loginError'] = 'Please login to add activity';
-            $this->view('Landing/login', $data);
+   
+            redirect('Accounts/login/continue='.$url[4].'');
         }
     }
 }
