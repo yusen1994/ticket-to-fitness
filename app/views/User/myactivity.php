@@ -11,6 +11,7 @@
             <div class="row justify-content-center">
                 <div class="col">
                     <?php
+                     if (!empty($data['myActivity'])) {
                     foreach ($data['myActivity'] as $single) {
 
                         echo '<div class="container" style="padding-top: 20px; background-color: #f3f3f3">
@@ -64,7 +65,13 @@
                 </div>
             </div>
             </div>';
-                    }
+                    } 
+                } else {
+
+
+                        echo '<div class="alert alert-danger" role="alert">
+        ' . $data['error'] . '
+    </div>';
 
                     ?>
                 </div>

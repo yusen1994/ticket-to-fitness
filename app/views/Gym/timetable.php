@@ -31,7 +31,7 @@
 									<div class="container">
 										<div class="row">
 											<div class="col-sm-4">
-											<h4 class="card-title mb-3" style="color:orange"> <b>' . $single->time . '</b> </h4>
+											<h4 class="card-title mb-3" style="color:#E46E2E"> <b>' . $single->time . '</b> </h4>
 
 												<img src="' . URLROOT . '/images/gym_icon.png" width="100%" height="100%"  />
 

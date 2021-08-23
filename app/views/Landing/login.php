@@ -2,7 +2,7 @@
 
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="login-form">
-    <form action="<?php echo URLROOT; ?>/accounts/login" method="post">
+    <form action="<?php echo URLROOT; ?>/accounts/login<?php if(!empty($data['continue'])){echo '/continue='.$data['continue'];} ?>" method="post">
         <h2 class="text-center">Log in</h2>       
         <div class="form-group">
 		<input type="text" id="username" class="form-control" placeholder="Username" value = "<?php if(!empty($data['username'])) {echo $data['username']; } ?>" name="username" required title="">

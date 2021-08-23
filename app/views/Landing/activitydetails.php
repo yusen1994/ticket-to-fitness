@@ -7,7 +7,7 @@
     <div class="p-3 mb-2 bg-light text-dark">
         <div class="pl-3">
             <p>
-            <h3><b><span><a href = "<?php echo URLROOT; ?>/Activity" ><i class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:orange;">Activity</span> <span>Information</span> </b></h3>
+            <h3><b><span><a href = "<?php echo URLROOT; ?>/Activity" ><i class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:#E46E2E;">Activity</span> <span>Information</span> </b></h3>
             </p>
         </div>
     </div>
@@ -29,7 +29,7 @@
 
         </div>
         <div class="col">
-            <a href="<?php echo URLROOT; ?>/Activity" style="color:orange;">See all</a>
+            <a href="<?php echo URLROOT; ?>/Activity" style="color:#E46E2E;">See all</a>
         </div>
     </div>
 

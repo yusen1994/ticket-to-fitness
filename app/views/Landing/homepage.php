@@ -60,7 +60,7 @@
 
               echo '<hr>';
               echo '<p><b>Credit: ' . $activity->credit . '</b></p>';
-              echo '<a href="#" class="card-link">More Details</a>';
+              echo '<a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link">More Details</a>';
               echo '</div>';
               echo '</div>';
               echo '</div>';
@@ -79,12 +79,14 @@
       <div class="row justify-content-center" style="padding-top: 20px;">
         <div class="col-sm-1 col-lg-6 text-center">
           <a href="#">
-            <a href="<?php echo URLROOT; ?>/Activity/allactivity"><button type="button" class="land-seeall-btn mb-4">See all<span class="btn-arrow-1"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="12.536" height="10.751" viewBox="0 0 12.536 10.751">
+            <a href="<?php echo URLROOT; ?>/Activity/allactivity">
+            <button type="button" class="land-seeall-btn mb-4">See all<span class="btn-arrow-1"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="12.536" height="10.751" viewBox="0 0 12.536 10.751">
                     <g id="Group_87" data-name="Group 87" transform="translate(0 0)">
                       <path id="Path_103" data-name="Path 103" d="M.753,36.337a.9.9,0,0,1,.155-.011H9.752l-.193-.09a1.794,1.794,0,0,1-.507-.359L6.573,33.4a.928.928,0,0,1-.13-1.188.9.9,0,0,1,1.345-.117l4.485,4.485a.9.9,0,0,1,0,1.268h0L7.788,42.331a.9.9,0,0,1-1.345-.09.928.928,0,0,1,.13-1.188l2.476-2.485a1.794,1.794,0,0,1,.448-.327l.269-.121H.958a.928.928,0,0,1-.946-.753A.9.9,0,0,1,.753,36.337Z" transform="translate(0 -31.842)" />
                     </g>
                   </svg>
-                </span></button>
+                </span>
+            </button>
             </a>
           </a>
         </div>
@@ -178,8 +180,9 @@
   </div>
   <div class="row justify-content-center m-2" style="padding-top: 20px;">
     <div class="col-sm-1 col-lg-4 text-center">
-      <a href="#">
-        <button type="button" class="land-seeall-btn mb-4">See all<span class="btn-arrow-1"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="12.536" height="10.751" viewBox="0 0 12.536 10.751">
+      <a href="<?php echo URLROOT; ?>/Activity" style="color:#E46E2E;">
+        <button type="button" class="land-seeall-btn mb-4">See all
+          <span class="btn-arrow-1"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="12.536" height="10.751" viewBox="0 0 12.536 10.751">
               <g id="Group_87" data-name="Group 87" transform="translate(0 0)">
                 <path id="Path_103" data-name="Path 103" d="M.753,36.337a.9.9,0,0,1,.155-.011H9.752l-.193-.09a1.794,1.794,0,0,1-.507-.359L6.573,33.4a.928.928,0,0,1-.13-1.188.9.9,0,0,1,1.345-.117l4.485,4.485a.9.9,0,0,1,0,1.268h0L7.788,42.331a.9.9,0,0,1-1.345-.09.928.928,0,0,1,.13-1.188l2.476-2.485a1.794,1.794,0,0,1,.448-.327l.269-.121H.958a.928.928,0,0,1-.946-.753A.9.9,0,0,1,.753,36.337Z" transform="translate(0 -31.842)" />
               </g>

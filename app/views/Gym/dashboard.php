@@ -14,7 +14,7 @@ if (!empty($data['message'])) {
     <h2>
         <hr>
     </h2>
-    <p> <b>Your <span style="color:orange;">monthly</span> stats are in! <b></p>
+    <p> <b>Your <span style="color:#E46E2E;">monthly</span> stats are in! <b></p>
 
     <div class="container">
         <div class="row">

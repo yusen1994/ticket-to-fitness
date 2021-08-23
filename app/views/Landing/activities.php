@@ -31,11 +31,20 @@ F2F2F2;">
                 </div>
                 <?php if (!empty($data['error'])) {
 
-                    echo '<div class="alert alert-primary mt-4" role="alert">';
+                    echo '<div class="alert alert-danger mt-4" role="alert">';
                     echo $data['error'];
                     echo '</div>';
                 }
                 ?>
+
+                <?php if (!empty($data['success'])) {
+
+                    echo '<div class="alert alert-success mt-4" role="alert">';
+                    echo $data['success'];
+                    echo '</div>';
+                }
+                ?>
+
             </form>
         </div>
         <div class="col-3">
@@ -52,27 +61,14 @@ F2F2F2;">
     </div>
 </div>
 
-<?php if (!empty($data['success'])) {
 
-    echo '<div class="alert alert-success mt-4" role="alert">';
-    echo $data['success'];
-    echo '</div>';
-}
-?>
 
-<?php if (!empty($data['error'])) {
-
-    echo '<div class="alert alert-danger mt-4" role="alert">';
-    echo $data['error'];
-    echo '</div>';
-}
-?>
 <!--Filter Modal-->
 
 <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:orange;">
+            <div class="modal-header" style="background-color:#E46E2E;">
                 <h3 class="modal-title" id="filterModalLabel"><b>Filter</b></h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -203,17 +199,17 @@ F2F2F2;">
                                 <small class="card-cateogry-text">Weightlifting</small>
                             </td>
                             <td>
-                                <img class="card-category-image" src="<?php echo URLROOT; ?>/images/location-orange.svg">
+                                <img class="card-category-image" src="<?php echo URLROOT; ?>/images/location-#E46E2E.svg">
                                 <small class="card-cateogry-text">Venice Beach</small>
                             </td>
                         </tr>
                         <tr>
                             <td class="card-info-col">
-                                <img class="card-category-image" src="<?php echo URLROOT; ?>/images/timer-orange.svg">
+                                <img class="card-category-image" src="<?php echo URLROOT; ?>/images/timer-#E46E2E.svg">
                                 <small class="card-cateogry-text">x3 weekly</small>
                             </td>
                             <td>
-                                <img class="card-category-image" src="<?php echo URLROOT; ?>/images/group-orange.svg">
+                                <img class="card-category-image" src="<?php echo URLROOT; ?>/images/group-#E46E2E.svg">
                                 <small class="card-cateogry-text">Unlimited</small>
                             </td>
                         </tr>

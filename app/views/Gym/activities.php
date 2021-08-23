@@ -1,16 +1,16 @@
 <?php require APPROOT . '/views/Gym/dashboardmenu.php'; ?>
 
 
-<h4><b>Upcoming <span style="color:orange;">Activities</span></b></h4>
+<h4><b>Upcoming <span style="color:#E46E2E;">Activities</span></b></h4>
     <div class="container mt-3">
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-block rounded-pill" style="background-color:orange;"><i class="fas fa-list"></i> View all</button>
+                <button type="button" class="btn btn-block rounded-pill" style="background-color:#E46E2E;"><i class="fas fa-list"></i> View all</button>
 
             </div>
 
             <div class="col">
-                <button type="submit" class="btn btn-block rounded-pill" data-toggle="modal" data-target="#addActivityModal" style="background-color:orange;"><i class="fas fa-plus"></i> Add activity</button>
+                <button type="submit" class="btn btn-block rounded-pill" data-toggle="modal" data-target="#addActivityModal" style="background-color:#E46E2E;"><i class="fas fa-plus"></i> Add activity</button>
             </div>
 
 
@@ -79,7 +79,7 @@
         <div class="modal fade" id="editActivityModal' . $count . '" tabindex="-1" role="dialog" aria-labelledby="editActivityModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color:orange;">
+                    <div class="modal-header" style="background-color:#E46E2E;">
                         <h5 class="modal-title" id="editActivityModalLabel">Add Activity</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -168,7 +168,7 @@
 <div class="modal fade " id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:orange;">
+            <div class="modal-header" style="background-color:#E46E2E;">
                 <h5 class="modal-title" id="addActivityModalLabel">Add Activity</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -348,7 +348,7 @@
 </div>
 
 
-<nav class="navbar fixed-bottom navbar-expand-sm visible-xs-block " id="desktopHide" style="background-color:orange;">
+<nav class="navbar fixed-bottom navbar-expand-sm visible-xs-block " id="desktopHide" style="background-color:#E46E2E;">
     <div class="btn-group" role="group" aria-label="Third group">
         <span style="font-size: 2em;">
 
