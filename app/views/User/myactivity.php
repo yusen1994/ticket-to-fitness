@@ -1,8 +1,19 @@
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
-<?php
-foreach ($data['myActivity'] as $single) {
 
-    echo '<div class="container" style="padding-top: 20px; background-color: #f3f3f3">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-1 col-lg-4">
+            <div class="row" style="margin-top: 20px;">
+                <div class=" col">
+                    <h3><b><span><a href="<?php echo URLROOT; ?>/User"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">My Activities</span></b></h3>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <?php
+                    foreach ($data['myActivity'] as $single) {
+
+                        echo '<div class="container" style="padding-top: 20px; background-color: #f3f3f3">
    
   
             <div class="card-container">
@@ -28,10 +39,10 @@ foreach ($data['myActivity'] as $single) {
                                 <td class="card-info-col">
                                     <img class="card-category-image" src="' . URLROOT . '/images/timer-orange.svg">
                                     <small class="card-cateogry-text">';
-    foreach ((unserialize($single->sessions_per_week)) as $session_per_week) {
-        echo $session_per_week . "  ";
-    }
-    echo '</small>
+                        foreach ((unserialize($single->sessions_per_week)) as $session_per_week) {
+                            echo $session_per_week . "  ";
+                        }
+                        echo '</small>
                                 </td>
                                 <td>
                                     <img class="card-category-image" src="' . URLROOT . '/images/group-orange.svg">
@@ -47,15 +58,23 @@ foreach ($data['myActivity'] as $single) {
                 </div>
                 <div class="credits-container">
                     <img class="credits-image" class="card-category-image" src="' . URLROOT . '/images/credits.svg">
-                    <a style="text-decoration:none" href = "'.URLROOT.'/User/removeActivity/'.$single->activity_id.'"><button type="button" class="btn"  style="color: red;"><b>Delete</b></button></a>
+                    <a style="text-decoration:none" href = "' . URLROOT . '/User/removeActivity/' . $single->activity_id . '"><button type="button" class="btn"  style="color: red;"><b>Delete</b></button></a>
 
                     <h5>25</h5>
                 </div>
             </div>
             </div>';
-}
+                    }
 
-?>
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

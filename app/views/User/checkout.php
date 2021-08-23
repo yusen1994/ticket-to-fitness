@@ -1,24 +1,24 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <!--HTML for homepage goes here, for CSS visit public folder-->
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
+<?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
-
-<div class="container-fluid" style="height:800px;padding-top:10px;">
+<div class="container-fluid" style="height:800px;">
     <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-6">
+        <div class="col-sm-12 col-lg-3">
             <div class="heading-container">
-                <h4>Checkout</h4>
+                <h3><b><span><a href="<?php echo URLROOT; ?>/User"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">Checkout</span></b></h3>
             </div>
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-6">
+        <div class="col-sm-1 col-lg-3">
             <div class="checkout-container" style="padding-top:10px;">
                 <div class="row" style="margin-top:20px;">
                     <div class="col-9">
                         <span class="text-style">Total Credit</span>
                     </div>
-                    <div class="col-1">
+                    <div class="col-3 text-lg-center text-right">
                         <svg xmlns="http://www.w3.org/2000/svg" width="21.899" height="25.005" viewBox="0 0 21.899 25.005">
                             <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.206, 22.942)">
                                 <path id="Path_63" data-name="Path 63" d="M21.222,13.819H2.468A2.471,2.471,0,0,1,0,11.351V9.377a.494.494,0,0,1,.494-.494H.987a1.974,1.974,0,1,0,0-3.948H.494A.494.494,0,0,1,0,4.442V2.468A2.471,2.471,0,0,1,2.468,0H21.222A2.471,2.471,0,0,1,23.69,2.468V4.442a.494.494,0,0,1-.494.494H22.7a1.974,1.974,0,0,0,0,3.948H23.2a.494.494,0,0,1,.494.494v1.974A2.47,2.47,0,0,1,21.222,13.819ZM.987,9.871v1.481a1.482,1.482,0,0,0,1.481,1.481H21.222A1.482,1.482,0,0,0,22.7,11.351V9.871h0a2.961,2.961,0,0,1,0-5.923V2.468A1.482,1.482,0,0,0,21.222.987H2.468A1.482,1.482,0,0,0,.987,2.468V3.948a2.961,2.961,0,0,1,0,5.923Z" transform="translate(0 5.918)" />
@@ -28,8 +28,6 @@
                                 <path id="Path_67" data-name="Path 67" d="M.494,6.905A.493.493,0,0,1,.321,5.95L16.015.089A1.507,1.507,0,0,1,17.935,1l1.78,5.252a.494.494,0,0,1-.935.317L17,1.317a.5.5,0,0,0-.641-.3L.665,6.874a.476.476,0,0,1-.172.032Z" transform="translate(1.974 0)" />
                             </g>
                         </svg>
-                    </div>
-                    <div class="col-2">
                         <span class="text-style-bold"><?php echo $data['total_credit']; ?></span>
                     </div>
                 </div>
@@ -37,10 +35,8 @@
                     <div class="col-9">
                         <span class="text-style">Purchase Amount</span>
                     </div>
-                    <div class="col-1">
-                      <b>$</b>
-                    </div>
-                    <div class="col-2">
+                    <div class="col-3 text-lg-center text-left">
+                        <b>$</b>
                         <span class="text-style-bold"><?php echo $data['cost']; ?></span>
                     </div>
                 </div>
@@ -51,16 +47,14 @@
                     <div class="col-9">
                         <span class="text-style-bold">Total</span>
                     </div>
-                    <div class="col-1">
-                    <b>$</b>
-                    </div>
-                    <div class="col-2">
+                    <div class="col-3 text-lg-center text-left">
+                        <b>$</b>
                         <span class="text-style-bold"><?php echo $data['cost']; ?></span>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-sm-12 col-lg-6 text-center">
+                <div class="col-12 text-center">
                     <span class="confirm-text">Selecting <span class="confirm-text-bold">Confirm</span> will add the activity to your <span class="confirm-text-bold">Timetable</span></span>
                 </div>
             </div>
@@ -70,13 +64,14 @@
             </div>
 
             <div class="row justify-content-center" style="margin-top:20px;">
-                <div class="col-5 col-lg-3 text-center">
+                <div class="col-5 col-lg-4 text-center">
                     <a class="checkout-back-btn" href="#">
                         Go back
                     </a>
                 </div>
-                <div class="col-5 col-lg-3 text-center">
-                    <a class="checkout-confirm-btn" href="<?php echo URLROOT;?>/user/confirmPurchase/<?php echo $data['cost']; ?>/<?php echo $data['total_credit']; ?>"> <!--Later need to redirect to payment page -->
+                <div class="col-5 col-lg-4 text-center">
+                    <a class="checkout-confirm-btn" href="<?php echo URLROOT; ?>/user/confirmPurchase/<?php echo $data['cost']; ?>/<?php echo $data['total_credit']; ?>">
+                        <!--Later need to redirect to payment page -->
                         Confirm
                     </a>
                 </div>

@@ -15,8 +15,16 @@
                                                 $url = $_SERVER['REQUEST_URI'];
                                                 $urlarray = explode("/", $url);
                                                 $end = $urlarray[count($urlarray) - 1];
+                                                $urlcheckout = $urlarray[count($urlarray) - 3];
+                                                $urltimetable = $urlarray[count($urlarray) - 2];
 
-                                                if (strpos($end, 'User') !== false) {
+                                                if (
+                                                    strpos($end, 'User') !== false ||
+                                                    strpos($end, 'credits') !== false ||
+                                                    strpos($end, 'MyActivity') !== false ||
+                                                    strpos($end, 'userProfile') !== false ||
+                                                    strpos($urlcheckout, 'checkout') !== false
+                                                ) {
                                                     echo 'userdashboard-menu-active';
                                                 } ?>" style="padding:0px !important; height:auto;">
                     <a href="<?php echo URLROOT ?>/User" class="menu-clickable">
@@ -74,7 +82,7 @@
                                                 $url = $_SERVER['REQUEST_URI'];
                                                 $urlarray = explode("/", $url);
                                                 $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'Timetable') !== false) {
+                                                if (strpos($end, 'Timetable') !== false || strpos($urltimetable, 'timetable') !== false) {
                                                     echo 'userdashboard-menu-active';
                                                 } ?>" style="padding:0px !important; height:auto;">
 
