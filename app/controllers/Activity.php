@@ -158,6 +158,7 @@ class Activity extends Controller
                     $this->allactivity($data);
                 } else {
                     $addActivity = $this->activityModel->addToCart($data);
+                    $_SESSION['CartCount'] += 1;
                     if ($addActivity) {
                         $data['success'] = "Activity Added To Cart";
                         $this->allactivity($data);

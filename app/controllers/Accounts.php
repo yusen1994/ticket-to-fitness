@@ -93,8 +93,10 @@ class Accounts extends Controller
         $_SESSION['user_id'] = $user->id;
         $_SESSION['partnership_status'] = $user->partnership_status;
         $_SESSION['email'] = $user->email;
+        $cartCount = $this->accountsModel->cartCount($user->id);
+        $_SESSION['CartCount'] = $cartCount->cartcount;
 
-   
+        //echo $_SESSION['CartCount']; exit;
         if (empty($data['continue'])) {
             redirect('User');
         } else {
