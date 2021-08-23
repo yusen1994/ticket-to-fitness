@@ -197,5 +197,16 @@
             }
         }
 
+        public function cartCount($user_id){
+
+            $this->db->query('SELECT Count(*) as cartcount FROM cart WHERE user_id = :user_id');
+            $this->db->bind(':user_id', $user_id);
+            $row=$this->db->single();
+            
+            if($this->db->rowCount() > 0) {
+               
+                return $row;
+            }
+        }
     }
 ?>

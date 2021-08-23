@@ -153,7 +153,9 @@ class User extends Controller
 
                 if ($removeCart) {
                     $data['success'] = "Successfully Removed";
-
+                    if ($_SESSION['CartCount'] >= 0) {
+                        $_SESSION['CartCount'] -= 1;
+                    }
                     $this->cart();
                 } else {
                     $data['error'] = "Something'\s wrong! Please try again later";
@@ -189,6 +191,7 @@ class User extends Controller
 
                         $addUserActivity = $this->userModel->addActivity($data);
                         $removecart = $this->userModel->removeCart($data);
+                        $_SESSION['CartCount'] = 0;
                     }
                     $msg = 'Activity Added! Please allocate time on My Timetable Page';
                     $this->MyActivity($msg);
@@ -210,12 +213,12 @@ class User extends Controller
                 'user_id' => $_SESSION['user_id'],
                 'success' => $msg
             ];
-            
+
             $useractivity = $this->userModel->myActivity($data);
             $data['myActivity'] = $useractivity;
             if (!empty($data['myActivity'])) {
                 $this->view('User/myactivity', $data);
-            }else{
+            } else {
                 $data['error'] = 'No Activity Added!';
                 $this->view('User/myactivity', $data);
             }
