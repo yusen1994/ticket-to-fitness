@@ -63,11 +63,7 @@
                                         
 									</div>
 									<br>
-									<div class="mt-3 btn-group btn-group-lg activities_inside_card" role="group" aria-label="buttons_activities">
-										<button type="button" class="btn" style="color: #EF8830;"> <b>Edit</b></button>
-										<button type="button" class="btn"  style="color: blue;"><b>Deactive</b></button>
-										<button type="button" class="btn"  style="color: red;"><b>Delete</b></button>
-									</div>
+									
 								</div>
 							</div>
 						</div>
