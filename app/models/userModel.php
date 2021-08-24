@@ -159,7 +159,8 @@ class userModel
   }
 
 
-  public function userCredit($data){
+  public function userCredit($data)
+  {
 
     $this->db->query('SELECT SUM(`total_credit`) AS `total_credit` FROM `users_credits` WHERE user_id=:user_id');
 
@@ -172,7 +173,8 @@ class userModel
     }
   }
 
-  public function allocation($data){
+  public function allocation($data)
+  {
     $this->db->query('INSERT INTO `users_allocation`(`user_id`, `timetable_id`) VALUES (:user_id, :timetable_id)');
     $this->db->bind(':user_id', $data['user_id']);
     $this->db->bind(':timetable_id', $data['timetable_id']);
@@ -182,7 +184,33 @@ class userModel
     } else {
       return false;
     }
+  }
 
 
+ 
+
+  public function getCostActivity($timetable_id){
+    $this->db->query('SELECT gym_activity.credit FROM gym_activity_timetable INNER JOIN gym_activity ON gym_activity_timetable.activity_id = gym_activity.id WHERE gym_activity_timetable.id = :timetable_id');
+    $this->db->bind(':timetable_id', $timetable_id);
+    $row = $this->db->single();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+
+  }
+
+  public function deductCredit($data){
+    $this->db->query('INSERT INTO `users_credits`(`total_credit`, `user_id`) VALUES (:total_cost, :user_id)');
+    $this->db->bind(':total_cost', -$data['total_cost']);
+    $this->db->bind(':user_id', $data['user_id']);
+
+
+    if ($this->db->execute()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

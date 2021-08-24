@@ -17,20 +17,21 @@
         <li class="nav-item px-lg-2 active">
            
         <?php if(!empty($_SESSION['user_id'])){
-         echo '<a class="nav-link" href="'.URLROOT.'/Accounts/logout"> <span class="d-inline-block d-lg-none icon-width"><svg id="user" xmlns="http://www.w3.org/2000/svg" width="21.371" height="22.251" viewBox="0 0 21.371 22.251">
-         <g id="Group_28" data-name="Group 28" transform="translate(0 12.533)">
-           <g id="Group_27" data-name="Group 27">
-             <path id="Path_38" data-name="Path 38" d="M28.126,288.389c-6.891,0-10.686,3.163-10.686,8.906a.825.825,0,0,0,.837.812h19.7a.825.825,0,0,0,.837-.812C38.811,291.552,35.016,288.389,28.126,288.389Zm-8.981,8.094c.329-4.294,3.347-6.469,8.981-6.469s8.652,2.176,8.982,6.469Z" transform="translate(-17.44 -288.389)" fill="#f2f2f2" />
-           </g>
-         </g>
-         <g id="Group_30" data-name="Group 30" transform="translate(5.299)">
-           <g id="Group_29" data-name="Group 29">
-             <path id="Path_39" data-name="Path 39" d="M137.436,0a5.322,5.322,0,0,0-5.387,5.495,5.4,5.4,0,1,0,10.773,0A5.322,5.322,0,0,0,137.436,0Zm0,9.718a4.017,4.017,0,0,1-3.763-4.223,3.693,3.693,0,0,1,3.763-3.871A3.734,3.734,0,0,1,141.2,5.495,4.017,4.017,0,0,1,137.436,9.718Z" transform="translate(-132.049)" fill="#f2f2f2" />
-           </g>
-         </g>
-       </svg>
-      
-     </span>Logout</a>';
+
+     echo '<a class="nav-link" href="'.URLROOT.'/User"> <span class="d-inline-block d-lg-none icon-width"><svg id="user" xmlns="http://www.w3.org/2000/svg" width="21.371" height="22.251" viewBox="0 0 21.371 22.251">
+     <g id="Group_28" data-name="Group 28" transform="translate(0 12.533)">
+       <g id="Group_27" data-name="Group 27">
+         <path id="Path_38" data-name="Path 38" d="M28.126,288.389c-6.891,0-10.686,3.163-10.686,8.906a.825.825,0,0,0,.837.812h19.7a.825.825,0,0,0,.837-.812C38.811,291.552,35.016,288.389,28.126,288.389Zm-8.981,8.094c.329-4.294,3.347-6.469,8.981-6.469s8.652,2.176,8.982,6.469Z" transform="translate(-17.44 -288.389)" fill="#f2f2f2" />
+       </g>
+     </g>
+     <g id="Group_30" data-name="Group 30" transform="translate(5.299)">
+       <g id="Group_29" data-name="Group 29">
+         <path id="Path_39" data-name="Path 39" d="M137.436,0a5.322,5.322,0,0,0-5.387,5.495,5.4,5.4,0,1,0,10.773,0A5.322,5.322,0,0,0,137.436,0Zm0,9.718a4.017,4.017,0,0,1-3.763-4.223,3.693,3.693,0,0,1,3.763-3.871A3.734,3.734,0,0,1,141.2,5.495,4.017,4.017,0,0,1,137.436,9.718Z" transform="translate(-132.049)" fill="#f2f2f2" />
+       </g>
+     </g>
+   </svg>
+  
+ </span>Dashboard</a>';
         }else{
           echo '<a class="nav-link" href="<?php echo URLROOT; ?>/Accounts/login"> <span class=" d-inline-block d-lg-none icon-width"><svg id="user" xmlns="http://www.w3.org/2000/svg" width="21.371" height="22.251" viewBox="0 0 21.371 22.251">
           <g id="Group_28" data-name="Group 28" transform="translate(0 12.533)">

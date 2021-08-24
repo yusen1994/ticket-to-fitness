@@ -9,6 +9,8 @@ class User extends Controller
     {
         $this->accountsModel = $this->model('Account');
         $this->userModel = $this->model('userModel');
+        $this->gymModel = $this->model('GymModel');
+
     }
 
     public function index()
@@ -60,16 +62,14 @@ class User extends Controller
     {
         if (!empty($data['error'])) {
             $error = $data['error'];
-            
-        }else{
+        } else {
             $error = NULL;
         }
 
         if (!empty($data['success'])) {
             $success = $data['success'];
-            
-        }else{
-            $success= NULL;
+        } else {
+            $success = NULL;
         }
         if (isset($_SESSION['user_id'])) {
             $data = [
@@ -95,6 +95,21 @@ class User extends Controller
         }
     }
 
+    public function checkUserBalance($userid, $cost)
+    {
+        $data['user_id'] = $userid;
+        $data['cost'] = $cost;
+        $balance = $this->userModel->userCredit($data);
+       
+       
+
+        if ($cost < $balance->total_credit) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public function allocation($timetableid)
     {
@@ -103,19 +118,47 @@ class User extends Controller
         //Send the balance to gym
         //Don't allow multiple times to allocate
         //Change color of card to orange
-        if (!empty($timetableid)) {
-            $data['user_id'] = $_SESSION['user_id'];
-            $data['timetable_id'] = $timetableid;
-            $allocation = $this->userModel->allocation($data);
-            if ($allocation) {
-                $data['success'] = "Successfully Allocated! Please join the class during the allocated time";
-                $this->timetable($day = "monday", $data);
+
+        //Get the cost of the activity
+        $cost = $this->userModel->getCostActivity($timetableid);
+        $gymid = $this->gymModel->getGymId($timetableid);
+        //Check User Balance is enough to buy the activity
+        if (empty($cost)) {
+            $data['error'] = "Failed! Please try again later";
+        }
+
+        if ($this->checkUserBalance($_SESSION['user_id'], $cost->credit)) {
+            if (!empty($timetableid)) {
+                $data['user_id'] = $_SESSION['user_id'];
+                $data['timetable_id'] = $timetableid;
+                $data['total_cost'] = $cost->credit;
+                $data['gym_id'] = $gymid->gym_id;
+                $allocation = $this->userModel->allocation($data);
+                if ($allocation) {
+                    //Deduct the credit once allocated successfully!
+                    if ($this->userModel->deductCredit($data)) {
+                        //Add credit to the gym owner
+                        if ($this->gymModel->addCredit($data)) {
+                            $data['success'] = "Successfully Allocated! Please join the class during the allocated time";
+                            $this->timetable($day = "monday", $data);
+                        } else {
+                            $data['error'] = "Something went wrong! Please try again later";
+                            $this->timetable($day = "monday", $data);
+                        }
+                    } else {
+                        $data['error'] = "Something went wrong! Please try again later";
+                        $this->timetable($day = "monday", $data);
+                    }
+                } else {
+                    $data['error'] = "Something went wrong! Please try again later";
+                    $this->timetable($day = "monday", $data);
+                }
             } else {
                 $data['error'] = "Something went wrong! Please try again later";
                 $this->timetable($day = "monday", $data);
             }
         } else {
-            $data['error'] = "Something went wrong! Please try again later";
+            $data['error'] = "Not enough credits Please buy more credits";
             $this->timetable($day = "monday", $data);
         }
     }
