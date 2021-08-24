@@ -19,11 +19,15 @@
 		<br>
 
 
-		<?php 
-				if (empty($data['error'])) {
-		foreach ($data['user_activity'] as $single) {
+		<?php
 
-			echo '<div class="container">
+		echo '<div class="alert alert-success" role="alert">
+' . $data['success'] . '
+</div>';
+		if (empty($data['error'])) {
+			foreach ($data['user_activity'] as $single) {
+
+				echo '<div class="container">
 					<div class="row">
 							<div class="card activity_card">
 								<div class="card-body">
@@ -43,10 +47,10 @@
 														<div class="col-6">
 															<p> <span><img src="' . URLROOT . '/images/weights.png" width="10%" style="background-color: #EF8830; border-radius: 20px;"></span>' . $single->category . '</p><br> 
 															<p> <span><img src="' . URLROOT . '/images/frequency_org.png" width="10%"></span> ';
-			foreach ((unserialize($single->sessions_per_week)) as $session_per_week) {
-				echo $session_per_week . "  ";
-			}
-			echo ' </p>
+				foreach ((unserialize($single->sessions_per_week)) as $session_per_week) {
+					echo $session_per_week . "  ";
+				}
+				echo ' </p>
 														</div>
 														<div class="col-6">
 															<p> <span><img src="' . URLROOT . '/images/location.png" width="10%"></span>' . $single->gym_address . '</p><br>
@@ -58,7 +62,7 @@
 
 											<div class = "col-2 text-center">
 											<span style="font-size: 25px;">Credit: 
-											'.$single->credit.'
+											' . $single->credit . '
 											<!--<i class="fas fa-check-circle"></i>		-->
 											</span>
 		
@@ -72,7 +76,7 @@
 									<br>
 									<div class="mt-3 btn-group btn-group-lg activities_inside_card" role="group" aria-label="buttons_activities">
 									
-									<button type="button" class="btn"  style="color: Green;"><b>Purchase</b></button>
+									<a href = "' . URLROOT . '/User/allocation/' . $single->id . '" style ="text-decoration:none;"><button type="button" class="btn"  style="color: Green;"><b>Purchase</b></button></a>
 								</div>
 								</div>
 							</div>
@@ -81,13 +85,13 @@
 
 					</div>
 				</div>';
-		} }else{
-			
+			}
+		} else {
+
 			echo '<div class="alert alert-danger" role="alert">
 			' . $data['error'] . '
 		</div>';
-			
-		}?>
+		} ?>
 
 
 

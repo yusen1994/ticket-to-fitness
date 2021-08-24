@@ -72,7 +72,7 @@
                         echo '<div class="alert alert-danger" role="alert">
         ' . $data['error'] . '
     </div>';
-
+                }
                     ?>
                 </div>
             </div>

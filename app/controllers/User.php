@@ -56,14 +56,28 @@ class User extends Controller
     }
 
 
-    public function timetable($day = "monday")
+    public function timetable($day = "monday", $data = NULL)
     {
+        if (!empty($data['error'])) {
+            $error = $data['error'];
+            
+        }else{
+            $error = NULL;
+        }
 
+        if (!empty($data['success'])) {
+            $success = $data['success'];
+            
+        }else{
+            $success= NULL;
+        }
         if (isset($_SESSION['user_id'])) {
             $data = [
 
                 'user_id' => $_SESSION['user_id'],
                 'day' => $day,
+                'success' => $success,
+                'error' => $error
 
             ];
             $useractivity = $this->userModel->viewtimeTable($data);
@@ -82,28 +96,28 @@ class User extends Controller
     }
 
 
-    public function allocation($data)
+    public function allocation($timetableid)
     {
-        //Request from timetable UI Users Param! (Activity id of the selected activity along with id from timetable because we need which
-        // time is allocated )
-
-
-
-        //Check how many purchase for that particular activity id of the user in user_activity table = 2
-
-
-
-
-        //Check how many already allocated in allocation table for that particular activity id of the user = 2
-
-
-        //Allow to allocate as much as the total purchase
-
-
-
-        //Send message of "All Allocated" if no more allocation
-
-
+        //Need to check if the balance is enough
+        //Deduct the balance
+        //Send the balance to gym
+        //Don't allow multiple times to allocate
+        //Change color of card to orange
+        if (!empty($timetableid)) {
+            $data['user_id'] = $_SESSION['user_id'];
+            $data['timetable_id'] = $timetableid;
+            $allocation = $this->userModel->allocation($data);
+            if ($allocation) {
+                $data['success'] = "Successfully Allocated! Please join the class during the allocated time";
+                $this->timetable($day = "monday", $data);
+            } else {
+                $data['error'] = "Something went wrong! Please try again later";
+                $this->timetable($day = "monday", $data);
+            }
+        } else {
+            $data['error'] = "Something went wrong! Please try again later";
+            $this->timetable($day = "monday", $data);
+        }
     }
 
     public function cart()
