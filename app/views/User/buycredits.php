@@ -13,11 +13,16 @@
             <div class="credit-item-container">
 
                 <?php
+                if (!empty($data['error'])) {
+                    echo '<div class="alert alert-danger" role="alert">
+        ' . $data['error'] . '
+    </div>';
+                } else {
 
-                if (!empty($data['credits'])) {
+                    if (!empty($data['credits'])) {
 
-                    foreach ($data['credits'] as $single) {
-                        echo '<a style="text-decoration: none;" href="' . URLROOT . '/user/checkout/' . $single->cost . '/' . $single->total_credit . '" class="credit-item-link">
+                        foreach ($data['credits'] as $single) {
+                            echo '<a style="text-decoration: none;" href="' . URLROOT . '/user/checkout/' . $single->cost . '/' . $single->total_credit . '" class="credit-item-link">
                     <div class="container rounded p-4 mt-4" style="background-color:white">
                         <div class="row">
                             <div class="col-9">
@@ -48,9 +53,9 @@
 
                     </div>
                 </a>';
+                        }
                     }
                 }
-
 
                 ?>
 

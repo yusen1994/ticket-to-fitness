@@ -125,7 +125,7 @@ if (!empty($data['message'])) {
     echo "</div>";
 }
 ?>
-<?php require APPROOT . '/views/inc/footer.php'; ?>"
+<?php require APPROOT . '/views/inc/footer.php'; ?>
 
 <style>
     .credit-container {

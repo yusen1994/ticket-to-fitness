@@ -1,23 +1,65 @@
 <?php require APPROOT . '/views/Gym/dashboardmenu.php'; ?>
 
+<div class="container-fluid mt-3">
 
-<div class="container-fluid gym_timetable">
-	<div class="days_of_the_week">
-		<div class="row">
-			<div class="btn-group btn-group-lg buttons_days_of_week " role="group" aria-label="buttons_days_of_week">
-				<a href="<?php echo URLROOT ?>/Gym/timetable/monday" class="btn btn-light active">Monday</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/tuesday" class="btn btn-light active">Tuesday</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/wednesday" class="btn btn-light active">Wednesday</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/thursday" class="btn btn-light active">Thursday</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/friday" class="btn btn-light active">Friday</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/saturday" class="btn btn-light active">Saturday</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/sunday" class="btn btn-light active">Sunday</a>
+	<div class="btn-group btn-group-lg buttons_days_of_week " role="group" aria-label="buttons_days_of_week">
+		<a href="<?php echo URLROOT ?>/Gym/timetable/monday" class="btn btn-light  <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+                                                if (strpos($end, 'monday') !== false) {
+                                                    echo 'active';
+                                                } ?>">M</a>
+		<a href="<?php echo URLROOT ?>/Gym/timetable/tuesday" class="btn btn-light <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+                                                if (strpos($end, 'tuesday') !== false) {
+                                                    echo 'active';
+                                                } ?>">T</a>
+		<a href="<?php echo URLROOT ?>/Gym/timetable/wednesday" class="btn btn-light <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+                                                if (strpos($end, 'wednesday') !== false) {
+                                                    echo 'active';
+                                                } ?>">W</a>
+		<a href="<?php echo URLROOT ?>/Gym/timetable/thursday" class="btn btn-light <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+                                                if (strpos($end, 'thursday') !== false) {
+                                                    echo 'active';
+                                                } ?>">T</a>
+		<a href="<?php echo URLROOT ?>/Gym/timetable/friday" class="btn btn-light <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+                                                if (strpos($end, 'friday') !== false) {
+                                                    echo 'active';
+                                                } ?>">F</a>
+		<a href="<?php echo URLROOT ?>/Gym/timetable/saturday" class="btn btn-light <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+                                                if (strpos($end, 'saturday') !== false) {
+                                                    echo 'active';
+                                                } ?>">S</a>
+		<a href="<?php echo URLROOT ?>/Gym/timetable/sunday" class="btn btn-light <?php
+                                                $url = $_SERVER['REQUEST_URI'];
+                                                $urlarray = explode("/", $url);
+                                                $end = $urlarray[count($urlarray) - 1];
+                                                if (strpos($end, 'sundayx') !== false) {
+                                                    echo 'active';
+                                                } ?>">S</a>
 
+	</div>
 
-			</div>
-		</div>
-		<br>
-		<br>
+</div>
+
+<br>
+<br>
+
 		
 		<?php 
 		if (empty($data['error'])) {

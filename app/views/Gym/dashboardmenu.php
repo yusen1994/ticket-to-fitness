@@ -129,7 +129,7 @@
                     </a>
                 </div>
                 <div class="col-3 text-center gymdashboard-menu-social p-4" style="padding:0px !important; height:auto;" id="gymdashboard-menu-social">
-                    <a href="#" class="menu-clickable" onclick="menuActive('social')">
+                    <a href="<?php echo URLROOT;?>/Gym/gymProfile" class="menu-clickable" onclick="menuActive('social')">
                         <div class="menu-content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="107" height="68.519" viewBox="0 0 107 68.519">
                                 <g id="gym" transform="translate(31.275)">
