@@ -17,15 +17,15 @@
                         echo '<div class="container" style="padding-top: 20px; background-color: #f3f3f3">
    
   
-            <div class="card-container">
+            <div class="card-container p-2" style="width:100%; height:auto;">
                 <div class="gym-image-container">
                     <img class="gym-image" src="' . URLROOT . '/images/golds gym.png">
                 </div>
-                <div class="card-content" >
+                <div class="card-content"style="width:100%; height:auto;" >
                     <p class="gym-name">' . $single->gym_name . '</p>
                     <div class="line-separator"></div>
                     <div class="gym-info-container">
-                        <table style="width:100%;">
+                        <table >
                             <tr>
                                 <td class="card-info-col">
                                     <img class="card-category-image" src="' . URLROOT . '/images/weightlift.svg">
@@ -58,10 +58,14 @@
 
                 </div>
                 <div class="credits-container">
+                
                     <img class="credits-image" class="card-category-image" src="' . URLROOT . '/images/credits.svg">
-                    <a style="text-decoration:none" href = "' . URLROOT . '/User/removeActivity/' . $single->activity_id . '"><button type="button" class="btn"  style="color: red;"><b>Delete</b></button></a>
-
                     <h5>25</h5>
+                    <a style="text-decoration:none" href = "' . URLROOT . '/User/removeActivity/' . $single->activity_id . '">
+                    
+                    <button type="button" class="btn pl-4"  style="color: red;"><b>Delete</b></button></a>
+
+                   
                 </div>
             </div>
             </div>';

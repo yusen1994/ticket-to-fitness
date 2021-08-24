@@ -20,10 +20,11 @@
 
 
 		<?php
-
+if(!empty($data['success'])){
 		echo '<div class="alert alert-success" role="alert">
 ' . $data['success'] . '
 </div>';
+}
 		if (empty($data['error'])) {
 			foreach ($data['user_activity'] as $single) {
 
