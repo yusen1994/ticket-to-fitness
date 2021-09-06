@@ -11,7 +11,7 @@
         <div class=" col-sm-1 col-lg-6">
             <div class="row" style="background-color:white; padding:0px; height:100px;">
 
-                <div class=" col-3 text-center <?php
+                <div class=" col-4 text-center <?php
                                                 $url = $_SERVER['REQUEST_URI'];
                                                 $urlarray = explode("/", $url);
                                                 $end = $urlarray[count($urlarray) - 1];
@@ -21,7 +21,6 @@
                                                 if (
                                                     strpos($end, 'User') !== false ||
                                                     strpos($end, 'credits') !== false ||
-                                                    strpos($end, 'MyActivity') !== false ||
                                                     strpos($end, 'userProfile') !== false ||
                                                     strpos($urlcheckout, 'checkout') !== false
                                                 ) {
@@ -44,41 +43,33 @@
                     </a>
                 </div>
 
-                <div class="col-3 text-center  <?php
+                <div class="col-4 text-center  <?php
                                                 $url = $_SERVER['REQUEST_URI'];
                                                 $urlarray = explode("/", $url);
                                                 $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'Map') !== false) {
+                                                if (strpos($end, 'MyActivity') !== false) {
                                                     echo 'userdashboard-menu-active';
-                                                } ?>/images/map.png" style="padding:0px !important; height:auto;">
-                    <a href="#" class="menu-clickable">
+                                                } ?>" style="padding:0px !important; height:auto;">
+                    <a href="<?php echo URLROOT ?>/User/MyActivity" class="menu-clickable">
                         <div class="menu-content">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48.457" height="69.611" viewBox="0 0 48.457 69.611">
-                                <g id="map" transform="translate(0)">
-                                    <g id="Group_40" data-name="Group 40" transform="translate(0 12.114)">
-                                        <g id="Group_39" data-name="Group 39" transform="translate(0)">
-                                            <path id="Path_44" data-name="Path 44" d="M46.959,137.086a1.515,1.515,0,0,0-1.514,1.514v17.148L33.33,160.594V144.657a1.514,1.514,0,1,0-3.029,0v15.933l-12.114-4.846V131.752L25.2,134.56a1.515,1.515,0,1,0,1.124-2.814l-9.065-3.628h0l-.024-.009a1.5,1.5,0,0,0-1.124,0l-.027.009h0L.967,134.166a1.515,1.515,0,0,0-.951,1.405v27.257a1.513,1.513,0,0,0,2.078,1.405l14.58-5.83,14.552,5.821h0l.027.012a1.5,1.5,0,0,0,1.124,0l.027-.012h0l15.116-6.045a1.524,1.524,0,0,0,.948-1.408V138.6A1.515,1.515,0,0,0,46.959,137.086Zm-31.8,18.659L3.045,160.591v-24l12.114-4.846Z" transform="translate(-0.016 -128)" />
-                                        </g>
-                                    </g>
-                                    <g id="Group_42" data-name="Group 42" transform="translate(33.314 6.057)">
-                                        <g id="Group_41" data-name="Group 41">
-                                            <path id="Path_45" data-name="Path 45" d="M356.559,64a4.543,4.543,0,1,0,4.543,4.543A4.548,4.548,0,0,0,356.559,64Zm0,6.057a1.514,1.514,0,1,1,1.514-1.514A1.515,1.515,0,0,1,356.559,70.057Z" transform="translate(-352.016 -64)" />
-                                        </g>
-                                    </g>
-                                    <g id="Group_44" data-name="Group 44" transform="translate(27.257)">
-                                        <g id="Group_43" data-name="Group 43">
-                                            <path id="Path_46" data-name="Path 46" d="M298.616,0a10.612,10.612,0,0,0-10.6,10.6c0,5.439,8.5,15.073,9.473,16.154a1.514,1.514,0,0,0,2.253,0c.969-1.081,9.473-10.715,9.473-16.154A10.612,10.612,0,0,0,298.616,0Zm0,23.432c-3.307-3.922-7.571-9.943-7.571-12.832a7.571,7.571,0,0,1,15.143,0C306.187,13.486,301.923,19.51,298.616,23.432Z" transform="translate(-288.016)" />
-                                        </g>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="90.049" height="71.7" viewBox="0 0 90.049 71.7">
+                                <text id="My_Activities" data-name="My Activities" transform="translate(85.025 67.7)" font-size="12" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.008em">
+                                    <tspan x="-80.292" y="0">My Activities</tspan>
+                                </text>
+                                <g id="Page-1">
+                                    <g id="icon-18-weights" transform="translate(0)">
+                                        <path id="weights" d="M69.7,31.011,26.346,31.5V42.663a5,5,0,1,1-10.005,0V40.732a5.007,5.007,0,0,1-6.67-4.724V31.5H3v-4.6H9.67V22.679a5.012,5.012,0,0,1,6.67-4.726h0V16.024a5,5,0,1,1,10.005,0V26.891L69.7,26.87V16.024a5,5,0,1,1,10.005,0v1.931a5.007,5.007,0,0,1,6.67,4.724V26.87h6.67V31.5h-6.67v4.513a5.012,5.012,0,0,1-6.67,4.726v1.928a5,5,0,1,1-10.005,0V31.011ZM81.376,21.005a1.647,1.647,0,0,0-1.668,1.66V36.021a1.681,1.681,0,0,0,1.668,1.66,1.647,1.647,0,0,0,1.668-1.66V22.665a1.681,1.681,0,0,0-1.668-1.66Zm-66.7,0a1.647,1.647,0,0,0-1.668,1.66V36.021a1.681,1.681,0,0,0,1.668,1.66,1.647,1.647,0,0,0,1.668-1.66V22.665a1.681,1.681,0,0,0-1.668-1.66Zm60.033-6.67a1.672,1.672,0,0,0-1.668,1.7V42.652a1.7,1.7,0,0,0,1.668,1.7,1.672,1.672,0,0,0,1.668-1.7V16.035a1.7,1.7,0,0,0-1.668-1.7Zm-53.362,0a1.672,1.672,0,0,0-1.668,1.7V42.652a1.7,1.7,0,0,0,1.668,1.7,1.672,1.672,0,0,0,1.668-1.7V16.035a1.7,1.7,0,0,0-1.668-1.7Z" transform="translate(-3 -11)" fill-rule="evenodd" />
                                     </g>
                                 </g>
-                                <text id="Map-2" data-name="Map" transform="translate(38.309 65.611)" font-size="12" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.008em">
-                                    <tspan x="-27.492" y="0">Map</tspan>
-                                </text>
                             </svg>
+
+
+
                         </div>
                     </a>
                 </div>
-                <div class="col-3 text-center <?php
+
+                <div class="col-4 text-center <?php
                                                 $url = $_SERVER['REQUEST_URI'];
                                                 $urlarray = explode("/", $url);
                                                 $end = $urlarray[count($urlarray) - 1];
@@ -168,36 +159,6 @@
                                 </g>
                                 <text id="Timetable" transform="translate(64 66.019)" font-size="12" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.008em">
                                     <tspan x="-63.552" y="0">Timetable</tspan>
-                                </text>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-3 text-center  <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'Social') !== false) {
-                                                    echo 'userdashboard-menu-active';
-                                                } ?>" style="padding:0px !important; height:auto;">
-                    <a href="#" class="menu-clickable">
-                        <div class="menu-content">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="44.448" height="68.519" viewBox="0 0 44.448 68.519">
-                                <g id="user" transform="translate(0)">
-                                    <g id="Group_28" data-name="Group 28" transform="translate(0 26.066)">
-                                        <g id="Group_27" data-name="Group 27">
-                                            <path id="Path_38" data-name="Path 38" d="M39.664,288.389c-14.331,0-22.224,6.578-22.224,18.522a1.715,1.715,0,0,0,1.741,1.689H60.147a1.715,1.715,0,0,0,1.741-1.689C61.888,294.967,54,288.389,39.664,288.389ZM20.985,305.222c.685-8.931,6.96-13.455,18.679-13.455s17.995,4.525,18.68,13.455Z" transform="translate(-17.44 -288.389)" />
-                                        </g>
-                                    </g>
-                                    <g id="Group_30" data-name="Group 30" transform="translate(11.021 0)">
-                                        <g id="Group_29" data-name="Group 29">
-                                            <path id="Path_39" data-name="Path 39" d="M143.252,0a11.069,11.069,0,0,0-11.2,11.428c0,6.706,5.026,12.16,11.2,12.16s11.2-5.455,11.2-12.16A11.069,11.069,0,0,0,143.252,0Zm0,20.211c-4.315,0-7.825-3.94-7.825-8.782a7.68,7.68,0,0,1,7.825-8.051,7.766,7.766,0,0,1,7.825,8.051C151.078,16.271,147.567,20.211,143.252,20.211Z" transform="translate(-132.049)" />
-                                        </g>
-                                    </g>
-                                </g>
-                                <text id="Social" transform="translate(41.225 64.519)" font-size="12" font-family="Poppins-Bold, Poppins" font-weight="700" letter-spacing="0.008em">
-                                    <tspan x="-37.962" y="0">Social</tspan>
                                 </text>
                             </svg>
                         </div>
