@@ -10,7 +10,6 @@ class User extends Controller
         $this->accountsModel = $this->model('Account');
         $this->userModel = $this->model('userModel');
         $this->gymModel = $this->model('GymModel');
-
     }
 
     public function index()
@@ -100,8 +99,8 @@ class User extends Controller
         $data['user_id'] = $userid;
         $data['cost'] = $cost;
         $balance = $this->userModel->userCredit($data);
-       
-       
+
+
 
         if ($cost < $balance->total_credit) {
             return true;
