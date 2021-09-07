@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-color: #3F3F3F; padding-top: 20px;">
+<footer class="container-fluid footer" style="background-color: #3F3F3F; padding-top: 20px;">
     <div class="row justify-content-center">
         <div class="col-6">
             <a href="#" class="float-left">
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-</div>
+</footer>
 
 <style>
     .insta-logo {
