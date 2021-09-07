@@ -2,11 +2,13 @@
 <!--HTML for homepage goes here, for CSS visit public folder-->
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
+
+<!-- IF USER IS LOGGED IN -->
+<?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
+
 <!--Activity page-->
 
-<div class="container-fluid" style="background-color:#
-
-F2F2F2;">
+<div class="container-fluid" style="background-color:#F2F2F2;">
     <div class="row justify-content-center">
         <div class="landing-image col-sm-12 col-lg-6 px-0">
             <img class="activities-responsive" src="<?php echo URLROOT; ?>/images/gym-workout-routines.jpg" alt="">
