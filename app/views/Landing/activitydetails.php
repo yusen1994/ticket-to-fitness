@@ -5,48 +5,48 @@
 <!-- IF USER IS LOGGED IN -->
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
-<div class="row justify-content-center">
-    <div class="col-sm-12 col-lg-6 align-self-center">
-        <div class="pl-3">
-            <p>
-            <h3><b><span><a href="<?php echo URLROOT; ?>/Activity"><i class="fas fa-arrow-left" style="color:black;"></i></a></span><span class="pl-2" style="color:#E46E2E;">Activity</span> <span>Info</span> </b></h3>
-            </p>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-lg-6 align-self-center">
+            <div class="pl-3">
+                <p>
+                <h3><b><span><a href="<?php echo URLROOT; ?>/Activity"><i class="fas fa-arrow-left" style="color:black;"></i></a></span><span class="pl-2" style="color:#E46E2E;">Activity</span> <span>Info</span> </b></h3>
+                </p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container-fluid" style="background-color:white; padding-top:15px;">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
         <div class="col-sm-12 col-lg-6 text-center">
             <h3><b>Gym Name</h3></b>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="background-color: white;">
         <div class="col-sm-12 col-lg-6 text-center">
             <h5><?php //Array with two object, we need to access object 1 from index 0 that has activity info
                 echo $data['gym_activity'][0]->activity_name; ?></h5>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="background-color: white;">
         <div class="col-sm-12 col-lg-6 text-center">
             <p class="activity-address"><?php //Array with two object, we need to access object 2 from index 0 that has gym info
                                         echo $data['gym_activity'][1]->gym_address; ?></p>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="background-color: white;">
         <div class="col-sm-12 col-lg-4 text-center">
             <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>">
                 <button type="button" class="add-activity-btn">Add Activity</button>
             </a>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="background-color: white; margin-bottom:100px;">
         <div class="col-sm-12 col-lg-6">
             <table class="activity-table-info">
                 <tbody>
                     <tr>
                         <th>
-                            Activity
+                            Category
                         </th>
                         <td>
                             <?php echo $data['gym_activity'][0]->category; ?>
@@ -100,9 +100,7 @@
             </table>
         </div>
     </div>
-
 </div>
-
 
 
 
@@ -127,6 +125,7 @@
         font-size: 12px;
     }
 
+
     .add-activity-btn {
         width: 100%;
         height: 45px;
@@ -143,7 +142,7 @@
         width: 100%;
         border-collapse: collapse;
         border-spacing: 20px;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
     }
 </style>
 
