@@ -121,6 +121,7 @@ class User extends Controller
         //Get the cost of the activity
         $cost = $this->userModel->getCostActivity($timetableid);
         $gymid = $this->gymModel->getGymId($timetableid);
+        $activity_id = $this->gymModel->getActivityidfromtimetable($timetableid);
         //Check User Balance is enough to buy the activity
         if (empty($cost)) {
             $data['error'] = "Failed! Please try again later";
@@ -132,6 +133,7 @@ class User extends Controller
                 $data['timetable_id'] = $timetableid;
                 $data['total_cost'] = $cost->credit;
                 $data['gym_id'] = $gymid->gym_id;
+                $data['activity_id'] = $activity_id->activity_id;
                 $allocation = $this->userModel->allocation($data);
                 if ($allocation) {
                     //Deduct the credit once allocated successfully!

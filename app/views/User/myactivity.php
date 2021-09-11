@@ -43,7 +43,7 @@
     
                     </div>
                     <div class="col-3 text-right align-self-center">
-                        <button class="myactivity-buy-btn">Buy</button>
+                    <a href = "' . URLROOT . '/User/allocation/' . $single->id . '" style ="text-decoration:none;"> <button class="myactivity-buy-btn">Buy</button></a>
                     </div>
                     <div class="col text-left">
                         <div class="line-separator" style="margin-top:10px;"></div>
@@ -109,7 +109,8 @@
         
                         </div>
                         <div class="col-3 text-right align-self-center">
-                            <button class="myactivity-buy-btn">Buy</button>
+
+                        <a href = "' . URLROOT . '/User/allocation/' . $single->id . '" style ="text-decoration:none;"> <button class="myactivity-buy-btn">Buy</button></a>
                         </div>
                         <div class="col text-left">
                             <div class="line-separator" style="margin-top:10px;"></div>
