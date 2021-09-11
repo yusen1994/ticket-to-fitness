@@ -9,23 +9,23 @@
 
 
 
-        <!-- Dynamically add activity from here -->
-        <?php
-        //47, 47, 47, 48, 48, 49
+<!-- Dynamically add activity from here -->
+<?php
+//47, 47, 47, 48, 48, 49
 
-        if (!empty($data['myActivity'])) {
-            $flag = true; //If current is the same then flag becomes false i.e only show the unique id once
-            $current = NULL;
-            foreach ($data['myActivity'] as $single) {
-                if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
-                    $flag = false;
-                    echo '                    
+if (!empty($data['myActivity'])) {
+    $flag = true; //If current is the same then flag becomes false i.e only show the unique id once
+    $current = NULL;
+    foreach ($data['myActivity'] as $single) {
+        if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
+            $flag = false;
+            echo '                    
                 <div class="row" style="margin-top:10px; padding-left:10px;">
                     <div class="col-4 align-self-center" style="padding-right:0px;">
-                        <p style="font-size:16px; margin-bottom:0px">'.$single->day.'</p>
+                        <p style="font-size:16px; margin-bottom:0px">' . $single->day . '</p>
                     </div>
                     <div class="col-3 align-self-center" style="padding:0px;">
-                        <p style="font-size:16px; margin-bottom:0px">'.$single->time.'</p>
+                        <p style="font-size:16px; margin-bottom:0px">' . $single->time . '</p>
                     </div>
                     <div class="col-2 text-right align-self-center" style="padding:0px;">
                         <div style="display:flex; flex-direction:row; align-items:center; justify-content: flex-end;">
@@ -38,7 +38,7 @@
                                     <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                 </g>
                             </svg>
-                            <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'.$single->credit.'</p>
+                            <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">' . $single->credit . '</p>
                         </div>
     
                     </div>
@@ -49,27 +49,25 @@
                         <div class="line-separator" style="margin-top:10px;"></div>
                     </div>
                 </div>';
-                } else {
-                    $flag = true;
-                    echo '</div>';
-                   echo '</div>';
-                   echo '</div>';
-
-              
-                }
-                if ($flag == true) { //Will only loop once to display the acivity name with other information
-                    $current = $single->activity_id;
-                    echo '
+        } else {
+            $flag = true;
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+        if ($flag == true) { //Will only loop once to display the acivity name with other information
+            $current = $single->activity_id;
+            echo '
                                     
                 <div class="d-flex justify-content-center" style="margin-top:20px;  background-color: white;">
                 <div class="col-sm-1 col-lg-4" style="padding-right:0px;">
                 <div class="card-container">
                     <div class="row">
                         <div class="col-6 text-left" style="padding-right: 0px;">
-                            <h5><b>'.$single->gym_name.'</b></h5>
+                            <h5><b>' . $single->gym_name . '</b></h5>
                         </div>
                         <div class="col-3 text-left" style="padding: 0px;">
-                            <p style="font-size:10px; margin-bottom:0px">'.$single->gym_address.'</p>
+                            <p style="font-size:10px; margin-bottom:0px">' . $single->gym_address . '</p>
                         </div>
                         <div class="col-3 text-right">
                         <a style="text-decoration:none" href = "' . URLROOT . '/User/removeActivity/' . $single->activity_id . '"> <button class="myactivity-remove-btn">Remove</button></a>
@@ -77,7 +75,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-left">
-                            <p style="margin-bottom:5px;">'.$single->category.'</p>
+                            <p style="margin-bottom:5px;">' . $single->category . '</p>
                         </div>
                     </div>
                     <div class="row">
@@ -88,10 +86,10 @@
                     <!-- Dynamically add times per activity from here -->
                     <div class="row" style="margin-top:10px; padding-left:10px;">
                         <div class="col-4 align-self-center" style="padding-right:0px;">
-                            <p style="font-size:16px; margin-bottom:0px">'.$single->day.'</p>
+                            <p style="font-size:16px; margin-bottom:0px">' . $single->day . '</p>
                         </div>
                         <div class="col-3 align-self-center" style="padding:0px;">
-                            <p style="font-size:16px; margin-bottom:0px">'.$single->time.'</p>
+                            <p style="font-size:16px; margin-bottom:0px">' . $single->time . '</p>
                         </div>
                         <div class="col-2 text-right align-self-center" style="padding:0px;">
                             <div style="display:flex; flex-direction:row; align-items:center; justify-content: flex-end;">
@@ -104,7 +102,7 @@
                                         <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                     </g>
                                 </svg>
-                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'.$single->credit.'</p>
+                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">' . $single->credit . '</p>
                             </div>
         
                         </div>
@@ -119,17 +117,17 @@
         
                 
                 <!-- End add times per activity here -->';
-                }
-            }
         }
+    }
+}
 
 
-        ?>
+?>
 
 
-    </div>
 </div>
-    </div>
+</div>
+</div>
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
