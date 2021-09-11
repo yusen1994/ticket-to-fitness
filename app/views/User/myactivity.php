@@ -107,7 +107,6 @@ if (!empty($data['myActivity'])) {
         
                         </div>
                         <div class="col-3 text-right align-self-center">
-
                         <a href = "' . URLROOT . '/User/allocation/' . $single->id . '" style ="text-decoration:none;"> <button class="myactivity-buy-btn">Buy</button></a>
                         </div>
                         <div class="col text-left">

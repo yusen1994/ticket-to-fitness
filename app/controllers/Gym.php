@@ -394,25 +394,4 @@ class Gym extends Controller
         }
         
     }
-
-
-    public function reports(){
-        if ($this->isGymLoggedIn())
-        {
-            $data = [
-                'gym_id' => $_SESSION['user_id'],
-            ];
-
-            $gym_earnings = $this->gymModel->earnings($data);
-
-            $data['gym_earnings'] = $gym_earnings;
-            
-            $this->view('Gym/reports',$data);
-        }else{
-            $data['error'] = "No reports yet!";
-            $this->view('Gym/reports',$data);
-
-
-        }
-    }
 }

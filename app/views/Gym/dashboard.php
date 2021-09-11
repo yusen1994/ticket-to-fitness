@@ -105,7 +105,7 @@ if (!empty($data['message'])) {
                     <span class="iconfont">&#xe60d;</span>
                 </button>
                 <button>
-                <a style="text-decoration:none; color:inherit;" href="<?php echo URLROOT; ?>/gym/reports"> <span>Reports</span> </a>
+                    <span>Reports</span>
                     <span class="iconfont">&#xe60d;</span>
                 </button>
                 <button>
