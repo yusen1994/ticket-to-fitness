@@ -3,7 +3,7 @@
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
 <!-- IF USER IS LOGGED IN -->
-<?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
+<?php if(!empty($_SESSION['user_id'])){  require APPROOT . '/views/User/dashboardmenu.php'; } ?>
 
 <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-6 align-self-center">

@@ -4,7 +4,9 @@
 
 
 <!-- IF USER IS LOGGED IN -->
-<?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
+<?php if(!empty($_SESSION['user_id'])){ 
+    require APPROOT . '/views/User/dashboardmenu.php';
+ } ?>
 
 <!--Activity page-->
 

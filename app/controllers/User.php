@@ -270,7 +270,7 @@ class User extends Controller
                 'success' => $msg
             ];
 
-            $useractivity = $this->userModel->myActivity($data);
+            $useractivity = $this->userModel->manageActivitiesList($data);
             $data['myActivity'] = $useractivity;
             if (!empty($data['myActivity'])) {
                 $this->view('User/myactivity', $data);
