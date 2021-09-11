@@ -8,7 +8,7 @@
 <div class="container-fluid" style="margin-top:5px;">
 
     <div class="row justify-content-center" style="background-color:white;">
-        <div class=" col-sm-1 col-lg-6">
+        <div class=" col-sm-12 col-lg-6">
             <div class="row" style="background-color:white; padding:0px; height:100px;">
 
                 <div class=" col-4 text-center <?php

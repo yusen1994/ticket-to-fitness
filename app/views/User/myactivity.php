@@ -1,26 +1,25 @@
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
-<div class="container-fluid">
 
-    <div class="row justify-content-center" style="margin-top: 20px;">
-        <div class="col-sm-12 col-lg-6 align-self-center">
-            <h3><b>Manage Activities</b></h3>
-        </div>
+<div class="row justify-content-center" style="margin-top: 20px;">
+    <div class="col-sm-1 col-lg-4" style="margin-left: 15px;">
+        <h3><b>Manage Activities</b></h3>
     </div>
+</div>
 
 
 
-    <!-- Dynamically add activity from here -->
-    <?php
-    //47, 47, 47, 48, 48, 49
+<!-- Dynamically add activity from here -->
+<?php
+//47, 47, 47, 48, 48, 49
 
-    if (!empty($data['myActivity'])) {
-        $flag = true; //If current is the same then flag becomes false i.e only show the unique id once
-        $current = NULL;
-        foreach ($data['myActivity'] as $single) {
-            if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
-                $flag = false;
-                echo '                    
+if (!empty($data['myActivity'])) {
+    $flag = true; //If current is the same then flag becomes false i.e only show the unique id once
+    $current = NULL;
+    foreach ($data['myActivity'] as $single) {
+        if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
+            $flag = false;
+            echo '                    
                 <div class="row" style="margin-top:10px; padding-left:10px;">
                     <div class="col-4 align-self-center" style="padding-right:0px;">
                         <p style="font-size:16px; margin-bottom:0px">' . $single->day . '</p>
@@ -50,15 +49,15 @@
                         <div class="line-separator" style="margin-top:10px;"></div>
                     </div>
                 </div>';
-            } else {
-                $flag = true;
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-            }
-            if ($flag == true) { //Will only loop once to display the acivity name with other information
-                $current = $single->activity_id;
-                echo '
+        } else {
+            $flag = true;
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+        if ($flag == true) { //Will only loop once to display the acivity name with other information
+            $current = $single->activity_id;
+            echo '
                                     
                 <div class="row justify-content-center" style="margin-top:20px;  background-color: white;">
                 <div class="col-sm-1 col-lg-4" style="padding-right:0px;">
@@ -71,7 +70,7 @@
                             <p style="font-size:10px; margin-bottom:0px">' . $single->gym_address . '</p>
                         </div>
                         <div class="col-3 text-right">
-                            <button class="myactivity-remove-btn">Remove</button>
+                        <a style="text-decoration:none" href = "' . URLROOT . '/User/removeActivity/' . $single->activity_id . '"> <button class="myactivity-remove-btn">Remove</button></a>
                         </div>
                     </div>
                     <div class="row">
@@ -108,7 +107,6 @@
         
                         </div>
                         <div class="col-3 text-right align-self-center">
-
                         <a href = "' . URLROOT . '/User/allocation/' . $single->id . '" style ="text-decoration:none;"> <button class="myactivity-buy-btn">Buy</button></a>
                         </div>
                         <div class="col text-left">
@@ -118,12 +116,12 @@
         
                 
                 <!-- End add times per activity here -->';
-            }
         }
     }
+}
 
 
-    ?>
+?>
 
 
 </div>
@@ -172,81 +170,3 @@
         font-size: 14px;
     }
 </style>
-<!--
-            <div class=" row justify-content-center">
-                        <div class="col">
-                            <?php
-                            if (!empty($data['myActivity'])) {
-                                foreach ($data['myActivity'] as $single) {
-
-                                    echo '<div class="container" style="padding-top: 20px; background-color: #f3f3f3">
-   
-  
-            <div class="card-container p-2" style="width:100%; height:auto;">
-                <div class="gym-image-container">
-                    <img class="gym-image" src="' . URLROOT . '/images/golds gym.png">
-                </div>
-                <div class="card-content"style="width:100%; height:auto;" >
-                    <p class="gym-name">' . $single->gym_name . '</p>
-                    <div class="line-separator"></div>
-                    <div class="gym-info-container">
-                        <table >
-                            <tr>
-                                <td class="card-info-col">
-                                    <img class="card-category-image" src="' . URLROOT . '/images/weightlift.svg">
-                                    <small class="card-cateogry-text">' . $single->category . '</small>
-                                </td>
-                                <td>
-                                    <img class="card-category-image" src="' . URLROOT . '/images/location-orange.svg">
-                                    <small class="card-cateogry-text">' . $single->gym_address . '</small>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="card-info-col">
-                                    <img class="card-category-image" src="' . URLROOT . '/images/timer-orange.svg">
-                                    <small class="card-cateogry-text">';
-                                    foreach ((unserialize($single->sessions_per_week)) as $session_per_week) {
-                                        echo $session_per_week . "  ";
-                                    }
-                                    echo '</small>
-                                </td>
-                                <td>
-                                    <img class="card-category-image" src="' . URLROOT . '/images/group-orange.svg">
-                                    <small class="card-cateogry-text">Unlimited</small>
-                                </td>
-                            </tr>
-                            
-                        </table>
-
-                    </div>
-                           
-
-                </div>
-                <div class="credits-container">
-                
-                    <img class="credits-image" class="card-category-image" src="' . URLROOT . '/images/credits.svg">
-                    <h5>25</h5>
-                    <a style="text-decoration:none" href = "' . URLROOT . '/User/removeActivity/' . $single->activity_id . '">
-                    
-                    <button type="button" class="btn pl-4"  style="color: red;"><b>Delete</b></button></a>
-
-                   
-                </div>
-            </div>
-            </div><br>';
-                                }
-                            } else {
-
-
-                                echo '<div class="alert alert-danger" role="alert">
-        ' . $data['error'] . '
-    </div>';
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        -->
