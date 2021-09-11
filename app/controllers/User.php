@@ -134,6 +134,10 @@ class User extends Controller
                 $data['total_cost'] = $cost->credit;
                 $data['gym_id'] = $gymid->gym_id;
                 $data['activity_id'] = $activity_id->activity_id;
+                date_default_timezone_set('UTC');
+
+                $data['date'] = date('d-m-y h:i:s');
+
                 $allocation = $this->userModel->allocation($data);
                 if ($allocation) {
                     //Deduct the credit once allocated successfully!
