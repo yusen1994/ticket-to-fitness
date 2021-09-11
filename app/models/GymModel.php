@@ -271,10 +271,11 @@ class GymModel
 
   public function addCredit($data)
   {
-    $this->db->query('INSERT INTO `gym_credits`(`total_credit`, `gym_id`) VALUES (:total_cost, :gym_id)');
-
-    $this->db->bind(':total_cost', $data['total_cost']);
+    $this->db->query('INSERT INTO `gym_earnings`(`Date`, `gym_id`, `Credits`) VALUES (CURRENT_TIMESTAMP, :gym_id, :credits)');
+    //$this->db->bind(':date', $data['date']);
     $this->db->bind(':gym_id', $data['gym_id']);
+    $this->db->bind(':credits', $data['total_cost']);
+
 
     //Execute
     if ($this->db->execute()) {
@@ -306,4 +307,19 @@ class GymModel
       return $row;
     }
   }
+
+  public function earnings($data){
+
+    $this->db->query('SELECT Date, SUM(Credits) AS "Credits"
+    FROM gym_earnings WHERE gym_id = :gym_id group by date(Date) ');
+    $this->db->bind(':gym_id',$data['gym_id']);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+
+  }
+}
+
 }
