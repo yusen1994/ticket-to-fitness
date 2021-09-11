@@ -295,4 +295,15 @@ class GymModel
       return $row;
     }
   }
+
+  public function getActivityidfromtimetable($timetableid){
+    $this->db->query('SELECT `activity_id` FROM `gym_activity_timetable` WHERE id = :timetable_id');
+    $this->db->bind(':timetable_id',$timetableid);
+    $row = $this->db->single();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
 }

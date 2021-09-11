@@ -118,10 +118,7 @@ if (empty($data['error'])) {
 
                                         
 									</div>
-									<div class="mt-3 btn-group btn-group-lg activities_inside_card" role="group" aria-label="buttons_activities">
-									
-									<a href = "' . URLROOT . '/User/allocation/' . $single->id . '" style ="text-decoration:none;"><button type="button" class="btn"  style="color: Green;"><b>Purchase</b></button></a>
-								</div>
+						
 								</div>
 							</div>
 
