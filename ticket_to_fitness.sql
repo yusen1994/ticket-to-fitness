@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2021 at 02:18 PM
+-- Generation Time: Sep 11, 2021 at 08:12 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -74,7 +74,7 @@ CREATE TABLE `credits_pack` (
 INSERT INTO `credits_pack` (`id`, `name`, `total_credit`, `cost`) VALUES
 (1, 'Small Credit Pack', 10, 10),
 (2, 'Medium Credit Pack', 20, 20),
-(3, 'Large Credit Pack', 50, 50);
+(3, 'Large Credit Pack', 100, 100);
 
 -- --------------------------------------------------------
 
@@ -101,8 +101,10 @@ CREATE TABLE `gym_activity` (
 INSERT INTO `gym_activity` (`id`, `gym_id`, `activity_name`, `category`, `sessions_per_week`, `max_capacity`, `credit`, `description`, `status`) VALUES
 (47, 19, 'Swimming', 'swimming', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'This is swimming class', 1),
 (48, 19, 'karate', 'fight', 'a:2:{i:0;s:7:\"Tuesday\";i:1;s:8:\"Saturday\";}', 12, 202, 'sasa', 1),
-(49, 19, 'High Intensity Workout', 'weights', 'a:1:{i:0;s:7:\"Tuesday\";}', 20, 200, 'sasa', 0),
-(50, 17, 'Kung Fu', 'fight', 'a:1:{i:0;s:7:\"Tuesday\";}', 12, 12, 'sasa', 0);
+(49, 19, 'High Intensity Workout', 'weights', 'a:1:{i:0;s:7:\"Tuesday\";}', 20, 200, 'sasa', 1),
+(51, 17, 'Kung Fu', 'fight', 'a:1:{i:0;s:6:\"Monday\";}', 12, 50, 'This is a kung fu class', 1),
+(52, 17, 'football', 'cardio', 'a:2:{i:0;s:6:\"Monday\";i:1;s:8:\"Thursday\";}', 20, 200, 'This is football', 1),
+(53, 17, 'boxing', 'fight', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'sasas', 1);
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,36 @@ INSERT INTO `gym_activity_timetable` (`id`, `activity_id`, `gym_id`, `day`, `tim
 (6, 49, 19, 'monday', '12:30 AM-01:00 AM'),
 (7, 49, 19, 'monday', '2:00 AM-3:00-3:00 AM'),
 (8, 49, 19, 'tuesday', '01:30 AM-04:30 AM'),
-(9, 50, 17, 'tuesday', '12:00 AM-01:00 AM');
+(9, 50, 17, 'tuesday', '12:00 AM-01:00 AM'),
+(10, 51, 17, 'monday', '12:00 AM-01:00 AM'),
+(11, 51, 17, 'monday', '04:00 PM-05:00 PM'),
+(12, 52, 17, 'monday', '12:00 AM-12:30 AM'),
+(13, 52, 17, 'thursday', '01:00 AM-05:30 AM'),
+(14, 53, 17, 'monday', '12:00 AM-12:30 AM'),
+(15, 53, 17, 'wednesday', '01:30 AM-02:00 AM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gym_earnings`
+--
+
+CREATE TABLE `gym_earnings` (
+  `id` int(20) NOT NULL,
+  `Date` datetime NOT NULL,
+  `gym_id` int(11) NOT NULL,
+  `Credits` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gym_earnings`
+--
+
+INSERT INTO `gym_earnings` (`id`, `Date`, `gym_id`, `Credits`) VALUES
+(6, '2021-09-08 16:03:58', 19, 150),
+(7, '2021-09-09 16:03:58', 19, 100),
+(8, '2021-09-10 16:06:03', 19, 300),
+(10, '2021-09-11 16:10:27', 19, 200);
 
 -- --------------------------------------------------------
 
@@ -195,9 +226,13 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `passwo
 (16, 'sndp12', 'Sandeep', 'Giri', 'sgiri4@utas.edu.au', '$2y$10$zbuBm8yQ2zeEaTE6q9.BrOBKzF5SjT2U4NSGxDtPtFvOCK4kw1GlK', '9ca32f9746fab891e7df39e6a1bd2bf8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
 (17, 'happy', 'will', 'smith', 'happy@gmail.com', '$2y$10$o7DOjmRdO11f1Fbt2Z8i8OWNVo2kxXq8HOqHE6X821mXn1YlPeDL2', '9f5c58295bfb78364a77260a68b05a5e', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
 (18, 'jack', 'jack', 'jack', 'jack@gmail.com', '$2y$10$fERJcn0dD484lTsHaw4gJO3rpph03mZ.Dwpb9SPNN12gT2H6AJO.m', 'cf763e86d013c0d392b6179d3e750c75', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(19, 'sndpgiri', 'sandeep', 'giri', 'sndp@gmail.com', '$2y$10$gJ7QvVHwWL6PeauMjJCG1utW.5FkqVdzG.YwxA8D6FsRdAqU/jIbq', 'f9ca93644d9f791f4a495a4054e74637', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(19, 'sndpgiri', 'sandeep', 'giri', 'sndp@gmail.com', '$2y$10$.XZWBn83rWazxdfexmn0UuzTI.XkZ7xLsX4BgoMLVkMuoJ.2t7gzi', 'f9ca93644d9f791f4a495a4054e74637', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
 (20, 'spiderman', 'spidey', 'man', 'spidey@gmail.com', '$2y$10$tNDNfHXZr.2cgLc0eCXwfuYxpTLNTgLEk1quRTY6NSOlqwy60mkE6', '0eac06a065e9f6817582de711e08d5b3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(21, 'batman', 'batman', 'batman', 'batman@gmail.com', '$2y$10$yXPO5zkHNJROy2ieZ8Bdx.SeBD8gOyrxlX0yDJ6//Jt397zDY5us2', 'e7150a3dfa8a632b2576094c48e79e14', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1);
+(21, 'batman', 'batman', 'batman', 'batman@gmail.com', '$2y$10$yXPO5zkHNJROy2ieZ8Bdx.SeBD8gOyrxlX0yDJ6//Jt397zDY5us2', 'e7150a3dfa8a632b2576094c48e79e14', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(22, 'superman', 'superman', 'superman', 'superman@gmail.com', '$2y$10$RLPZ.O7S1JFdQwJuTcKC6uy04/JLwGGDWOUu6H2vGwPJHdivIj37u', 'bf14494ace3e2145f97c92009ab48366', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(23, 'alexa', 'alexa', 'alexa', 'alexa', '$2y$10$PL/7k0irHZDb8KKo7Vin.eJMpi1ICopSDouJcwjmQMQDgWxu4zIhG', 'a4af8521dd98e847d0d55ece52dde7e8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(24, 'jacky', 'jacky', 'chan', 'jacky@gmail.com', '$2y$10$sZk5wPqQFsIf77xah0NMduZQVe2gh0QazLc1UFOIf9gp7K4AYbnIG', '7d0e4fbdbc130ee208f9a343fd60eaa2', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(25, 'restful', 'rest', 'ful', 'restful@gmail.com', '$2y$10$CsEwQHpktkcFZ0HUMAVW8OHi6M.Sr05bjCwC1hpRqqBf3sCGF/cmK', '6a88eca6538e66f007420c1c7a98e3a7', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL);
 
 -- --------------------------------------------------------
 
@@ -217,8 +252,37 @@ CREATE TABLE `users_activity` (
 --
 
 INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
-(14, 47, 19, 19),
-(16, 47, 17, 19);
+(67, 47, 19, 19);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_allocation`
+--
+
+CREATE TABLE `users_allocation` (
+  `id` int(20) NOT NULL,
+  `user_id` int(20) NOT NULL,
+  `timetable_id` int(20) NOT NULL,
+  `activity_id` int(20) NOT NULL,
+  `gym_id` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_allocation`
+--
+
+INSERT INTO `users_allocation` (`id`, `user_id`, `timetable_id`, `activity_id`, `gym_id`) VALUES
+(33, 19, 2, 47, 19),
+(34, 19, 1, 47, 19),
+(35, 19, 3, 47, 19),
+(36, 19, 5, 48, 19),
+(37, 19, 2, 47, 19),
+(38, 19, 1, 47, 19),
+(39, 19, 1, 47, 19),
+(40, 19, 2, 47, 19),
+(41, 19, 2, 47, 19),
+(42, 19, 3, 47, 19);
 
 -- --------------------------------------------------------
 
@@ -249,7 +313,119 @@ INSERT INTO `users_credits` (`id`, `total_credit`, `user_id`) VALUES
 (10, 10, 19),
 (11, 20, 19),
 (12, 50, 17),
-(13, 50, 17);
+(13, 50, 17),
+(14, 50, 23),
+(15, 50, 23),
+(16, 20, 17),
+(17, 50, 24),
+(18, 10, 19),
+(19, 50, 19),
+(20, 50, 19),
+(21, 10, 19),
+(22, 50, 19),
+(23, 10, 19),
+(24, 200, 19),
+(25, 200, 19),
+(26, -200, 19),
+(27, -200, 19),
+(28, -200, 19),
+(29, -200, 19),
+(30, 50, 19),
+(31, 50, 19),
+(32, 50, 19),
+(33, 50, 19),
+(34, 50, 19),
+(35, -200, 19),
+(36, -200, 19),
+(37, 50, 19),
+(38, 50, 19),
+(39, 50, 19),
+(40, 50, 19),
+(41, 50, 19),
+(42, 50, 19),
+(43, 50, 19),
+(44, 50, 19),
+(45, -200, 19),
+(46, -200, 19),
+(47, 50, 19),
+(48, 50, 19),
+(49, 50, 19),
+(50, 50, 19),
+(51, 50, 19),
+(52, 50, 19),
+(53, 50, 19),
+(54, 50, 19),
+(55, -200, 19),
+(56, 50, 19),
+(57, 50, 19),
+(58, 50, 19),
+(59, 50, 19),
+(60, -200, 19),
+(61, 50, 19),
+(62, 50, 19),
+(63, 50, 19),
+(64, 50, 19),
+(65, -200, 19),
+(66, 50, 19),
+(67, 50, 19),
+(68, 50, 19),
+(69, 50, 19),
+(70, -200, 19),
+(71, 50, 17),
+(72, 50, 17),
+(73, -200, 17),
+(74, 50, 19),
+(75, 50, 19),
+(76, 50, 19),
+(77, 50, 19),
+(78, -200, 19),
+(79, 50, 19),
+(80, 50, 19),
+(81, 50, 19),
+(82, 50, 19),
+(83, -200, 19),
+(84, 50, 19),
+(85, 50, 19),
+(86, 50, 19),
+(87, 50, 19),
+(88, -200, 19),
+(89, 50, 19),
+(90, 50, 19),
+(91, 50, 19),
+(92, 50, 19),
+(93, -200, 19),
+(94, 50, 19),
+(95, 50, 19),
+(96, 50, 19),
+(97, 50, 19),
+(98, -200, 19),
+(99, 50, 19),
+(100, 50, 19),
+(101, 50, 19),
+(102, 50, 19),
+(103, -202, 19),
+(104, 50, 19),
+(105, 50, 19),
+(106, 50, 19),
+(107, 50, 19),
+(108, -200, 19),
+(109, 50, 19),
+(110, 50, 19),
+(111, 50, 19),
+(112, 50, 19),
+(113, -200, 19),
+(114, 100, 19),
+(115, 100, 19),
+(116, 100, 19),
+(117, 100, 19),
+(118, 100, 19),
+(119, -200, 19),
+(120, -200, 19),
+(121, 100, 19),
+(122, -200, 19),
+(123, 100, 19),
+(124, 100, 19),
+(125, -200, 19);
 
 --
 -- Indexes for dumped tables
@@ -287,6 +463,12 @@ ALTER TABLE `gym_activity_timetable`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `gym_earnings`
+--
+ALTER TABLE `gym_earnings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gym_information`
 --
 ALTER TABLE `gym_information`
@@ -305,6 +487,12 @@ ALTER TABLE `users`
 ALTER TABLE `users_activity`
   ADD PRIMARY KEY (`id`),
   ADD KEY `users_activity_fkg` (`activity_id`);
+
+--
+-- Indexes for table `users_allocation`
+--
+ALTER TABLE `users_allocation`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users_credits`
@@ -326,7 +514,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `credits_pack`
@@ -338,13 +526,19 @@ ALTER TABLE `credits_pack`
 -- AUTO_INCREMENT for table `gym_activity`
 --
 ALTER TABLE `gym_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `gym_activity_timetable`
 --
 ALTER TABLE `gym_activity_timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `gym_earnings`
+--
+ALTER TABLE `gym_earnings`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `gym_information`
@@ -356,19 +550,25 @@ ALTER TABLE `gym_information`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users_activity`
 --
 ALTER TABLE `users_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT for table `users_allocation`
+--
+ALTER TABLE `users_allocation`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `users_credits`
 --
 ALTER TABLE `users_credits`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- Constraints for dumped tables
