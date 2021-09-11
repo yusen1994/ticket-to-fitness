@@ -72,7 +72,7 @@
                             <p style="font-size:10px; margin-bottom:0px">'.$single->gym_address.'</p>
                         </div>
                         <div class="col-3 text-right">
-                            <button class="myactivity-remove-btn">Remove</button>
+                        <a style="text-decoration:none" href = "' . URLROOT . '/User/removeActivity/' . $single->activity_id . '"> <button class="myactivity-remove-btn">Remove</button></a>
                         </div>
                     </div>
                     <div class="row">
