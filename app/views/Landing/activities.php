@@ -4,35 +4,39 @@
 
 
 <!-- IF USER IS LOGGED IN -->
-<?php if(!empty($_SESSION['user_id'])){ 
+<?php if (!empty($_SESSION['user_id'])) {
     require APPROOT . '/views/User/dashboardmenu.php';
- } ?>
+} ?>
 
-<!--Activity page-->
 
-<div class="container-fluid" style="background-color:#F2F2F2;">
+
+<div class="container-fluid pt-2">
     <div class="row justify-content-center">
-        <div class="landing-image col-sm-12 col-lg-6 px-0">
-            <img class="activities-responsive" src="<?php echo URLROOT; ?>/images/gym-workout-routines.jpg" alt="">
-            <div class="text-overlay-5">
-                <h3 class="land-text-6">All Activities</h3>
-            </div>
+        <div class="col-sm-12 col-lg-6 text-center align-self-center">
+            <p>
+            <h3><b>All <span style="color:#E46E2E;">Activities</span></b></h3>
+            </p>
         </div>
     </div>
-</div>
 
-<div class="container" style="padding-top: 20px;">
-    <div class="row" style="padding-left: 15px; padding-right: 15px; padding-bottom: 20px;">
-        <div class="col-9">
+
+    <div class="row justify-content-center">
+        <div class="col-8 col-md-4 col-xl-2">
+
             <form method="POST" action="<?php echo URLROOT; ?>/Activity/search">
                 <div class="search-input p-1">
-                    <button type="submit" style="padding:0; border:none; background:none;"> <span class="search-text-icon"><svg id="loupe" xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.261" viewBox="0 0 19.261 19.261">
+                    <button type="submit" style="padding:0; border:none; background:none;">
+                        <span class="search-text-icon">
+                            <svg id="loupe" xmlns="http://www.w3.org/2000/svg" width="19.261" height="19.261" viewBox="0 0 19.261 19.261">
                                 <g id="Group_86" data-name="Group 86">
                                     <path id="Path_100" data-name="Path 100" d="M19.026,17.894l-5.477-5.477a7.639,7.639,0,1,0-1.135,1.135l5.477,5.477a.8.8,0,1,0,1.135-1.135Zm-11.4-4.248a6.019,6.019,0,1,1,6.019-6.019A6.025,6.025,0,0,1,7.624,13.646Z" transform="translate(0 -0.003)" fill="#001e4e" />
                                 </g>
-                            </svg></span></button>
-                    <input class="search-input-text" id="searchField" name="searchField" placeholder="Search for something">
+                            </svg>
+                        </span>
+                    </button>
+                    <input class="search-input-text" id="searchField" name="searchField" placeholder="Search...">
                 </div>
+
                 <?php if (!empty($data['error'])) {
 
                     echo '<div class="alert alert-danger mt-4" role="alert">';
@@ -50,8 +54,10 @@
                 ?>
 
             </form>
+
+
         </div>
-        <div class="col-3">
+        <div class="col-4 col-lg-1 pl-0">
             <button type="button" class="filter-btn" data-toggle="modal" data-target="#filterModal"><span class="filter-btn-icon">
                     <svg id="filter-filled-tool-symbol" xmlns="http://www.w3.org/2000/svg" width="14.761" height="14.896" viewBox="0 0 14.761 14.896">
                         <path id="Path_103" data-name="Path 103" d="M10.016,7.039a.919.919,0,0,1,.242.622v6.774a.46.46,0,0,0,.783.328L12.93,12.6c.253-.3.392-.454.392-.754V7.663a.927.927,0,0,1,.242-.622l5.422-5.883A.69.69,0,0,0,18.48,0H5.1a.69.69,0,0,0-.507,1.157Z" transform="translate(-4.41)" />
@@ -63,9 +69,47 @@
 
         </div>
     </div>
+
 </div>
 
+<style>
+    .activities-responsive {
+        width: 100%;
+        filter: blur(4px);
+    }
 
+    .search-text-icon {
+        margin-left: 5px;
+
+    }
+
+    .background-card {
+        width: 100%;
+        background-color: white;
+        border-radius: 60px;
+    }
+
+    .search-input {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        height: 37px;
+        border-radius: 18px;
+        border-width: 1px;
+        border-color: black;
+        border-style: solid;
+    }
+
+    .search-input-text {
+        height: 100%;
+        width: 90%;
+        background-color: transparent;
+        border-style: none;
+        outline: none;
+    }
+</style>
 
 <!--Filter Modal-->
 
@@ -228,12 +272,12 @@
 
 -->
 <div class="container">
-    <div class="row">
+    <div class="row background-card mt-3 mt-lg-5" style="padding: 15px;">
         <?php
         if (!empty($data['gym_activity'])) {
             foreach ($data['gym_activity'] as $activity) {
 
-                echo '<div class = "col-6">';
+                echo '<div class = "col-6 col-md-4 col-lg-3">';
                 echo '<div class="card mt-4 " style="width: auto;">';
                 echo '<img class="card-img-top" src="' . URLROOT . '/images/gym1.jpg" alt="Card image cap">';
                 echo '<div class="card-body rounded-pill">';

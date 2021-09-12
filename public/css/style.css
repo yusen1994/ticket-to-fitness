@@ -321,35 +321,6 @@ p {
   text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
 } */
 
-.activities-responsive {
-  width: 100%;
-  filter: blur(4px);
-}
-
-.search-text-icon {
-  margin-left: 5px;
-  padding-bottom: 5px;
-}
-
-.search-input {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 37px;
-  border-radius: 12px;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-}
-
-.search-input-text {
-  height: 100%;
-  width: 90%;
-  background-color: white;
-  border-style: none;
-  outline: none;
-}
-
 .filter-btn {
   background-color: #ef8830;
   justify-content: center;

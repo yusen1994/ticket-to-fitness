@@ -68,6 +68,13 @@
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col-sm-12 col-lg-6">
+                    <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity">
+                        <button type="button" class="dashboard-option-btn">View Activities</button>
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-sm-12 col-lg-6">
                     <a style="text-decoration: none;" href="<?php echo URLROOT ?>/User/userProfile">
                         <button type="button" class="dashboard-option-btn">My Profile</button>
                     </a>

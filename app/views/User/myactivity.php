@@ -2,7 +2,7 @@
 
 
 <div class="d-flex justify-content-center" style="margin-top: 20px;">
-    <div class="col-sm-1 col-lg-4" style="margin-left: 15px;">
+    <div class="col-sm-12 col-lg-4" style="margin-left: 15px;">
         <h3><b>Manage Activities</b></h3>
     </div>
 </div>
@@ -19,7 +19,7 @@ if (!empty($data['myActivity'])) {
     foreach ($data['myActivity'] as $single) {
         if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
             $flag = false;
-            echo '                    
+            echo '                    w
                 <div class="row" style="margin-top:10px; padding-left:10px;">
                     <div class="col-4 align-self-center" style="padding-right:0px;">
                         <p style="font-size:16px; margin-bottom:0px">' . $single->day . '</p>

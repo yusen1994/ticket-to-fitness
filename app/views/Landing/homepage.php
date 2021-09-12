@@ -14,10 +14,10 @@
       <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-4 justify-content-center">
           <a href="<?php echo URLROOT; ?>/Accounts/login">
-            <button type="button" class="land-login-btn m-2">Sign up now</button>
+            <button type="button" class="land-login-btn mt-3">Sign up now</button>
           </a>
           <a href="#">
-            <button type="button" class="land-learnmore-btn m-2">Learn More</button>
+            <button type="button" class="land-learnmore-btn mt-3">Learn More</button>
           </a>
         </div>
       </div>
@@ -168,6 +168,8 @@
     border-radius: 18px;
     border: none;
     height: 45px;
+    width: 100%;
+    max-width: 345px;
   }
 
   .land-learnmore-btn {
@@ -177,6 +179,9 @@
     border-radius: 18px;
     border-color: #ef8830;
     border-width: 1px;
+    height: 45px;
+    width: 100%;
+    max-width: 345px;
   }
 
   .text-orange {
