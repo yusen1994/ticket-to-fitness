@@ -1,3 +1,7 @@
+<div class="space">
+
+</div>
+
 <footer class="container-fluid footer" style="background-color: #3F3F3F; padding-top: 20px;">
     <div class="row justify-content-center">
         <div class="col-6">
@@ -58,6 +62,16 @@
 
     .twitter-logo {
         padding-left: 40px;
+    }
+
+    .space {
+        display: flex;
+        flex-direction: column;
+        min-height: 100px;
+    }
+
+    .footer {
+        margin-top: auto;
     }
 </style>
 

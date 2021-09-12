@@ -165,13 +165,7 @@
                         <div>
                             <h3>Cart is Empty</h3>
                             <a href="' . URLROOT . '/Activity/allactivity">
-                                <button type="button" class="checkout-btn mb-4">View Activities<span class="btn-arrow"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="12.536" height="10.751" viewBox="0 0 12.536 10.751">
-                                            <g id="Group_87" data-name="Group 87" transform="translate(0 0)">
-                                                <path id="Path_103" data-name="Path 103" d="M.753,36.337a.9.9,0,0,1,.155-.011H9.752l-.193-.09a1.794,1.794,0,0,1-.507-.359L6.573,33.4a.928.928,0,0,1-.13-1.188.9.9,0,0,1,1.345-.117l4.485,4.485a.9.9,0,0,1,0,1.268h0L7.788,42.331a.9.9,0,0,1-1.345-.09.928.928,0,0,1,.13-1.188l2.476-2.485a1.794,1.794,0,0,1,.448-.327l.269-.121H.958a.928.928,0,0,1-.946-.753A.9.9,0,0,1,.753,36.337Z" transform="translate(0 -31.842)" />
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </button>
+                                <button type="button" class="checkout-btn mb-4">View Activities</button>
                             </a>
                         </div>
                     </div>
@@ -283,13 +277,14 @@
                 }
 
                 .checkout-btn {
-                    background-color: white;
+                    background-color: #EF8830;
                     font-family: 'Poppins';
                     font-weight: bold;
                     border-radius: 22px;
-                    border-color: #EF8830;
-                    border-width: thin;
+                    border-style: none;
+                    color: white;
                     width: 60%;
+                    max-width: 200px;
                     height: 45px;
                     margin-top: 50px;
                 }
