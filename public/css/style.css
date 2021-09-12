@@ -105,7 +105,7 @@ p {
 }
 
 /*New LandingPage*/
-
+/* 
 .landing-image {
   position: relative;
   text-align: center;
@@ -319,7 +319,7 @@ p {
   font-weight: bold;
   color: #ef8830;
   text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
-}
+} */
 
 .activities-responsive {
   width: 100%;

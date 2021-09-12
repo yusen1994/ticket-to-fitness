@@ -3,16 +3,16 @@
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
 <!-- IF USER IS LOGGED IN -->
-<?php if(!empty($_SESSION['user_id'])){  require APPROOT . '/views/User/dashboardmenu.php'; } ?>
+<?php if (!empty($_SESSION['user_id'])) {
+    require APPROOT . '/views/User/dashboardmenu.php';
+} ?>
 
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6 align-self-center">
-            <div class="pl-3">
-                <p>
-                <h3><b><span><a href="<?php echo URLROOT; ?>/Activity"><i class="fas fa-arrow-left" style="color:black;"></i></a></span><span class="pl-2" style="color:#E46E2E;">Activity</span> <span>Info</span> </b></h3>
-                </p>
-            </div>
+            <p>
+            <h3><b><span><a href="<?php echo URLROOT; ?>/Activity"><i class="fas fa-arrow-left" style="color:black;"></i></a></span><span class="pl-2" style="color:#E46E2E;">Activity</span> <span>Info</span> </b></h3>
+            </p>
         </div>
     </div>
 
