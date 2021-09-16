@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
                     <div class="user-name-background">
-                        <h2 style="font-weight:bold">Hey, <span style="color: #E46E2E">Lucas!</h2></span>
+                        <h2 style="font-weight:bold">Hey, <span style="color: #E46E2E"><?php echo $_SESSION['firstname']; ?>!</h2></span>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-sm-12 col-lg-6">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/User/credits">
-                        <button type="button" class="buy-credits-btn">Buy Credits</button>
+                        <button type="button" class="dashboard-highlight-btn">Buy Credits</button>
                     </a>
                 </div>
             </div>
@@ -85,6 +85,23 @@
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Accounts/logout">
                         <button type="button" class="dashboard-option-btn">Log out</button>
                     </a>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
+                <div class="col-sm-12 col-lg-6">
+
+                    <?php
+                    if ($_SESSION['partnership_status'] != NULL && $_SESSION['partnership_status'] == true) {
+
+                    ?>
+                        <a href="<?php echo URLROOT; ?>/Gym" style="text-decoration: none;">
+                            <button type="button" class="gym-dashboard-btn">Switch to Gym Dashboard</button>
+                        </a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -122,16 +139,24 @@
         justify-content: center;
     }
 
-
-
-
-    .buy-credits-btn {
+    .dashboard-highlight-btn {
         width: 100%;
         height: 60px;
         border-radius: 18px;
         border-style: none;
         color: white;
         background-color: #EF8830;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .gym-dashboard-btn {
+        width: 100%;
+        height: 60px;
+        border-radius: 18px;
+        border-style: none;
+        color: white;
+        background-color: #0b518d;
         font-size: 18px;
         font-weight: bold;
     }

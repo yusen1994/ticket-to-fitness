@@ -4,54 +4,54 @@
 
 	<div class="btn-group btn-group-lg buttons_days_of_week " role="group" aria-label="buttons_days_of_week">
 		<a href="<?php echo URLROOT ?>/User/timetable/monday" class="btn btn-light  <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'monday') !== false) {
-                                                    echo 'active';
-                                                } ?>">M</a>
+																					$url = $_SERVER['REQUEST_URI'];
+																					$urlarray = explode("/", $url);
+																					$end = $urlarray[count($urlarray) - 1];
+																					if (strpos($end, 'monday') !== false) {
+																						echo 'active';
+																					} ?>">M</a>
 		<a href="<?php echo URLROOT ?>/User/timetable/tuesday" class="btn btn-light <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'tuesday') !== false) {
-                                                    echo 'active';
-                                                } ?>">T</a>
+																					$url = $_SERVER['REQUEST_URI'];
+																					$urlarray = explode("/", $url);
+																					$end = $urlarray[count($urlarray) - 1];
+																					if (strpos($end, 'tuesday') !== false) {
+																						echo 'active';
+																					} ?>">T</a>
 		<a href="<?php echo URLROOT ?>/User/timetable/wednesday" class="btn btn-light <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'wednesday') !== false) {
-                                                    echo 'active';
-                                                } ?>">W</a>
+																						$url = $_SERVER['REQUEST_URI'];
+																						$urlarray = explode("/", $url);
+																						$end = $urlarray[count($urlarray) - 1];
+																						if (strpos($end, 'wednesday') !== false) {
+																							echo 'active';
+																						} ?>">W</a>
 		<a href="<?php echo URLROOT ?>/User/timetable/thursday" class="btn btn-light <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'thursday') !== false) {
-                                                    echo 'active';
-                                                } ?>">T</a>
+																						$url = $_SERVER['REQUEST_URI'];
+																						$urlarray = explode("/", $url);
+																						$end = $urlarray[count($urlarray) - 1];
+																						if (strpos($end, 'thursday') !== false) {
+																							echo 'active';
+																						} ?>">T</a>
 		<a href="<?php echo URLROOT ?>/User/timetable/friday" class="btn btn-light <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'friday') !== false) {
-                                                    echo 'active';
-                                                } ?>">F</a>
+																					$url = $_SERVER['REQUEST_URI'];
+																					$urlarray = explode("/", $url);
+																					$end = $urlarray[count($urlarray) - 1];
+																					if (strpos($end, 'friday') !== false) {
+																						echo 'active';
+																					} ?>">F</a>
 		<a href="<?php echo URLROOT ?>/User/timetable/saturday" class="btn btn-light <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'saturday') !== false) {
-                                                    echo 'active';
-                                                } ?>">S</a>
+																						$url = $_SERVER['REQUEST_URI'];
+																						$urlarray = explode("/", $url);
+																						$end = $urlarray[count($urlarray) - 1];
+																						if (strpos($end, 'saturday') !== false) {
+																							echo 'active';
+																						} ?>">S</a>
 		<a href="<?php echo URLROOT ?>/User/timetable/sunday" class="btn btn-light <?php
-                                                $url = $_SERVER['REQUEST_URI'];
-                                                $urlarray = explode("/", $url);
-                                                $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'sundayx') !== false) {
-                                                    echo 'active';
-                                                } ?>">S</a>
+																					$url = $_SERVER['REQUEST_URI'];
+																					$urlarray = explode("/", $url);
+																					$end = $urlarray[count($urlarray) - 1];
+																					if (strpos($end, 'sundayx') !== false) {
+																						echo 'active';
+																					} ?>">S</a>
 
 	</div>
 

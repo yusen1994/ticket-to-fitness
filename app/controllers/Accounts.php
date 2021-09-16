@@ -91,6 +91,8 @@ class Accounts extends Controller
     {
 
         $_SESSION['user_id'] = $user->id;
+        $_SESSION['firstname'] = $user->firstname;
+        $_SESSION['lastname'] = $user->lastname;
         $_SESSION['partnership_status'] = $user->partnership_status;
         $_SESSION['email'] = $user->email;
         $cartCount = $this->accountsModel->cartCount($user->id);
@@ -100,7 +102,7 @@ class Accounts extends Controller
         if (empty($data['continue'])) {
             redirect('User');
         } else {
-            redirect($data['continue']);          
+            redirect($data['continue']);
         }
     }
 
@@ -111,6 +113,8 @@ class Accounts extends Controller
     public function logout()
     {
         unset($_SESSION['user_id']);
+        unset($_SESSION['firstname']);
+        unset($_SESSION['lastname']);
         unset($_SESSION['partnership_status']);
         unset($_SESSION['email']);
 
@@ -126,10 +130,10 @@ class Accounts extends Controller
 
 
         $continue = $_SERVER['REQUEST_URI'];
-       
+
 
         $continue = substr(strrchr($continue, '='), 1);
-        
+
         //Check if the user is already logged in i.e the session is set.
         // If session is set then redirect to dashboard.
         if ($this->isLoggedIn()) {
@@ -141,7 +145,7 @@ class Accounts extends Controller
             $continue = substr(strrchr($continue, '='), 1);
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $data = ['username' => '', 'password' => '', 'loginError' => '', 'continue'=>$continue];
+            $data = ['username' => '', 'password' => '', 'loginError' => '', 'continue' => $continue];
             $data['username'] = trim($_POST['username']);
             $data['password'] = trim($_POST['password']);
             $this->validateLogin($data);

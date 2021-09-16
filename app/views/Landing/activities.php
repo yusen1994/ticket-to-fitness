@@ -272,7 +272,7 @@
 
 -->
 <div class="container">
-    <div class="row background-card mt-3 mt-lg-5" style="padding: 15px;">
+    <div class="row background-card mt-3 mt-lg-5" style="padding: 15px; padding-bottom: 30px;">
         <?php
         if (!empty($data['gym_activity'])) {
             foreach ($data['gym_activity'] as $activity) {

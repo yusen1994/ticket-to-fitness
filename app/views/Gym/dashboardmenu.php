@@ -4,7 +4,7 @@
 <div class="container-fluid p-2">
     <!-- Nav start -->
     <div class="row justify-content-center" style="background-color: white;">
-        <div class="col-sm-1 col-lg-6">
+        <div class="col-sm-12 col-lg-6">
             <div class="row" style="padding:0px; height:90px;">
                 <div class=" col-4 text-center <?php
                                                 $url = $_SERVER['REQUEST_URI'];
@@ -129,7 +129,7 @@
                     </a>
                 </div>
                 <div class="col-3 text-center gymdashboard-menu-social p-4" style="padding:0px !important; height:auto;" id="gymdashboard-menu-social">
-                    <a href="<?php echo URLROOT;?>/Gym/gymProfile" class="menu-clickable" onclick="menuActive('social')">
+                    <a href="<?php echo URLROOT; ?>/Gym/gymProfile" class="menu-clickable" onclick="menuActive('social')">
                         <div class="menu-content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="107" height="68.519" viewBox="0 0 107 68.519">
                                 <g id="gym" transform="translate(31.275)">
@@ -155,37 +155,7 @@
         </div>
     </div>
 </div>
-<script>
-    function menuActive(menu) {
-        switch (menu) {
-            case "home":
-                document.focus(document.getElementById("gymdashboard-menu-home"));
-                //             document.getElementById("gymdashboard-menu-home").style.backgroundColor = "#ef8830";
-                //             document.getElementById("gymdashboard-menu-map").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-timetable").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-social").style.backgroundColor = "#ffffff";
-                break;
-                //         case "map":
-                //             document.getElementById("gymdashboard-menu-home").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-map").style.backgroundColor = "#ef8830";
-                //             document.getElementById("gymdashboard-menu-timetable").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-social").style.backgroundColor = "#ffffff";
-                //             break;
-            case "timetable":
-                //             document.getElementById("gymdashboard-menu-home").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-map").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-timetable").style.backgroundColor = "#ef8830";
-                //             document.getElementById("gymdashboard-menu-social").style.backgroundColor = "#ffffff";
-                break;
-                //         case "social":
-                //             document.getElementById("gymdashboard-menu-home").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-map").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-timetable").style.backgroundColor = "#ffffff";
-                //             document.getElementById("gymdashboard-menu-social").style.backgroundColor = "#ef8830";
-                //             break;
-        }
-    }
-</script>
+
 
 <style>
     .gymdashboard-menu-active {

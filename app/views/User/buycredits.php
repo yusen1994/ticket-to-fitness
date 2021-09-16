@@ -11,14 +11,6 @@
 
     <div class="row justify-content-center mt-2">
         <div class="col-sm-12 col-lg-4">
-
-            <!-- ####################### -->
-
-
-
-
-            <!-- ####################### -->
-
             <?php
             if (!empty($data['error'])) {
                 echo '<div class="alert alert-danger" role="alert">
