@@ -1,7 +1,3 @@
-<div class="space">
-
-</div>
-
 <footer class="container-fluid footer" style="background-color: #3F3F3F; padding-top: 20px;">
     <div class="row justify-content-center">
         <div class="col-6">
@@ -64,14 +60,14 @@
         padding-left: 40px;
     }
 
-    .space {
-        display: flex;
-        flex-direction: column;
-        min-height: 100px;
-    }
-
     .footer {
-        margin-top: auto;
+        position: fixed;
+        padding: 10px 10px 0px 10px;
+        bottom: 0;
+        width: 100%;
+        /* Height of the footer*/
+        height: 200px;
+        background: grey;
     }
 </style>
 

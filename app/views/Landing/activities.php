@@ -21,7 +21,7 @@
 
 
     <div class="row justify-content-center">
-        <div class="col-8 col-md-4 col-xl-2">
+        <div class="col-8 col-lg-4 col-xl-3 pr-0">
 
             <form method="POST" action="<?php echo URLROOT; ?>/Activity/search">
                 <div class="search-input p-1">
@@ -57,7 +57,7 @@
 
 
         </div>
-        <div class="col-4 col-lg-1 pl-0">
+        <div class="col-4 col-lg-2 col-xl-1">
             <button type="button" class="filter-btn" data-toggle="modal" data-target="#filterModal"><span class="filter-btn-icon">
                     <svg id="filter-filled-tool-symbol" xmlns="http://www.w3.org/2000/svg" width="14.761" height="14.896" viewBox="0 0 14.761 14.896">
                         <path id="Path_103" data-name="Path 103" d="M10.016,7.039a.919.919,0,0,1,.242.622v6.774a.46.46,0,0,0,.783.328L12.93,12.6c.253-.3.392-.454.392-.754V7.663a.927.927,0,0,1,.242-.622l5.422-5.883A.69.69,0,0,0,18.48,0H5.1a.69.69,0,0,0-.507,1.157Z" transform="translate(-4.41)" />
@@ -84,7 +84,6 @@
     }
 
     .background-card {
-        width: 100%;
         background-color: white;
         border-radius: 60px;
     }
@@ -272,7 +271,7 @@
 
 -->
 <div class="container">
-    <div class="row background-card mt-3 mt-lg-5" style="padding: 15px;">
+    <div class="row background-card mt-3 mt-lg-5 mr-0" style="padding: 15px; padding-bottom: 30px;">
         <?php
         if (!empty($data['gym_activity'])) {
             foreach ($data['gym_activity'] as $activity) {
@@ -301,8 +300,11 @@
 <br>
 
 
+<div style="height:200px;width:100%; position:absolute;">
+    <?php require APPROOT . '/views/inc/footer.php'; ?>
+</div>
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>
 
 <script src="<?php echo URLROOT; ?>/js/address.js"></script>

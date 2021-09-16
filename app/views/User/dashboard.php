@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
                     <div class="user-name-background">
-                        <h2 style="font-weight:bold">Hey, <span style="color: #E46E2E">Lucas!</h2></span>
+                        <h2 style="font-weight:bold">Hey, <span style="color: #E46E2E"><?php echo $_SESSION['firstname']; ?>!</h2></span>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-2">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-xl-6">
                     <div class="credits-content-background">
                         <div class="row justify-content-center">
                             <div class="col-6 align-self-center">
@@ -60,31 +60,48 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-5">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-xl-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/User/credits">
-                        <button type="button" class="buy-credits-btn">Buy Credits</button>
+                        <button type="button" class="dashboard-highlight-btn">Buy Credits</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-xl-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity">
                         <button type="button" class="dashboard-option-btn">View Activities</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-xl-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT ?>/User/userProfile">
                         <button type="button" class="dashboard-option-btn">My Profile</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-xl-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Accounts/logout">
                         <button type="button" class="dashboard-option-btn">Log out</button>
                     </a>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
+                <div class="col-sm-12 col-lg-7">
+
+                    <?php
+                    if ($_SESSION['partnership_status'] != NULL && $_SESSION['partnership_status'] == true) {
+
+                    ?>
+                        <a href="<?php echo URLROOT; ?>/Gym" style="text-decoration: none;">
+                            <button type="button" class="gym-dashboard-btn">Switch to Gym Dashboard</button>
+                        </a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -122,10 +139,7 @@
         justify-content: center;
     }
 
-
-
-
-    .buy-credits-btn {
+    .dashboard-highlight-btn {
         width: 100%;
         height: 60px;
         border-radius: 18px;
@@ -148,6 +162,17 @@
         font-size: 18px;
         font-weight: bold;
     }
+
+    .gym-dashboard-btn {
+        width: 100%;
+        height: 60px;
+        border-radius: 18px;
+        border-style: none;
+        color: white;
+        background-color: #0b518d;
+        font-size: 18px;
+        font-weight: bold;
+    }
 </style>
 
 
@@ -161,4 +186,6 @@ if (!empty($data['message'])) {
 ?>
 
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+<div style="height:200px;width:100%; position:absolute;">
+    <?php require APPROOT . '/views/inc/footer.php'; ?>
+</div>

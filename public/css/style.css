@@ -65,6 +65,57 @@ body {
 
 /*Dashboard->Userprofile*/
 
+.user-name-background {
+  width: 100%;
+  height: 75px;
+  background-color: white;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  padding-top: 10px;
+}
+
+.content-background {
+  width: 100%;
+  height: 75px;
+  background-color: white;
+  border-radius: 18px;
+  padding-top: 5px;
+}
+
+.credits-content-background {
+  width: 100%;
+  height: 75px;
+  background-color: white;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-highlight-btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 18px;
+  border-style: none;
+  color: white;
+  background-color: #ef8830;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dashboard-option-btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 18px;
+  border-style: solid;
+  border-color: #ef8830;
+  border-width: 1px;
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #container-userprofile {
   display: flex;
   justify-content: center;
