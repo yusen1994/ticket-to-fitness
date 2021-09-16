@@ -25,10 +25,10 @@
         echo '</div>';
     }
     ?>
-    <div class="row justify-content-center" style="margin-top:20px; background-color: white;">
+    <!-- <div class="row justify-content-center" style="margin-top:20px; background-color: white;">
         <div class="col-sm-1 col-lg-4" style="padding-right:0px;padding-left:0px;">
-            <div class="card-container">
-                <div class="row">
+            <div class="card-container"> -->
+                <!-- <div class="row">
                     <div class="col-6 text-left" style="padding-right: 0px;">
                         <h5><b>Gym Name</b></h5>
                     </div>
@@ -48,9 +48,9 @@
                     <div class="col text-left">
                         <div class="line-separator"></div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Dynamically add times per activity from here -->
-                <div class="row" style="margin-top:10px; padding-left:10px;">
+                <!-- <div class="row" style="margin-top:10px; padding-left:10px;">
                     <div class="col-4 align-self-center" style="padding-right:0px;">
                         <p style="font-size:16px; margin-bottom:0px">Monday</p>
                     </div>
@@ -71,21 +71,19 @@
                             <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">25</p>
                         </div>
 
-                    </div>
-
+                    </div> -->
+<!-- 
                     <div class="line-separator" style="margin-top:10px;"></div>
 
-                </div>
+                </div> -->
                 <!-- End add times per activity here -->
-
             </div>
-        </div>
+        </div> 
     </div>
-
-
 
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6">
+            <!-- following container have some issue check div block-->
             <div class="item-container">
                 <?php
                 $totalCost = 0;
@@ -106,35 +104,22 @@
                                         <path id="close" d="M8.037,6.929l5.29-5.29A.88.88,0,1,0,12.083.394l-5.29,5.29L1.5.394A.88.88,0,0,0,.258,1.639l5.29,5.29-5.29,5.29A.88.88,0,1,0,1.5,13.463l5.29-5.29,5.29,5.29a.88.88,0,0,0,1.245-1.245Zm0,0" transform="translate(0 -0.136)" fill="#b90000" />
                                     </svg>
                                 </a>
-                                <div class="item-price-content">
-                                   
-                                   
-                                </div>
-    
+                            <div class="item-price-content"></div>    
                             </div>
-    
                         </div>
                     </div>
-                    
-                    <div class="row">
-                    <div class="col-12">
-                        <div class="line-separater"></div>
-                    </div>
                 </div>';
-
                         $totalCost += $single->credit;
-                    }
-
+                }
                     echo '
                 <!-- End Cart item -->';
-                    echo '                <div class="total-container">
+                    echo '   <div class="total-container">
                <div class="line-separater"></div>
                <div class="total-content">
                    <div class="row justify-content-center">
                       
                        <div class="col-2 text-right" style="padding:0px;">
                     
-
                        </div>
                       
                    </div>
@@ -157,7 +142,6 @@
    </div>
 </div>';
                 } else {
-
                     echo '
                 <!-- If empty -->
                 <div class="row mt-5">
@@ -170,22 +154,11 @@
                         </div>
                     </div>
                 </div>
-                </div>
-
-
-';
+                </div>';
                 }
 
 
                 ?>
-
-
-
-
-
-
-
-
 
 
             </div>
@@ -240,7 +213,7 @@
                     display: flex;
                     flex-direction: column;
                     position: relative;
-                    margin-bottom: 100px;
+                    margin-bottom: 15px;
                 }
 
                 .item-content-container {
