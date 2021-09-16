@@ -52,28 +52,28 @@ if (!empty($data['message'])) {
             </div>
 
             <div class="row justify-content-center mt-5">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/gym/members">
                         <button type="button" class="dashboard-option-btn">Members</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/gym/reports">
                         <button type="button" class="dashboard-option-btn">Reports</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Accounts/logout">
                         <button type="button" class="dashboard-option-btn">Log out</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-lg-7">
                     <a href="<?php echo URLROOT; ?>/User" style="text-decoration: none;">
                         <button type="button" class="dashboard-highlight-btn">Switch to User Dashboard</button>
                     </a>

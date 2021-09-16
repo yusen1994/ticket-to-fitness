@@ -6,7 +6,7 @@
 <div class="container-fluid mt-2">
 
   <!-- If screen => lg display this background image -->
-  <div class="row align-self-center background-image d-none d-lg-block d-xl-block vh-100">
+  <div class="row  background-image d-none d-lg-block d-xl-block vh-100">
     <div class="col-12 align-self-center">
 
       <div class="row justify-content-center" style="padding-top: 250px;">
@@ -172,9 +172,12 @@
       </div>
 
     </div>
-
   </div>
 </div>
+
+
+<?php require APPROOT . '/views/inc/footer.php'; ?>
+
 
 <style>
   .background-image {
@@ -235,6 +238,3 @@
     color: #ef8830;
   }
 </style>
-
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>

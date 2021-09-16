@@ -102,6 +102,9 @@
     </div>
 </div>
 
+<div style="height:200px;width:100%; position:absolute;">
+    <?php require APPROOT . '/views/inc/footer.php'; ?>
+</div>
 
 
 <style>
@@ -145,7 +148,3 @@
         margin-bottom: 20px;
     }
 </style>
-
-
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>
