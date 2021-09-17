@@ -1,7 +1,7 @@
-<?php
+<?php require APPROOT . '/views/Admin/dashboardmenu.php'; ?>
 
 
-    echo $data['message'];
+<!--Add Dashboard for Admin-->
 
 
-?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>
