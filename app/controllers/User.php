@@ -86,7 +86,7 @@ class User extends Controller
                 $data['user_activity'] = $useractivity;
                 $this->view('User/timetable', $data);
             } else {
-                $data['error'] = 'No Activity in this time';
+                $data['error'] = 'No activities at this time';
                 $this->view('User/timetable', $data);
             }
         } else {

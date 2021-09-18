@@ -374,7 +374,7 @@ class Gym extends Controller
                 $data['gym_activity'] = $gymactivity;
                 $this->view('Gym/timetable', $data);
             } else {
-                $data['error'] = 'No Activity in this time';
+                $data['error'] = 'No activities at this time';
                 $this->view('Gym/timetable', $data);
             }
         } else {
