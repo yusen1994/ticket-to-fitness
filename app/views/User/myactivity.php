@@ -2,7 +2,7 @@
 
 
 <div class="d-flex justify-content-center" style="margin-top: 20px;">
-    <div class="col-sm-12 col-lg-4" style="margin-left: 15px;">
+    <div class="col-sm-12 col-lg-4">
         <h3><b>Manage Activities</b></h3>
     </div>
 </div>

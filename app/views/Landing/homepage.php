@@ -68,7 +68,7 @@
 
       <h4><span class="text-orange">Browse</span> Activities</h4>
 
-      <div class="row justify-content-center mt-5">
+      <div class="row justify-content-center mt-3">
         <?php
         $count = 1;
 
@@ -78,21 +78,27 @@
             if ($count > 4) {
               break;
             }
-            echo '<div class="col-6 col-lg-3">';
-            echo '<div>';
-            echo '<div class="card " style="width: auto; height:auto;">';
-            echo '<img class="card-img-top" src="' . URLROOT . '/images/gym1.jpg" alt="Card image cap">';
-            echo '<div class="card-body rounded-pill">';
-            echo '<h6 class="card-title">' . $activity->activity_name . '</h6>';
-            echo '<p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>';
-
-            echo '<hr>';
-            echo '<p><b>Credit: ' . $activity->credit . '</b></p>';
-            echo '<a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link">More Details</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
+            echo '
+                <div class = "col-6 col-md-4 col-lg-3">
+                    <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link" style="text-decoration:none!important; color:black;">
+                        <div class="card pt-2" style="width: auto; border-radius:18px; min-height:420px;">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                            <h6 class="card-title">' . $activity->activity_name . '</h6>
+                            <p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>
+                            <img src
+                            <hr>
+                            <p><b>Credit: ' . $activity->credit . '</b></p>
+                            <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '">More Details</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                ';
 
             $count++;
           }
