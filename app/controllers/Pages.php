@@ -32,4 +32,13 @@ class Pages extends Controller
 
     $this->view('pages/about', $data);
   }
+
+  public function gymManageActivities()
+  {
+    $data = [
+      'title' => 'Manage Activities'
+    ];
+
+    $this->view('gym/manageactivities', $data);
+  }
 }

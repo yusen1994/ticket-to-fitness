@@ -64,11 +64,11 @@
 
 
   <div class="row justify-content-center mt-5">
-    <div class="col-sm-12 col-lg-8 text-center align-items-center background-card pt-3 pb-5">
+    <div class="col-sm-12 col-lg-9 text-center align-items-center background-card p-lg-5 pb-5 pt-3">
 
       <h4><span class="text-orange">Browse</span> Activities</h4>
 
-      <div class="row justify-content-center mt-3">
+      <div class="row justify-content-center mt-5">
         <?php
         $count = 1;
 
@@ -116,10 +116,12 @@
     </div>
   </div>
 
-  <div class="row justify-content-center mt-3 mt-lg-5">
-    <div class="col-sm-12 col-lg-8 text-center align-items-center background-card pt-3 pb-5">
+  <div class="row justify-content-center mt-5 mt-lg-5">
+    <div class="col-sm-12 col-lg-8 text-center align-items-center background-card pt-3 pt-lg-5 pb-5">
+
       <h4><span class="text-orange">Categories</span> for Everyone</h4>
-      <div class="row justify-content-center mt-3">
+
+      <div class="row justify-content-center mt-5">
         <div class="col-6 col-md-4 col-lg-2 pb-2">
           <img src=" <?php echo URLROOT; ?>/public/images/land-weight.svg">
         </div>
