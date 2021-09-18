@@ -18,7 +18,7 @@ class userModel
   public function viewtimeTable($data)
   {
 
-    $this->db->query('SELECT DISTINCT gym_activity_timetable.day, gym_activity_timetable.time, gym_activity.activity_name, gym_activity.category,gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_information.gym_address FROM users_allocation 
+    $this->db->query('SELECT DISTINCT gym_activity_timetable.day, gym_activity_timetable.time, gym_activity.activity_name, gym_activity.category,gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_information.gym_name, gym_information.gym_address FROM users_allocation 
     INNER JOIN gym_activity_timetable ON users_allocation.activity_id = gym_activity_timetable.activity_id 
     Inner join gym_activity ON users_allocation.activity_id = gym_activity.id 
     INNER JOIN gym_information ON users_allocation.gym_id = gym_information.gym_id 
@@ -36,14 +36,15 @@ class userModel
     }
   }
 
-  public function manageActivitiesList($data){
+  public function manageActivitiesList($data)
+  {
     $this->db->query('SELECT DISTINCT gym_activity_timetable.day, gym_activity_timetable.id, gym_activity_timetable.time, users_activity.activity_id, gym_activity.activity_name, gym_activity.category,gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_information.gym_address, gym_information.gym_name, gym_information.gym_id
     FROM users_activity
     INNER JOIN gym_activity_timetable ON users_activity.activity_id = gym_activity_timetable.activity_id 
     Inner join gym_activity ON users_activity.activity_id = gym_activity.id 
     INNER JOIN gym_information ON users_activity.gym_id = gym_information.gym_id
     where users_activity.user_id = :user_id');
-    
+
     $this->db->bind(':user_id', $data['user_id']);
 
     $row = $this->db->resultSet();
@@ -52,7 +53,6 @@ class userModel
 
       return $row;
     }
-
   }
 
 
@@ -210,9 +210,10 @@ class userModel
   }
 
 
- 
 
-  public function getCostActivity($timetable_id){
+
+  public function getCostActivity($timetable_id)
+  {
     $this->db->query('SELECT gym_activity.credit FROM gym_activity_timetable INNER JOIN gym_activity ON gym_activity_timetable.activity_id = gym_activity.id WHERE gym_activity_timetable.id = :timetable_id');
     $this->db->bind(':timetable_id', $timetable_id);
     $row = $this->db->single();
@@ -221,10 +222,10 @@ class userModel
 
       return $row;
     }
-
   }
 
-  public function deductCredit($data){
+  public function deductCredit($data)
+  {
     $this->db->query('INSERT INTO `users_credits`(`total_credit`, `user_id`) VALUES (:total_cost, :user_id)');
     $this->db->bind(':total_cost', -$data['total_cost']);
     $this->db->bind(':user_id', $data['user_id']);

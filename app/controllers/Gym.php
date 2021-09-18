@@ -30,9 +30,10 @@ class Gym extends Controller
         $this->dashboard();
     }
 
-    public function dashboard(){
+    public function dashboard()
+    {
 
-        
+
         if ($this->isGymLoggedIn()) {
 
             $gyminfo = $this->accountsModel->fetchGymInformation($_SESSION['user_id']);
@@ -98,17 +99,17 @@ class Gym extends Controller
         return $finalTime;
     }
 
-    public function isEmptyArray($array){
-        
-        foreach($array as $single){
-           if(empty($single)){
-               return true;
-               break;
-           }
+    public function isEmptyArray($array)
+    {
+
+        foreach ($array as $single) {
+            if (empty($single)) {
+                return true;
+                break;
+            }
         }
 
         return false;
-       
     }
     public function addActivity()
     {
@@ -119,10 +120,10 @@ class Gym extends Controller
 
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                $time_monday = $time_tuesday=$time_wednesday=$time_thursday=$time_friday=$time_saturday=$time_sunday = NULL;
-             
+                $time_monday = $time_tuesday = $time_wednesday = $time_thursday = $time_friday = $time_saturday = $time_sunday = NULL;
+
                 if (!$this->isEmptyArray($_POST['monday_starttimeArray'])) {
-                    
+
                     $time_monday = array();
                     $time_monday = $this->joinTime($_POST['monday_starttimeArray'], $_POST['monday_endtimeArray']);
                 }
@@ -138,7 +139,7 @@ class Gym extends Controller
                 }
 
                 if (!$this->isEmptyArray($_POST['thursday_starttimeArray'])) {
-            
+
                     $time_thursday = array();
                     $time_thursday = $this->joinTime($_POST['thursday_starttimeArray'], $_POST['thursday_endtimeArray']);
                 }
@@ -158,7 +159,7 @@ class Gym extends Controller
                     $time_sunday = $this->joinTime($_POST['sunday_starttimeArray'], $_POST['sunday_endtimeArray']);
                 }
 
-                
+
                 $data = [
 
                     'gym_id' => $_SESSION['user_id'],
@@ -231,13 +232,13 @@ class Gym extends Controller
                     'max_capacity' => '',
                     'credit' => '',
                     'description' => '',
-                    'time_monday'=>'',
-                    'time_tuesday'=>'',
-                    'time_wednesday'=>'',
-                    'time_thursday'=>'',
-                    'time_friday'=>'',
-                    'time_saturday'=>'',
-                    'time_sunday'=>'',
+                    'time_monday' => '',
+                    'time_tuesday' => '',
+                    'time_wednesday' => '',
+                    'time_thursday' => '',
+                    'time_friday' => '',
+                    'time_saturday' => '',
+                    'time_sunday' => '',
                     'status' => '',
                     'activity_name_err' => '',
                     'category_err' => '',
@@ -344,29 +345,38 @@ class Gym extends Controller
         }
     }
 
-   
 
 
-    public function timetable($day="monday"){
+
+    public function manageActivities()
+    {
+
+        if ($this->isGymLoggedIn()) {
+            $this->view('Gym/manageactivities');
+        } else {
+            redirect('Accounts/login');
+        }
+    }
+
+    public function timetable($day = "monday")
+    {
 
         if ($this->isGymLoggedIn()) {
             $data = [
 
                 'gym_id' => $_SESSION['user_id'],
-                'day'=>$day,
+                'day' => $day,
                 'gym_activity' => '',
-                'gym_address'=>$_SESSION['gym_address']
+                'gym_address' => $_SESSION['gym_address']
             ];
             $gymactivity = $this->gymModel->viewtimeTable($data);
             if (!empty($gymactivity)) {
                 $data['gym_activity'] = $gymactivity;
                 $this->view('Gym/timetable', $data);
-            }else{
-                $data['error'] = 'No Activity in this time';
+            } else {
+                $data['error'] = 'No activities at this time';
                 $this->view('Gym/timetable', $data);
-
             }
-
         } else {
             redirect('Accounts/login');
         }
@@ -374,9 +384,9 @@ class Gym extends Controller
 
 
 
-    public function members(){
-        if ($this->isGymLoggedIn())
-        {
+    public function members()
+    {
+        if ($this->isGymLoggedIn()) {
             $data = [
                 'gym_id' => $_SESSION['user_id'],
             ];
@@ -384,21 +394,18 @@ class Gym extends Controller
             $gym_members = $this->gymModel->members($data);
 
             $data['gym_members'] = $gym_members;
-            
-            $this->view('Gym/members',$data);
-        }else{
+
+            $this->view('Gym/members', $data);
+        } else {
             $data['error'] = "No members yet!";
-            $this->view('Gym/members',$data);
-
-
+            $this->view('Gym/members', $data);
         }
-        
     }
 
 
-    public function reports(){
-        if ($this->isGymLoggedIn())
-        {
+    public function reports()
+    {
+        if ($this->isGymLoggedIn()) {
             $data = [
                 'gym_id' => $_SESSION['user_id'],
             ];
@@ -406,13 +413,11 @@ class Gym extends Controller
             $gym_earnings = $this->gymModel->earnings($data);
 
             $data['gym_earnings'] = $gym_earnings;
-            
-            $this->view('Gym/reports',$data);
-        }else{
+
+            $this->view('Gym/reports', $data);
+        } else {
             $data['error'] = "No reports yet!";
-            $this->view('Gym/reports',$data);
-
-
+            $this->view('Gym/reports', $data);
         }
     }
 }

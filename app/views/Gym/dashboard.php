@@ -53,6 +53,13 @@ if (!empty($data['message'])) {
 
             <div class="row justify-content-center mt-5">
                 <div class="col-sm-12 col-lg-7">
+                    <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Gym/gymProfile">
+                        <button type="button" class="dashboard-option-btn">Gym Information</button>
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/gym/members">
                         <button type="button" class="dashboard-option-btn">Members</button>
                     </a>
