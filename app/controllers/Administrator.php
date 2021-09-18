@@ -98,10 +98,7 @@
 
         public function dashboard(){
 
-            $data = [
-                        'message' => 'Hello Admin',
-                    ];
-            $this->view('Admin/dashboard', $data);
+            $this->view('Admin/dashboard');
         }
 
 
