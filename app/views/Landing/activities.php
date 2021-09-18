@@ -320,24 +320,31 @@
 
 
 <div class="container">
-    <div class="row background-card mt-3 mt-lg-5 mr-0" style="padding: 15px; padding-bottom: 30px;">
+    <div class="row background-card mt-3 mt-lg-5 pl-lg-3 pr-lg-3 pt-sm-2 pt-lg-3" style="padding-bottom: 30px;">
         <?php
         if (!empty($data['gym_activity'])) {
             foreach ($data['gym_activity'] as $activity) {
-
-                echo '<div class = "col-6 col-md-4 col-lg-3">';
-                echo '<div class="card mt-4 " style="width: auto;">';
-                echo '<img class="card-img-top" src="' . URLROOT . '/images/gym1.jpg" alt="Card image cap">';
-                echo '<div class="card-body rounded-pill">';
-                echo '<h6 class="card-title">' . $activity->activity_name . '</h6>';
-                echo '<p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>';
-                echo '<img src';
-                echo '<hr>';
-                echo '<p><b>Credit: ' . $activity->credit . '</b></p>';
-                echo '<a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link">More Details</a>';
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
+                echo '
+                <div class = "col-6 col-md-4 col-lg-3">
+                    <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link" style="text-decoration:none!important; color:black;">
+                        <div class="card mt-4 " style="width: auto; border-radius:18px;">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                            <h6 class="card-title">' . $activity->activity_name . '</h6>
+                            <p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>
+                            <img src
+                            <hr>
+                            <p><b>Credit: ' . $activity->credit . '</b></p>
+                            <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '">More Details</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                ';
             }
         } else {
             echo "No Gym activity please check back later!";
@@ -347,7 +354,6 @@
 </div>
 
 <br>
-
 
 <div style="height:200px;width:100%; position:absolute;">
     <?php require APPROOT . '/views/inc/footer.php'; ?>
