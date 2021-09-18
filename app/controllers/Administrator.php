@@ -84,6 +84,7 @@
 
         public function createSession($admin){
             $_SESSION['admin_id'] = $admin->id;
+            $_SESSION['admin_name'] = $admin->firstname." ". $admin->lastname;
             
         }
 
@@ -99,6 +100,16 @@
         public function dashboard(){
 
             $this->view('Admin/dashboard');
+        }
+
+        public function managegym(){
+            if($this->isLoggedIn()){
+                $getGymInformation = $this->adminModel->getGymInformation();
+                $data['gym_info'] =  $getGymInformation;
+                $this->view('Admin/managegym', $data);
+            }else{
+                $this->view('Admin/login');
+            }
         }
 
 

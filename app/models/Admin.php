@@ -23,11 +23,16 @@ class Admin{
             }
     }
 
+    public function getGymInformation(){
+        $this->db->query('SELECT * FROM `gym_information`');
+    
+        $row = $this->db->resultSet();
+    
+        if ($this->db->rowCount() > 0) {
+    
+          return $row;
+    }
 
+  }
 
 }
-
-
-
-
-?>
