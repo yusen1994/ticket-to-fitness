@@ -64,7 +64,7 @@ if (!empty($data['myActivity'])) {
                 <div class="card-container">
                     <div class="row">
                         <div class="col-6 text-left" style="padding-right: 0px;">
-                            <h5><b>' . $single->gym_name . '</b></h5>
+                            <span style="text-transform: capitalize;"><h5><b>' . $single->gym_name . '</b></h5></span>
                         </div>
                         <div class="col-3 text-left" style="padding: 0px;">
                             <p style="font-size:10px; margin-bottom:0px">' . $single->gym_address . '</p>
@@ -75,7 +75,7 @@ if (!empty($data['myActivity'])) {
                     </div>
                     <div class="row">
                         <div class="col text-left">
-                            <p style="margin-bottom:5px;">' . $single->category . '</p>
+                            <p style="margin-bottom:5px; text-transform: capitalize;">' . $single->category . '</p>
                         </div>
                     </div>
                     <div class="row">
@@ -86,10 +86,10 @@ if (!empty($data['myActivity'])) {
                     <!-- Dynamically add times per activity from here -->
                     <div class="row" style="margin-top:10px; padding-left:10px;">
                         <div class="col-4 align-self-center" style="padding-right:0px;">
-                            <p style="font-size:16px; margin-bottom:0px">' . $single->day . '</p>
+                            <p style="font-size:16px; margin-bottom:0px; text-transform: capitalize;">' . $single->day . '</p>
                         </div>
                         <div class="col-3 align-self-center" style="padding:0px;">
-                            <p style="font-size:16px; margin-bottom:0px">' . $single->time . '</p>
+                            <p style="font-size:16px; margin-bottom:0px;">' . $single->time . '</p>
                         </div>
                         <div class="col-2 text-right align-self-center" style="padding:0px;">
                             <div style="display:flex; flex-direction:row; align-items:center; justify-content: flex-end;">

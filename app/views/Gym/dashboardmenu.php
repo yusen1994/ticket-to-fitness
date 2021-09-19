@@ -63,7 +63,10 @@
                 $urlarray = explode("/", $url);
                 $end = $urlarray[count($urlarray) - 1];
 
-                if (strpos($end, 'manageActivities') !== false) {
+                if (
+                    strpos($end, 'manageActivities') !== false ||
+                    strpos($end, 'activities') !== false
+                ) {
                     echo '
                      <div class="col-4 text-center gymdashboard-menu-active" style="padding:0px !important; height:auto;">
                         <a href="' ?><?php echo URLROOT ?><?php echo '/Gym/manageActivities" class="menu-clickable">

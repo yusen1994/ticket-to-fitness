@@ -44,15 +44,15 @@
 		</div>
 
 
-		<div class="register-group">
-			<form action="" method="post">
-				<div class="register-photo">
-					<img id="img-txz" class="image-upload" src="<?php echo URLROOT; ?>/images/image.png" alt="Image">
+		<div class="form-group">
 
-					<input class="upload-button" id="file-txz" type="file" name="" enctype="multipart/form-data" class="fileInput" onchange="upload('#file-txz','#img-txz')" value="" />
+			<div class="register-photo">
+				<img id="img-txz" class="image-upload" src="<?php echo URLROOT; ?>/images/image.png" alt="Image">
 
-				</div>
-			</form>
+				<input class="upload-button" id="file-txz" type="file" name="" enctype="multipart/form-data" class="fileInput" onchange="upload('#file-txz','#img-txz')" value="" />
+
+			</div>
+
 		</div>
 
 
