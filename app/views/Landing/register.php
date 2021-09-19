@@ -3,20 +3,8 @@
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="login-form">
 	<form action="<?php echo URLROOT; ?>/accounts/register" method="post">
-		<h2 class="text-center">Register</h2>
-		<div class="form-group">
+		<h2 class="text-center"><b>Register</b></h2>
 
-			<input type="text" id="username" class="form-control input-style" placeholder="Username" value="<?php if (!empty($data['username'])) {
-																												echo $data['username'];
-																											} ?>" name="username" required title="">
-			<?php
-			if (!empty($data['username_err'])) {
-				echo "<span>";
-				echo $data['username_err'];
-				echo "</span>";
-			}
-			?>
-		</div>
 		<div class="form-group">
 			<input type="text" id="firstname" class="form-control input-style" placeholder="Firstname" value="<?php if (!empty($data['firstname'])) {
 																													echo $data['firstname'];
@@ -54,9 +42,20 @@
 			}
 			?>
 		</div>
-		<div class="line-separator">
 
+
+		<div class="register-group">
+			<form action="" method="post">
+				<div class="register-photo">
+					<img id="img-txz" class="image-upload" src="<?php echo URLROOT; ?>/images/image.png" alt="Image">
+
+					<input class="upload-button" id="file-txz" type="file" name="" enctype="multipart/form-data" class="fileInput" onchange="upload('#file-txz','#img-txz')" value="" />
+
+				</div>
+			</form>
 		</div>
+
+
 		<div class="form-group">
 			<input type="password" id="password" class="form-control input-style" placeholder="Password" name="password" required>
 
@@ -85,7 +84,7 @@
 
 	</form>
 
-	<p class="text-center"><a href="<?php echo URLROOT; ?>/accounts/login">Back</a></p>
+	<p class="text-center mt-4"><a href="<?php echo URLROOT; ?>/accounts/login">Back</a></p>
 
 
 
@@ -105,6 +104,19 @@
 
 </div>
 
+<script type="text/javascript">
+	var upload = function(c, d) {
+		var $c = document.querySelector(c),
+			$d = document.querySelector(d);
+		file = $c.files[0],
+			reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = function(e) {
+			$d.setAttribute("src", e.target.result);
+		}
+	}
+</script>
+
 <style>
 	.register-button {
 		border-radius: 12px;
@@ -120,6 +132,25 @@
 		height: 1px;
 		background-color: white;
 		margin-bottom: 15px;
+	}
+
+	.register-photo {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+		margin-bottom: 5px;
+	}
+
+	.image-upload {
+		width: 200px;
+		height: 200px;
+		object-fit: contain;
+	}
+
+	#img-txz {
+		margin-bottom: 10px;
+
 	}
 </style>
 
