@@ -53,6 +53,13 @@ if (!empty($data['message'])) {
 
             <div class="row justify-content-center mt-5">
                 <div class="col-sm-12 col-lg-7">
+                    <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Gym/activities">
+                        <button type="button" class="dashboard-add-btn">Add Activity</button>
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Gym/gymProfile">
                         <button type="button" class="dashboard-option-btn">Gym Information</button>
                     </a>
@@ -117,6 +124,17 @@ if (!empty($data['message'])) {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .dashboard-add-btn {
+        width: 100%;
+        height: 60px;
+        border-radius: 18px;
+        border-style: none;
+        color: white;
+        background-color: #0b518d;
+        font-size: 18px;
+        font-weight: bold;
     }
 
     .dashboard-highlight-btn {

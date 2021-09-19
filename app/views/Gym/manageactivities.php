@@ -5,7 +5,14 @@
 
     <div class="row justify-content-center" style="margin-top: 20px;">
         <div class="col-sm-12 col-lg-4">
-            <h3><b>Manage Activities</b></h3>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <h3><b>Manage Activities</b></h3>
+                </div>
+                <div class="col-4 text-right">
+                    <a style="text-decoration:none" href="<?php echo URLROOT; ?>/Gym/activities"> <button class="myactivity-add-btn">Add</button></a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -86,6 +93,18 @@
     .card-container:focus {
         text-decoration: none;
         color: black;
+    }
+
+    .myactivity-add-btn {
+        width: 100%;
+        max-width: 100px;
+        height: 32px;
+        border-radius: 18px;
+        border-style: none;
+        color: white;
+        background-color: #2BB730;
+        font-size: 16px;
+
     }
 
     .myactivity-edit-btn {

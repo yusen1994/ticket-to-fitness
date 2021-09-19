@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
                     <div class="user-name-background">
-                        <h2 style="font-weight:bold">Hey, <span style="color: #E46E2E"><?php echo $_SESSION['firstname']; ?>!</h2></span>
+                        <h2 style="font-weight:bold">Hey, <span style="color: #E46E2E; text-transform: capitalize;"><?php echo $_SESSION['firstname']; ?>!</h2></span>
                     </div>
                 </div>
             </div>

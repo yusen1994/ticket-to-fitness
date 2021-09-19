@@ -41,4 +41,13 @@ class Pages extends Controller
 
     $this->view('gym/manageactivities', $data);
   }
+
+  public function gymAddActivity()
+  {
+    $data = [
+      'title' => 'Add an Activity'
+    ];
+
+    $this->view('gym/activies', $data);
+  }
 }
