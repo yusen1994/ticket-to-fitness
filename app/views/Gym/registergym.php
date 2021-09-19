@@ -1,6 +1,10 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
+<!-- IF USER IS LOGGED IN -->
+<?php if (!empty($_SESSION['user_id'])) {
+    require APPROOT . '/views/User/dashboardmenu.php';
+} ?>
 
 <div class="container-fluid mt-2 mb-5">
 
