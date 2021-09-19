@@ -342,9 +342,9 @@
 </div>
 </div>
 
-<div style="height:200px;width:100%; position:absolute;">
-    <?php require APPROOT . '/views/inc/footer.php'; ?>
-</div>
+
+<?php require APPROOT . '/views/inc/footer.php'; ?>
+
 
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>

@@ -78,7 +78,7 @@
                 </g>
               </svg>
             </span>View Gyms</a> </li>
-        <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23">
+        <li class="nav-item px-lg-2"> <a class="nav-link" href="<?php echo URLROOT; ?>/Gym/registergym"><span class="d-inline-block d-lg-none icon-width"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23">
                 <g id="_11259501321543238914" data-name="11259501321543238914" transform="translate(0.672 1.212)">
                   <ellipse id="Ellipse_19" data-name="Ellipse 19" cx="10" cy="10.5" rx="10" ry="10.5" transform="translate(0.328 -0.212)" fill="none" stroke="#f2f2f2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                   <line id="Line_50" data-name="Line 50" x2="8" transform="translate(6.328 9.788)" fill="none" stroke="#f2f2f2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
