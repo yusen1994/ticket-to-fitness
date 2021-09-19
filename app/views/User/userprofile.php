@@ -19,7 +19,7 @@
         <div class="col-sm-12 col-xl-4">
             <div class="row justify-content-center">
                 <div class="col-4 pr-0">
-                    <img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%;" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['photo'];?>">
+                    <img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%; object-fit: contain;" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['photo']; ?>">
                 </div>
                 <div class="col-8">
                     <div class="row justify-content-center">
@@ -342,9 +342,9 @@
 </div>
 </div>
 
-<div style="height:200px;width:100%; position:absolute;">
-    <?php require APPROOT . '/views/inc/footer.php'; ?>
-</div>
+
+<?php require APPROOT . '/views/inc/footer.php'; ?>
+
 
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>

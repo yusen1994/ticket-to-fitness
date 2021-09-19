@@ -322,6 +322,14 @@ class Gym extends Controller
     }
 
 
+    public function registerGym()
+    {
+        $data = [
+            'title' => 'Register a Gym'
+        ];
+
+        $this->view('gym/registergym', $data);
+    }
 
     public function activities()
     {
