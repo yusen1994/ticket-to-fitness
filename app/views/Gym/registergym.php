@@ -9,9 +9,12 @@
             <h3><b>Register a Gym</b></h3>
         </div>
     </div>
+
     <div class="row justify-content-center mt-4">
-        <div class="col-sm-12 col-md-8 col-lg-5 col-xl-4 text-center background-text-card">
-            <p class="p-0 m-0"><b>Start earning money for your classes on Fitch, now!</b></p>
+        <div class="col-sm-12 col-md-8 col-lg-5 col-xl-4 text-center">
+            <div class="background-text-card">
+                <p class="p-0 m-0"><b>Start earning money for your classes on Fitch, now!</b></p>
+            </div>
         </div>
     </div>
 
@@ -56,6 +59,22 @@
             <input type="hidden" id="longitude" name="longitude" class="form-control input-style" placeholder="Longitude">
 
         </div>
+
+        <div class="form-group">
+            <div class="row justify-content-center mt-4">
+                <div class="col-sm-12 col-lg-5 col-xl-3">
+                    <h4 class="mb-3"><b>Upload Logo</b></h4>
+                    <div class="register-photo">
+                        <img id="img-txz" class="image-upload" src="<?php echo URLROOT; ?>/images/image.png" alt="Image">
+
+                        <input class="upload-button" id="file-txz" type="file" name="photo" enctype="multipart/form-data" class="fileInput" onchange="upload('#file-txz','#img-txz')" value="" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="form-group">
             <div class="row justify-content-center mt-4">
                 <div class="col-sm-12 col-lg-5 col-xl-3">
@@ -156,7 +175,26 @@
     }
 
     .input-style {
-        border-radius: 18px;
+        border-radius: 12px;
+
+    }
+
+    .register-photo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-bottom: 5px;
+    }
+
+    .image-upload {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    #img-txz {
+        margin-bottom: 10px;
 
     }
 </style>
@@ -164,3 +202,17 @@
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>
 
 <script src="<?php echo URLROOT; ?>/js/address.js"></script>
+
+
+<script type="text/javascript">
+    var upload = function(c, d) {
+        var $c = document.querySelector(c),
+            $d = document.querySelector(d);
+        file = $c.files[0],
+            reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e) {
+            $d.setAttribute("src", e.target.result);
+        }
+    }
+</script>
