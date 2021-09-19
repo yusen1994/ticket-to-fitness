@@ -72,6 +72,7 @@ class Gym extends Controller
                     'gym_email' => $gyminfo->gym_email,
                     'abn' => $gyminfo->abn,
                     'phone_number' => $gyminfo->phone_number,
+                    'photo'=>$gyminfo->photo,
 
                 ];
 
@@ -338,7 +339,10 @@ class Gym extends Controller
 
                 'gym_id' => $_SESSION['user_id'],
                 'gym_activity' => '',
+
             ];
+            $getGymLogo = $this->gymModel->getGymLogo($data);
+            $data['photo'] = $getGymLogo->photo;
             $gymactivity = $this->gymModel->viewActivity($data);
             if (!empty($gymactivity)) {
                 $data['gym_activity'] = $gymactivity;

@@ -150,10 +150,14 @@ class Account
 
     public function registerGym($data)
     {
-        $this->db->query('INSERT INTO `gym_information`(`gym_id`, `gym_name`, `gym_address`,`latitude`,`longitude`, `gym_email`, `phone_number`, `abn`) VALUES (:gym_id, :gym_name, :gym_address,:latitude,:longitude,:gym_email,:phone_number,:abn)');
+        $root = $_SERVER['DOCUMENT_ROOT']; 
+        $target = $root."/tickettofitness/public/uploads/" . basename($data['photo']);
+        $this->db->query('INSERT INTO `gym_information`(`gym_id`, `gym_name`, `gym_address`, `photo`, `latitude`,`longitude`, `gym_email`, `phone_number`, `abn`) VALUES (:gym_id, :gym_name, :gym_address,:photo, :latitude,:longitude,:gym_email,:phone_number,:abn)');
         $this->db->bind(':gym_id', $data['gym_id']);
         $this->db->bind(':gym_name', $data['gym_name']);
         $this->db->bind(':gym_address', $data['gym_address']);
+        $this->db->bind(':photo', $data['photo']);
+
         $this->db->bind(':latitude', $data['latitude']);
         $this->db->bind(':longitude', $data['longitude']);
         $this->db->bind(':gym_email', $data['gym_email']);
@@ -163,7 +167,13 @@ class Account
 
         //Execute
         if ($this->db->execute()) {
-            return true;
+            if (move_uploaded_file($data['tmp_photo'], $target)) {
+                return true;
+            } else {
+
+                return false;
+
+            }
         } else {
             return false;
         }

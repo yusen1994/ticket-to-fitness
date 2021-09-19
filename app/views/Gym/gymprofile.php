@@ -12,7 +12,7 @@
         <div class="row m-2">
             <div class="col-3 mt-3">
 
-                <img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%;" src="<?php echo URLROOT; ?>/images/profile-pic.jpg">
+                <img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%;" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['photo']; ?>">
 
             </div>
             <div class="col-9 mt-3">

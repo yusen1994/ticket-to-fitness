@@ -252,7 +252,7 @@ foreach ($data['gym_activity'] as $activity) {
     echo '<div class="row">';
     echo '<div class="col-8">';
 
-    echo '<img class="rounded mx-auto d-block" style="width:30%;"  src="' . URLROOT . '/images/HIT.jpg" alt="">';
+    echo '<img class="rounded mx-auto d-block" style="width:30%;"  src="'.URLROOT.'/uploads/'.$data['photo'].'">';
     echo '<div class="card-body rounded-pill">';
     echo '<h4 class="card-title">' . $activity->activity_name . '</h4>';
     echo '<h6 class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</h6>';
