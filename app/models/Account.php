@@ -29,6 +29,19 @@ class Account
         }
     }
 
+    public function checkEmail($email)
+    {
+
+        $this->db->query('SELECT * FROM users WHERE email = :email');
+        $this->db->bind(':email', $email);
+        $row = $this->db->single();
+
+        if ($this->db->rowCount() > 0) {
+
+            return $row;
+        }
+    }
+
 
     /*
             Function to check if the username provided by the user exists in the database
@@ -85,14 +98,18 @@ class Account
         */
     public function registerAccount($data)
     {
-        $this->db->query('INSERT INTO users (username,firstname,lastname,email,password,user_activation_code,user_email_status,password_reset) VALUES (:username,:firstname,:lastname, :email, :password,:activation_code,:user_email_status,:password_reset)');
+        //Photo file directory 
+        $root = $_SERVER['DOCUMENT_ROOT']; 
+        $target = $root."/tickettofitness/public/uploads/" . basename($data['photo']);
+
+        $this->db->query('INSERT INTO users (firstname,lastname,email,password,photo,user_activation_code,user_email_status,password_reset) VALUES (:firstname,:lastname, :email, :password, :photo, :activation_code,:user_email_status,:password_reset)');
 
         // Bind Values
-        $this->db->bind(':username', $data['username']);
         $this->db->bind(':firstname', $data['firstname']);
         $this->db->bind(':lastname', $data['lastname']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':password', $data['password']);
+        $this->db->bind(':photo', $data['photo']);
         $this->db->bind(':activation_code', $data['user_activation_code']);
         $this->db->bind(':user_email_status', $data['user_email_status']);
         $this->db->bind(':password_reset', $data['password_reset']);
@@ -101,7 +118,13 @@ class Account
 
         //Execute
         if ($this->db->execute()) {
-            return true;
+            if (move_uploaded_file($data['tmp_photo'], $target)) {
+                return true;
+            } else {
+
+                return false;
+
+            }
         } else {
             return false;
         }

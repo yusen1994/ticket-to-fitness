@@ -9,9 +9,9 @@
                                                             } ?>" method="post">
             <h2 class="text-center"><b>Log in</b></h2>
             <div class="form-group">
-                <input type="text" id="username" class="form-control input-style" placeholder="Username" value="<?php if (!empty($data['username'])) {
-                                                                                                                    echo $data['username'];
-                                                                                                                } ?>" name="username" required title="">
+                <input type="text" id="username" class="form-control input-style" placeholder="Email" value="<?php if (!empty($data['email'])) {
+                                                                                                                    echo $data['email'];
+                                                                                                                } ?>" name="email" required title="">
             </div>
             <div class="form-group">
                 <input type="password" id="password" class="form-control input-style" placeholder="Password" name="password" required>

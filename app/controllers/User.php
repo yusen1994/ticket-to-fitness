@@ -45,9 +45,9 @@ class User extends Controller
                     'lastname' => $userinfo->lastname,
                     'email' => $userinfo->email,
                     'username' => $userinfo->username,
+                    'photo' => $userinfo->photo,
 
                 ];
-
 
                 $this->view('User/userprofile', $data);
             }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2021 at 08:12 AM
+-- Generation Time: Sep 19, 2021 at 06:55 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -162,7 +162,10 @@ INSERT INTO `gym_earnings` (`id`, `Date`, `gym_id`, `Credits`) VALUES
 (6, '2021-09-08 16:03:58', 19, 150),
 (7, '2021-09-09 16:03:58', 19, 100),
 (8, '2021-09-10 16:06:03', 19, 300),
-(10, '2021-09-11 16:10:27', 19, 200);
+(10, '2021-09-11 16:10:27', 19, 200),
+(11, '2021-09-12 12:05:18', 17, 200),
+(12, '2021-09-13 12:14:05', 18, 500),
+(13, '2021-09-13 12:14:05', 19, 500);
 
 -- --------------------------------------------------------
 
@@ -202,11 +205,12 @@ INSERT INTO `gym_information` (`id`, `gym_id`, `gym_name`, `gym_address`, `latit
 
 CREATE TABLE `users` (
   `id` int(20) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL,
   `user_activation_code` varchar(255) NOT NULL,
   `user_email_status` varchar(255) NOT NULL,
   `password_reset` varchar(255) NOT NULL,
@@ -217,22 +221,22 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `user_activation_code`, `user_email_status`, `password_reset`, `partnership_status`) VALUES
-(8, 'anish', 'Anish', 'Adhikari', 'appy233986@gmail.com', '$2y$10$Sfz/xyVGjsYFw.X8bH4OIOan8oot8YVVDryBlHjWVfK2ZXKgZVDkS', '1c5288b3c4c13e4454ce9d4a555b23c6', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(12, 'pikachu', 'pikachu', 'pikachu', 'pikachu@gmail.com', '$2y$10$G4PHO1tMIDgbOQk2LIAJk.Y3Co/GWSzLIdWjQxGStL7LnBuGhAkqO', 'fe2dec42282688c94b363b8a15e630c3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(13, 'random', 'random', 'random', 'random@gmail.com', '$2y$10$cSjgHFb37qyni4XqcDQy5OcipXHPBv6dM7n2AT7jY0yFfNGLrbmI.', '3b721707409598c056c51f2ee403a0ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(14, '&””;Max123', '&””;Max123', 'puru', 'suru@gmail.com', '$2y$10$2D5.zAsI8y9X2Hd/9REgfeIFiGjGpwE1z42THr78w9f.zHXNicUGS', '53845891f2e8fceef4e9043a4e77c1ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(15, 'MAXYMAXY', 'MAXY', 'MAXY', 'sndpofficialida@gmail.com', '$2y$10$zF8wGJOSVNV/AZA1maOZo.A9SqNYDc2WMhrx4DJmczB03lTiNKgaG', '6ca73309f27b029dc11fa54f9a0fd497', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(16, 'sndp12', 'Sandeep', 'Giri', 'sgiri4@utas.edu.au', '$2y$10$zbuBm8yQ2zeEaTE6q9.BrOBKzF5SjT2U4NSGxDtPtFvOCK4kw1GlK', '9ca32f9746fab891e7df39e6a1bd2bf8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(17, 'happy', 'will', 'smith', 'happy@gmail.com', '$2y$10$o7DOjmRdO11f1Fbt2Z8i8OWNVo2kxXq8HOqHE6X821mXn1YlPeDL2', '9f5c58295bfb78364a77260a68b05a5e', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(18, 'jack', 'jack', 'jack', 'jack@gmail.com', '$2y$10$fERJcn0dD484lTsHaw4gJO3rpph03mZ.Dwpb9SPNN12gT2H6AJO.m', 'cf763e86d013c0d392b6179d3e750c75', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(19, 'sndpgiri', 'sandeep', 'giri', 'sndp@gmail.com', '$2y$10$.XZWBn83rWazxdfexmn0UuzTI.XkZ7xLsX4BgoMLVkMuoJ.2t7gzi', 'f9ca93644d9f791f4a495a4054e74637', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(20, 'spiderman', 'spidey', 'man', 'spidey@gmail.com', '$2y$10$tNDNfHXZr.2cgLc0eCXwfuYxpTLNTgLEk1quRTY6NSOlqwy60mkE6', '0eac06a065e9f6817582de711e08d5b3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(21, 'batman', 'batman', 'batman', 'batman@gmail.com', '$2y$10$yXPO5zkHNJROy2ieZ8Bdx.SeBD8gOyrxlX0yDJ6//Jt397zDY5us2', 'e7150a3dfa8a632b2576094c48e79e14', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(22, 'superman', 'superman', 'superman', 'superman@gmail.com', '$2y$10$RLPZ.O7S1JFdQwJuTcKC6uy04/JLwGGDWOUu6H2vGwPJHdivIj37u', 'bf14494ace3e2145f97c92009ab48366', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(23, 'alexa', 'alexa', 'alexa', 'alexa', '$2y$10$PL/7k0irHZDb8KKo7Vin.eJMpi1ICopSDouJcwjmQMQDgWxu4zIhG', 'a4af8521dd98e847d0d55ece52dde7e8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(24, 'jacky', 'jacky', 'chan', 'jacky@gmail.com', '$2y$10$sZk5wPqQFsIf77xah0NMduZQVe2gh0QazLc1UFOIf9gp7K4AYbnIG', '7d0e4fbdbc130ee208f9a343fd60eaa2', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(25, 'restful', 'rest', 'ful', 'restful@gmail.com', '$2y$10$CsEwQHpktkcFZ0HUMAVW8OHi6M.Sr05bjCwC1hpRqqBf3sCGF/cmK', '6a88eca6538e66f007420c1c7a98e3a7', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL);
+INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `photo`, `user_activation_code`, `user_email_status`, `password_reset`, `partnership_status`) VALUES
+(8, 'anish', 'Anish', 'Adhikari', 'appy233986@gmail.com', '$2y$10$Sfz/xyVGjsYFw.X8bH4OIOan8oot8YVVDryBlHjWVfK2ZXKgZVDkS', '', '1c5288b3c4c13e4454ce9d4a555b23c6', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(12, 'pikachu', 'pikachu', 'pikachu', 'pikachu@gmail.com', '$2y$10$G4PHO1tMIDgbOQk2LIAJk.Y3Co/GWSzLIdWjQxGStL7LnBuGhAkqO', '', 'fe2dec42282688c94b363b8a15e630c3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(13, 'random', 'random', 'random', 'random@gmail.com', '$2y$10$cSjgHFb37qyni4XqcDQy5OcipXHPBv6dM7n2AT7jY0yFfNGLrbmI.', '', '3b721707409598c056c51f2ee403a0ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(14, '&””;Max123', '&””;Max123', 'puru', 'suru@gmail.com', '$2y$10$2D5.zAsI8y9X2Hd/9REgfeIFiGjGpwE1z42THr78w9f.zHXNicUGS', '', '53845891f2e8fceef4e9043a4e77c1ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(16, 'sndp12', 'Sandeep', 'Giri', 'sgiri4@utas.edu.au', '$2y$10$zbuBm8yQ2zeEaTE6q9.BrOBKzF5SjT2U4NSGxDtPtFvOCK4kw1GlK', '', '9ca32f9746fab891e7df39e6a1bd2bf8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(17, 'happy', 'will', 'smith', 'happy@gmail.com', '$2y$10$o7DOjmRdO11f1Fbt2Z8i8OWNVo2kxXq8HOqHE6X821mXn1YlPeDL2', '', '9f5c58295bfb78364a77260a68b05a5e', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(18, 'jack', 'jack', 'jack', 'jack@gmail.com', '$2y$10$fERJcn0dD484lTsHaw4gJO3rpph03mZ.Dwpb9SPNN12gT2H6AJO.m', '', 'cf763e86d013c0d392b6179d3e750c75', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(19, 'sndpgiri', 'sandeep', 'giri', 'sndp@gmail.com', '$2y$10$.XZWBn83rWazxdfexmn0UuzTI.XkZ7xLsX4BgoMLVkMuoJ.2t7gzi', '', 'f9ca93644d9f791f4a495a4054e74637', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(20, 'spiderman', 'spidey', 'man', 'spidey@gmail.com', '$2y$10$tNDNfHXZr.2cgLc0eCXwfuYxpTLNTgLEk1quRTY6NSOlqwy60mkE6', '', '0eac06a065e9f6817582de711e08d5b3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(21, 'batman', 'batman', 'batman', 'batman@gmail.com', '$2y$10$yXPO5zkHNJROy2ieZ8Bdx.SeBD8gOyrxlX0yDJ6//Jt397zDY5us2', '', 'e7150a3dfa8a632b2576094c48e79e14', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(22, 'superman', 'superman', 'superman', 'superman@gmail.com', '$2y$10$RLPZ.O7S1JFdQwJuTcKC6uy04/JLwGGDWOUu6H2vGwPJHdivIj37u', '', 'bf14494ace3e2145f97c92009ab48366', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(23, 'alexa', 'alexa', 'alexa', 'alexa', '$2y$10$PL/7k0irHZDb8KKo7Vin.eJMpi1ICopSDouJcwjmQMQDgWxu4zIhG', '', 'a4af8521dd98e847d0d55ece52dde7e8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(24, 'jacky', 'jacky', 'chan', 'jacky@gmail.com', '$2y$10$sZk5wPqQFsIf77xah0NMduZQVe2gh0QazLc1UFOIf9gp7K4AYbnIG', '', '7d0e4fbdbc130ee208f9a343fd60eaa2', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(25, 'restful', 'rest', 'ful', 'restful@gmail.com', '$2y$10$CsEwQHpktkcFZ0HUMAVW8OHi6M.Sr05bjCwC1hpRqqBf3sCGF/cmK', '', '6a88eca6538e66f007420c1c7a98e3a7', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(40, NULL, 'wiz', 'khalifa', 'sndpofficialida@gmail.com', '$2y$10$9DNhDAJZWuWOWm9WkOSdfuOrcoL3bj1VL.I4.sxLKooQXqGzqekti', 'sndpgiri.jpg', '47e57798e2260bf86a92c28a397eb918', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL);
 
 -- --------------------------------------------------------
 
@@ -252,7 +256,7 @@ CREATE TABLE `users_activity` (
 --
 
 INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
-(67, 47, 19, 19);
+(69, 52, 19, 17);
 
 -- --------------------------------------------------------
 
@@ -282,7 +286,8 @@ INSERT INTO `users_allocation` (`id`, `user_id`, `timetable_id`, `activity_id`, 
 (39, 19, 1, 47, 19),
 (40, 19, 2, 47, 19),
 (41, 19, 2, 47, 19),
-(42, 19, 3, 47, 19);
+(42, 19, 3, 47, 19),
+(43, 19, 13, 52, 17);
 
 -- --------------------------------------------------------
 
@@ -425,7 +430,12 @@ INSERT INTO `users_credits` (`id`, `total_credit`, `user_id`) VALUES
 (122, -200, 19),
 (123, 100, 19),
 (124, 100, 19),
-(125, -200, 19);
+(125, -200, 19),
+(126, 100, 19),
+(127, 100, 19),
+(128, 100, 19),
+(129, -200, 19),
+(130, 100, 19);
 
 --
 -- Indexes for dumped tables
@@ -514,7 +524,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT for table `credits_pack`
@@ -538,7 +548,7 @@ ALTER TABLE `gym_activity_timetable`
 -- AUTO_INCREMENT for table `gym_earnings`
 --
 ALTER TABLE `gym_earnings`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `gym_information`
@@ -550,25 +560,25 @@ ALTER TABLE `gym_information`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users_activity`
 --
 ALTER TABLE `users_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `users_allocation`
 --
 ALTER TABLE `users_allocation`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `users_credits`
 --
 ALTER TABLE `users_credits`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- Constraints for dumped tables

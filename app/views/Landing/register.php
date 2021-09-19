@@ -2,7 +2,7 @@
 
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 <div class="login-form">
-	<form action="<?php echo URLROOT; ?>/accounts/register" method="post">
+	<form action="<?php echo URLROOT; ?>/accounts/register" method="post" enctype="multipart/form-data">
 		<h2 class="text-center"><b>Register</b></h2>
 
 		<div class="form-group">
@@ -49,7 +49,7 @@
 			<div class="register-photo">
 				<img id="img-txz" class="image-upload" src="<?php echo URLROOT; ?>/images/image.png" alt="Image">
 
-				<input class="upload-button" id="file-txz" type="file" name="" enctype="multipart/form-data" class="fileInput" onchange="upload('#file-txz','#img-txz')" value="" />
+				<input class="upload-button" id="file-txz" type="file" name="photo" enctype="multipart/form-data" class="fileInput" onchange="upload('#file-txz','#img-txz')" value="" />
 
 			</div>
 
