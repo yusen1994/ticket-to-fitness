@@ -61,7 +61,7 @@ if (!empty($data['message'])) {
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col-sm-12 col-lg-7">
-                    <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/gym/members">
+                    <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Administrator/members">
                         <button type="button" class="dashboard-option-btn">Members</button>
                     </a>
                 </div>
