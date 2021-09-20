@@ -330,7 +330,13 @@
                         <div class="card mt-4 " style="width: auto; border-radius:18px;">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">
+                                    ';
+                                    if($activity->photo != NULL) {
+                                        echo '<img class="card-img-top" src="' . URLROOT . '/uploads/'.$activity->photo.'" alt="Card image cap" style="max-width: 200px;">';
+                                    }else{
+                                        echo '<img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">';
+                                    }
+                                    echo'
                                 </div>
                             </div>
                             <div class="card-body">
