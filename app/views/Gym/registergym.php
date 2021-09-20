@@ -23,7 +23,7 @@
     </div>
 
 
-    <form action="<?php echo URLROOT; ?>/Accounts/registerGym" method="post">
+    <form action="<?php echo URLROOT; ?>/Accounts/registerGym" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
             <div class="row justify-content-center mt-3">
@@ -77,6 +77,7 @@
                 </div>
             </div>
         </div>
+
 
 
         <div class="form-group">

@@ -420,10 +420,14 @@ class Accounts extends Controller
             $data['abn_err'] = 'Please Enter the ABN';
         }
 
-        if (!empty($data['gym_id']) && !empty($data['gym_name']) && !empty($data['gym_address']) && !empty($data['gym_email']) && !empty($data['phone_number']) && !empty($data['abn'])) {
+        if (empty($data['photo'])) {
+            $data['photo_err'] = 'Please upload logo';
+        }
+
+        if (!empty($data['gym_id']) && !empty($data['gym_name']) && !empty($data['gym_address']) && !empty($data['gym_email']) && !empty($data['phone_number']) && !empty($data['abn']) && !empty($data['photo'])) {
 
             //If no error then proceed to create password has and register user account
-            if (empty($data['gym_id_err']) && empty($data['gym_name_err']) && empty($data['gym_address_err']) && empty($data['gym_email_err']) && empty($data['phone_number_err']) && empty($data['abn_err'])) {
+            if (empty($data['gym_id_err']) && empty($data['gym_name_err']) && empty($data['gym_address_err']) && empty($data['gym_email_err']) && empty($data['phone_number_err']) && empty($data['abn_err']) && empty($data['photo_err'])) {
 
 
                 if ($this->accountsModel->registerGym($data)) {
@@ -431,7 +435,7 @@ class Accounts extends Controller
                     if ($this->accountsModel->updatePartnershipStatus($data)) {
                         // Redirect to login
                         $data['message'] = 'We will contact you shortly! Thanks for applying GYM Account';
-                        $this->view('User/dashboard', $data);
+                        $this->view('Landing/Login');
                     }
                 } else {
                     die('Something went wrong');
@@ -446,7 +450,6 @@ class Accounts extends Controller
 
     public function registerGym()
     {
-
         if ($this->isLoggedIn()) {
             //Show the register page and let user register for gym account
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -456,6 +459,8 @@ class Accounts extends Controller
                     'gym_id' => trim($_SESSION['user_id']),
                     'gym_name' => trim($_POST['gym_name']),
                     'gym_address' => trim($_POST['gym_address']),
+                    'photo' => $_FILES['photo']['name'],
+                    'tmp_photo'=> $_FILES['photo']['tmp_name'],
                     'gym_email' => trim($_POST['gym_email']),
                     'phone_number' => trim($_POST['phone_number']),
                     'abn' => trim($_POST['abn']),
@@ -470,6 +475,8 @@ class Accounts extends Controller
                     'phone_number_err' => '',
                     'abn_err' => '',
                     'message' => '',
+                    'photo_err' => '',
+
 
 
                 ];
@@ -481,6 +488,7 @@ class Accounts extends Controller
                     'gym_id' => '',
                     'gym_name' => '',
                     'gym_address' => '',
+                    'photo' => '',
                     'gym_email' => '',
                     'phone_number' => '',
                     'abn' => '',
@@ -495,6 +503,8 @@ class Accounts extends Controller
                     'phone_number_err' => '',
                     'abn_err' => '',
                     'message' => '',
+                    'photo_err' => '',
+
 
                 ];
 

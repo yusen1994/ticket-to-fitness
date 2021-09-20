@@ -308,6 +308,17 @@ class GymModel
     }
   }
 
+  public function getGymLogo($data){
+    $this->db->query('SELECT * FROM `gym_information` WHERE gym_id = :gym_id');
+    $this->db->bind(':gym_id',$data['gym_id']);
+    $row = $this->db->single();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
   public function earnings($data){
 
     $this->db->query('SELECT Date, SUM(Credits) AS "Credits"

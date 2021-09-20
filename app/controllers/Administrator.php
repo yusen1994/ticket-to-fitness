@@ -98,8 +98,13 @@
         }
 
         public function dashboard(){
+            if($this->isLoggedIn()){
 
             $this->view('Admin/dashboard');
+            }else{
+                $this->view('Admin/login');
+
+            }
         }
 
         public function managegym(){
@@ -107,6 +112,16 @@
                 $getGymInformation = $this->adminModel->getGymInformation();
                 $data['gym_info'] =  $getGymInformation;
                 $this->view('Admin/managegym', $data);
+            }else{
+                $this->view('Admin/login');
+            }
+        }
+
+        public function members(){
+            if($this->isLoggedIn()){
+                $getMemberInformation = $this->adminModel->getMemberInformation();
+                $data['members_info'] =  $getMemberInformation;
+                $this->view('Admin/members', $data);
             }else{
                 $this->view('Admin/login');
             }

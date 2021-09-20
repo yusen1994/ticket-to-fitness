@@ -20,18 +20,22 @@
                 <div class="col gym-body">
                     <div class="gym-member-list">
 
-                        <?php foreach ($data['gym_info'] as $single) {
+                        <?php foreach ($data['members_info'] as $single) {
 
                             echo '            <div class="gym-member">
                                          <div class="gym-member-construct">
-                                          <div class="gym-member-name">' . $single->gym_name . '</div>
+                                          <div class="gym-member-name">' . $single->firstname ." ".$single->lastname . '</div>
                                           
-                                           <div class="gym-member-active">Active</div>
+                                           <div class="gym-member-active">'; if($single->partnership_status){
+                                            echo 'Partner Gym';
+                                        }else{
+                                         echo 'User';  
+
+                                        }echo '</div>
                                               </div>
                                             <div class="gym-member-construct">
-                                              <div class="gym-member-attend">'.$single->gym_address.'</div>
+                                              <div class="gym-member-attend">'.$single->email.'</div>
                                               
-                                              <div class="gym-member-date">'.$single->phone_number.'</div>
                                            </div>      
                                             <div class="gym-line"></div>
                                          </div>';

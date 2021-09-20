@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2021 at 06:55 AM
+-- Generation Time: Sep 19, 2021 at 07:53 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -104,7 +104,10 @@ INSERT INTO `gym_activity` (`id`, `gym_id`, `activity_name`, `category`, `sessio
 (49, 19, 'High Intensity Workout', 'weights', 'a:1:{i:0;s:7:\"Tuesday\";}', 20, 200, 'sasa', 1),
 (51, 17, 'Kung Fu', 'fight', 'a:1:{i:0;s:6:\"Monday\";}', 12, 50, 'This is a kung fu class', 1),
 (52, 17, 'football', 'cardio', 'a:2:{i:0;s:6:\"Monday\";i:1;s:8:\"Thursday\";}', 20, 200, 'This is football', 1),
-(53, 17, 'boxing', 'fight', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'sasas', 1);
+(53, 17, 'boxing', 'fight', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'sasas', 1),
+(54, 19, 'test', 'swimming', 'N;', 20, 200, 'test', 1),
+(55, 19, 'kyokushin', 'fight', 'N;', 12, 233, 'sasa', 0),
+(56, 41, 'Yoga', 'yoga', 'N;', 12, 100, 'sasa', 0);
 
 -- --------------------------------------------------------
 
@@ -139,7 +142,11 @@ INSERT INTO `gym_activity_timetable` (`id`, `activity_id`, `gym_id`, `day`, `tim
 (12, 52, 17, 'monday', '12:00 AM-12:30 AM'),
 (13, 52, 17, 'thursday', '01:00 AM-05:30 AM'),
 (14, 53, 17, 'monday', '12:00 AM-12:30 AM'),
-(15, 53, 17, 'wednesday', '01:30 AM-02:00 AM');
+(15, 53, 17, 'wednesday', '01:30 AM-02:00 AM'),
+(16, 54, 19, 'tuesday', '12:00 AM-12:30 AM'),
+(17, 55, 19, 'wednesday', '12:30 AM-12:30 AM'),
+(18, 55, 19, 'thursday', '12:30 AM-01:00 AM'),
+(19, 56, 41, 'monday', '12:30 AM-01:00 AM');
 
 -- --------------------------------------------------------
 
@@ -178,6 +185,7 @@ CREATE TABLE `gym_information` (
   `gym_id` int(20) NOT NULL,
   `gym_name` varchar(255) NOT NULL,
   `gym_address` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL,
   `latitude` varchar(255) NOT NULL,
   `longitude` varchar(255) NOT NULL,
   `gym_email` varchar(255) NOT NULL,
@@ -189,13 +197,14 @@ CREATE TABLE `gym_information` (
 -- Dumping data for table `gym_information`
 --
 
-INSERT INTO `gym_information` (`id`, `gym_id`, `gym_name`, `gym_address`, `latitude`, `longitude`, `gym_email`, `phone_number`, `abn`) VALUES
-(9, 8, 'UNI Gym', 'Hobart', '', '', 'uni@gmail.com', '0000000000', 2147483647),
-(24, 12, 'UNI Gym', '74-80 Molle Street', '-42.9041118', '147.3247504', 'ticket@gmail.com', '0468659344', 2147483647),
-(25, 17, 'Zap Fitness', '74-80 Molle Street, Hobart TAS, Australia', '-42.88699039999999', '147.3198233', 'zap@gmail.com', '0458654987', 54545454),
-(26, 19, 'Sndp Fitness', '40 Kerr Parade, Auburn NSW, Australia', '-33.8518727', '151.0346544', 'sndpgiri@gym.com', '0000000000', 2147483647),
-(27, 20, 'Spidey Gym', 'Moonah Health Centre, Main Road, Moonah TAS, Australia', '-42.85051010000001', '147.2973588', 'spidey@gmail.com', '454545545', 45455455),
-(28, 21, 'batman gym', 'Unigym Hobart, Grace Street, Sandy Bay TAS, Australia', '-42.9008398', '147.3284301', 'batman@gmail.com', '454555454545', 54545545);
+INSERT INTO `gym_information` (`id`, `gym_id`, `gym_name`, `gym_address`, `photo`, `latitude`, `longitude`, `gym_email`, `phone_number`, `abn`) VALUES
+(9, 8, 'UNI Gym', 'Hobart', '', '', '', 'uni@gmail.com', '0000000000', 2147483647),
+(24, 12, 'UNI Gym', '74-80 Molle Street', '', '-42.9041118', '147.3247504', 'ticket@gmail.com', '0468659344', 2147483647),
+(25, 17, 'Zap Fitness', '74-80 Molle Street, Hobart TAS, Australia', '', '-42.88699039999999', '147.3198233', 'zap@gmail.com', '0458654987', 54545454),
+(26, 19, 'Sndp Fitness', '40 Kerr Parade, Auburn NSW, Australia', '', '-33.8518727', '151.0346544', 'sndpgiri@gym.com', '0000000000', 2147483647),
+(27, 20, 'Spidey Gym', 'Moonah Health Centre, Main Road, Moonah TAS, Australia', '', '-42.85051010000001', '147.2973588', 'spidey@gmail.com', '454545545', 45455455),
+(28, 21, 'batman gym', 'Unigym Hobart, Grace Street, Sandy Bay TAS, Australia', '', '-42.9008398', '147.3284301', 'batman@gmail.com', '454555454545', 54545545),
+(29, 41, 'Rajesh Fitness', 'Hobart TAS, Australia', 'sndpgiri.jpg', '-42.8826055', '147.3257196', 'rajesh@gmail.com', '0000000000', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -236,7 +245,8 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `passwo
 (23, 'alexa', 'alexa', 'alexa', 'alexa', '$2y$10$PL/7k0irHZDb8KKo7Vin.eJMpi1ICopSDouJcwjmQMQDgWxu4zIhG', '', 'a4af8521dd98e847d0d55ece52dde7e8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
 (24, 'jacky', 'jacky', 'chan', 'jacky@gmail.com', '$2y$10$sZk5wPqQFsIf77xah0NMduZQVe2gh0QazLc1UFOIf9gp7K4AYbnIG', '', '7d0e4fbdbc130ee208f9a343fd60eaa2', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
 (25, 'restful', 'rest', 'ful', 'restful@gmail.com', '$2y$10$CsEwQHpktkcFZ0HUMAVW8OHi6M.Sr05bjCwC1hpRqqBf3sCGF/cmK', '', '6a88eca6538e66f007420c1c7a98e3a7', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(40, NULL, 'wiz', 'khalifa', 'sndpofficialida@gmail.com', '$2y$10$9DNhDAJZWuWOWm9WkOSdfuOrcoL3bj1VL.I4.sxLKooQXqGzqekti', 'sndpgiri.jpg', '47e57798e2260bf86a92c28a397eb918', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL);
+(40, NULL, 'wiz', 'khalifa', 'sndpofficialida@gmail.com', '$2y$10$9DNhDAJZWuWOWm9WkOSdfuOrcoL3bj1VL.I4.sxLKooQXqGzqekti', 'sndpgiri.jpg', '47e57798e2260bf86a92c28a397eb918', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(41, NULL, 'Rajesh', 'Hamal', 'rajeshsasasasjasa@gmail.com', '$2y$10$CbZghCHBDP0HlXT5QVeYJOI/PnhAFm1FZjfgS0Bh1TfGyLNeHrKkK', 'nissan-gtr-car-wallpaper-preview.jpg', '33d5110afa0223b62b312777f6a60c4a', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1);
 
 -- --------------------------------------------------------
 
@@ -536,13 +546,13 @@ ALTER TABLE `credits_pack`
 -- AUTO_INCREMENT for table `gym_activity`
 --
 ALTER TABLE `gym_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `gym_activity_timetable`
 --
 ALTER TABLE `gym_activity_timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `gym_earnings`
@@ -554,13 +564,13 @@ ALTER TABLE `gym_earnings`
 -- AUTO_INCREMENT for table `gym_information`
 --
 ALTER TABLE `gym_information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `users_activity`
