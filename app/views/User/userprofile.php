@@ -19,7 +19,13 @@
         <div class="col-sm-12 col-xl-4">
             <div class="row justify-content-center">
                 <div class="col-4 pr-0">
-                    <img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%; object-fit: contain;" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['photo']; ?>">
+                    <?php
+                    if ($data['photo'] !== NULL) {
+                        echo '<img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%; object-fit: contain;" src="' . URLROOT . '/uploads/' . $data['photo'] . '">';
+                    } else {
+                        echo '<img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%; object-fit: contain;" src="' . URLROOT . '/images/user-default.png">';
+                    }
+                    ?>
                 </div>
                 <div class="col-8">
                     <div class="row justify-content-center">

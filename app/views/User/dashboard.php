@@ -14,7 +14,7 @@
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col text-center">
-                    <p style="font-size: 12px;">Time to smash your goals</p>
+                    <p style="font-size: 14px;">Time to smash your goals</p>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
@@ -126,7 +126,7 @@
         background-color: white;
         border-bottom-left-radius: 18px;
         border-bottom-right-radius: 18px;
-        padding-top: 10px;
+        padding-top: 20px;
     }
 
     .content-background {

@@ -119,6 +119,22 @@ if (!empty($data['myActivity'])) {
                 <!-- End add times per activity here -->';
         }
     }
+} else {
+    echo '
+    <div class="container-fluid mt-4 mt-lg-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-4 text-center align-self-center empty-container">
+                <h4 class="mb-5"><b>No Activities</b></h4>
+                <h5 class="mb-5">Add one from our list of activities</h5>
+                <a href="' . URLROOT . '/Activity/allactivity">
+                    <button type="button" class="checkout-btn mb-4">View Activities</button>
+                </a>
+            </div>
+        </div>
+     </div>
+    
+    
+    ';
 }
 
 
@@ -149,6 +165,13 @@ if (!empty($data['myActivity'])) {
         color: black;
     }
 
+    .empty-container {
+        background-color: white;
+        border-radius: 60px;
+        padding: 30px;
+
+    }
+
     .myactivity-remove-btn {
         width: 100%;
         max-width: 100px;
@@ -170,5 +193,17 @@ if (!empty($data['myActivity'])) {
         color: white;
         background-color: #2BB730;
         font-size: 14px;
+    }
+
+    .checkout-btn {
+        background-color: #EF8830;
+        font-family: 'Poppins';
+        font-weight: bold;
+        border-radius: 22px;
+        border-style: none;
+        color: white;
+        width: 60%;
+        max-width: 200px;
+        height: 45px;
     }
 </style>

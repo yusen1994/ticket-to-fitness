@@ -2,6 +2,12 @@
 <!--HTML for homepage goes here, for CSS visit public folder-->
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
+<!-- IF USER IS LOGGED IN -->
+<?php if (!empty($_SESSION['user_id'])) {
+    require APPROOT . '/views/User/dashboardmenu.php';
+} ?>
+
+
 <div class="container-fluid" style="padding-top:10px;">
 
     <div class="row justify-content-center" style="margin-top: 20px;">
