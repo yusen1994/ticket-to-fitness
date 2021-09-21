@@ -72,7 +72,7 @@ class Gym extends Controller
                     'gym_email' => $gyminfo->gym_email,
                     'abn' => $gyminfo->abn,
                     'phone_number' => $gyminfo->phone_number,
-                    'photo'=>$gyminfo->photo,
+                    'photo' => $gyminfo->photo,
 
                 ];
 
@@ -214,11 +214,11 @@ class Gym extends Controller
                         echo "<script>alert('SuccessFully Added'); </script>";
                         $data['status'] = 0;
                         $data['message'] = 'Successfully added';
-                        redirect('Gym/dashboard');
+                        redirect('Gym/manageActivities');
                     } else {
                         echo "<script>alert('Something went Wrong'); </script>";
                         $data['message'] = 'Something Wrong! Try Again Later';
-                        redirect('Gym/dashboard');
+                        redirect('Gym/manageActivities');
                     }
                 } else {
                     echo "<script>alert('Please enter all the field'); </script>";
@@ -364,7 +364,19 @@ class Gym extends Controller
     {
 
         if ($this->isGymLoggedIn()) {
-            $this->view('Gym/manageactivities');
+            $data = [
+
+                'gym_id' => $_SESSION['user_id'],
+                'gym_activity' => '',
+
+            ];
+            $gymactivity = $this->gymModel->manageActivity($data);
+
+            if (!empty($gymactivity)) {
+                $data['gym_activity'] = $gymactivity;
+            }
+
+            $this->view('Gym/manageactivities', $data);
         } else {
             redirect('Accounts/login');
         }

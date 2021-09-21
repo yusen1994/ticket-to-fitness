@@ -244,7 +244,7 @@
 
 
 <?php
-$count = 1;
+/*$count = 1;
 foreach ($data['gym_activity'] as $activity) {
 
     echo '<div class="card mt-4 " style="width: auto;">';
@@ -380,9 +380,9 @@ foreach ($data['gym_activity'] as $activity) {
         </div>
         ';
     $count++;
-}
+}*/
 ?>
-
+<br>
 
 
 </div>
