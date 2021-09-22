@@ -171,6 +171,18 @@ class GymModel
     }
   }
 
+  public function manageActivity($data)
+  {
+    $this->db->query('SELECT DISTINCT gym_information.gym_name, gym_information.gym_address, gym_activity.category, gym_activity.credit, gym_activity_timetable.day, gym_activity_timetable.time,gym_activity_timetable.activity_id FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id INNER JOIN gym_activity_timetable ON gym_activity_timetable.gym_id = gym_activity.gym_id WHERE gym_activity.gym_id=:gym_id');
+    $this->db->bind(':gym_id', $data['gym_id']);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
 
   public function deleteActivity($data)
   {
@@ -288,7 +300,7 @@ class GymModel
   public function getGymId($timetableid)
   {
     $this->db->query('SELECT `gym_id` FROM `gym_activity_timetable` WHERE id = :timetable_id');
-    $this->db->bind(':timetable_id',$timetableid);
+    $this->db->bind(':timetable_id', $timetableid);
     $row = $this->db->single();
 
     if ($this->db->rowCount() > 0) {
@@ -297,9 +309,10 @@ class GymModel
     }
   }
 
-  public function getActivityidfromtimetable($timetableid){
+  public function getActivityidfromtimetable($timetableid)
+  {
     $this->db->query('SELECT `activity_id` FROM `gym_activity_timetable` WHERE id = :timetable_id');
-    $this->db->bind(':timetable_id',$timetableid);
+    $this->db->bind(':timetable_id', $timetableid);
     $row = $this->db->single();
 
     if ($this->db->rowCount() > 0) {
@@ -308,9 +321,10 @@ class GymModel
     }
   }
 
-  public function getGymLogo($data){
+  public function getGymLogo($data)
+  {
     $this->db->query('SELECT * FROM `gym_information` WHERE gym_id = :gym_id');
-    $this->db->bind(':gym_id',$data['gym_id']);
+    $this->db->bind(':gym_id', $data['gym_id']);
     $row = $this->db->single();
 
     if ($this->db->rowCount() > 0) {
@@ -319,18 +333,17 @@ class GymModel
     }
   }
 
-  public function earnings($data){
+  public function earnings($data)
+  {
 
     $this->db->query('SELECT Date, SUM(Credits) AS "Credits"
     FROM gym_earnings WHERE gym_id = :gym_id group by date(Date) ');
-    $this->db->bind(':gym_id',$data['gym_id']);
+    $this->db->bind(':gym_id', $data['gym_id']);
     $row = $this->db->resultSet();
 
     if ($this->db->rowCount() > 0) {
 
       return $row;
-
+    }
   }
-}
-
 }
