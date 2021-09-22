@@ -2,7 +2,7 @@
 
 
 <div class="container-fluid"><span class="profile-heading"><i class="fas fa-arrow-left"></i> Reports</span>
-    
+
     <!-- Styles -->
     <style>
         #chartdiv {
@@ -77,7 +77,3 @@
 
 
 </div>
-
-
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -2,137 +2,149 @@
 
 <div class="container-fluid" style="padding-top:20px; margin-bottom: 100px;">
     <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-4">
+        <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="heading-content">
                 <h3><b><span><a href="<?php echo URLROOT; ?>/User"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">Buy Credits</span></b></h3>
             </div>
         </div>
     </div>
 
-    <div class="row justify-content-center mt-2">
-        <div class="col-sm-12 col-lg-4">
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+
             <?php
             if (!empty($data['error'])) {
                 echo '<div class="alert alert-danger" role="alert">
-        ' . $data['error'] . '
-    </div>';
+                 ' . $data['error'] . '
+                 </div>';
             } else {
 
                 if (!empty($data['credits'])) {
 
                     foreach ($data['credits'] as $single) {
                         echo '
-                                    <div class="row justify-content-center" style="background-color: white; padding-top:15px;padding-bottom:15px;margin-bottom:20px;">
-                <div class="col-12">
-                    <a style="text-decoration: none; width:100%;" href="' . URLROOT . '/user/checkout/' . $single->cost . '/' . $single->total_credit . '" class="credit-item-link">
-                        <div class="row mb-2">
-                            <div class="col-8 align-self-center">
-                                <b style="font-size:20px">' . $single->name . '</b>
-                            </div>
-                            <div class="col-4 text-center align-self-center">
-                                <b style="font-size:24px">$10</b>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3 text-left align-self-center pr-0">
-                                <div class="content-row">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="42.011" height="47.97" viewBox="0 0 42.011 47.97">
-                                        <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.396, 44.012)">
-                                            <path id="Path_63" data-name="Path 63" d="M40.713,26.511H4.734A4.741,4.741,0,0,1,0,21.777V17.99a.947.947,0,0,1,.947-.947h.947a3.787,3.787,0,1,0,0-7.575H.947A.947.947,0,0,1,0,8.521V4.734A4.741,4.741,0,0,1,4.734,0H40.713a4.741,4.741,0,0,1,4.734,4.734V8.521a.947.947,0,0,1-.947.947h-.947a3.787,3.787,0,0,0,0,7.575H44.5a.947.947,0,0,1,.947.947v3.787A4.738,4.738,0,0,1,40.713,26.511ZM1.894,18.936v2.84a2.844,2.844,0,0,0,2.84,2.84H40.713a2.844,2.844,0,0,0,2.84-2.84v-2.84h0a5.681,5.681,0,0,1,0-11.362V4.734a2.844,2.844,0,0,0-2.84-2.84H4.734a2.844,2.844,0,0,0-2.84,2.84v2.84a5.681,5.681,0,1,1,0,11.362Z" transform="translate(0 11.353)" />
-                                            <path id="Path_64" data-name="Path 64" d="M.947,3.787A.947.947,0,0,1,0,2.84V.947a.947.947,0,1,1,1.894,0V2.84A.947.947,0,0,1,.947,3.787Z" transform="translate(15.149 11.353)" />
-                                            <path id="Path_65" data-name="Path 65" d="M.947,13.108A.947.947,0,0,1,0,12.161v-3.2a.947.947,0,1,1,1.894,0v3.2A.946.946,0,0,1,.947,13.108Zm0-8.01A.947.947,0,0,1,0,4.151V.947a.947.947,0,0,1,1.894,0v3.2A.947.947,0,0,1,.947,5.1Z" transform="translate(15.149 18.055)" />
-                                            <path id="Path_66" data-name="Path 66" d="M.947,3.787A.947.947,0,0,1,0,2.84V.947a.947.947,0,1,1,1.894,0V2.84A.947.947,0,0,1,.947,3.787Z" transform="translate(15.149 34.077)" />
-                                            <path id="Path_67" data-name="Path 67" d="M.947,13.247a.947.947,0,0,1-.331-1.833L30.724.171a2.891,2.891,0,0,1,3.683,1.748L37.822,12a.947.947,0,0,1-1.793.608L32.614,2.527a.968.968,0,0,0-1.229-.583L1.276,13.186a.913.913,0,0,1-.329.061Z" transform="translate(3.787 0)" />
-                                        </g>
-                                    </svg>
+                            <div class="row justify-content-center">
+                                <a href="' . URLROOT . '/user/checkout/' . $single->cost . '/' . $single->total_credit . '" style="text-decoration:none; color:black;">
+                                    <div class="col-12 col-sm-8 col-lg-6 col-xl-5">
+                                        <div class="background-card">
+                                            <div class="d-flex justify-content-center">
+                                                <h4 class=" p-0 m-0"><b>' . $single->name . '</b></h4>
+                                            </div>
+                                            <hr>
+                                            <div class="bonus-row mt-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="31.468" viewBox="0 0 27.559 31.468">
+                                                    <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.26, 28.871)">
+                                                        <path id="Path_63" data-name="Path 63" d="M26.708,17.391H3.106A3.11,3.11,0,0,1,0,14.286V11.8a.621.621,0,0,1,.621-.621h.621a2.484,2.484,0,1,0,0-4.969H.621A.621.621,0,0,1,0,5.59V3.106A3.11,3.11,0,0,1,3.106,0h23.6a3.11,3.11,0,0,1,3.106,3.106V5.59a.621.621,0,0,1-.621.621h-.621a2.484,2.484,0,0,0,0,4.969h.621a.621.621,0,0,1,.621.621v2.484A3.108,3.108,0,0,1,26.708,17.391ZM1.242,12.422v1.863a1.866,1.866,0,0,0,1.863,1.863h23.6a1.866,1.866,0,0,0,1.863-1.863V12.422h0a3.727,3.727,0,0,1,0-7.453V3.106a1.866,1.866,0,0,0-1.863-1.863H3.106A1.866,1.866,0,0,0,1.242,3.106V4.969a3.727,3.727,0,0,1,0,7.453Z" transform="translate(0 7.448)" fill="#ef8830" />
+                                                        <path id="Path_64" data-name="Path 64" d="M.621,2.484A.621.621,0,0,1,0,1.863V.621a.621.621,0,1,1,1.242,0V1.863A.621.621,0,0,1,.621,2.484Z" transform="translate(9.938 7.448)" fill="#ef8830" />
+                                                        <path id="Path_65" data-name="Path 65" d="M.621,8.6A.621.621,0,0,1,0,7.978v-2.1a.621.621,0,1,1,1.242,0v2.1A.62.62,0,0,1,.621,8.6Zm0-5.255A.621.621,0,0,1,0,2.723V.621a.621.621,0,0,1,1.242,0v2.1A.621.621,0,0,1,.621,3.344Z" transform="translate(9.938 11.844)" fill="#ef8830" />
+                                                        <path id="Path_66" data-name="Path 66" d="M.621,2.484A.621.621,0,0,1,0,1.863V.621a.621.621,0,1,1,1.242,0V1.863A.621.621,0,0,1,.621,2.484Z" transform="translate(9.938 22.354)" fill="#ef8830" />
+                                                        <path id="Path_67" data-name="Path 67" d="M.621,8.69A.621.621,0,0,1,.4,7.487L20.155.112a1.9,1.9,0,0,1,2.416,1.147l2.24,6.61a.621.621,0,0,1-1.176.4l-2.24-6.61a.635.635,0,0,0-.806-.383L.837,8.65a.6.6,0,0,1-.216.04Z" transform="translate(2.484 0)" fill="#ef8830" />
+                                                    </g>
+                                                </svg>
 
-                                    <span style="margin-left: 10px;margin-top: 5px;">
-                                        <h4><b>' . $single->total_credit . '</b></h4>
-                                    </span>
-                                </div>
+                                                </svg>
+                                                <p class="p-0 m-0 pl-2 pr-2" style="font-size:18px; color:#EF8830;"><b>+10 Bonus</b></p>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="31.468" viewBox="0 0 27.559 31.468">
+                                                    <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.26, 28.871)">
+                                                        <path id="Path_63" data-name="Path 63" d="M26.708,17.391H3.106A3.11,3.11,0,0,1,0,14.286V11.8a.621.621,0,0,1,.621-.621h.621a2.484,2.484,0,1,0,0-4.969H.621A.621.621,0,0,1,0,5.59V3.106A3.11,3.11,0,0,1,3.106,0h23.6a3.11,3.11,0,0,1,3.106,3.106V5.59a.621.621,0,0,1-.621.621h-.621a2.484,2.484,0,0,0,0,4.969h.621a.621.621,0,0,1,.621.621v2.484A3.108,3.108,0,0,1,26.708,17.391ZM1.242,12.422v1.863a1.866,1.866,0,0,0,1.863,1.863h23.6a1.866,1.866,0,0,0,1.863-1.863V12.422h0a3.727,3.727,0,0,1,0-7.453V3.106a1.866,1.866,0,0,0-1.863-1.863H3.106A1.866,1.866,0,0,0,1.242,3.106V4.969a3.727,3.727,0,0,1,0,7.453Z" transform="translate(0 7.448)" fill="#ef8830" />
+                                                        <path id="Path_64" data-name="Path 64" d="M.621,2.484A.621.621,0,0,1,0,1.863V.621a.621.621,0,1,1,1.242,0V1.863A.621.621,0,0,1,.621,2.484Z" transform="translate(9.938 7.448)" fill="#ef8830" />
+                                                        <path id="Path_65" data-name="Path 65" d="M.621,8.6A.621.621,0,0,1,0,7.978v-2.1a.621.621,0,1,1,1.242,0v2.1A.62.62,0,0,1,.621,8.6Zm0-5.255A.621.621,0,0,1,0,2.723V.621a.621.621,0,0,1,1.242,0v2.1A.621.621,0,0,1,.621,3.344Z" transform="translate(9.938 11.844)" fill="#ef8830" />
+                                                        <path id="Path_66" data-name="Path 66" d="M.621,2.484A.621.621,0,0,1,0,1.863V.621a.621.621,0,1,1,1.242,0V1.863A.621.621,0,0,1,.621,2.484Z" transform="translate(9.938 22.354)" fill="#ef8830" />
+                                                        <path id="Path_67" data-name="Path 67" d="M.621,8.69A.621.621,0,0,1,.4,7.487L20.155.112a1.9,1.9,0,0,1,2.416,1.147l2.24,6.61a.621.621,0,0,1-1.176.4l-2.24-6.61a.635.635,0,0,0-.806-.383L.837,8.65a.6.6,0,0,1-.216.04Z" transform="translate(2.484 0)" fill="#ef8830" />
+                                                    </g>
+                                                </svg>
 
-                            </div>
-                            <div class="col-5 text-center align-self-center pl-0 pr-0">
-                                <div class="content-row-bonus">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.148" height="19.58" viewBox="0 0 17.148 19.58">
-                                        <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.162, 17.964)">
-                                            <path id="Path_63" data-name="Path 63" d="M16.618,10.821H1.932A1.935,1.935,0,0,1,0,8.889V7.343a.387.387,0,0,1,.386-.386H.773a1.546,1.546,0,1,0,0-3.092H.386A.387.387,0,0,1,0,3.478V1.932A1.935,1.935,0,0,1,1.932,0H16.618A1.935,1.935,0,0,1,18.55,1.932V3.478a.387.387,0,0,1-.386.386h-.386a1.546,1.546,0,0,0,0,3.092h.386a.387.387,0,0,1,.386.386V8.889A1.934,1.934,0,0,1,16.618,10.821ZM.773,7.729V8.889a1.161,1.161,0,0,0,1.159,1.159H16.618a1.161,1.161,0,0,0,1.159-1.159V7.729h0a2.319,2.319,0,0,1,0-4.638V1.932A1.161,1.161,0,0,0,16.618.773H1.932A1.161,1.161,0,0,0,.773,1.932V3.092a2.319,2.319,0,1,1,0,4.638Z" transform="translate(0 4.634)" fill="#ef8830" />
-                                            <path id="Path_64" data-name="Path 64" d="M.386,1.546A.387.387,0,0,1,0,1.159V.386a.386.386,0,1,1,.773,0v.773A.387.387,0,0,1,.386,1.546Z" transform="translate(6.183 4.634)" fill="#ef8830" />
-                                            <path id="Path_65" data-name="Path 65" d="M.386,5.35A.387.387,0,0,1,0,4.964V3.657a.386.386,0,1,1,.773,0V4.965A.386.386,0,0,1,.386,5.35Zm0-3.27A.387.387,0,0,1,0,1.694V.386a.386.386,0,0,1,.773,0V1.694A.387.387,0,0,1,.386,2.081Z" transform="translate(6.183 7.369)" fill="#ef8830" />
-                                            <path id="Path_66" data-name="Path 66" d="M.386,1.546A.387.387,0,0,1,0,1.159V.386a.386.386,0,1,1,.773,0v.773A.387.387,0,0,1,.386,1.546Z" transform="translate(6.183 13.909)" fill="#ef8830" />
-                                            <path id="Path_67" data-name="Path 67" d="M.386,5.407a.386.386,0,0,1-.135-.748L12.541.07a1.18,1.18,0,0,1,1.5.713L15.438,4.9a.386.386,0,0,1-.732.248L13.312,1.031a.4.4,0,0,0-.5-.238L.521,5.382a.373.373,0,0,1-.134.025Z" transform="translate(1.546 0)" fill="#ef8830" />
-                                        </g>
-                                    </svg>
+                                            </div>
+                                            <div class="overlap-container mt-3">
+                                                <div class="credits-container">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="43.449" height="49.611" viewBox="0 0 43.449 49.611">
+                                                        <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.409, 45.518)">
+                                                            <path id="Path_63" data-name="Path 63" d="M42.107,27.418H4.9a4.9,4.9,0,0,1-4.9-4.9V18.605a.98.98,0,0,1,.979-.979h.979a3.917,3.917,0,1,0,0-7.834H.979A.98.98,0,0,1,0,8.813V4.9A4.9,4.9,0,0,1,4.9,0H42.107A4.9,4.9,0,0,1,47,4.9V8.813a.98.98,0,0,1-.979.979h-.979a3.917,3.917,0,0,0,0,7.834h.979a.98.98,0,0,1,.979.979v3.917A4.9,4.9,0,0,1,42.107,27.418ZM1.958,19.585v2.938A2.941,2.941,0,0,0,4.9,25.46H42.107a2.941,2.941,0,0,0,2.938-2.938V19.585h0a5.875,5.875,0,0,1,0-11.751V4.9a2.941,2.941,0,0,0-2.938-2.938H4.9A2.941,2.941,0,0,0,1.958,4.9V7.834a5.875,5.875,0,0,1,0,11.751Z" transform="translate(0 11.742)" />
+                                                            <path id="Path_64" data-name="Path 64" d="M.979,3.917A.98.98,0,0,1,0,2.938V.979a.979.979,0,1,1,1.958,0V2.938A.98.98,0,0,1,.979,3.917Z" transform="translate(15.668 11.742)" />
+                                                            <path id="Path_65" data-name="Path 65" d="M.979,13.556A.98.98,0,0,1,0,12.577V9.265a.979.979,0,1,1,1.958,0v3.314A.978.978,0,0,1,.979,13.556Zm0-8.284A.98.98,0,0,1,0,4.293V.979a.979.979,0,0,1,1.958,0V4.293A.98.98,0,0,1,.979,5.272Z" transform="translate(15.668 18.673)" />
+                                                            <path id="Path_66" data-name="Path 66" d="M.979,3.917A.98.98,0,0,1,0,2.938V.979a.979.979,0,1,1,1.958,0V2.938A.98.98,0,0,1,.979,3.917Z" transform="translate(15.668 35.243)" />
+                                                            <path id="Path_67" data-name="Path 67" d="M.979,13.7a.979.979,0,0,1-.343-1.9L31.776.177a2.99,2.99,0,0,1,3.809,1.808l3.531,10.421a.979.979,0,0,1-1.855.629L33.73,2.613a1,1,0,0,0-1.271-.6L1.32,13.638a.944.944,0,0,1-.341.063Z" transform="translate(3.917 0)" />
+                                                        </g>
+                                                    </svg>
 
-                                    <p style="padding:0px;margin:0px; color:#EF8830">+10 Bonus!</p>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.148" height="19.58" viewBox="0 0 17.148 19.58">
-                                        <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.162, 17.964)">
-                                            <path id="Path_63" data-name="Path 63" d="M16.618,10.821H1.932A1.935,1.935,0,0,1,0,8.889V7.343a.387.387,0,0,1,.386-.386H.773a1.546,1.546,0,1,0,0-3.092H.386A.387.387,0,0,1,0,3.478V1.932A1.935,1.935,0,0,1,1.932,0H16.618A1.935,1.935,0,0,1,18.55,1.932V3.478a.387.387,0,0,1-.386.386h-.386a1.546,1.546,0,0,0,0,3.092h.386a.387.387,0,0,1,.386.386V8.889A1.934,1.934,0,0,1,16.618,10.821ZM.773,7.729V8.889a1.161,1.161,0,0,0,1.159,1.159H16.618a1.161,1.161,0,0,0,1.159-1.159V7.729h0a2.319,2.319,0,0,1,0-4.638V1.932A1.161,1.161,0,0,0,16.618.773H1.932A1.161,1.161,0,0,0,.773,1.932V3.092a2.319,2.319,0,1,1,0,4.638Z" transform="translate(0 4.634)" fill="#ef8830" />
-                                            <path id="Path_64" data-name="Path 64" d="M.386,1.546A.387.387,0,0,1,0,1.159V.386a.386.386,0,1,1,.773,0v.773A.387.387,0,0,1,.386,1.546Z" transform="translate(6.183 4.634)" fill="#ef8830" />
-                                            <path id="Path_65" data-name="Path 65" d="M.386,5.35A.387.387,0,0,1,0,4.964V3.657a.386.386,0,1,1,.773,0V4.965A.386.386,0,0,1,.386,5.35Zm0-3.27A.387.387,0,0,1,0,1.694V.386a.386.386,0,0,1,.773,0V1.694A.387.387,0,0,1,.386,2.081Z" transform="translate(6.183 7.369)" fill="#ef8830" />
-                                            <path id="Path_66" data-name="Path 66" d="M.386,1.546A.387.387,0,0,1,0,1.159V.386a.386.386,0,1,1,.773,0v.773A.387.387,0,0,1,.386,1.546Z" transform="translate(6.183 13.909)" fill="#ef8830" />
-                                            <path id="Path_67" data-name="Path 67" d="M.386,5.407a.386.386,0,0,1-.135-.748L12.541.07a1.18,1.18,0,0,1,1.5.713L15.438,4.9a.386.386,0,0,1-.732.248L13.312,1.031a.4.4,0,0,0-.5-.238L.521,5.382a.373.373,0,0,1-.134.025Z" transform="translate(1.546 0)" fill="#ef8830" />
-                                        </g>
-                                    </svg>
-
-                                </div>
+                                                    <h1><b>' . $single->total_credit . '</b></h1>
+                                                </div>
+                                                <div class="dollars-container">
+                                                    <h1><b>$20</b></h1>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex mt-5">
+                                                <div class="col-12 text-center">
+                                                    <a href="' . URLROOT . '/user/checkout/' . $single->cost . '/' . $single->total_credit . '">
+                                                        <h4><b>Add to Cart</b></h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="col-4 text-center">
-                                <span style="color: #2BB730">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="37.519" height="37.461" viewBox="0 0 37.519 37.461">
-                                        <g id="_16744398191571183082" data-name="16744398191571183082" transform="translate(-2 -1.5)">
-                                            <path id="Path_133" data-name="Path 133" d="M14.006,24.344,7.87,5A2.723,2.723,0,0,0,5.2,3H2" fill="none" stroke="#2BB730" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" />
-                                            <path id="Path_134" data-name="Path 134" d="M32.547,28.679H9.068A2.676,2.676,0,0,1,6.4,26.01h0a2.867,2.867,0,0,1,2.668-2.668l27.481-4V6H12.537" transform="translate(1.47 1.002)" fill="none" stroke="#2BB730" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" />
-                                            <circle id="Ellipse_20" data-name="Ellipse 20" cx="1.566" cy="1.566" r="1.566" transform="translate(12.965 34.328)" fill="none" stroke="#2BB730" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" />
-                                            <circle id="Ellipse_21" data-name="Ellipse 21" cx="1.566" cy="1.566" r="1.566" transform="translate(30.195 34.328)" fill="none" stroke="#2BB730" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" />
-                                        </g>
-                                    </svg>
-                                    <br><b>Add to cart</b>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>';
+                            ';
                     }
                 }
             }
-
             ?>
         </div>
     </div>
 </div>
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
 
 <style>
-    .heading-content {
-        display: flex;
-        flex-direction: row;
-
+    .background-card {
+        background-color: white;
+        border-radius: 18px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        margin-right: 0px;
+        min-width: 350px;
     }
 
-    .content-row {
+    .bonus-row {
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
         align-items: center;
+        justify-content: center;
     }
 
-    .content-row-bonus {
+    .overlap-container {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
     }
 
-    .credit-item-link {
-        background-color: white;
-        border-width: 1px;
-        border-color: #707070;
-        border-radius: 24px;
-        height: auto;
-        text-decoration: none;
-        color: black;
+    .credits-container {
+        height: 150px;
+        width: 150px;
+        border-radius: 75px;
+        background-color: #EF8830;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 10px;
+    }
+
+    .dollars-container {
+        height: 150px;
+        width: 150px;
+        border-radius: 75px;
+        background-color: #2BB730;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 25px;
+        right: 10px;
     }
 </style>

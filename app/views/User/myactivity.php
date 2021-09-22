@@ -2,7 +2,7 @@
 
 
 <div class="d-flex justify-content-center" style="margin-top: 20px;">
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-sm-12 col-lg-6 col-xl-4">
         <h3><b>Manage Activities</b></h3>
     </div>
 </div>
@@ -60,7 +60,7 @@ if (!empty($data['myActivity'])) {
             echo '
                                     
                 <div class="d-flex justify-content-center" style="margin-top:20px;  background-color: white;">
-                <div class="col-sm-12 col-lg-4" style="padding-right:0px;">
+                <div class="col-sm-12 col-lg-6 col-xl-4" style="padding-right:0px;">
                 <div class="card-container">
                     <div class="row">
                         <div class="col-6 text-left" style="padding-right: 0px;">
@@ -119,6 +119,22 @@ if (!empty($data['myActivity'])) {
                 <!-- End add times per activity here -->';
         }
     }
+} else {
+    echo '
+    <div class="container-fluid mt-4 mt-lg-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-4 text-center align-self-center empty-container">
+                <h4 class="mb-5"><b>No Activities</b></h4>
+                <h5 class="mb-5">Add one from our list of activities</h5>
+                <a href="' . URLROOT . '/Activity/allactivity">
+                    <button type="button" class="checkout-btn mb-4">View Activities</button>
+                </a>
+            </div>
+        </div>
+     </div>
+    
+    
+    ';
 }
 
 
@@ -130,7 +146,7 @@ if (!empty($data['myActivity'])) {
 </div>
 
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+
 
 
 <style>
@@ -147,6 +163,13 @@ if (!empty($data['myActivity'])) {
     .card-container:focus {
         text-decoration: none;
         color: black;
+    }
+
+    .empty-container {
+        background-color: white;
+        border-radius: 60px;
+        padding: 30px;
+
     }
 
     .myactivity-remove-btn {
@@ -170,5 +193,17 @@ if (!empty($data['myActivity'])) {
         color: white;
         background-color: #2BB730;
         font-size: 14px;
+    }
+
+    .checkout-btn {
+        background-color: #EF8830;
+        font-family: 'Poppins';
+        font-weight: bold;
+        border-radius: 22px;
+        border-style: none;
+        color: white;
+        width: 60%;
+        max-width: 200px;
+        height: 45px;
     }
 </style>

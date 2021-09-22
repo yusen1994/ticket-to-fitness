@@ -4,16 +4,16 @@
 <div class="container-fluid">
 
     <div class="row justify-content-center" style="margin-top: 20px;">
-        <div class="col-sm-12 col-lg-4">
+        <div class="col-sm-12 col-lg-6 col-xl-4">
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-9 pr-0">
                     <h3><b>Manage Activities</b></h3>
                 </div>
-                <div class="col-4 text-right">
+                <div class="col-3 text-right ">
                     <a style="text-decoration:none" href="<?php echo URLROOT; ?>/Gym/activities"> <button class="myactivity-add-btn">Add</button></a>
-                
+
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -129,7 +129,7 @@
             }
         }
     }
-    
+
 
     ?>
 
@@ -201,6 +201,7 @@
         background-color: #FADD06;
         font-size: 16px;
     }
+
     .myactivity-edit-btn {
         width: 100%;
         max-width: 100px;
@@ -213,4 +214,3 @@
 
     }
 </style>
-<?php require APPROOT . '/views/inc/footer.php'; ?>

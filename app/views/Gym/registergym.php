@@ -1,8 +1,12 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
+<!-- IF USER IS LOGGED IN -->
+<?php if (!empty($_SESSION['user_id'])) {
+    require APPROOT . '/views/User/dashboardmenu.php';
+} ?>
 
-<div class="container-fluid mt-2 mb-5">
+<div class="container-fluid mt-2">
 
     <div class="row justify-content-center mt-4">
         <div class="col-sm-12 col-lg-4">
@@ -147,14 +151,22 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12 p-0">
+            <?php require APPROOT . '/views/inc/footer.php'; ?>
+        </div>
+    </div>
 </div>
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
 
 
 <style>
     html {
         font-family: "Poppins", sans-serif;
+    }
+
+    .container-fluid {
+        position: relative;
     }
 
     .background-text-card {

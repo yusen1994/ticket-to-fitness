@@ -10,7 +10,7 @@
 
 
 
-<div class="container-fluid pt-2">
+<div class="container-fluid pt-3 pt-lg-5">
     <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6 text-center align-self-center">
             <p>
@@ -20,7 +20,7 @@
     </div>
 
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pt-lg-3">
         <div class="col-8 col-lg-4 col-xl-3 pr-0">
 
             <form method="POST" action="<?php echo URLROOT; ?>/Activity/search">
@@ -72,43 +72,60 @@
 
 </div>
 
-<style>
-    .activities-responsive {
-        width: 100%;
-        filter: blur(4px);
-    }
 
-    .search-text-icon {
-        margin-left: 5px;
 
-    }
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-lg-8 col-xl-6">
+            <div class=" row background-card mt-3 mt-lg-5 pl-2 pl-lg-3 pr-2 pr-lg-3">
+                <?php
+                if (!empty($data['gym_activity'])) {
+                    foreach ($data['gym_activity'] as $activity) {
+                        echo '
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id .
+                            '" class="card-link" style="text-decoration:none!important; color:black;">
+                        <div class="card mt-4 " style="width: auto; border-radius:18px; min-height:400px;">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    ';
+                        if ($activity->photo != NULL) {
+                            echo '<img class="card-img-top" src="' . URLROOT . '/uploads/' . $activity->photo . '" alt="Card image cap" style="max-width: 200px;">';
+                        } else {
+                            echo '<img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">';
+                        }
+                        echo '
+                                </div>
+                            </div>
+                            <div class="card-body">
+                            <h6 class="card-title">' . $activity->activity_name . '</h6>
+                            <p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>
+                            <img src
+                            <hr>
+                            <p><b>Credit: ' . $activity->credit . '</b></p>
+                            <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '">More Details</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                ';
+                    }
+                } else {
+                    echo "No Gym activity please check back later!";
+                }
+                ?>
 
-    .background-card {
-        background-color: white;
-        border-radius: 60px;
-    }
+            </div>
+        </div>
+    </div>
 
-    .search-input {
-        display: flex;
-        flex-direction: row;
-        background-color: white;
-        justify-content: center;
-        align-items: center;
-        height: 37px;
-        border-radius: 18px;
-        border-width: 1px;
-        border-color: black;
-        border-style: solid;
-    }
+</div>
 
-    .search-input-text {
-        height: 100%;
-        width: 90%;
-        background-color: transparent;
-        border-style: none;
-        outline: none;
-    }
-</style>
+<br>
+
+<div style="height:200px;width:100%; position:absolute;">
+    <?php require APPROOT . '/views/inc/footer.php'; ?>
+</div>
 
 <!--Filter Modal-->
 
@@ -129,140 +146,137 @@
             </div>
 
             <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="filter_body">
-                        <div class="container">
-                            <div class="row pt-3 pb-3">
-                                <div class="col-8 align-self-center ">
-                                    <h4><b>Options</b></h4>
-                                </div>
-                                <div class="col-4 align-self-center text-right">
-                                    <?php
-                                    $url = $_SERVER['REQUEST_URI'];
-                                    $urlarray = explode("/", $url);
-                                    $end = $urlarray[count($urlarray) - 1];
-                                    if (strpos($end, 'Activity') == false) {
-                                        echo
-                                        '
+                <div class="filter_body">
+                    <div class="row pt-3 pb-3">
+                        <div class="col-8 align-self-center ">
+                            <h4><b>Options</b></h4>
+                        </div>
+                        <div class="col-4 align-self-center text-right">
+                            <?php
+                            $url = $_SERVER['REQUEST_URI'];
+                            $urlarray = explode("/", $url);
+                            $end = $urlarray[count($urlarray) - 1];
+                            if (strpos($end, 'Activity') == false) {
+                                echo
+                                '
                                         <a href="' ?><?php echo URLROOT ?><?php echo '/Activity">
                                                 <button class="reset-filter-btn"><b>Reset</b></button>
                                         </a>
                                             ';
                                                                         }  ?>
-                                </div>
-                            </div>
-                            <div class=" line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/credits/high">
-                                        <h5>Credits (High)</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/credits/low">
-                                        <h5>Credits (Low)</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <h5>Distance (Close)</h5>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row pt-3 pb-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <h4><b>Categories</b></h4>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/weights">
-                                        <h5>Weights</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/yoga">
-                                        <h5>Yoga</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/cycling">
-                                        <h5>Cycling</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/swimming">
-                                        <h5>Swimming</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/cardio">
-                                        <h5>Cardio</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
-                            <div class="row p-2 p-lg-3">
-                                <div class="col-12 align-self-center pl-3">
-                                    <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/fight">
-                                        <h5>Martial Arts</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="line-separator"></div>
                         </div>
+                    </div>
+                    <div class=" line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/credits/high">
+                                <h5>Credits (High)</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/credits/low">
+                                <h5>Credits (Low)</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <h5>Distance (Close)</h5>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row pt-3 pb-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <h4><b>Categories</b></h4>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/weights">
+                                <h5>Weights</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/yoga">
+                                <h5>Yoga</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/cycling">
+                                <h5>Cycling</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/swimming">
+                                <h5>Swimming</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/cardio">
+                                <h5>Cardio</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
+                    <div class="row p-2 p-lg-3">
+                        <div class="col-12 align-self-center pl-3">
+                            <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/category/fight">
+                                <h5>Martial Arts</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line-separator"></div>
 
-                        <form method="POST" action="<?php echo URLROOT; ?>/Activity/nearestOffer">
 
-                            <div class="form-group mt-2">
-                                <!-- <select name="distance">
+                    <form method="POST" action="<?php echo URLROOT; ?>/Activity/nearestOffer">
+
+                        <div class="form-group mt-2">
+                            <!-- <select name="distance">
                         <option value="">Distance</option>
                         <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                     </select>-->
 
-                                <input type="hidden" name="distance" value="50">
-                            </div>
+                            <input type="hidden" name="distance" value="50">
+                        </div>
 
-                            <div class="form-group">
-                                <input type="text" id="gymaddress" class="form-control address-input" placeholder="Enter Address" value="<?php if (!empty($data['gym_address'])) {
-                                                                                                                                                echo $data['gym_address'];
-                                                                                                                                            } ?>" name="gym_address" required title="">
+                        <div class="form-group">
+                            <input type="text" id="gymaddress" class="form-control address-input" placeholder="Enter Address" value="<?php if (!empty($data['gym_address'])) {
+                                                                                                                                            echo $data['gym_address'];
+                                                                                                                                        } ?>" name="gym_address" required title="">
 
-                            </div>
+                        </div>
 
-                            <div class="form-group" id="lat_area">
-                                <input type="hidden" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
+                        <div class="form-group" id="lat_area">
+                            <input type="hidden" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
 
-                            </div>
+                        </div>
 
-                            <div class="form-group" id="long_area">
-                                <input type="hidden" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
+                        <div class="form-group" id="long_area">
+                            <input type="hidden" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
 
-                            </div>
+                        </div>
 
-                            <button type="submit" class="btn btn-warning search-btn">Search</button>
-                        </form>
-                    </div>
+                        <button type="submit" class="btn btn-warning search-btn">Search</button>
+                    </form>
                 </div>
             </div>
 
@@ -316,54 +330,48 @@
         border-style: none;
         outline: none;
     }
+
+    .activities-responsive {
+        width: 100%;
+        filter: blur(4px);
+    }
+
+    .search-text-icon {
+        margin-left: 5px;
+
+    }
+
+    .background-card {
+        background-color: white;
+        border-radius: 60px;
+        padding-bottom: 30px;
+    }
+
+    .search-input {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        height: 37px;
+        border-radius: 18px;
+        border-width: 1px;
+        border-color: black;
+        border-style: solid;
+    }
+
+    .search-input-text {
+        height: 100%;
+        width: 90%;
+        background-color: transparent;
+        border-style: none;
+        outline: none;
+    }
 </style>
 
 
-<div class="container">
-    <div class="row background-card mt-3 mt-lg-5 pl-lg-3 pr-lg-3 pt-sm-2 pt-lg-3" style="padding-bottom: 30px;">
-        <?php
-        if (!empty($data['gym_activity'])) {
-            foreach ($data['gym_activity'] as $activity) {
-                echo '
-                <div class = "col-6 col-md-4 col-lg-3">
-                    <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link" style="text-decoration:none!important; color:black;">
-                        <div class="card mt-4 " style="width: auto; border-radius:18px;">
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    ';
-                                    if($activity->photo != NULL) {
-                                        echo '<img class="card-img-top" src="' . URLROOT . '/uploads/'.$activity->photo.'" alt="Card image cap" style="max-width: 200px;">';
-                                    }else{
-                                        echo '<img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">';
-                                    }
-                                    echo'
-                                </div>
-                            </div>
-                            <div class="card-body">
-                            <h6 class="card-title">' . $activity->activity_name . '</h6>
-                            <p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>
-                            <img src
-                            <hr>
-                            <p><b>Credit: ' . $activity->credit . '</b></p>
-                            <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '">More Details</a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                ';
-            }
-        } else {
-            echo "No Gym activity please check back later!";
-        }
-        ?>
-    </div>
-</div>
 
-<br>
 
-<div style="height:200px;width:100%; position:absolute;">
-    <?php require APPROOT . '/views/inc/footer.php'; ?>
-</div>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>

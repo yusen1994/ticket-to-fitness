@@ -4,7 +4,8 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center p-0 m-0">
-        <div class="col-sm-12 col-md-8 col-lg-4 m-0 p-0">
+        <div class="col-sm-12 col-md-10 col-lg-6 col-xl-4 m-0 p-0">
+
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
                     <div class="user-name-background">
@@ -14,7 +15,7 @@
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col text-center">
-                    <p style="font-size: 12px;">Time to smash your goals</p>
+                    <p style="font-size: 14px;">Time to smash your goals</p>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
@@ -31,6 +32,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center p-0 m-0">
+        <div class="col-12 col-lg-6">
             <div class="row justify-content-center mt-3">
                 <div class="col-12 text-center">
                     <span style="font-size: 24px;font-weight:bold">My <span style="color: #E46E2E">Credits</span></span>
@@ -40,10 +45,10 @@
                 <div class="col-sm-12 col-xl-6">
                     <div class="credits-content-background">
                         <div class="row justify-content-center">
-                            <div class="col-6 align-self-center">
+                            <div class="col-6 align-self-center pr-3">
                                 <span style="font-size: 20px;font-weight:bold">Available</span>
                             </div>
-                            <div class="col-6 align-self-center" style="flex-direction:row">
+                            <div class="col-6 align-self-center pl-3" style="flex-direction:row">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32.11" height="36.664" viewBox="0 0 32.11 36.664">
                                     <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.303, 33.639)">
                                         <path id="Path_63" data-name="Path 63" d="M31.118,20.263H3.618A3.623,3.623,0,0,1,0,16.645V13.75a.724.724,0,0,1,.724-.724h.724a2.895,2.895,0,0,0,0-5.789H.724A.724.724,0,0,1,0,6.513V3.618A3.623,3.623,0,0,1,3.618,0h27.5a3.623,3.623,0,0,1,3.618,3.618V6.513a.724.724,0,0,1-.724.724h-.724a2.895,2.895,0,0,0,0,5.789h.724a.724.724,0,0,1,.724.724v2.895A3.621,3.621,0,0,1,31.118,20.263ZM1.447,14.473v2.171a2.174,2.174,0,0,0,2.171,2.171h27.5a2.174,2.174,0,0,0,2.171-2.171V14.473h0a4.342,4.342,0,0,1,0-8.684V3.618a2.174,2.174,0,0,0-2.171-2.171H3.618A2.174,2.174,0,0,0,1.447,3.618V5.789a4.342,4.342,0,1,1,0,8.684Z" transform="translate(0 8.677)" />
@@ -53,35 +58,47 @@
                                         <path id="Path_67" data-name="Path 67" d="M.724,10.125a.723.723,0,0,1-.253-1.4L23.483.131A2.21,2.21,0,0,1,26.3,1.467l2.61,7.7a.724.724,0,0,1-1.371.465l-2.61-7.7a.74.74,0,0,0-.939-.446L.975,10.079a.7.7,0,0,1-.252.046Z" transform="translate(2.895 0)" />
                                     </g>
                                 </svg>
-                                <span style="font-size: 22px;font-weight:bold;"><?php echo $data['user_credit']->total_credit; ?></span>
+                                <span style="font-size: 22px;font-weight:bold;">
+                                    <?php
+                                    if ($data['user_credit']->total_credit == 0) {
+                                        echo 0;
+                                    } else {
+                                        echo $data['user_credit']->total_credit;
+                                    }
+
+                                    ?></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center p-0 m-0">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
             <div class="row justify-content-center mt-5">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/User/credits">
                         <button type="button" class="dashboard-highlight-btn">Buy Credits</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity">
                         <button type="button" class="dashboard-option-btn">View Activities</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT ?>/User/userProfile">
                         <button type="button" class="dashboard-option-btn">My Profile</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Accounts/logout">
                         <button type="button" class="dashboard-option-btn">Log out</button>
                     </a>
@@ -106,9 +123,18 @@
             </div>
         </div>
     </div>
-
-
 </div>
+
+
+
+<?php
+
+if (!empty($data['message'])) {
+    echo "<div class='alert alert-success' role='alert'>";
+    echo $data['message'];
+    echo "</div>";
+}
+?>
 
 
 <style>
@@ -118,7 +144,7 @@
         background-color: white;
         border-bottom-left-radius: 18px;
         border-bottom-right-radius: 18px;
-        padding-top: 10px;
+        padding-top: 20px;
     }
 
     .content-background {
@@ -148,6 +174,7 @@
         background-color: #EF8830;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 
     .dashboard-option-btn {
@@ -161,6 +188,7 @@
         background-color: white;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 
     .gym-dashboard-btn {
@@ -172,20 +200,6 @@
         background-color: #0b518d;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 </style>
-
-
-<?php
-
-if (!empty($data['message'])) {
-    echo "<div class='alert alert-success' role='alert'>";
-    echo $data['message'];
-    echo "</div>";
-}
-?>
-
-
-<div style="height:200px;width:100%; position:absolute;">
-    <?php require APPROOT . '/views/inc/footer.php'; ?>
-</div>

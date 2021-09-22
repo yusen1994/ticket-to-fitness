@@ -152,7 +152,3 @@
 		height: auto;
 	}
 </style>
-
-
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>
