@@ -2,7 +2,7 @@
 
 
 <div class="d-flex justify-content-center" style="margin-top: 20px;">
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-sm-12 col-lg-6 col-xl-4">
         <h3><b>Manage Activities</b></h3>
     </div>
 </div>
@@ -60,7 +60,7 @@ if (!empty($data['myActivity'])) {
             echo '
                                     
                 <div class="d-flex justify-content-center" style="margin-top:20px;  background-color: white;">
-                <div class="col-sm-12 col-lg-4" style="padding-right:0px;">
+                <div class="col-sm-12 col-lg-6 col-xl-4" style="padding-right:0px;">
                 <div class="card-container">
                     <div class="row">
                         <div class="col-6 text-left" style="padding-right: 0px;">
@@ -146,7 +146,7 @@ if (!empty($data['myActivity'])) {
 </div>
 
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+
 
 
 <style>

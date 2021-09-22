@@ -21,7 +21,6 @@ if (!empty($data['message'])) {
 
                 </div>
             </div>
-
             <div class="row justify-content-center mt-3">
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
@@ -50,7 +49,10 @@ if (!empty($data['message'])) {
                     </div>
                 </div>
             </div>
-
+        </div>
+    </div>
+    <div class="row justify-content-center p-0 m-0">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
             <div class="row justify-content-center mt-5">
                 <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Gym/activities">
@@ -93,10 +95,10 @@ if (!empty($data['message'])) {
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
 
 <style>
     .user-name-background {
@@ -135,6 +137,7 @@ if (!empty($data['message'])) {
         background-color: #0b518d;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 
     .dashboard-highlight-btn {
@@ -146,6 +149,7 @@ if (!empty($data['message'])) {
         background-color: #ef8830;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 
     .dashboard-option-btn {
@@ -159,6 +163,7 @@ if (!empty($data['message'])) {
         background-color: white;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 
     #container-userprofile {
@@ -168,7 +173,3 @@ if (!empty($data['message'])) {
         align-items: center;
     }
 </style>
-
-
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -67,18 +67,20 @@
 
     <div class="row justify-content-center mt-5">
         <div class="col-sm-12 col-lg-3">
+            <a style="text-decoration: none;" href="#">
+                <button type="button" class="dashboard-highlight-btn">Add Payment Information</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-sm-12 col-lg-3">
             <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity">
                 <button type="button" class="dashboard-option-btn">Change Password</button>
             </a>
         </div>
     </div>
-    <div class="row justify-content-center mt-3">
-        <div class="col-sm-12 col-lg-3">
-            <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/User/credits">
-                <button type="button" class="dashboard-highlight-btn">Add Payment Information</button>
-            </a>
-        </div>
-    </div>
+
 
 </div>
 
@@ -185,24 +187,7 @@
 <div class="container-fullwidth m-3">
     <a href="#" class="btn btn-danger">Deactivate Account</a>
 
-    <!-- Register gym model -->
-
-    <?php
-    if ($_SESSION['partnership_status'] != NULL && $_SESSION['partnership_status'] == true) {
-
-    ?>
-        <a href="<?php echo URLROOT; ?>/Gym" class="btn btn-success">Switch Gym</a>
-
-    <?php
-
-    } else {
-        echo "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#registerGymModal'>";
-        echo "Register Gym Account";
-        echo "</button>";
-    }
-    ?>
 </div>
-<br>
 
 <!--Change Password Modal -->
 
@@ -347,10 +332,6 @@
 </div>
 </div>
 </div>
-
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>
-
 
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw"></script>

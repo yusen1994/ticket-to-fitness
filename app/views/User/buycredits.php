@@ -99,9 +99,6 @@
 </div>
 
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
-
-
 <style>
     .background-card {
         background-color: white;

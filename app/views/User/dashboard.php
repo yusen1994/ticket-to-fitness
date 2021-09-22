@@ -4,7 +4,8 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center p-0 m-0">
-        <div class="col-sm-12 col-md-8 col-lg-4 m-0 p-0">
+        <div class="col-sm-12 col-md-10 col-lg-6 col-xl-4 m-0 p-0">
+
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
                     <div class="user-name-background">
@@ -31,6 +32,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center p-0 m-0">
+        <div class="col-12 col-lg-6">
             <div class="row justify-content-center mt-3">
                 <div class="col-12 text-center">
                     <span style="font-size: 24px;font-weight:bold">My <span style="color: #E46E2E">Credits</span></span>
@@ -67,29 +72,33 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center p-0 m-0">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
             <div class="row justify-content-center mt-5">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/User/credits">
                         <button type="button" class="dashboard-highlight-btn">Buy Credits</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity">
                         <button type="button" class="dashboard-option-btn">View Activities</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT ?>/User/userProfile">
                         <button type="button" class="dashboard-option-btn">My Profile</button>
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
-                <div class="col-sm-12 col-xl-7">
+                <div class="col-sm-12 col-lg-7">
                     <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Accounts/logout">
                         <button type="button" class="dashboard-option-btn">Log out</button>
                     </a>
@@ -114,9 +123,18 @@
             </div>
         </div>
     </div>
-
-
 </div>
+
+
+
+<?php
+
+if (!empty($data['message'])) {
+    echo "<div class='alert alert-success' role='alert'>";
+    echo $data['message'];
+    echo "</div>";
+}
+?>
 
 
 <style>
@@ -156,6 +174,7 @@
         background-color: #EF8830;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 
     .dashboard-option-btn {
@@ -169,6 +188,7 @@
         background-color: white;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 
     .gym-dashboard-btn {
@@ -180,20 +200,6 @@
         background-color: #0b518d;
         font-size: 18px;
         font-weight: bold;
+        min-width: 315px;
     }
 </style>
-
-
-<?php
-
-if (!empty($data['message'])) {
-    echo "<div class='alert alert-success' role='alert'>";
-    echo $data['message'];
-    echo "</div>";
-}
-?>
-
-
-<div style="height:200px;width:100%; position:absolute;">
-    <?php require APPROOT . '/views/inc/footer.php'; ?>
-</div>

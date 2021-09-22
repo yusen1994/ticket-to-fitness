@@ -76,7 +76,7 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-6">
+        <div class="col-sm-12 col-lg-8 col-xl-6">
             <div class=" row background-card mt-3 mt-lg-5 pl-2 pl-lg-3 pr-2 pr-lg-3">
                 <?php
                 if (!empty($data['gym_activity'])) {

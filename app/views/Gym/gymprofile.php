@@ -111,7 +111,3 @@
     <a href="<?php echo URLROOT; ?>/User" class="btn btn-success">Switch User</a>
 
 </div>
-
-
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -4,11 +4,9 @@
 
 
 <div class="container-fluid mt-2">
-
   <!-- If screen => lg display this background image -->
-  <div class="row  background-image d-none d-lg-block d-xl-block vh-100">
+  <div class="row background-image d-none d-lg-block d-xl-block vh-100">
     <div class="col-12 align-self-center">
-
       <div class="row justify-content-center" style="padding-top: 250px;">
         <div class="col-lg-6 col-xl-4 col text-center title-card-overlay pt-5 pb-5 ">
           <h2>The only place to get all your</h2>
@@ -32,35 +30,32 @@
     </div>
   </div>
 
-
-  <!-- If screen =< lg display normal view -->
-  <div class="row justify-content-center d-block d-lg-none d-xl-none">
-    <div class=" col-2 text-center align-items-center d-none d-lg-block d-xl-block pt-5 pb-5">
-      <img src="<?php echo URLROOT; ?>/images/t2f-logo.png" height="210px" width="190px" />
-    </div>
-    <div class="col-sm-12 col-lg-8 text-center align-items-center title-card pt-5 pb-5">
-      <h2>The only place to get all your</h2>
-      <h1><b><span class="text-orange">Fit</span>ness <span class="text-orange">Ch</span>oice</b></h1>
-      <div class="row justify-content-center">
-        <div class="col-12 justify-content-center">
-          <a href="<?php echo URLROOT; ?>/Accounts/login">
-            <button type="button" class="land-login-btn mt-3">Sign up now</button>
-          </a>
+  <div class="row background-image-sml justify-content-center d-block d-lg-none vh-100">
+    <div class="col-12 align-self-center">
+      <div class="row justify-content-center" style="padding-top: 100px; padding-left:15px; padding-right:15px;">
+        <div class="col-lg-6 col-xl-4 col text-center title-card-overlay pt-5 pb-5 ">
+          <h2>The only place to get all your</h2>
+          <h1><b><span class="text-orange">Fit</span>ness <span class="text-orange">Ch</span>oice</b></h1>
+          <div class="row justify-content-center">
+            <div class="col-12 justify-content-center">
+              <a href="<?php echo URLROOT; ?>/Accounts/login">
+                <button type="button" class="land-login-btn mt-3">Sign up now</button>
+              </a>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 justify-content-center">
+              <a href="#">
+                <button type="button" class="land-learnmore-btn mt-3">Learn More</button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-12 justify-content-center">
-          <a href="#">
-            <button type="button" class="land-learnmore-btn mt-3">Learn More</button>
-          </a>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-2 text-center align-items-center d-none d-lg-block d-xl-block pt-5 pb-5">
-      <img class="img-flip" src="<?php echo URLROOT; ?>/images/t2f-logo.png" height="210px" width="190px" />
     </div>
   </div>
+
+
 
 
   <div class="row justify-content-center mt-5">
@@ -181,18 +176,33 @@
 
     </div>
   </div>
+  <div class="row">
+    <div class="col-12 p-0">
+      <?php require APPROOT . '/views/inc/footer.php'; ?>
+    </div>
+  </div>
+
 </div>
 
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
-
 
 <style>
+  .container-fluid {
+    position: relative;
+  }
+
   .background-image {
     background-image: url('<?php echo URLROOT; ?>/images/gym-workout.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+  }
+
+  .background-image-sml {
+    background-image: url('<?php echo URLROOT; ?>/images/landing-sml.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   .title-card {

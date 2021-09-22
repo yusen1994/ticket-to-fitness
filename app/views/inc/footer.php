@@ -43,9 +43,9 @@
         </div>
     </div>
 
-    <div class="row justify-content-center" style="padding-top: 40px;">
+    <div class="row justify-content-center mt-4">
         <div class="col-6 text-center">
-            <p style="color: white; font-size: 12px;">Copyright (c) 2021 Fitch. All Rights Reserved.</p>
+            <p class="m-0 pb-2" style="color: white; font-size: 12px;">Copyright (c) 2021 Fitch. All Rights Reserved.</p>
         </div>
     </div>
 
@@ -60,7 +60,12 @@
         padding-left: 40px;
     }
 
-    .footer {}
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 200px;
+    }
 </style>
 
 <!--DOnot Remove This-->
