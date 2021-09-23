@@ -51,7 +51,7 @@
         
                         </div>
                         <div class="col-3 text-right align-self-center">
-                        <a href="#" style="text-decoration:none;"> <button class="myactivity-sale-btn" onclick="unhideDiscount(' . $count . ')">Sale</button></a>
+                        <button class="myactivity-sale-btn" onclick="unhideDiscount(' . $count . ')">Sale</button>
 
                         </div>
                         <div class="col text-left" style="display:none;" id="discount' . $count . '">
@@ -123,7 +123,7 @@
             
                             </div>
                             <div class="col-3 text-right ali gn-self-center">
-                            <a href="#" style="text-decoration:none;"> <button class="myactivity-sale-btn" type="button" onclick="unhideDiscount(' . $count . ')">Sale</button></a>
+                         <button class="myactivity-sale-btn" type="button" onclick="unhideDiscount(' . $count . ')">Sale</button>
                             </div>
                             <div class="col text-left" id="discount' . $count . '" style="display:none;">
                                 <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-10%</button></a>
