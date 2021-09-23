@@ -22,9 +22,11 @@
     if (!empty($data['gym_activity'])) {
         $flag = true; //If current is the same then flag becomes false i.e only show the unique id once
         $current = NULL;
+        $count = 0;
         foreach ($data['gym_activity'] as $single) {
             if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
                 $flag = false;
+                $count++;
                 echo '
                     <div class="row" style="margin-top:10px; padding-left:10px;">
                         <div class="col-4 align-self-center" style="padding-right:0px;">
@@ -49,15 +51,20 @@
         
                         </div>
                         <div class="col-3 text-right align-self-center">
-                        <a href="" style="text-decoration:none;"> <button class="myactivity-sale-btn">Sale</button></a>
+                        <a href="#" style="text-decoration:none;"> <button class="myactivity-sale-btn" onclick="unhideDiscount(' . $count . ')">Sale</button></a>
 
                         </div>
-                        <div class="col text-left">
+                        <div class="col text-left" style="display:none;" id="discount' . $count . '">
+                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-10%</button></a>
+                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
+                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
+                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
                             <div class="line-separator" style="margin-top:10px;"></div>
                         </div>
                     </div>';
             } else {
                 $flag = true;
+                $count++;
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -115,11 +122,14 @@
                                 </div>
             
                             </div>
-                            <div class="col-3 text-right align-self-center">
-                            <a href="" style="text-decoration:none;"> <button class="myactivity-sale-btn">Sale</button></a>
-
+                            <div class="col-3 text-right ali gn-self-center">
+                            <a href="#" style="text-decoration:none;"> <button class="myactivity-sale-btn" type="button" onclick="unhideDiscount(' . $count . ')">Sale</button></a>
                             </div>
-                            <div class="col text-left">
+                            <div class="col text-left" id="discount' . $count . '" style="display:none;">
+                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-10%</button></a>
+                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
+                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
+                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
                                 <div class="line-separator" style="margin-top:10px;"></div>
                             </div>
                         </div>
@@ -213,4 +223,37 @@
         font-size: 16px;
 
     }
+
+    .myactivity-discount-btn {
+        width: 100%;
+        max-width: 100px;
+        height: 32px;
+        border-radius: 18px;
+        border-style: none;
+        color: black;
+        background-color: green;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .line-separator {
+        border-top: 1px solid #bbb;
+    }
 </style>
+
+
+<script>
+    function unhideDiscount(id) {
+
+        var targetDiv = document.getElementById("discount" + id);
+
+        if (targetDiv.style.display == "none") {
+            targetDiv.style.display = "block";
+        } else {
+            targetDiv.style.display = "none";
+        }
+
+
+
+    }
+</script>
