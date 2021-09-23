@@ -85,7 +85,21 @@
                             </div>
                      
                             <div class="col-3 text-right">
-                        <a style="text-decoration:none" href=""> <button class="myactivity-edit-btn">Edit</button></a>
+                            <form method = "post" action = "' . URLROOT . '/Gym/editActivity/activate">
+                            <input type = "hidden" value = "' . $current . '" name = "activity_id">';
+                        
+                            if ($single->status == 0) {
+                                echo '<input type = "hidden" id = "status" value = "true" name = "status"> ';
+                        
+                                echo '<button type="submit" id = "activateBtn" class="myactivity-activate-btn mb-2" >Activate</button>';
+                            } else {
+                                echo '<input type = "hidden" id = "status" value = "false" name = "status"> ';
+                        
+                                echo '<button type="submit" id = "activateBtn" class="myactivity-deactivate-btn mb-2" >Deactivate</button>';
+                            }
+                        
+                            echo '</form>';
+                        echo '<a style="text-decoration:none" href=""> <button class="myactivity-edit-btn">Edit</button></a>
                     </div>
                             
                         </div>
@@ -220,6 +234,28 @@
         border-style: none;
         color: white;
         background-color: #EF8830;
+        font-size: 16px;
+
+    }
+    .myactivity-activate-btn {
+        width: 100%;
+        max-width: 100px;
+        height: 32px;
+        border-radius: 18px;
+        border-style: none;
+        color: white;
+        background-color: blue;
+        font-size: 16px;
+
+    }
+    .myactivity-deactivate-btn {
+        width: 100%;
+        max-width: 100px;
+        height: 32px;
+        border-radius: 18px;
+        border-style: none;
+        color: white;
+        background-color: #DA0000;
         font-size: 16px;
 
     }

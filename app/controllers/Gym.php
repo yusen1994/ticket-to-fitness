@@ -160,7 +160,7 @@ class Gym extends Controller
                     $time_sunday = $this->joinTime($_POST['sunday_starttimeArray'], $_POST['sunday_endtimeArray']);
                 }
 
-
+              
                 $data = [
 
                     'gym_id' => $_SESSION['user_id'],
@@ -313,7 +313,7 @@ class Gym extends Controller
                     ];
 
                     if ($this->gymModel->updateStatus($data)) {
-                        redirect('Gym/dashboard');
+                        redirect('Gym/manageActivities');
                     } else {
                         echo "<script>alert('Something is wrong')</script>";
                     }

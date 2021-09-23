@@ -15,6 +15,7 @@ class GymModel
 
   public function addActivity($data)
   {
+
     $this->db->query('INSERT INTO gym_activity (gym_id,activity_name,category,sessions_per_week,max_capacity,credit,description,status) VALUES (:gym_id,:activity_name,:category, :sessions_per_week, :max_capacity,:credit,:description,:status);
     SELECT LAST_INSERT_ID()');
 
@@ -173,7 +174,7 @@ class GymModel
 
   public function manageActivity($data)
   {
-    $this->db->query('SELECT DISTINCT gym_information.gym_name, gym_information.gym_address, gym_activity.category, gym_activity.credit, gym_activity_timetable.day, gym_activity_timetable.time,gym_activity_timetable.activity_id FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id INNER JOIN gym_activity_timetable ON gym_activity_timetable.gym_id = gym_activity.gym_id WHERE gym_activity.gym_id=:gym_id');
+    $this->db->query('SELECT DISTINCT gym_information.gym_name, gym_information.gym_address, gym_activity.category, gym_activity.status, gym_activity.credit, gym_activity_timetable.day, gym_activity_timetable.time,gym_activity_timetable.activity_id FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id INNER JOIN gym_activity_timetable ON gym_activity_timetable.gym_id = gym_activity.gym_id WHERE gym_activity.gym_id=:gym_id');
     $this->db->bind(':gym_id', $data['gym_id']);
     $row = $this->db->resultSet();
 
