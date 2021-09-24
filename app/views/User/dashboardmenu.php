@@ -2,8 +2,6 @@
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
 
-
-
 <!-- Nav start -->
 <div class="container-fluid" style="margin-top:5px;">
 

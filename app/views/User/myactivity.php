@@ -123,12 +123,14 @@ if (!empty($data['myActivity'])) {
     echo '
     <div class="container-fluid mt-4 mt-lg-5">
         <div class="row justify-content-center">
-            <div class="col-sm-12 col-lg-4 text-center align-self-center empty-container">
-                <h4 class="mb-5"><b>No Activities</b></h4>
-                <h5 class="mb-5">Add one from our list of activities</h5>
-                <a href="' . URLROOT . '/Activity/allactivity">
-                    <button type="button" class="checkout-btn mb-4">View Activities</button>
-                </a>
+            <div class="col-sm-12 col-lg-4 text-center align-self-center">
+                <div class="empty-container">
+                    <h4 class="mb-5"><b>No Activities</b></h4>
+                    <h5 class="mb-5">Add one from our list of activities</h5>
+                    <a href="' . URLROOT . '/Activity/allactivity">
+                        <button type="button" class="checkout-btn mb-4">View Activities</button>
+                    </a>
+                </div>
             </div>
         </div>
      </div>
