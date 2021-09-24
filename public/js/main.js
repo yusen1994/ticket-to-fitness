@@ -130,7 +130,7 @@ function mondayshowTimePicker() {
 //add time slot when add more clicked
 $('.monday_addmore_Time').click(function () {
 
-  var fieldHTML = '<div class = "mt-2"><input type="text" name="monday_starttimeArray[]" class="monday_timepicker_start" value=""/> to <input type="text" name="monday_endtimeArray[]" class="monday_timepicker_end" value=""/><i class="pl-3 fas fa-trash-alt monday_remove_button" onclick = "mondayremoveTime()"></i></div>'; //New input field html 
+  var fieldHTML = '<div class = "mt-3" ><input type="text" name="monday_starttimeArray[]" class="monday_timepicker_start" value=""/> to <input type="text" name="monday_endtimeArray[]" class="monday_timepicker_end" value=""/><i class="pl-3 fas fa-trash-alt monday_remove_button" onclick = "mondayremoveTime()"></i></div>'; //New input field html 
 
   $('.monday_time_wrapper').append(fieldHTML); //Add field html
 });

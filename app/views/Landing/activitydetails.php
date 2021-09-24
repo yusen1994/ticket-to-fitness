@@ -7,130 +7,140 @@
     require APPROOT . '/views/User/dashboardmenu.php';
 } ?>
 
+
+
 <div class="container-fluid">
+
     <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-4 align-self-center">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 align-self-center">
             <p>
             <h3><b><span><a href="<?php echo URLROOT; ?>/Activity"><i class="fas fa-arrow-left" style="color:black;"></i></a></span><span class="pl-2" style="color:#E46E2E;">Activity</span> <span>Info</span> </b></h3>
             </p>
         </div>
     </div>
 
+
     <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
-        <div class="col-sm-12 col-lg-4 text-center">
-            <h3><b>Gym Name</h3></b>
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 align-self-center">
+            <div class="row">
+                <div class="col-4 pr-0">
+                    <img class="card-img-top" src="<?php echo URLROOT; ?>/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">
+                </div>
+                <div class="col-8">
+                    <h4><b><?php //Array with two object, we need to access object 2 from index 0 that has gym info
+                            echo $data['gym_activity'][1]->gym_name; ?></h4></b>
+                    <hr>
+                    <h5 class="mt-2 mt-sm-3"><?php //Array with two object, we need to access object 1 from index 0 that has activity info
+                                                echo $data['gym_activity'][0]->activity_name; ?>
+                    </h5>
+                    <h5 class="mt-2 mt-sm-3"><b> <?php echo $data['gym_activity'][0]->category; ?></b></h5>
+
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row justify-content-center" style="background-color: white;">
-        <div class="col-sm-12 col-lg-4 text-center">
-            <h5><?php //Array with two object, we need to access object 1 from index 0 that has activity info
-                echo $data['gym_activity'][0]->activity_name; ?></h5>
-        </div>
-    </div>
-    <div class="row justify-content-center" style="background-color: white;">
-        <div class="col-sm-12 col-lg-4 text-center">
-            <p class="activity-address"><?php //Array with two object, we need to access object 2 from index 0 that has gym info
-                                        echo $data['gym_activity'][1]->gym_address; ?></p>
-        </div>
-    </div>
-    <div class="row justify-content-center" style="background-color: white;">
-        <div class="col-sm-12 col-lg-3 text-center">
-            <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>">
+    <div class="row justify-content-center d-none d-lg-flex" style="background-color: white; padding-top:20px;">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 text-center">
+            <a style="text-decoration: none;" class="align-items-end" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>">
                 <button type="button" class="add-activity-btn">Add Activity</button>
             </a>
         </div>
     </div>
-    <div class="row justify-content-center" style="background-color: white; margin-bottom:100px;">
-        <div class="col-sm-12 col-lg-4">
-            <table class="activity-table-info">
-                <tbody>
-                    <tr>
-                        <th>
-                            Category
-                        </th>
-                        <td>
-                            <?php echo $data['gym_activity'][0]->category; ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Day(s)
-                        </th>
-                        <td>
-                            <?php
-                            foreach ((unserialize($data['gym_activity'][0]->sessions_per_week)) as $session_per_week) {
-                                echo $session_per_week . "<br/>";
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Time(s)
-                        </th>
-                        <td>
-                            Nothing dynamic yet
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Price per session
-                        </th>
-                        <td>
-                            <?php echo $data['gym_activity'][0]->credit; ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Capacity
-                        </th>
-                        <td>
-                            <?php echo $data['gym_activity'][0]->max_capacity; ?></td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Instructor
-                        </th>
-                        <td>
-                            Nothing dynamic yet
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+            <h5><b>Description</b></h5>
+            <p class="m-0 pl-2"><?php echo $data['gym_activity'][0]->description; ?></p>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+            <h5><b>Days and Times</b></h5>
+            <p class="m-0">
+                <?php
+                foreach ((unserialize($data['gym_activity'][0]->sessions_per_week)) as $session_per_week) {
+                    echo $session_per_week . "<br/>";
+                }
+                ?>
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+            <h5><b>Price</b></h5>
+            <p class="m-0 pl-2"><?php echo $data['gym_activity'][0]->credit; ?> credits per session</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+            <h5><b>Capacity</b></h5>
+            <p class="m-0 pl-2"><?php echo $data['gym_activity'][0]->max_capacity; ?> people per class</p>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+            <h5><b>Location</b></h5>
+            <p class="m-0 pl-2"> <?php //Array with two object, we need to access object 2 from index 0 that has gym info
+                                    echo $data['gym_activity'][1]->gym_address; ?>
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="background-color: white; padding-top:20px; padding-bottom: 100px;">
+        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+
+            <div id="map"></div>
+
+
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3D6RYLp7QUyUuw93C-AOyP-_IPya_LXw&callback=initMap&libraries=&v=weekly" async></script>
+        </div>
+    </div>
+</div>
+<div class="btn-bottom">
+    <div class="row justify-content-center d-flex d-lg-none">
+        <div class="col-12 text-center" style=>
+            <a style="text-decoration: none;" class="align-items-end" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>">
+                <button type="button" class="add-activity-btn">Add Activity</button>
+            </a>
         </div>
     </div>
 </div>
 
-<div style="height:200px;width:100%; position:absolute;">
-    <?php require APPROOT . '/views/inc/footer.php'; ?>
-</div>
 
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        const location = {
+            lat: <?php echo $data['gym_activity'][1]->latitude; ?>,
+            lng: <?php echo $data['gym_activity'][1]->longitude; ?>
+        };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: location,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+    }
+</script>
 
 <style>
-    th {
-        padding-right: 15px;
-        padding-bottom: 20px;
-        text-align: right;
-        width: 50%;
-    }
-
-    td {
-        padding-left: 15px;
-        padding-bottom: 20px;
-        border: none;
-        border-left: solid 1px #f2f2f2;
-        text-align: left;
-        width: 50%;
+    #map {
+        width: 100%;
+        height: 300px;
     }
 
     .activity-address {
         font-size: 12px;
     }
 
-
     .add-activity-btn {
         width: 100%;
+        max-width: 350px;
         height: 45px;
         border-radius: 24px;
         border-style: none;
@@ -140,11 +150,10 @@
         font-weight: bold;
     }
 
-    .activity-table-info {
-        margin-top: 50px;
+    .btn-bottom {
+        position: fixed;
         width: 100%;
-        border-collapse: collapse;
-        border-spacing: 20px;
-        margin-bottom: 20px;
+        bottom: 0;
+        padding-bottom: 20px;
     }
 </style>

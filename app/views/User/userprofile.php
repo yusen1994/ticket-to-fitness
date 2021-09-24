@@ -1,8 +1,10 @@
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
-
-
 <div class="container-fluid" style="margin-bottom: 100px;">
+
+    <?php
+    var_dump($data['photo'])
+    ?>
     <div class="row justify-content-center">
         <div class="col-sm-12 col-xl-4">
             <div class="row mt-3">
@@ -20,7 +22,7 @@
             <div class="row justify-content-center">
                 <div class="col-4 pr-0">
                     <?php
-                    if ($data['photo'] !== NULL) {
+                    if ($data['photo'] !== "") {
                         echo '<img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%; object-fit: contain;" src="' . URLROOT . '/uploads/' . $data['photo'] . '">';
                     } else {
                         echo '<img class="img-fluid rounded" style=" display:block; height:auto; max-width:100%; object-fit: contain;" src="' . URLROOT . '/images/user-default.png">';
@@ -75,9 +77,7 @@
 
     <div class="row justify-content-center mt-3">
         <div class="col-sm-12 col-lg-3">
-            <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Activity">
-                <button type="button" class="dashboard-option-btn">Change Password</button>
-            </a>
+            <button type="button" data-toggle="modal" data-target="#changePasswordModal" class="dashboard-option-btn">Change Password</button>
         </div>
     </div>
 
@@ -235,100 +235,7 @@
     </div>
 </div>
 
-<!-- Modal - Registeration-->
-<div class="modal fade" id="registerGymModal" tabindex="-1" role="dialog" aria-labelledby="registerGymModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"> Fill in the form</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="<?php echo URLROOT; ?>/Accounts/registerGym" method="post">
 
-                    <div class="form-group">
-
-                        <input type="text" id="gymname" class="form-control" placeholder="Gym Name" value="<?php if (!empty($data['gym_name'])) {
-                                                                                                                echo $data['gym_name'];
-                                                                                                            } ?>" name="gym_name" required title="">
-                        <?php
-                        if (!empty($data['gym_name_err'])) {
-                            echo "<span>";
-                            echo $data['gym_name_err'];
-                            echo "</span>";
-                        }
-                        ?>
-                    </div>
-
-
-                    <div class="form-group">
-                        <input type="text" id="gymaddress" class="form-control" placeholder="Address" value="<?php if (!empty($data['gym_address'])) {
-                                                                                                                    echo $data['gym_address'];
-                                                                                                                } ?>" name="gym_address" required title="">
-
-                    </div>
-
-                    <div class="form-group" id="lat_area">
-                        <input type="hidden" name="latitude" id="latitude" class="form-control" placeholder="Latitude">
-
-                    </div>
-
-                    <div class="form-group" id="long_area">
-                        <input type="hidden" id="longitude" name="longitude" class="form-control" placeholder="Longitude">
-
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="gymemail" class="form-control" placeholder="Gym Email" value="<?php if (!empty($data['gym_email'])) {
-                                                                                                                    echo $data['gym_email'];
-                                                                                                                } ?>" name="gym_email" required title="">
-                        <?php
-                        if (!empty($data['gym_email_err'])) {
-                            echo "<span>";
-                            echo $data['gym_email_err'];
-                            echo "</span>";
-                        }
-                        ?>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="phonenumber" class="form-control" placeholder="Phone Number" value="<?php if (!empty($data['phone_number'])) {
-                                                                                                                        echo $data['phone_number'];
-                                                                                                                    } ?>" name="phone_number" required title="">
-
-                        <?php
-                        if (!empty($data['phone_number_err'])) {
-                            echo "<span>";
-                            echo $data['phone_number_err'];
-                            echo "</span>";
-                        }
-                        ?>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="abn" class="form-control" placeholder="ABN" name="abn" required>
-
-                        <?php
-                        if (!empty($data['abn_err'])) {
-                            echo "<span>";
-                            echo $data['abn_err'];
-                            echo "</span>";
-                        }
-                        ?>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 </div>
 </div>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2021 at 07:53 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.27
+-- Generation Time: Sep 24, 2021 at 08:53 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,17 +64,18 @@ CREATE TABLE `credits_pack` (
   `id` int(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `total_credit` int(20) NOT NULL,
-  `cost` int(20) NOT NULL
+  `cost` int(20) NOT NULL,
+  `bonus_credits` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `credits_pack`
 --
 
-INSERT INTO `credits_pack` (`id`, `name`, `total_credit`, `cost`) VALUES
-(1, 'Small Credit Pack', 10, 10),
-(2, 'Medium Credit Pack', 20, 20),
-(3, 'Large Credit Pack', 100, 100);
+INSERT INTO `credits_pack` (`id`, `name`, `total_credit`, `cost`, `bonus_credits`) VALUES
+(1, 'Small Credits Pack', 25, 10, 0),
+(2, 'Medium Credits Pack', 60, 20, 10),
+(3, 'Large Credits Pack', 150, 50, 25);
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,8 @@ INSERT INTO `gym_earnings` (`id`, `Date`, `gym_id`, `Credits`) VALUES
 (10, '2021-09-11 16:10:27', 19, 200),
 (11, '2021-09-12 12:05:18', 17, 200),
 (12, '2021-09-13 12:14:05', 18, 500),
-(13, '2021-09-13 12:14:05', 19, 500);
+(13, '2021-09-13 12:14:05', 19, 500),
+(14, '2021-09-23 20:12:38', 19, 200);
 
 -- --------------------------------------------------------
 
@@ -297,7 +299,8 @@ INSERT INTO `users_allocation` (`id`, `user_id`, `timetable_id`, `activity_id`, 
 (40, 19, 2, 47, 19),
 (41, 19, 2, 47, 19),
 (42, 19, 3, 47, 19),
-(43, 19, 13, 52, 17);
+(43, 19, 13, 52, 17),
+(44, 17, 2, 47, 19);
 
 -- --------------------------------------------------------
 
@@ -445,7 +448,11 @@ INSERT INTO `users_credits` (`id`, `total_credit`, `user_id`) VALUES
 (127, 100, 19),
 (128, 100, 19),
 (129, -200, 19),
-(130, 100, 19);
+(130, 100, 19),
+(131, 10, 17),
+(132, 100, 17),
+(133, 100, 17),
+(134, -200, 17);
 
 --
 -- Indexes for dumped tables
@@ -534,7 +541,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `credits_pack`
@@ -558,7 +565,7 @@ ALTER TABLE `gym_activity_timetable`
 -- AUTO_INCREMENT for table `gym_earnings`
 --
 ALTER TABLE `gym_earnings`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `gym_information`
@@ -576,19 +583,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_activity`
 --
 ALTER TABLE `users_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `users_allocation`
 --
 ALTER TABLE `users_allocation`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `users_credits`
 --
 ALTER TABLE `users_credits`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- Constraints for dumped tables
