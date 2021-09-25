@@ -2,9 +2,6 @@
 
 <div class="container-fluid" style="margin-bottom: 100px;">
 
-    <?php
-    var_dump($data['photo'])
-    ?>
     <div class="row justify-content-center">
         <div class="col-sm-12 col-xl-4">
             <div class="row mt-3">

@@ -93,7 +93,7 @@ class ActivityModel
   public function searchByName($param)
   {
     $this->db->query('SELECT * FROM gym_activity WHERE activity_name LIKE :query OR category LIKE :query');
-    $this->db->bind(':query', $param."%");
+    $this->db->bind(':query', $param . "%");
     $row = $this->db->resultSet();
 
     if ($this->db->rowCount() > 0) {
@@ -102,8 +102,9 @@ class ActivityModel
     }
   }
 
-  public function nearestOffer($data){
-    
+  public function nearestOffer($data)
+  {
+
     $this->db->query('SELECT * , (3956 * 2 * ASIN(SQRT( POWER(SIN(( :latitude - `gym_information`.`latitude`) *  pi()/180 / 2), 2) +COS( :latitude2 * pi()/180) * COS(`gym_information`.`latitude` * pi()/180) * POWER(SIN(( :longitude - `gym_information`.`longitude`) * pi()/180 / 2), 2) ))) as distance  
     from gym_activity JOIN gym_information ON gym_information.gym_id = gym_activity.gym_id  
     having  distance <= :distance 
@@ -114,14 +115,15 @@ class ActivityModel
     $this->db->bind(':longitude', $data['longitude']);
     $this->db->bind(':distance', $data['distance']);
     $row = $this->db->resultSet();
-   
+
     if ($this->db->rowCount() > 0) {
 
       return $row;
     }
   }
 
-  public function fetchActivitybyid($id){
+  public function fetchActivitybyid($id)
+  {
     $this->db->query('SELECT * FROM gym_activity WHERE id = :id');
     $this->db->bind(':id', $id);
     $row = $this->db->resultSet();
@@ -130,10 +132,10 @@ class ActivityModel
 
       return $row;
     }
-
   }
 
-  public function fetchgymInfoByid($gymid){
+  public function fetchgymInfoByid($gymid)
+  {
     $this->db->query('SELECT * FROM gym_information WHERE gym_id = :id');
     $this->db->bind(':id', $gymid);
     $row = $this->db->resultSet();
@@ -142,10 +144,20 @@ class ActivityModel
 
       return $row;
     }
-
   }
 
-  
+  public function fetchActivityTimebyid($activityid, $gymid)
+  {
+    $this->db->query('SELECT * FROM gym_activity_timetable WHERE gym_id = :gymid AND activity_id = :activityid');
+    $this->db->bind(':gymid', $gymid);
+    $this->db->bind(':activityid', $activityid);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+      return $row;
+    }
+  }
+
   public function addToCart($data)
   {
 
@@ -153,33 +165,30 @@ class ActivityModel
     $this->db->bind(':user_id', $data['user_id']);
     $this->db->bind(':activity_id', $data['activity_id']);
 
-    
-    if($this->db->execute()){
+
+    if ($this->db->execute()) {
       return true;
     } else {
       return false;
     }
   }
 
-  public function checkCart($data){
+  public function checkCart($data)
+  {
 
     $this->db->query('SELECT * FROM `cart` WHERE user_id = :user_id and activity_id=:activity_id');
     $this->db->bind(':user_id', $data['user_id']);
     $this->db->bind(':activity_id', $data['activity_id']);
 
 
-   
+
     $row = $this->db->resultSet();
 
     if ($this->db->rowCount() > 0) {
 
       return true;
-    }else{
-      return false; 
+    } else {
+      return false;
     }
   }
-
-
-
-
 }

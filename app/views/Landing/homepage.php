@@ -157,26 +157,8 @@
   </div>
 
 
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <div class="card text-center mt-3 mt-lg-5">
-        <div class="card-header">
-          <h2><b>Promotion</b></h2>
-        </div>
-      </div>
-      <div class="row justify-content-center mt-3">
-        <div class="col-sm-12 col-lg-4 text-center">
-          <h5 class="card-title">Get 10% bonus credit when you purchase 100 credits</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="<?php echo URLROOT; ?>/Accounts/login">
-            <button type="button" class="land-login-btn m-2">Sign up now</button>
-          </a>
-        </div>
-      </div>
 
-    </div>
-  </div>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-12 p-0">
       <?php require APPROOT . '/views/inc/footer.php'; ?>
     </div>
@@ -205,12 +187,6 @@
     background-position: center;
   }
 
-  .title-card {
-    width: 100%;
-    background-color: white;
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-  }
 
   .title-card-overlay {
     width: 100%;

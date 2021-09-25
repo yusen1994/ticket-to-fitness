@@ -10,7 +10,7 @@
 
 
 <div class="container-fluid">
-
+    <?php var_dump($data['activity_time'][0]) ?>
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 align-self-center">
             <p>
@@ -54,15 +54,28 @@
     </div>
     <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
         <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+
             <h5><b>Days and Times</b></h5>
-            <p class="m-0">
-                <?php
-                foreach ((unserialize($data['gym_activity'][0]->sessions_per_week)) as $session_per_week) {
-                    echo $session_per_week . "<br/>";
-                }
-                ?>
-            </p>
+            <table>
+                <tbody>
+                    <?php
+                    foreach (($data['activity_time']) as $session_per_week) {
+                        echo '
+                            <tr>
+                                <td class="pl-2">
+                                      <span style="text-transform: capitalize;"><p class="m-0">' . $session_per_week->day . '</p></span>
+                                </td>
+                                <td class="pl-5">
+                                    <p class="m-0">' . $session_per_week->time . '</p>
+                                </td>
+                            </tr>
+                    ';
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
+
     </div>
     <div class="row justify-content-center" style="background-color: white; padding-top:20px;">
         <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
@@ -129,6 +142,11 @@
 </script>
 
 <style>
+    td {
+        padding-top: 10px;
+    }
+
+
     #map {
         width: 100%;
         height: 300px;
