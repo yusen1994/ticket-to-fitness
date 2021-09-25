@@ -82,10 +82,10 @@
                 if (!empty($data['gym_activity'])) {
                     foreach ($data['gym_activity'] as $activity) {
                         echo '
-                <div class="col-6 col-md-4 col-lg-3">
-                    <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id .
+                      <div class="col-6 col-md-4 col-lg-3">
+                             <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id .
                             '" class="card-link" style="text-decoration:none!important; color:black;">
-                        <div class="card mt-4 " style="width: auto; border-radius:18px; min-height:400px;">
+                             <div class="card mt-4 " style="width: auto; border-radius:18px; min-height:400px;">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     ';
@@ -111,10 +111,9 @@
                 ';
                     }
                 } else {
-                    echo "No Gym activity please check back later!";
+                    echo "Nothing to show, please check back later!";
                 }
                 ?>
-
             </div>
         </div>
     </div>

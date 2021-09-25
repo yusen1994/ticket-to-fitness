@@ -99,32 +99,39 @@ class Account
     public function registerAccount($data)
     {
         //Photo file directory 
-        $root = $_SERVER['DOCUMENT_ROOT']; 
-        $target = $root."/tickettofitness/public/uploads/" . basename($data['photo']);
+        $root = $_SERVER['DOCUMENT_ROOT'];
+        $target = $root . "/tickettofitness/public/uploads/" . basename($data['photo']);
 
-        $this->db->query('INSERT INTO users (firstname,lastname,email,password,photo,user_activation_code,user_email_status,password_reset) VALUES (:firstname,:lastname, :email, :password, :photo, :activation_code,:user_email_status,:password_reset)');
+        $date = date('d M Y');
+
+        $this->db->query('INSERT INTO users (account_created,firstname,lastname,email,password,gender,dob,photo,user_activation_code,user_email_status,password_reset) VALUES (:account_created, :firstname,:lastname, :email, :password, :gender, :dob, :photo, :activation_code,:user_email_status,:password_reset)');
 
         // Bind Values
+        $this->db->bind(':account_created', $date);
         $this->db->bind(':firstname', $data['firstname']);
         $this->db->bind(':lastname', $data['lastname']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':password', $data['password']);
+        $this->db->bind(':dob', $data['dob']);
+        $this->db->bind(':gender', $data['gender']);
         $this->db->bind(':photo', $data['photo']);
         $this->db->bind(':activation_code', $data['user_activation_code']);
         $this->db->bind(':user_email_status', $data['user_email_status']);
         $this->db->bind(':password_reset', $data['password_reset']);
 
-
+        var_dump($data['dob']);
 
         //Execute
         if ($this->db->execute()) {
-            if (move_uploaded_file($data['tmp_photo'], $target)) {
-                return true;
-            } else {
+            if (!empty($data['photo'])) {
+                if (move_uploaded_file($data['tmp_photo'], $target)) {
+                    return true;
+                } else {
 
-                return false;
-
+                    return false;
+                }
             }
+            return true;
         } else {
             return false;
         }
@@ -150,8 +157,8 @@ class Account
 
     public function registerGym($data)
     {
-        $root = $_SERVER['DOCUMENT_ROOT']; 
-        $target = $root."/tickettofitness/public/uploads/" . basename($data['photo']);
+        $root = $_SERVER['DOCUMENT_ROOT'];
+        $target = $root . "/tickettofitness/public/uploads/" . basename($data['photo']);
         $this->db->query('INSERT INTO `gym_information`(`gym_id`, `gym_name`, `gym_address`, `photo`, `latitude`,`longitude`, `gym_email`, `phone_number`, `abn`) VALUES (:gym_id, :gym_name, :gym_address,:photo, :latitude,:longitude,:gym_email,:phone_number,:abn)');
         $this->db->bind(':gym_id', $data['gym_id']);
         $this->db->bind(':gym_name', $data['gym_name']);
@@ -172,7 +179,6 @@ class Account
             } else {
 
                 return false;
-
             }
         } else {
             return false;

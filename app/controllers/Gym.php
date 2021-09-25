@@ -160,7 +160,7 @@ class Gym extends Controller
                     $time_sunday = $this->joinTime($_POST['sunday_starttimeArray'], $_POST['sunday_endtimeArray']);
                 }
 
-              
+
                 $data = [
 
                     'gym_id' => $_SESSION['user_id'],
@@ -346,12 +346,12 @@ class Gym extends Controller
             $gymactivity = $this->gymModel->viewActivity($data);
             if (!empty($gymactivity)) {
                 $data['gym_activity'] = $gymactivity;
-                $this->view('Gym/activities', $data);
+                $this->view('Gym/newactivity', $data);
             }
 
 
 
-            $this->view('Gym/activities', $data);
+            $this->view('Gym/newactivity', $data);
         } else {
             redirect('Accounts/login');
         }

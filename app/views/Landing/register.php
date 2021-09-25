@@ -1,6 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
+
 <div class="login-form">
 	<form action="<?php echo URLROOT; ?>/accounts/register" method="post" enctype="multipart/form-data">
 		<h2 class="text-center"><b>Register</b></h2>
@@ -11,9 +12,9 @@
 																												} ?>" name="firstname" required title="">
 			<?php
 			if (!empty($data['firstname_err'])) {
-				echo "<span>";
+				echo "<span style='color:red;'><b>";
 				echo $data['firstname_err'];
-				echo "</span>";
+				echo "</b></span>";
 			}
 			?>
 		</div>
@@ -23,9 +24,9 @@
 																											} ?>" name="lastname" required title="">
 			<?php
 			if (!empty($data['lastname_err'])) {
-				echo "<span>";
+				echo "<span style='color:red;'><b>";
 				echo $data['lastname_err'];
-				echo "</span>";
+				echo "</b></span>";
 			}
 			?>
 		</div>
@@ -36,13 +37,45 @@
 
 			<?php
 			if (!empty($data['email_err'])) {
-				echo "<span>";
+				echo "<span style='color:red;'><b>";
 				echo $data['email_err'];
-				echo "</span>";
+				echo "</b></span>";
 			}
 			?>
 		</div>
 
+		<div class="form-group">
+			<input type="date" id="dob" class="form-control input-style" name="dob" value="<?php if (!empty($data['dob'])) {
+																								echo $data['dob'];
+																							} ?>" required title="">
+
+			<?php
+			if (!empty($data['sob_err'])) {
+				echo "<span style='color:red;'><b>";
+				echo $data['dob_err'];
+				echo "</b></span>";
+			}
+			?>
+		</div>
+
+		<div class=" form-group">
+			<select id="gender" class="form-control input-style" name="gender" required>
+				<option value="select">Gender</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other">Other</option>
+			</select>
+			<?php
+			if (!empty($data['gender_err'])) {
+				echo "<span style='color:red;'><b>";
+				echo $data['gender_err'];
+				echo "</b></span>";
+			}
+			?>
+		</div>
+
+		<hr>
+		<br>
 
 		<div class="form-group">
 
@@ -56,14 +89,17 @@
 		</div>
 
 
+		<hr>
+		<br>
+
 		<div class="form-group">
 			<input type="password" id="password" class="form-control input-style" placeholder="Password" name="password" required>
 
 			<?php
 			if (!empty($data['password_err'])) {
-				echo "<span>";
+				echo "<span style='color:red;'><b>";
 				echo $data['password_err'];
-				echo "</span>";
+				echo "</b></span>";
 			}
 			?>
 		</div>
@@ -72,9 +108,9 @@
 
 			<?php
 			if (!empty($data['cpassword_err'])) {
-				echo "<span>";
+				echo "<span style='color:red;'><b>";
 				echo $data['cpassword_err'];
-				echo "</span>";
+				echo "</b></span>";
 			}
 			?>
 		</div>
@@ -100,6 +136,7 @@
 		echo "</div>";
 	}
 	?>
+
 
 
 </div>
@@ -153,5 +190,3 @@
 
 	}
 </style>
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>

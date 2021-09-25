@@ -125,9 +125,10 @@ class Activity extends Controller
 
         $data['activity'] = $this->activityModel->fetchActivitybyid($activityid);
         $data['gym_info'] = $this->activityModel->fetchgymInfoByid($gymid);
+        $data['activity_time'] = $this->activityModel->fetchActivityTimebyid($activityid, $gymid);
         $data['gym_activity'] = array_merge($data['activity'], $data['gym_info']);
         $data['activity_id'] = $activityid;
-        $this->view('landing/activitydetails', $data);
+        $this->view('Landing/activitydetails', $data);
     }
 
 

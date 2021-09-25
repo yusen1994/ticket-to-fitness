@@ -41,11 +41,14 @@ class User extends Controller
             if (!empty($userinfo)) {
                 $data = [
 
+                    'account_created' => $userinfo->account_created,
                     'firstname' => $userinfo->firstname,
                     'lastname' => $userinfo->lastname,
                     'email' => $userinfo->email,
                     'username' => $userinfo->username,
                     'photo' => $userinfo->photo,
+                    'dob' => $userinfo->dob,
+                    'gender' => $userinfo->gender,
 
                 ];
 

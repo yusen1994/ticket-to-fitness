@@ -76,18 +76,36 @@
             echo '
                 <div class = "col-6 col-md-4 col-lg-3">
                     <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link" style="text-decoration:none!important; color:black;">
-                        <div class="card pt-2" style="width: auto; border-radius:18px; min-height:420px;">
+                        <div class="card pt-2" style="width: auto; border-radius:18px; min-height:380px;">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">
+                                    <img class="card-img-top" src="' . URLROOT;
+            if (!empty($data['gym_photo'])) {
+              echo '/uploads/' . $data['photo'];
+            } else {
+              echo '/images/golds_gym.png';
+            }
+            echo '" alt="Card image cap" style="max-width: 200px;">
                                 </div>
                             </div>
-                            <div class="card-body">
-                            <h6 class="card-title">' . $activity->activity_name . '</h6>
-                            <p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>
-                            <img src
-                            <hr>
-                            <p><b>Credit: ' . $activity->credit . '</b></p>
+                            <div class="card-body pb-3">
+                            <div class="row">
+                              <div class="col-12">
+                                  <h6 class="card-title">' . $activity->gym_name . '</h6>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                  <h6 class="card-title">' . $activity->activity_name . '</h6>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                  <h6 class="card-title">' . $activity->category . '</h6>
+                              </div>
+                            </div>
+                            <br>
+                            <p><b>Credits: ' . $activity->credit . '</b></p>
                             <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '">More Details</a>
                             </div>
                         </div>
@@ -100,7 +118,6 @@
         } else {
           echo "No Gym activity please check back later!";
         }
-
         ?>
       </div>
     </div>
@@ -157,26 +174,8 @@
   </div>
 
 
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <div class="card text-center mt-3 mt-lg-5">
-        <div class="card-header">
-          <h2><b>Promotion</b></h2>
-        </div>
-      </div>
-      <div class="row justify-content-center mt-3">
-        <div class="col-sm-12 col-lg-4 text-center">
-          <h5 class="card-title">Get 10% bonus credit when you purchase 100 credits</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="<?php echo URLROOT; ?>/Accounts/login">
-            <button type="button" class="land-login-btn m-2">Sign up now</button>
-          </a>
-        </div>
-      </div>
 
-    </div>
-  </div>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-12 p-0">
       <?php require APPROOT . '/views/inc/footer.php'; ?>
     </div>
@@ -205,12 +204,6 @@
     background-position: center;
   }
 
-  .title-card {
-    width: 100%;
-    background-color: white;
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-  }
 
   .title-card-overlay {
     width: 100%;
