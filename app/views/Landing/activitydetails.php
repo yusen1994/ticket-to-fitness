@@ -10,7 +10,6 @@
 
 
 <div class="container-fluid">
-    <?php var_dump($data['activity_time'][0]) ?>
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 align-self-center">
             <p>

@@ -2,8 +2,6 @@
 
 <div class="container-fluid mt-3">
 
-	<?php var_dump($data) ?>
-
 	<div class="row justify-content-center">
 		<div class="col-sm-12 col-md-8 col-xl-6">
 			<div class="btn-group btn-group-lg buttons_days_of_week " role="group" aria-label="buttons_days_of_week">
