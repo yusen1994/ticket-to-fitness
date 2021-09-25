@@ -1,7 +1,6 @@
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
 <div class="container-fluid" style="margin-bottom: 100px;">
-
     <div class="row justify-content-center">
         <div class="col-sm-12 col-xl-4">
             <div class="row mt-3">
@@ -44,12 +43,12 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-12">
-                            <p>Gender</p>
+                            <p style="text-transform: capitalize;"><?php echo $data['gender'] ?></p>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-12">
-                            <p>DOB</p>
+                            <p><?php echo date("d M Y", strtotime($data['dob']));   ?></p>
                         </div>
                     </div>
                 </div>
@@ -57,9 +56,9 @@
         </div>
     </div>
     <div class="row justify-content-center mt-3">
-        <div class="col-sm-12 col-xl-4 text-center">
-            <div class="content-background pt-3 pb-3">
-                <h4 style="font-weight:bold">Joined: <span style="color: #E46E2E">9 February 2020</h4></span>
+        <div class="col-sm-12 col-xl-4 text-center align-self-center">
+            <div class="content-background">
+                <h4 style="font-weight:bold; margin:0px;">Joined: <span style="color: #E46E2E"><?php echo $data['account_created'] ?></h4></span>
             </div>
         </div>
     </div>
@@ -96,8 +95,10 @@
     .content-background {
         background-color: white;
         border-radius: 18px;
-        width: 100%;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
     }
 
     .dashboard-highlight-btn {

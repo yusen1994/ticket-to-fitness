@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2021 at 08:53 AM
+-- Generation Time: Sep 25, 2021 at 06:54 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -216,12 +216,16 @@ INSERT INTO `gym_information` (`id`, `gym_id`, `gym_name`, `gym_address`, `photo
 
 CREATE TABLE `users` (
   `id` int(20) NOT NULL,
+  `account_created` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `dob` date DEFAULT NULL,
   `photo` varchar(255) NOT NULL,
+  `contact_number` int(32) NOT NULL,
   `user_activation_code` varchar(255) NOT NULL,
   `user_email_status` varchar(255) NOT NULL,
   `password_reset` varchar(255) NOT NULL,
@@ -232,23 +236,24 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `password`, `photo`, `user_activation_code`, `user_email_status`, `password_reset`, `partnership_status`) VALUES
-(8, 'anish', 'Anish', 'Adhikari', 'appy233986@gmail.com', '$2y$10$Sfz/xyVGjsYFw.X8bH4OIOan8oot8YVVDryBlHjWVfK2ZXKgZVDkS', '', '1c5288b3c4c13e4454ce9d4a555b23c6', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(12, 'pikachu', 'pikachu', 'pikachu', 'pikachu@gmail.com', '$2y$10$G4PHO1tMIDgbOQk2LIAJk.Y3Co/GWSzLIdWjQxGStL7LnBuGhAkqO', '', 'fe2dec42282688c94b363b8a15e630c3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(13, 'random', 'random', 'random', 'random@gmail.com', '$2y$10$cSjgHFb37qyni4XqcDQy5OcipXHPBv6dM7n2AT7jY0yFfNGLrbmI.', '', '3b721707409598c056c51f2ee403a0ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(14, '&””;Max123', '&””;Max123', 'puru', 'suru@gmail.com', '$2y$10$2D5.zAsI8y9X2Hd/9REgfeIFiGjGpwE1z42THr78w9f.zHXNicUGS', '', '53845891f2e8fceef4e9043a4e77c1ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(16, 'sndp12', 'Sandeep', 'Giri', 'sgiri4@utas.edu.au', '$2y$10$zbuBm8yQ2zeEaTE6q9.BrOBKzF5SjT2U4NSGxDtPtFvOCK4kw1GlK', '', '9ca32f9746fab891e7df39e6a1bd2bf8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(17, 'happy', 'will', 'smith', 'happy@gmail.com', '$2y$10$o7DOjmRdO11f1Fbt2Z8i8OWNVo2kxXq8HOqHE6X821mXn1YlPeDL2', '', '9f5c58295bfb78364a77260a68b05a5e', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(18, 'jack', 'jack', 'jack', 'jack@gmail.com', '$2y$10$fERJcn0dD484lTsHaw4gJO3rpph03mZ.Dwpb9SPNN12gT2H6AJO.m', '', 'cf763e86d013c0d392b6179d3e750c75', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(19, 'sndpgiri', 'sandeep', 'giri', 'sndp@gmail.com', '$2y$10$.XZWBn83rWazxdfexmn0UuzTI.XkZ7xLsX4BgoMLVkMuoJ.2t7gzi', '', 'f9ca93644d9f791f4a495a4054e74637', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(20, 'spiderman', 'spidey', 'man', 'spidey@gmail.com', '$2y$10$tNDNfHXZr.2cgLc0eCXwfuYxpTLNTgLEk1quRTY6NSOlqwy60mkE6', '', '0eac06a065e9f6817582de711e08d5b3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(21, 'batman', 'batman', 'batman', 'batman@gmail.com', '$2y$10$yXPO5zkHNJROy2ieZ8Bdx.SeBD8gOyrxlX0yDJ6//Jt397zDY5us2', '', 'e7150a3dfa8a632b2576094c48e79e14', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
-(22, 'superman', 'superman', 'superman', 'superman@gmail.com', '$2y$10$RLPZ.O7S1JFdQwJuTcKC6uy04/JLwGGDWOUu6H2vGwPJHdivIj37u', '', 'bf14494ace3e2145f97c92009ab48366', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(23, 'alexa', 'alexa', 'alexa', 'alexa', '$2y$10$PL/7k0irHZDb8KKo7Vin.eJMpi1ICopSDouJcwjmQMQDgWxu4zIhG', '', 'a4af8521dd98e847d0d55ece52dde7e8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(24, 'jacky', 'jacky', 'chan', 'jacky@gmail.com', '$2y$10$sZk5wPqQFsIf77xah0NMduZQVe2gh0QazLc1UFOIf9gp7K4AYbnIG', '', '7d0e4fbdbc130ee208f9a343fd60eaa2', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(25, 'restful', 'rest', 'ful', 'restful@gmail.com', '$2y$10$CsEwQHpktkcFZ0HUMAVW8OHi6M.Sr05bjCwC1hpRqqBf3sCGF/cmK', '', '6a88eca6538e66f007420c1c7a98e3a7', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(40, NULL, 'wiz', 'khalifa', 'sndpofficialida@gmail.com', '$2y$10$9DNhDAJZWuWOWm9WkOSdfuOrcoL3bj1VL.I4.sxLKooQXqGzqekti', 'sndpgiri.jpg', '47e57798e2260bf86a92c28a397eb918', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
-(41, NULL, 'Rajesh', 'Hamal', 'rajeshsasasasjasa@gmail.com', '$2y$10$CbZghCHBDP0HlXT5QVeYJOI/PnhAFm1FZjfgS0Bh1TfGyLNeHrKkK', 'nissan-gtr-car-wallpaper-preview.jpg', '33d5110afa0223b62b312777f6a60c4a', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1);
+INSERT INTO `users` (`id`, `account_created`, `username`, `firstname`, `lastname`, `email`, `password`, `gender`, `dob`, `photo`, `contact_number`, `user_activation_code`, `user_email_status`, `password_reset`, `partnership_status`) VALUES
+(8, NULL, 'anish', 'Anish', 'Adhikari', 'appy233986@gmail.com', '$2y$10$Sfz/xyVGjsYFw.X8bH4OIOan8oot8YVVDryBlHjWVfK2ZXKgZVDkS', '', NULL, '', 0, '1c5288b3c4c13e4454ce9d4a555b23c6', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(12, NULL, 'pikachu', 'pikachu', 'pikachu', 'pikachu@gmail.com', '$2y$10$G4PHO1tMIDgbOQk2LIAJk.Y3Co/GWSzLIdWjQxGStL7LnBuGhAkqO', '', NULL, '', 0, 'fe2dec42282688c94b363b8a15e630c3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(13, NULL, 'random', 'random', 'random', 'random@gmail.com', '$2y$10$cSjgHFb37qyni4XqcDQy5OcipXHPBv6dM7n2AT7jY0yFfNGLrbmI.', '', NULL, '', 0, '3b721707409598c056c51f2ee403a0ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(14, NULL, '&””;Max123', '&””;Max123', 'puru', 'suru@gmail.com', '$2y$10$2D5.zAsI8y9X2Hd/9REgfeIFiGjGpwE1z42THr78w9f.zHXNicUGS', '', NULL, '', 0, '53845891f2e8fceef4e9043a4e77c1ea', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(16, NULL, 'sndp12', 'Sandeep', 'Giri', 'sgiri4@utas.edu.au', '$2y$10$zbuBm8yQ2zeEaTE6q9.BrOBKzF5SjT2U4NSGxDtPtFvOCK4kw1GlK', '', NULL, '', 0, '9ca32f9746fab891e7df39e6a1bd2bf8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(17, NULL, 'happy', 'will', 'smith', 'happy@gmail.com', '$2y$10$o7DOjmRdO11f1Fbt2Z8i8OWNVo2kxXq8HOqHE6X821mXn1YlPeDL2', '', NULL, '', 0, '9f5c58295bfb78364a77260a68b05a5e', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(18, NULL, 'jack', 'jack', 'jack', 'jack@gmail.com', '$2y$10$fERJcn0dD484lTsHaw4gJO3rpph03mZ.Dwpb9SPNN12gT2H6AJO.m', '', NULL, '', 0, 'cf763e86d013c0d392b6179d3e750c75', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(19, NULL, 'sndpgiri', 'sandeep', 'giri', 'sndp@gmail.com', '$2y$10$.XZWBn83rWazxdfexmn0UuzTI.XkZ7xLsX4BgoMLVkMuoJ.2t7gzi', '', NULL, '', 0, 'f9ca93644d9f791f4a495a4054e74637', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(20, NULL, 'spiderman', 'spidey', 'man', 'spidey@gmail.com', '$2y$10$tNDNfHXZr.2cgLc0eCXwfuYxpTLNTgLEk1quRTY6NSOlqwy60mkE6', '', NULL, '', 0, '0eac06a065e9f6817582de711e08d5b3', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(21, NULL, 'batman', 'batman', 'batman', 'batman@gmail.com', '$2y$10$yXPO5zkHNJROy2ieZ8Bdx.SeBD8gOyrxlX0yDJ6//Jt397zDY5us2', '', NULL, '', 0, 'e7150a3dfa8a632b2576094c48e79e14', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(22, NULL, 'superman', 'superman', 'superman', 'superman@gmail.com', '$2y$10$RLPZ.O7S1JFdQwJuTcKC6uy04/JLwGGDWOUu6H2vGwPJHdivIj37u', '', NULL, '', 0, 'bf14494ace3e2145f97c92009ab48366', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(23, NULL, 'alexa', 'alexa', 'alexa', 'alexa', '$2y$10$PL/7k0irHZDb8KKo7Vin.eJMpi1ICopSDouJcwjmQMQDgWxu4zIhG', '', NULL, '', 0, 'a4af8521dd98e847d0d55ece52dde7e8', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(24, NULL, 'jacky', 'jacky', 'chan', 'jacky@gmail.com', '$2y$10$sZk5wPqQFsIf77xah0NMduZQVe2gh0QazLc1UFOIf9gp7K4AYbnIG', '', NULL, '', 0, '7d0e4fbdbc130ee208f9a343fd60eaa2', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(25, NULL, 'restful', 'rest', 'ful', 'restful@gmail.com', '$2y$10$CsEwQHpktkcFZ0HUMAVW8OHi6M.Sr05bjCwC1hpRqqBf3sCGF/cmK', '', NULL, '', 0, '6a88eca6538e66f007420c1c7a98e3a7', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(40, NULL, NULL, 'wiz', 'khalifa', 'sndpofficialida@gmail.com', '$2y$10$9DNhDAJZWuWOWm9WkOSdfuOrcoL3bj1VL.I4.sxLKooQXqGzqekti', '', NULL, 'sndpgiri.jpg', 0, '47e57798e2260bf86a92c28a397eb918', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL),
+(41, NULL, NULL, 'Rajesh', 'Hamal', 'rajeshsasasasjasa@gmail.com', '$2y$10$CbZghCHBDP0HlXT5QVeYJOI/PnhAFm1FZjfgS0Bh1TfGyLNeHrKkK', '', NULL, 'nissan-gtr-car-wallpaper-preview.jpg', 0, '33d5110afa0223b62b312777f6a60c4a', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', 1),
+(48, '25 Sep 2021', NULL, 'Lucas', 'Howlett', 'lucasshowlett@gmail.com', '$2y$10$LhJgf7txNrPqIWGfKqZ7Vum26gZvXowwJXf.bocoIkW8Qpsangg/6', 'male', '2021-09-08', '', 0, 'e0f8859b7aab8fe355b8c7cea2929c27', 'not verified', 'SASAffhdjfhdjkhfdkjhfjdhfjhjfdhfdhj', NULL);
 
 -- --------------------------------------------------------
 
@@ -268,7 +273,10 @@ CREATE TABLE `users_activity` (
 --
 
 INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
-(69, 52, 19, 17);
+(69, 52, 19, 17),
+(79, 47, 17, 19),
+(80, 49, 17, 19),
+(81, 48, 17, 19);
 
 -- --------------------------------------------------------
 
@@ -452,7 +460,8 @@ INSERT INTO `users_credits` (`id`, `total_credit`, `user_id`) VALUES
 (131, 10, 17),
 (132, 100, 17),
 (133, 100, 17),
-(134, -200, 17);
+(134, -200, 17),
+(135, 60, 17);
 
 --
 -- Indexes for dumped tables
@@ -541,7 +550,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `credits_pack`
@@ -577,13 +586,13 @@ ALTER TABLE `gym_information`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `users_activity`
 --
 ALTER TABLE `users_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `users_allocation`
@@ -595,7 +604,7 @@ ALTER TABLE `users_allocation`
 -- AUTO_INCREMENT for table `users_credits`
 --
 ALTER TABLE `users_credits`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- Constraints for dumped tables

@@ -165,42 +165,45 @@ class Accounts extends Controller
 
         //Check if fields are empty
         if (empty($data['username'])) {
-            $data['username_err'] = 'Please Enter the Username';
+            $data['username_err'] = 'Please enter the Username';
         }
         if (empty($data['firstname'])) {
-            $data['firstname_err'] = 'Please Enter the Firstname';
+            $data['firstname_err'] = 'Please enter the Firstname';
         }
         if (empty($data['lastname'])) {
-            $data['lastname_err'] = 'Please Enter the Lastname';
+            $data['lastname_err'] = 'Please Ententerer the Lastname';
         }
         if (empty($data['email'])) {
-            $data['email_err'] = 'Please Enter the Email';
+            $data['email_err'] = 'Please enter the Email';
+        }
+        if (empty($data['dob'])) {
+            $data['dob_err'] = 'Please enter your date of birth';
+        }
+        if ($data['gender'] == "select") {
+            $data['gender_err'] = 'Please select your gender';
         }
 
         if (empty($data['password'])) {
-            $data['password_err'] = 'Please Enter the Password';
+            $data['password_err'] = 'Please enter the Password';
         }
 
         if (empty($data['cpassword'])) {
-            $data['cpassword_err'] = 'Please Enter the Confirm Password';
+            $data['cpassword_err'] = 'Please enter the Confirm Password';
         }
 
-        if (empty($data['photo'])) {
-            $data['photo_err'] = 'Please Upload Photo';
-        }
-        if (!empty($data['photo']) && !empty($data['firstname']) && !empty($data['lastname']) && !empty($data['email']) && !empty($data['password']) && !empty($data['cpassword'])) {
+        if (!empty($data['firstname']) && !empty($data['lastname']) && !empty($data['email']) && !empty($data['password']) && !empty($data['cpassword'])) {
             //If Fields aren't empty further check
 
             $checkEmail = $this->accountsModel->checkEmailExists($data['email']);
 
             if (!empty($checkEmail->email)) {
                 if (($checkEmail->email) == $data['email']) {
-                    $data['email_err'] = 'The Email already Exists in the system';
+                    $data['email_err'] = 'The Email already exists in the system';
                 }
             }
 
 
-           /* $checkUsername = $this->accountsModel->checkUsernameExists($data['username']);
+            /* $checkUsername = $this->accountsModel->checkUsernameExists($data['username']);
             if (!empty($checkUsername->username)) {
                 if (($checkUsername->username) == $data['username']) {
                     $data['username_err'] = 'The Username already Exists in the system';
@@ -218,14 +221,14 @@ class Accounts extends Controller
         }
 
 
-        //If no error then proceed to create password has and register user account
-        if (empty($data['photo_err'])  && empty($data['firstname_err']) && empty($data['lastname_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['cpassword_err'])) {
+        //If no error then proceed to create password hash and register user account
+        if (empty($data['firstname_err']) && empty($data['lastname_err']) && empty($data['email_err']) && empty($data['dob_err']) && empty($data['gender_err']) && empty($data['password_err']) && empty($data['cpassword_err'])) {
 
 
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             $data['user_activation_code'] = $this->createActivationCode();
             if ($this->accountsModel->registerAccount($data)) {
-           
+
                 //Send email Verification
                 $this->verificationEmail($data);
                 // Redirect to login
@@ -257,12 +260,14 @@ class Accounts extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
 
-               // 'username' => trim($_POST['username']),
+                // 'username' => trim($_POST['username']),
                 'firstname' => trim($_POST['firstname']),
                 'lastname' => trim($_POST['lastname']),
                 'email' => trim($_POST['email']),
+                'dob' => trim($_POST['dob']),
+                'gender' => trim($_POST['gender']),
                 'photo' => $_FILES['photo']['name'],
-                'tmp_photo'=> $_FILES['photo']['tmp_name'],
+                'tmp_photo' => $_FILES['photo']['tmp_name'],
                 'password' => trim($_POST['password']),
                 'cpassword' => trim($_POST['cpassword']),
                 'message' => '',
@@ -275,7 +280,8 @@ class Accounts extends Controller
                 'email_err' => '',
                 'password_err' => '',
                 'cpassword_err' => '',
-                'photo_err'=>'',
+                'dob_err' => '',
+                'gender_err' => '',
             ];
             //Function call to validate user data for registeration
 
@@ -287,6 +293,8 @@ class Accounts extends Controller
                 'firstname' => '',
                 'lastname' => '',
                 'email' => '',
+                'dob' => '',
+                'gender' => '',
                 'photo' => '',
 
                 'password' => '',
@@ -301,7 +309,8 @@ class Accounts extends Controller
                 'email_err' => '',
                 'password_err' => '',
                 'cpassword_err' => '',
-                'photo_err'=>'',
+                'dob_err' => '',
+                'gender_err' => '',
 
             ];
 
@@ -460,7 +469,7 @@ class Accounts extends Controller
                     'gym_name' => trim($_POST['gym_name']),
                     'gym_address' => trim($_POST['gym_address']),
                     'photo' => $_FILES['photo']['name'],
-                    'tmp_photo'=> $_FILES['photo']['tmp_name'],
+                    'tmp_photo' => $_FILES['photo']['tmp_name'],
                     'gym_email' => trim($_POST['gym_email']),
                     'phone_number' => trim($_POST['phone_number']),
                     'abn' => trim($_POST['abn']),
