@@ -78,36 +78,41 @@
                     <div class="card-container">
                         <div class="row">
                             <div class="col-6 text-left" style="padding-right: 0px;">
-                                <span style="text-transform: capitalize;"><h5><b>' . $single->gym_name . '</b></h5></span>
+                                <span style="text-transform: capitalize;"><h5><b>' . $single->activity_name . '</b></h5></span>
                             </div>
-                            <div class="col-3 text-left" style="padding: 0px;">
-                                <p style="font-size:10px; margin-bottom:0px">' . $single->gym_address . '</p>
+                            <div class="col-3 text-left pl-0">
+                                <a style="text-decoration:none" href=""> <button class="myactivity-edit-btn">Edit</button></a>
                             </div>
                      
-                            <div class="col-3 text-right">
+                            <div class="col-3 text-right pl-0">
                             <form method = "post" action = "' . URLROOT . '/Gym/editActivity/activate">
                             <input type = "hidden" value = "' . $current . '" name = "activity_id">';
-                        
-                            if ($single->status == 0) {
-                                echo '<input type = "hidden" id = "status" value = "true" name = "status"> ';
-                        
-                                echo '<button type="submit" id = "activateBtn" class="myactivity-activate-btn mb-2" >Activate</button>';
-                            } else {
-                                echo '<input type = "hidden" id = "status" value = "false" name = "status"> ';
-                        
-                                echo '<button type="submit" id = "activateBtn" class="myactivity-deactivate-btn mb-2" >Deactivate</button>';
-                            }
-                        
-                            echo '</form>';
-                        echo '<a style="text-decoration:none" href=""> <button class="myactivity-edit-btn">Edit</button></a>
+
+                if ($single->status == 0) {
+                    echo '<input type = "hidden" id = "status" value = "true" name = "status"> ';
+
+                    echo '<button type="submit" id = "activateBtn" class="myactivity-activate-btn mb-2" >Activate</button>';
+                } else {
+                    echo '<input type = "hidden" id = "status" value = "false" name = "status"> ';
+
+                    echo '<button type="submit" id = "activateBtn" class="myactivity-deactivate-btn mb-2" >Deactivate</button>';
+                }
+
+                echo '</form>';
+                echo '
                     </div>
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col text-left">
-                                <p style="margin-bottom:5px; text-transform: capitalize;">' . $single->category . '</p>
+                      </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>' . $single->category . '</h5>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="m-0">' . $single->description . '</p>
+                                </div>
+                            </div>
+                      
                         <div class="row">
                             <div class="col text-left">
                                 <div class="line-separator"></div>
@@ -237,6 +242,7 @@
         font-size: 16px;
 
     }
+
     .myactivity-activate-btn {
         width: 100%;
         max-width: 100px;
@@ -248,6 +254,7 @@
         font-size: 16px;
 
     }
+
     .myactivity-deactivate-btn {
         width: 100%;
         max-width: 100px;

@@ -76,18 +76,36 @@
             echo '
                 <div class = "col-6 col-md-4 col-lg-3">
                     <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link" style="text-decoration:none!important; color:black;">
-                        <div class="card pt-2" style="width: auto; border-radius:18px; min-height:420px;">
+                        <div class="card pt-2" style="width: auto; border-radius:18px; min-height:380px;">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">
+                                    <img class="card-img-top" src="' . URLROOT;
+            if (!empty($data['gym_photo'])) {
+              echo '/uploads/' . $data['photo'];
+            } else {
+              echo '/images/golds_gym.png';
+            }
+            echo '" alt="Card image cap" style="max-width: 200px;">
                                 </div>
                             </div>
-                            <div class="card-body">
-                            <h6 class="card-title">' . $activity->activity_name . '</h6>
-                            <p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>
-                            <img src
-                            <hr>
-                            <p><b>Credit: ' . $activity->credit . '</b></p>
+                            <div class="card-body pb-3">
+                            <div class="row">
+                              <div class="col-12">
+                                  <h6 class="card-title">' . $activity->gym_name . '</h6>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                  <h6 class="card-title">' . $activity->activity_name . '</h6>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                  <h6 class="card-title">' . $activity->category . '</h6>
+                              </div>
+                            </div>
+                            <br>
+                            <p><b>Credits: ' . $activity->credit . '</b></p>
                             <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '">More Details</a>
                             </div>
                         </div>
@@ -100,7 +118,6 @@
         } else {
           echo "No Gym activity please check back later!";
         }
-
         ?>
       </div>
     </div>
