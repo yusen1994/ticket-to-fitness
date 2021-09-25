@@ -16,9 +16,11 @@
 if (!empty($data['myActivity'])) {
     $flag = true; //If current is the same then flag becomes false i.e only show the unique id once
     $current = NULL;
+    $sale_credit_1 = NULL;
     foreach ($data['myActivity'] as $single) {
         if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
             $flag = false;
+            
             echo '
                 <div class="row" style="margin-top:10px; padding-left:10px;">
                     <div class="col-4 align-self-center" style="padding-right:0px;">
@@ -38,7 +40,9 @@ if (!empty($data['myActivity'])) {
                                     <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                 </g>
                             </svg>
-                            <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">' . $single->credit . '</p>
+                            <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'; if($single->sale_percentage != NULL){
+                                $sale_credit_1 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
+                            } if($sale_credit_1 != NULL) { echo "<del style='color:red'>".$single->credit. "</del>".$sale_credit_1; } else { echo $single->credit; } echo '</p>
                         </div>
     
                     </div>
@@ -51,6 +55,8 @@ if (!empty($data['myActivity'])) {
                 </div>';
         } else {
             $flag = true;
+            $sale_credit_2 = NULL;
+
             echo '</div>';
             echo '</div>';
             echo '</div>';
@@ -102,7 +108,9 @@ if (!empty($data['myActivity'])) {
                                         <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                     </g>
                                 </svg>
-                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">' . $single->credit . '</p>
+                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'; if($single->sale_percentage != NULL){
+                                    $sale_credit_2 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
+                                } if($sale_credit_2 != NULL) { echo "<del style='color:red'>".$single->credit. "</del>".$sale_credit_2; } else { echo $single->credit; } echo '</p>
                             </div>
         
                         </div>

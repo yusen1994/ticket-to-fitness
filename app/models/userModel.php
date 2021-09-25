@@ -38,7 +38,7 @@ class userModel
 
   public function manageActivitiesList($data)
   {
-    $this->db->query('SELECT DISTINCT gym_activity_timetable.day, gym_activity_timetable.id, gym_activity_timetable.time, users_activity.activity_id, gym_activity.activity_name, gym_activity.category,gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_information.gym_address, gym_information.gym_name, gym_information.gym_id
+    $this->db->query('SELECT DISTINCT gym_activity_timetable.day, gym_activity_timetable.id, gym_activity_timetable.sale_percentage, gym_activity_timetable.time, users_activity.activity_id, gym_activity.activity_name, gym_activity.category,gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_information.gym_address, gym_information.gym_name, gym_information.gym_id
     FROM users_activity
     INNER JOIN gym_activity_timetable ON users_activity.activity_id = gym_activity_timetable.activity_id 
     Inner join gym_activity ON users_activity.activity_id = gym_activity.id 
@@ -223,6 +223,17 @@ class userModel
       return $row;
     }
   }
+
+  public function getSalesPrice($timetable_id){
+    $this->db->query('SELECT sale_percentage FROM gym_activity_timetable where id = :timetable_id');
+    $this->db->bind(':timetable_id', $timetable_id);
+    $row=$this->db->single();
+    if($this->db->rowCount()>0){
+      return $row;
+    }
+
+  }
+
 
   public function deductCredit($data)
   {

@@ -2,7 +2,20 @@
 
 
 <div class="container-fluid">
+<?php if (!empty($data['success'])) {
 
+echo '<div class="alert alert-success mt-4" role="alert">';
+echo $data['success'];
+echo '</div>';
+}
+?>
+<?php if (!empty($data['error'])) {
+
+echo '<div class="alert alert-danger mt-4" role="alert">';
+echo $data['error'];
+echo '</div>';
+}
+?>
     <div class="row justify-content-center" style="margin-top: 20px;">
         <div class="col-sm-12 col-lg-6 col-xl-4">
             <div class="row justify-content-center">
@@ -17,12 +30,15 @@
             </div>
         </div>
     </div>
+ 
 
     <?php
+
     if (!empty($data['gym_activity'])) {
         $flag = true; //If current is the same then flag becomes false i.e only show the unique id once
         $current = NULL;
         $count = 0;
+        $sale_credit_1 = NULL;
         foreach ($data['gym_activity'] as $single) {
             if ($current == $single->activity_id) { //loops as much as there is repetetive id so, display rest of the information
                 $flag = false;
@@ -46,7 +62,9 @@
                                         <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                     </g>
                                 </svg>
-                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">' . $single->credit . '</p>
+                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'; if($single->sale_percentage != NULL){
+                                    $sale_credit_1 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
+                                } if($sale_credit_1 != NULL) { echo "<del style='color:red'>".$single->credit. "</del>".$sale_credit_1; } else { echo $single->credit; } echo '</p>
                             </div>
         
                         </div>
@@ -55,15 +73,16 @@
 
                         </div>
                         <div class="col text-left" style="display:none;" id="discount' . $count . '">
-                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-10%</button></a>
-                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
-                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
-                        <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
+                        <a href="' . URLROOT . '/Gym/applySales/10/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-10%</button></a>
+                        <a href="' . URLROOT . '/Gym/applySales/25/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
+                        <a href="' . URLROOT . '/Gym/applySales/50/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
+                        <a href="' . URLROOT . '/Gym/applySales/75/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
                             <div class="line-separator" style="margin-top:10px;"></div>
                         </div>
                     </div>';
             } else {
                 $flag = true;
+                $sale_credit_2 = NULL;
                 $count++;
                 echo '</div>';
                 echo '</div>';
@@ -137,7 +156,9 @@
                                             <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                         </g>
                                     </svg>
-                                    <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">' . $single->credit . '</p>
+                                    <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'; if($single->sale_percentage != NULL){
+                                        $sale_credit_2 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
+                                    } if($sale_credit_2 != NULL) { echo "<del style='color:red'>".$single->credit. "</del>".$sale_credit_2; } else { echo $single->credit; } echo '</p>
                                 </div>
             
                             </div>
@@ -145,10 +166,10 @@
                          <button class="myactivity-sale-btn" type="button" onclick="unhideDiscount(' . $count . ')">Sale</button>
                             </div>
                             <div class="col text-left" id="discount' . $count . '" style="display:none;">
-                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-10%</button></a>
-                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
-                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
-                                <a href="" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
+                                <a href="' . URLROOT . '/Gym/applySales/10/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-10% </button></a>
+                                <a href="' . URLROOT . '/Gym/applySales/25/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
+                                <a href="' . URLROOT . '/Gym/applySales/50/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
+                                <a href="' . URLROOT . '/Gym/applySales/75/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
                                 <div class="line-separator" style="margin-top:10px;"></div>
                             </div>
                         </div>
