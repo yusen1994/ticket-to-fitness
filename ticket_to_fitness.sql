@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 06:54 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Sep 26, 2021 at 12:55 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -108,7 +108,8 @@ INSERT INTO `gym_activity` (`id`, `gym_id`, `activity_name`, `category`, `sessio
 (53, 17, 'boxing', 'fight', 'a:2:{i:0;s:6:\"Monday\";i:1;s:9:\"Wednesday\";}', 20, 200, 'sasas', 1),
 (54, 19, 'test', 'swimming', 'N;', 20, 200, 'test', 1),
 (55, 19, 'kyokushin', 'fight', 'N;', 12, 233, 'sasa', 0),
-(56, 41, 'Yoga', 'yoga', 'N;', 12, 100, 'sasa', 0);
+(56, 41, 'Yoga', 'yoga', 'N;', 12, 100, 'sasa', 0),
+(59, 12, 'Pikachu Power', 'weights', 'a:2:{i:0;s:6:\"Monday\";i:1;s:7:\"Tuesday\";}', 200, 200, 'sasa', 1);
 
 -- --------------------------------------------------------
 
@@ -121,33 +122,36 @@ CREATE TABLE `gym_activity_timetable` (
   `activity_id` int(11) NOT NULL,
   `gym_id` int(11) NOT NULL,
   `day` varchar(255) NOT NULL,
-  `time` varchar(255) NOT NULL
+  `time` varchar(255) NOT NULL,
+  `sale_percentage` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `gym_activity_timetable`
 --
 
-INSERT INTO `gym_activity_timetable` (`id`, `activity_id`, `gym_id`, `day`, `time`) VALUES
-(1, 47, 19, 'monday', '12:00 AM-12:30 AM'),
-(2, 47, 19, 'monday', '1:00 PM-2:00 PM'),
-(3, 47, 19, 'wednesday', '12:30 AM-02:00 AM'),
-(4, 48, 19, 'tuesday', '12:30 AM-01:00 AM'),
-(5, 48, 19, 'saturday', '01:30 AM-02:30 AM'),
-(6, 49, 19, 'monday', '12:30 AM-01:00 AM'),
-(7, 49, 19, 'monday', '2:00 AM-3:00-3:00 AM'),
-(8, 49, 19, 'tuesday', '01:30 AM-04:30 AM'),
-(9, 50, 17, 'tuesday', '12:00 AM-01:00 AM'),
-(10, 51, 17, 'monday', '12:00 AM-01:00 AM'),
-(11, 51, 17, 'monday', '04:00 PM-05:00 PM'),
-(12, 52, 17, 'monday', '12:00 AM-12:30 AM'),
-(13, 52, 17, 'thursday', '01:00 AM-05:30 AM'),
-(14, 53, 17, 'monday', '12:00 AM-12:30 AM'),
-(15, 53, 17, 'wednesday', '01:30 AM-02:00 AM'),
-(16, 54, 19, 'tuesday', '12:00 AM-12:30 AM'),
-(17, 55, 19, 'wednesday', '12:30 AM-12:30 AM'),
-(18, 55, 19, 'thursday', '12:30 AM-01:00 AM'),
-(19, 56, 41, 'monday', '12:30 AM-01:00 AM');
+INSERT INTO `gym_activity_timetable` (`id`, `activity_id`, `gym_id`, `day`, `time`, `sale_percentage`) VALUES
+(1, 47, 19, 'monday', '12:00 AM-12:30 AM', 25),
+(2, 47, 19, 'monday', '1:00 PM-2:00 PM', 75),
+(3, 47, 19, 'wednesday', '12:30 AM-02:00 AM', 0),
+(4, 48, 19, 'tuesday', '12:30 AM-01:00 AM', 0),
+(5, 48, 19, 'saturday', '01:30 AM-02:30 AM', 0),
+(6, 49, 19, 'monday', '12:30 AM-01:00 AM', 0),
+(7, 49, 19, 'monday', '2:00 AM-3:00-3:00 AM', 0),
+(8, 49, 19, 'tuesday', '01:30 AM-04:30 AM', 0),
+(9, 50, 17, 'tuesday', '12:00 AM-01:00 AM', 0),
+(10, 51, 17, 'monday', '12:00 AM-01:00 AM', 0),
+(11, 51, 17, 'monday', '04:00 PM-05:00 PM', 0),
+(12, 52, 17, 'monday', '12:00 AM-12:30 AM', 0),
+(13, 52, 17, 'thursday', '01:00 AM-05:30 AM', 0),
+(14, 53, 17, 'monday', '12:00 AM-12:30 AM', 0),
+(15, 53, 17, 'wednesday', '01:30 AM-02:00 AM', 0),
+(16, 54, 19, 'tuesday', '12:00 AM-12:30 AM', 0),
+(17, 55, 19, 'wednesday', '12:30 AM-12:30 AM', 0),
+(18, 55, 19, 'thursday', '12:30 AM-01:00 AM', 0),
+(19, 56, 41, 'monday', '12:30 AM-01:00 AM', 0),
+(24, 59, 12, 'monday', '12:30 AM-07:30 AM', 25),
+(25, 59, 12, 'tuesday', '07:30 AM-02:30 PM', 75);
 
 -- --------------------------------------------------------
 
@@ -174,7 +178,10 @@ INSERT INTO `gym_earnings` (`id`, `Date`, `gym_id`, `Credits`) VALUES
 (11, '2021-09-12 12:05:18', 17, 200),
 (12, '2021-09-13 12:14:05', 18, 500),
 (13, '2021-09-13 12:14:05', 19, 500),
-(14, '2021-09-23 20:12:38', 19, 200);
+(14, '2021-09-23 20:12:38', 19, 200),
+(15, '2021-09-26 00:07:28', 17, 200),
+(16, '2021-09-26 01:08:35', 12, 50),
+(17, '2021-09-26 01:09:01', 12, 150);
 
 -- --------------------------------------------------------
 
@@ -276,7 +283,9 @@ INSERT INTO `users_activity` (`id`, `activity_id`, `user_id`, `gym_id`) VALUES
 (69, 52, 19, 17),
 (79, 47, 17, 19),
 (80, 49, 17, 19),
-(81, 48, 17, 19);
+(81, 48, 17, 19),
+(82, 59, 12, 12),
+(83, 54, 12, 19);
 
 -- --------------------------------------------------------
 
@@ -308,7 +317,13 @@ INSERT INTO `users_allocation` (`id`, `user_id`, `timetable_id`, `activity_id`, 
 (41, 19, 2, 47, 19),
 (42, 19, 3, 47, 19),
 (43, 19, 13, 52, 17),
-(44, 17, 2, 47, 19);
+(44, 17, 2, 47, 19),
+(45, 19, 12, 52, 17),
+(46, 12, 25, 59, 12),
+(47, 12, 25, 59, 12),
+(48, 12, 25, 59, 12),
+(49, 12, 25, 59, 12),
+(50, 12, 24, 59, 12);
 
 -- --------------------------------------------------------
 
@@ -461,7 +476,15 @@ INSERT INTO `users_credits` (`id`, `total_credit`, `user_id`) VALUES
 (132, 100, 17),
 (133, 100, 17),
 (134, -200, 17),
-(135, 60, 17);
+(135, 60, 17),
+(136, -200, 19),
+(137, 150, 12),
+(138, -50, 12),
+(139, -50, 12),
+(140, 150, 12),
+(141, -50, 12),
+(142, 25, 12),
+(143, -150, 12);
 
 --
 -- Indexes for dumped tables
@@ -550,7 +573,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `credits_pack`
@@ -562,19 +585,19 @@ ALTER TABLE `credits_pack`
 -- AUTO_INCREMENT for table `gym_activity`
 --
 ALTER TABLE `gym_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `gym_activity_timetable`
 --
 ALTER TABLE `gym_activity_timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `gym_earnings`
 --
 ALTER TABLE `gym_earnings`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `gym_information`
@@ -592,19 +615,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_activity`
 --
 ALTER TABLE `users_activity`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `users_allocation`
 --
 ALTER TABLE `users_allocation`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `users_credits`
 --
 ALTER TABLE `users_credits`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- Constraints for dumped tables
