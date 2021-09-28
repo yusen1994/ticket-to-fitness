@@ -127,6 +127,21 @@
             }
         }
 
+        public function reports()
+        {
+            if ($this->isLoggedIn()) {
+              
+    
+                $admin_earnings = $this->adminModel->earnings();
+    
+                $data['admin_earnings'] = $admin_earnings;
+    
+                $this->view('Admin/reports', $data);
+            }else{
+                $this->view('Admin/login');
+            }
+        }
+
 
 
 

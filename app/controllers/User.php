@@ -10,9 +10,11 @@ class User extends Controller
         $this->accountsModel = $this->model('Account');
         $this->userModel = $this->model('userModel');
         $this->gymModel = $this->model('GymModel');
+        $this->adminModel = $this->model('Admin');
+
     }
 
-    public function index($msg=NULL)
+    public function index($msg = NULL)
     {
 
         $data = [
@@ -20,10 +22,10 @@ class User extends Controller
             'user_id' => $_SESSION['user_id'],
 
         ];
-        if(!empty($msg['error'])){
+        if (!empty($msg['error'])) {
             $data['error'] = $msg['error'];
         }
-        if(!empty($msg['success'])){
+        if (!empty($msg['success'])) {
             $data['success'] = $msg['success'];
         }
 
@@ -133,14 +135,14 @@ class User extends Controller
         $checkSalePrice = $this->userModel->getSalesPrice($timetableid);
         if ($checkSalePrice != NULL) {
             $new_cost = $cost->credit - ($checkSalePrice->sale_percentage / 100 * $cost->credit);
-        }else{
+        } else {
             $new_cost = $cost->credit;
         }
 
         $gymid = $this->gymModel->getGymId($timetableid);
         $activity_id = $this->gymModel->getActivityidfromtimetable($timetableid);
         //Check User Balance is enough to buy the activity
-   
+
 
         if ($this->checkUserBalance($_SESSION['user_id'], $new_cost)) {
             if (!empty($timetableid)) {
@@ -157,15 +159,22 @@ class User extends Controller
                 if ($allocation) {
                     //Deduct the credit once allocated successfully!
                     if ($this->userModel->deductCredit($data)) {
+                        //Calculate profit for admin
+                        $data['admin_credit'] = 0.1 * $data['total_cost']; //10% off the sales made by gym
+                        $data['total_cost'] =  $data['total_cost'] - $data['admin_credit']; //Remaining credit to the gym
+
 
                         //Add credit to the gym owner
-                        if ($this->gymModel->addCredit($data)) {
+                        if ($this->gymModel->addCredit($data) && $this->adminModel->addCredit($data)) {
                             $data['success'] = "Successfully Allocated! Please join the class during the allocated time";
                             $this->timetable($day = "monday", $data);
                         } else {
                             $data['error'] = "Something went wrong! Please try again later";
                             $this->timetable($day = "monday", $data);
                         }
+
+                        //Add credit to Admin
+                        
                     } else {
                         $data['error'] = "Something went wrong! Please try again later";
                         $this->timetable($day = "monday", $data);
@@ -181,7 +190,7 @@ class User extends Controller
         } else {
             $msg['error'] = "Not enough credits Please buy more credits";
             $this->index($msg);
-           // $this->timetable($day = "monday", $data);
+            // $this->timetable($day = "monday", $data);
         }
     }
 

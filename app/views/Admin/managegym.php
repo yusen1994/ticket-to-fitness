@@ -5,7 +5,7 @@
         <div class="col-sm-1 col-lg-4">
             <div class="row" style="margin-top: 20px;">
                 <div class=" col">
-                    <h3><b><span><a href="<?php echo URLROOT; ?>/Administrator"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">Members</span></b></h3>
+                    <h3><b><span><a href="<?php echo URLROOT; ?>/Administrator"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">Manage Gyms</span></b></h3>
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top: 20px;">
@@ -45,4 +45,3 @@
 
 </div>
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>

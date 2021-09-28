@@ -48,4 +48,30 @@ class Admin
             return $row;
         }
     }
+
+    public function earnings(){
+        $this->db->query('SELECT Date, SUM(Credits) AS "Credits"
+        FROM admin_earnings group by date(Date) ');
+        $row = $this->db->resultSet();
+    
+        if ($this->db->rowCount() > 0) {
+    
+          return $row;
+        }
+    }
+
+    public function addCredit($data)
+    {
+      $this->db->query('INSERT INTO `admin_earnings`(`Date`, `Credits`) VALUES (CURRENT_TIMESTAMP, :credits)');
+      //$this->db->bind(':date', $data['date']);
+      $this->db->bind(':credits', $data['admin_credit']);
+  
+  
+      //Execute
+      if ($this->db->execute()) {
+        return true;
+      } else {
+        return false;
+      }
+    }
 }
