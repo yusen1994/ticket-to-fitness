@@ -67,6 +67,7 @@
         <?php
         $count = 1;
 
+
         if ($data['gym_activity'] != NULL) {
 
           foreach ($data['gym_activity'] as $activity) {

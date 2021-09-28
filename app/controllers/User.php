@@ -12,7 +12,7 @@ class User extends Controller
         $this->gymModel = $this->model('GymModel');
     }
 
-    public function index()
+    public function index($msg=NULL)
     {
 
         $data = [
@@ -20,6 +20,12 @@ class User extends Controller
             'user_id' => $_SESSION['user_id'],
 
         ];
+        if(!empty($msg['error'])){
+            $data['error'] = $msg['error'];
+        }
+        if(!empty($msg['success'])){
+            $data['success'] = $msg['success'];
+        }
 
         $user_credit = $this->userModel->userCredit($data);
         $data['user_credit'] = $user_credit;
@@ -173,8 +179,9 @@ class User extends Controller
                 $this->timetable($day = "monday", $data);
             }
         } else {
-            $data['error'] = "Not enough credits Please buy more credits";
-            $this->timetable($day = "monday", $data);
+            $msg['error'] = "Not enough credits Please buy more credits";
+            $this->index($msg);
+           // $this->timetable($day = "monday", $data);
         }
     }
 
