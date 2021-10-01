@@ -360,7 +360,7 @@ class Gym extends Controller
 
 
 
-    public function manageActivities($msg=NULL)
+    public function manageActivities($msg = NULL)
     {
 
         if ($this->isGymLoggedIn()) {
@@ -370,14 +370,12 @@ class Gym extends Controller
                 'gym_activity' => '',
 
             ];
-            if(!empty($msg['success'])){
+            if (!empty($msg['success'])) {
                 $data['success'] = $msg['success'];
-
             }
 
-            if(!empty($msg['error'])){
+            if (!empty($msg['error'])) {
                 $data['error'] = $msg['error'];
-                
             }
 
 
@@ -411,6 +409,29 @@ class Gym extends Controller
             } else {
                 $data['error'] = 'No activities at this time';
                 $this->view('Gym/timetable', $data);
+            }
+        } else {
+            redirect('Accounts/login');
+        }
+    }
+
+    public function allocatedUsers($timetableid)
+    {
+        if ($this->isGymLoggedIn()) {
+            $data = [
+                'gym_id' => $_SESSION['user_id'],
+                'timetable_id' => $timetableid,
+
+            ];
+
+            $allocated_users = $this->gymModel->allocatedusers($data);
+
+            if (!empty($allocated_users)) {
+                $data['allocated_users'] = $allocated_users;
+                $this->view('Gym/allocatedUsers', $data);
+            } else {
+                $data['error'] = 'No allocation at this time';
+                $this->view('Gym/allocatedUsers', $data);
             }
         } else {
             redirect('Accounts/login');
@@ -456,12 +477,13 @@ class Gym extends Controller
         }
     }
 
-    public function applySales($percentage, $timetable_id){
+    public function applySales($percentage, $timetable_id)
+    {
         if ($this->isGymLoggedIn()) {
             $data = [
                 'gym_id' => $_SESSION['user_id'],
                 'sale_percentage' => $percentage,
-                'timetable_id'=>$timetable_id,
+                'timetable_id' => $timetable_id,
             ];
 
             $apply_sales = $this->gymModel->apple_sales($data);
@@ -471,10 +493,5 @@ class Gym extends Controller
             $msg['error'] = "Something\'s wrong please try again later!";
             $this->manageActivities($msg);
         }
-
     }
-
-
 }
-
-

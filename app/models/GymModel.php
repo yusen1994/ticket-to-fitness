@@ -255,7 +255,7 @@ class GymModel
   public function viewtimeTable($data)
   {
 
-    $this->db->query('SELECT gym_activity_timetable.day, gym_activity_timetable.time, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit FROM gym_activity_timetable INNER JOIN gym_activity ON gym_activity_timetable.activity_id = gym_activity.id where gym_activity_timetable.gym_id = :gym_id and gym_activity_timetable.day=:day');
+    $this->db->query('SELECT gym_activity_timetable.id, gym_activity_timetable.day, gym_activity_timetable.time, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit FROM gym_activity_timetable INNER JOIN gym_activity ON gym_activity_timetable.activity_id = gym_activity.id where gym_activity_timetable.gym_id = :gym_id and gym_activity_timetable.day=:day');
     $this->db->bind(':gym_id', $data['gym_id']);
     $this->db->bind(':day', $data['day']);
 
@@ -274,6 +274,17 @@ class GymModel
     $this->db->query('SELECT DISTINCT users.firstname, users.lastname FROM users_activity JOIN users ON users_activity.user_id = users.id where users_activity.gym_id=:gym_id');
     $this->db->bind(':gym_id', $data['gym_id']);
 
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
+  public function allocatedusers($data){
+    $this->db->query('SELECT DISTINCT users.firstname, users.lastname, users.contact_number, users.gender, gym_activity.max_capacity FROM users_allocation INNER JOIN users ON users_allocation.user_id = users.id INNER JOIN gym_activity ON gym_activity.id = users_allocation.activity_id WHERE users_allocation.timetable_id = :timetable_id');
+    $this->db->bind(':timetable_id', $data['timetable_id']);
     $row = $this->db->resultSet();
 
     if ($this->db->rowCount() > 0) {
