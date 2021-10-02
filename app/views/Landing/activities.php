@@ -34,7 +34,7 @@
                             </svg>
                         </span>
                     </button>
-                    <input class="search-input-text" id="searchField" name="searchField" placeholder="Search...">
+                    <input class="search-input-text ml-1" id="searchField" name="searchField" placeholder="Search...">
                 </div>
 
                 <?php if (!empty($data['error'])) {

@@ -46,10 +46,12 @@
                                                 $url = $_SERVER['REQUEST_URI'];
                                                 $urlarray = explode("/", $url);
                                                 $end = $urlarray[count($urlarray) - 1];
-                                                $urlconfirm = $urlarray[count($urlarray) - 2];
+                                                $urlsecondlast = $urlarray[count($urlarray) - 2];
                                                 if (
                                                     strpos($end, 'MyActivity') !== false ||
-                                                    strpos($urlconfirm, 'confirmActivity') !== false
+                                                    strpos($urlsecondlast, 'confirmActivity') !== false ||
+                                                    strpos($urlsecondlast, 'allocation') !== false ||
+                                                    strpos($urlsecondlast, 'removeActivity') !== false
                                                 ) {
                                                     echo 'userdashboard-menu-active';
                                                 } ?>" style="padding:0px !important; height:auto;">

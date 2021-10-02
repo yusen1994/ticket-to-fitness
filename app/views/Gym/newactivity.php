@@ -39,13 +39,13 @@
                     <h4 class="mb-3"><b>Category</b></h4>
                     <select id="category" class="form-control" name="category" required style="border-radius:18px;">
                         <option value="N/A">Select one</option>
-                        <option value="cycling">Cycling</option>
-                        <option value="swimming">Swimming</option>
-                        <option value="yoga">Yoga</option>
-                        <option value="weights">Weights</option>
-                        <option value="fight">Martial Arts</option>
-                        <option value="cardio">Cardio</option>
-                        <option value="cardio">Other</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Yoga">Yoga</option>
+                        <option value="Weights">Weights</option>
+                        <option value="Martial Arts">Martial Arts</option>
+                        <option value="Cardio">Cardio</option>
+                        <option value="other">Other</option>
                     </select>
 
                     <?php

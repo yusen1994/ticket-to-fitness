@@ -2,20 +2,20 @@
 
 
 <div class="container-fluid">
-<?php if (!empty($data['success'])) {
+    <?php if (!empty($data['success'])) {
 
-echo '<div class="alert alert-success mt-4" role="alert">';
-echo $data['success'];
-echo '</div>';
-}
-?>
-<?php if (!empty($data['error'])) {
+        echo '<div class="alert alert-success mt-4" role="alert">';
+        echo $data['success'];
+        echo '</div>';
+    }
+    ?>
+    <?php if (!empty($data['error'])) {
 
-echo '<div class="alert alert-danger mt-4" role="alert">';
-echo $data['error'];
-echo '</div>';
-}
-?>
+        echo '<div class="alert alert-danger mt-4" role="alert">';
+        echo $data['error'];
+        echo '</div>';
+    }
+    ?>
     <div class="row justify-content-center" style="margin-top: 20px;">
         <div class="col-sm-12 col-lg-6 col-xl-4">
             <div class="row justify-content-center">
@@ -30,7 +30,7 @@ echo '</div>';
             </div>
         </div>
     </div>
- 
+
 
     <?php
 
@@ -62,9 +62,16 @@ echo '</div>';
                                         <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                     </g>
                                 </svg>
-                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'; if($single->sale_percentage != NULL){
-                                    $sale_credit_1 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
-                                } if($sale_credit_1 != NULL) { echo "<del style='color:red'>".$single->credit. "</del>".$sale_credit_1; } else { echo $single->credit; } echo '</p>
+                                <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">';
+                if ($single->sale_percentage != NULL) {
+                    $sale_credit_1 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
+                }
+                if ($sale_credit_1 != NULL) {
+                    echo "<del style='color:red'>" . $single->credit . "</del>" . $sale_credit_1;
+                } else {
+                    echo $single->credit;
+                }
+                echo '</p>
                             </div>
         
                         </div>
@@ -156,9 +163,16 @@ echo '</div>';
                                             <path id="Path_67" data-name="Path 67" d="M.337,4.714a.337.337,0,0,1-.118-.652l10.714-4a1.029,1.029,0,0,1,1.311.622l1.215,3.586a.337.337,0,0,1-.638.216L11.606.9a.345.345,0,0,0-.437-.208l-10.714,4a.325.325,0,0,1-.117.022Z" transform="translate(1.348 0)" />
                                         </g>
                                     </svg>
-                                    <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">'; if($single->sale_percentage != NULL){
-                                        $sale_credit_2 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
-                                    } if($sale_credit_2 != NULL) { echo "<del style='color:red'>".$single->credit. "</del>".$sale_credit_2; } else { echo $single->credit; } echo '</p>
+                                    <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">';
+                if ($single->sale_percentage != NULL) {
+                    $sale_credit_2 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
+                }
+                if ($sale_credit_2 != NULL) {
+                    echo "<del style='color:red'>" . $single->credit . "</del>" . $sale_credit_2;
+                } else {
+                    echo $single->credit;
+                }
+                echo '</p>
                                 </div>
             
                             </div>

@@ -1,7 +1,17 @@
 <?php require APPROOT . '/views/Gym/dashboardmenu.php'; ?>
 
 
-<div class="container-fluid"><span class="profile-heading"><i class="fas fa-arrow-left"></i> Reports</span>
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="row mt-3">
+                <div class="col-8" style="flex-direction: row;">
+                    <h3><b><span><a href="<?php echo URLROOT; ?>/Gym"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">Reports</span></b></h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Styles -->
     <style>
@@ -71,7 +81,12 @@
     </script>
 
     <!-- HTML -->
-    <div id="chartdiv"></div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-lg-6">
+            <div id="chartdiv"></div>
+        </div>
+    </div>
+
 
 
 
