@@ -41,7 +41,7 @@
                     <b>$</b>
                 </div>
                 <div class="col-2 text-sm-center text-lg-left">
-                    <span class="text-style-bold"><?php echo $data['total_credit']; ?></span>
+                    <span class="text-style-bold"><?php echo $data['cost']; ?></span>
                 </div>
             </div>
             <div class="row" style="margin-bottom:20px;">
@@ -68,8 +68,8 @@
     <div class="row justify-content-end justify-content-lg-center">
         <div class="col-6 col-lg-4">
             <div class="row justify-content-end" style="margin-top:20px; margin-bottom:200px;">
-                <div class="col-sm-6 col-lg-3 text-center">
-                    <a class="checkout-confirm-btn" style="max:width:50px !important;" href=" <?php echo URLROOT; ?>/user/confirmPurchase/<?php echo $data['cost']; ?>/<?php echo $data['total_credit']; ?>">
+                <div class="col-sm-6 col-lg-6 col-xl-4 text-center">
+                    <a class="checkout-confirm-btn" style="max-width:150px !important;" href=" <?php echo URLROOT; ?>/user/confirmPurchase/<?php echo $data['cost']; ?>/<?php echo $data['total_credit']; ?>">
                         <!--Later need to redirect to payment page -->
                         Confirm
                     </a>
@@ -84,7 +84,6 @@
 
 
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
 
 
 <style>

@@ -8,7 +8,7 @@
                     <h3><b><span><a href="<?php echo URLROOT; ?>/User"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">My Profile</span></b></h3>
                 </div>
                 <div class="col-4 text-right">
-                    <a style="color: #EF8830" href="#"><b>Edit Info</b></a>
+                    <!-- <a style="color: #EF8830" href="#"><b>Edit Info</b></a> not implemented yet -->
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-
+    <!-- Not implemented yet
     <div class="row justify-content-center mt-5">
         <div class="col-sm-12 col-lg-3">
             <a style="text-decoration: none;" href="#">
@@ -70,8 +70,8 @@
             </a>
         </div>
     </div>
-
-    <div class="row justify-content-center mt-3">
+                -->
+    <div class="row justify-content-center mt-5">
         <div class="col-sm-12 col-lg-3">
             <a href="<?php echo URLROOT; ?>/Accounts/resetPassword"><button type="button" data-toggle="modal" data-target="#changePasswordModal" class="dashboard-option-btn">Change Password</button>
             </a>

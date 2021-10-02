@@ -80,7 +80,7 @@ class ActivityModel
 
   public function fetchActiveActivity()
   {
-    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status');
+    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.gym_name, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status');
     $this->db->bind(':status', 1);
     $row = $this->db->resultSet();
 
