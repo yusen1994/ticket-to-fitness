@@ -35,8 +35,6 @@ class Activity extends Controller
     {
         //Check if the type is category or credit or frequency
         //if it is category then check what parameter it has like cycling, swimming etc based on that call ActivityModel function to get
-
-
         //Store category as number so, query becomes easy
         if ($type == 'category') {
 
@@ -58,8 +56,6 @@ class Activity extends Controller
             if ($param == 'cardio') {
                 $data['gym_activity']  = $this->activityModel->filterByCategory('cardio');
             }
-
-
 
             $this->view('Landing/activities', $data);
         }
@@ -84,7 +80,6 @@ class Activity extends Controller
             if ($param == 'low') {
                 $data['gym_activity']  = $this->activityModel->filterByFrequency('low');
             }
-
             $this->view('Landing/activities', $data);
         }
     }
