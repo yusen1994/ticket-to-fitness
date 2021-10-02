@@ -64,7 +64,7 @@
                 <path id="Path_27" data-name="Path 27" d="M332.652,183.3h1.3a.652.652,0,1,0,0-1.3h-1.3a.652.652,0,1,0,0,1.3Zm0,0" transform="translate(-321.996 -173.214)" fill="#f2f2f2" />
               </svg>
             </span>View Activities</a> </li>
-        <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><svg xmlns="http://www.w3.org/2000/svg" width="25.237" height="25.237" viewBox="0 0 25.237 25.237">
+        <!--<li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><svg xmlns="http://www.w3.org/2000/svg" width="25.237" height="25.237" viewBox="0 0 25.237 25.237">
                 <g id="weights" transform="translate(0)">
                   <path id="Path_54" data-name="Path 54" d="M168.784,9.236a.393.393,0,0,0,.393-.393V5.049h.626V8.215a.393.393,0,1,0,.785,0V6.569h11.73V22.24a.393.393,0,1,0,.785,0V5.049h.626V22.511a.393.393,0,1,0,.785,0V4.657a.393.393,0,0,0-.393-.393H182.71a.393.393,0,0,0-.393.393V5.784h-11.73V4.657a.393.393,0,0,0-.393-.393h-1.411a.393.393,0,0,0-.393.393V8.844a.393.393,0,0,0,.393.393Z" transform="translate(-160.778 -4.264)" fill="#f2f2f2" />
                   <path id="Path_55" data-name="Path 55" d="M359.917,175.233a.393.393,0,0,0-.393.393v6.4a5.45,5.45,0,0,1-1.4,3.649.393.393,0,1,0,.584.525,6.234,6.234,0,0,0,1.6-4.173v-6.4A.393.393,0,0,0,359.917,175.233Z" transform="translate(-340.214 -166.736)" fill="#f2f2f2" />
@@ -77,7 +77,7 @@
                   <path id="Path_62" data-name="Path 62" d="M125.984,313a1.754,1.754,0,1,0-1.754,1.754A1.756,1.756,0,0,0,125.984,313Zm-2.723,0a.969.969,0,1,1,.969.969A.97.97,0,0,1,123.26,313Z" transform="translate(-116.399 -295.714)" fill="#f2f2f2" />
                 </g>
               </svg>
-            </span>View Gyms</a> </li>
+            </span>View Gyms</a> </li> -->
         <li class="nav-item px-lg-2"> <a class="nav-link" href="<?php echo URLROOT; ?>/Gym/registergym"><span class="d-inline-block d-lg-none icon-width"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23">
                 <g id="_11259501321543238914" data-name="11259501321543238914" transform="translate(0.672 1.212)">
                   <ellipse id="Ellipse_19" data-name="Ellipse 19" cx="10" cy="10.5" rx="10" ry="10.5" transform="translate(0.328 -0.212)" fill="none" stroke="#f2f2f2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />

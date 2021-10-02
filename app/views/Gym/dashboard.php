@@ -137,7 +137,7 @@ if (!empty($data['message'])) {
         background-color: #0b518d;
         font-size: 18px;
         font-weight: bold;
-        min-width: 315px;
+
     }
 
     .dashboard-highlight-btn {
@@ -149,7 +149,7 @@ if (!empty($data['message'])) {
         background-color: #ef8830;
         font-size: 18px;
         font-weight: bold;
-        min-width: 315px;
+
     }
 
     .dashboard-option-btn {
@@ -163,7 +163,7 @@ if (!empty($data['message'])) {
         background-color: white;
         font-size: 18px;
         font-weight: bold;
-        min-width: 315px;
+
     }
 
     #container-userprofile {

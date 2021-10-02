@@ -82,24 +82,24 @@
                 if (!empty($data['gym_activity'])) {
                     foreach ($data['gym_activity'] as $activity) {
                         echo '
-                      <div class="col-6 col-md-4 col-lg-3">
+                      <div class="col-6 col-md-4 col-lg-4">
                              <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id .
                             '" class="card-link" style="text-decoration:none!important; color:black;">
                              <div class="card mt-4 " style="width: auto; border-radius:18px; min-height:400px;">
                             <div class="row">
-                                <div class="col-12 text-center">
+                                <div class="col-12 text-center" style="padding-top:10px;">
                                     ';
                         if ($activity->photo != NULL) {
-                            echo '<img class="card-img-top" src="' . URLROOT . '/uploads/' . $activity->photo . '" alt="Card image cap" style="max-width: 200px;">';
+                            echo '<img class="card-img-top" src="' . URLROOT . '/uploads/' . $activity->photo . '" alt="Card image cap" style="max-width: 190px;">';
                         } else {
-                            echo '<img class="card-img-top" src="' . URLROOT . '/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">';
+                            echo '<img class="card-img-top" src="' . URLROOT . '/images/gym-default.png" alt="Card image cap" style="max-width: 190px;">';
                         }
                         echo '
                                 </div>
                             </div>
                             <div class="card-body">
                             <h6 class="card-title">' . $activity->activity_name . '</h6>
-                            <p class="card-subtitle mb-2 text-muted">Category: ' . $activity->category . '</p>
+                            <p class="card-subtitle mb-2 text-muted">' . $activity->category . '</p>
                             <img src
                             <hr>
                             <p><b>Credit: ' . $activity->credit . '</b></p>

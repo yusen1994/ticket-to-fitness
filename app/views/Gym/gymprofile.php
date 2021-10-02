@@ -8,7 +8,7 @@
                     <h3><b><span><a href="<?php echo URLROOT; ?>/Gym"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">Gym Info</span></b></h3>
                 </div>
                 <div class="col-4 text-right">
-                    <a style="color: #0B518D" href="#"><b>Edit Info</b></a>
+                    <!-- <a style="color: #0B518D" href="#"><b>Edit Info</b></a> -->
                 </div>
             </div>
         </div>

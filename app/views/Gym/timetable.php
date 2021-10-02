@@ -9,7 +9,10 @@
 																							$url = $_SERVER['REQUEST_URI'];
 																							$urlarray = explode("/", $url);
 																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'monday') !== false) {
+																							if (
+																								strpos($end, 'monday') !== false ||
+																								strpos($end, 'Timetable') !== false
+																							) {
 																								echo 'active';
 																							} ?>">M</a>
 				<a href="<?php echo URLROOT ?>/Gym/timetable/tuesday" class="btn btn-light <?php
@@ -51,7 +54,7 @@
 																							$url = $_SERVER['REQUEST_URI'];
 																							$urlarray = explode("/", $url);
 																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'sundayx') !== false) {
+																							if (strpos($end, 'sunday') !== false) {
 																								echo 'active';
 																							} ?>">S</a>
 

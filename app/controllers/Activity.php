@@ -155,7 +155,7 @@ class Activity extends Controller
 
 
                 if (($checkExistingActivity)) {
-                    $data['error'] = "Activity already Exist! Please check in My Activity";
+                    $data['error'] = "You already have this activity. Check My Activities";
                     $this->allactivity($data);
                 } else {
                     $addActivity = $this->activityModel->addToCart($data);

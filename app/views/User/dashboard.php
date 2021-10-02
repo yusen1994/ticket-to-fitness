@@ -175,7 +175,7 @@ if (!empty($data['message'])) {
         background-color: #EF8830;
         font-size: 18px;
         font-weight: bold;
-        min-width: 315px;
+
     }
 
     .dashboard-option-btn {
@@ -189,7 +189,6 @@ if (!empty($data['message'])) {
         background-color: white;
         font-size: 18px;
         font-weight: bold;
-        min-width: 315px;
     }
 
     .gym-dashboard-btn {
@@ -201,6 +200,6 @@ if (!empty($data['message'])) {
         background-color: #0b518d;
         font-size: 18px;
         font-weight: bold;
-        min-width: 315px;
+
     }
 </style>

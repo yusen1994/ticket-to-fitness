@@ -28,10 +28,10 @@
         <div class="form-group">
             <div class="row justify-content-center mt-3">
                 <div class="col-sm-12 col-lg-5 col-xl-3">
-                    <h4 class="mb-3"><b>Gym Name</b></h4>
-                    <input type="text" id="gymname" class="form-control input-style" placeholder="Gym Name" value="<?php if (!empty($data['gym_name'])) {
-                                                                                                                        echo $data['gym_name'];
-                                                                                                                    } ?>" name="gym_name" required title="">
+                    <p class="m-0"><b>Gym Name</b></p>
+                    <input type="text" id="gymname" class="form-control input-style" value="<?php if (!empty($data['gym_name'])) {
+                                                                                                echo $data['gym_name'];
+                                                                                            } ?>" name="gym_name" required title="">
                     <?php
                     if (!empty($data['gym_name_err'])) {
                         echo "<span>";
@@ -46,10 +46,10 @@
         <div class="form-group">
             <div class="row justify-content-center mt-4">
                 <div class="col-sm-12 col-lg-5 col-xl-3">
-                    <h4 class="mb-3"><b>Address</b></h4>
-                    <input type="text" id="gymaddress" class="form-control input-style" placeholder="Address" value="<?php if (!empty($data['gym_address'])) {
-                                                                                                                            echo $data['gym_address'];
-                                                                                                                        } ?>" name="gym_address" required title="">
+                    <p class="m-0"><b>Address</b></p>
+                    <input type="text" id="gymaddress" class="form-control input-style" value="<?php if (!empty($data['gym_address'])) {
+                                                                                                    echo $data['gym_address'];
+                                                                                                } ?>" name="gym_address" required title="">
                 </div>
             </div>
         </div>
@@ -67,8 +67,8 @@
         <div class="form-group">
             <div class="row justify-content-center mt-4">
                 <div class="col-sm-12 col-lg-5 col-xl-3">
-                    <h4 class="mb-3"><b>Upload Logo</b></h4>
-                    <div class="register-photo">
+                    <p class="m-0"><b>Upload Logo</b></p>
+                    <div class="register-photo mt-2">
                         <img id="img-txz" class="image-upload" src="<?php echo URLROOT; ?>/images/image.png" alt="Image">
 
                         <input class="upload-button" id="file-txz" type="file" name="photo" enctype="multipart/form-data" class="fileInput" onchange="upload('#file-txz','#img-txz')" value="" />
@@ -83,10 +83,10 @@
         <div class="form-group">
             <div class="row justify-content-center mt-4">
                 <div class="col-sm-12 col-lg-5 col-xl-3">
-                    <h4 class="mb-3"><b>Email</b></h4>
-                    <input type="text" id="gymemail" class="form-control input-style" placeholder="Gym Email" value="<?php if (!empty($data['gym_email'])) {
-                                                                                                                            echo $data['gym_email'];
-                                                                                                                        } ?>" name="gym_email" required title="">
+                    <p class="m-0"><b>Email</b></p>
+                    <input type="text" id="gymemail" class="form-control input-style" value="<?php if (!empty($data['gym_email'])) {
+                                                                                                    echo $data['gym_email'];
+                                                                                                } ?>" name="gym_email" required title="">
                     <?php
                     if (!empty($data['gym_email_err'])) {
                         echo "<span>";
@@ -100,10 +100,10 @@
         <div class="form-group">
             <div class="row justify-content-center mt-4">
                 <div class="col-sm-12 col-lg-5 col-xl-3">
-                    <h4 class="mb-3"><b>Phone Number</b></h4>
-                    <input type="text" id="phonenumber" class="form-control input-style" placeholder="Phone Number" value="<?php if (!empty($data['phone_number'])) {
-                                                                                                                                echo $data['phone_number'];
-                                                                                                                            } ?>" name="phone_number" required title="">
+                    <p class="m-0"><b>Phone Number</b></p>
+                    <input type="text" id="phonenumber" class="form-control input-style" value="<?php if (!empty($data['phone_number'])) {
+                                                                                                    echo $data['phone_number'];
+                                                                                                } ?>" name="phone_number" required title="">
 
                     <?php
                     if (!empty($data['phone_number_err'])) {
@@ -119,8 +119,8 @@
         <div class="form-group">
             <div class="row justify-content-center mt-4">
                 <div class="col-sm-12 col-lg-5 col-xl-3">
-                    <h4 class="mb-3"><b>Australian Business Number</b></h4>
-                    <input type="text" id="abn" class="form-control input-style" placeholder="ABN" name="abn" required>
+                    <p class="m-0"><b>Australian Business Number (ABN)</b></p>
+                    <input type="text" id="abn" class="form-control input-style" name="abn" required>
 
                     <?php
                     if (!empty($data['abn_err'])) {
@@ -130,6 +130,14 @@
                     }
                     ?>
                 </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-sm-12 col-lg-4">
+                <p>By registering a gym you must first provide required documents to Fitch admin staff confirming the ownership of said business.
+                    Please allow several business days to complete your request.
+                </p>
             </div>
         </div>
 
@@ -143,19 +151,6 @@
 
     </form>
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-sm-12 col-lg-4">
-            <p>By registering a gym you must first provide required documents to Fitch admin staff confirming the ownership of said business.
-                Please allow several business days to complete your request.
-            </p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 p-0">
-            <?php require APPROOT . '/views/inc/footer.php'; ?>
-        </div>
-    </div>
 </div>
 
 
