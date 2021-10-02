@@ -126,6 +126,12 @@
 											
 										</div>
 									</div>
+									<a href="'.URLROOT.'/Gym/allocatedUsers/'.$single->id.'"">
+										Allocated users
+									</a>
+									<div>
+
+									</div>
 										</div>
 									</div>
 								</div>

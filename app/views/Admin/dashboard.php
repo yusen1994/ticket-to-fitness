@@ -68,7 +68,7 @@ if (!empty($data['message'])) {
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col-sm-12 col-lg-7">
-                    <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/gym/reports">
+                    <a style="text-decoration: none;" href="<?php echo URLROOT; ?>/Administrator/reports">
                         <button type="button" class="dashboard-option-btn">Reports</button>
                     </a>
                 </div>
@@ -80,13 +80,7 @@ if (!empty($data['message'])) {
                     </a>
                 </div>
             </div>
-            <div class="row justify-content-center mt-3" style="margin-bottom: 50px;">
-                <div class="col-sm-12 col-lg-7">
-                    <a href="<?php echo URLROOT; ?>/User" style="text-decoration: none;">
-                        <button type="button" class="dashboard-highlight-btn">Switch to User Dashboard</button>
-                    </a>
-                </div>
-            </div>
+         
 
         </div>
     </div>
@@ -152,4 +146,3 @@ if (!empty($data['message'])) {
     }
 </style>
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>

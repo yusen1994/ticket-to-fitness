@@ -444,7 +444,7 @@ class Accounts extends Controller
                     if ($this->accountsModel->updatePartnershipStatus($data)) {
                         // Redirect to login
                         $data['message'] = 'We will contact you shortly! Thanks for applying GYM Account';
-                        $this->view('Landing/Login');
+                        $this->view('Landing/Login', $data);
                     }
                 } else {
                     die('Something went wrong');

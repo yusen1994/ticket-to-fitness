@@ -150,6 +150,11 @@
 
 </div>
 
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBtWSTetYh3Y_zEDAgUK5k0FgssOuwZo7g"></script>
+
+<script src="<?php echo URLROOT; ?>/js/address.js"></script>
+
+
 <script type="text/javascript">
 	var upload = function(c, d) {
 		var $c = document.querySelector(c),

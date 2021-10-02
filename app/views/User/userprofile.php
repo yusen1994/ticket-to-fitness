@@ -73,7 +73,8 @@
                 -->
     <div class="row justify-content-center mt-5">
         <div class="col-sm-12 col-lg-3">
-            <button type="button" data-toggle="modal" data-target="#changePasswordModal" class="dashboard-option-btn">Change Password</button>
+            <a href="<?php echo URLROOT; ?>/Accounts/resetPassword"><button type="button" data-toggle="modal" data-target="#changePasswordModal" class="dashboard-option-btn">Change Password</button>
+            </a>
         </div>
     </div>
 
