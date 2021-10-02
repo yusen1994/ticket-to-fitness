@@ -14,7 +14,7 @@
                 $urlarray = explode("/", $url);
                 $end = $urlarray[count($urlarray) - 1];
 
-                if (strpos($end, 'Gym') !== false || strpos($end, 'gym') !== false || strpos($end, 'members') !== false) {
+                if (strpos($end, 'Gym') !== false || strpos($end, 'gym') !== false || strpos($end, 'members') !== false || strpos($end, 'reports') !== false) {
                     echo
                     '
                      <div class=" col-4 text-center gymdashboard-menu-active" style="padding:0px !important; height:auto;">
