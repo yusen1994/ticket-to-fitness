@@ -16,7 +16,7 @@ class ActivityModel
   public function filterByCategory($param)
   {
 
-    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status and category = :category');
+    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo, gym_information.gym_name FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status and category = :category');
     $this->db->bind(':category', $param);
     $this->db->bind(':status', 1);
     $row = $this->db->resultSet();
@@ -30,7 +30,7 @@ class ActivityModel
   {
 
     if ($param == 'high') {
-      $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY credit DESC');
+      $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo, gym_information.gym_name FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY credit DESC');
       $this->db->bind(':status', 1);
       $row = $this->db->resultSet();
 
@@ -41,7 +41,7 @@ class ActivityModel
     }
 
     if ($param == 'low') {
-      $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY credit ASC');
+      $this->db->query('SELECT gym_activity.id, gym_information.gym_name, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY credit ASC');
       $this->db->bind(':status', 1);
       $row = $this->db->resultSet();
 
@@ -56,7 +56,7 @@ class ActivityModel
   {
 
     if ($param == 'high') {
-      $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY sessions_per_week DESC');
+      $this->db->query('SELECT gym_activity.id,gym_information.gym_name, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY sessions_per_week DESC');
       $this->db->bind(':status', 1);
       $row = $this->db->resultSet();
 
@@ -67,7 +67,7 @@ class ActivityModel
     }
 
     if ($param == 'low') {
-      $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY sessions_per_week ASC');
+      $this->db->query('SELECT gym_activity.id,gym_information.gym_name, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status ORDER BY sessions_per_week ASC');
       $this->db->bind(':status', 1);
       $row = $this->db->resultSet();
 
@@ -92,7 +92,7 @@ class ActivityModel
 
   public function searchByName($param)
   {
-    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status and activity_name LIKE :query OR category LIKE :query');
+    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id,gym_information.gym_name, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE gym_activity.status = :status and activity_name LIKE :query OR category LIKE :query');
     $this->db->bind(':status', 1);
 
     $this->db->bind(':query', $param . "%");
@@ -107,7 +107,7 @@ class ActivityModel
   public function nearestOffer($data)
   {
 
-    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo, (3956 * 2 * ASIN(SQRT( POWER(SIN(( :latitude - `gym_information`.`latitude`) *  pi()/180 / 2), 2) +COS( :latitude2 * pi()/180) * COS(`gym_information`.`latitude` * pi()/180) * POWER(SIN(( :longitude - `gym_information`.`longitude`) * pi()/180 / 2), 2) ))) as distance  
+    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category, gym_activity.sessions_per_week, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.photo,gym_information.gym_name, (3956 * 2 * ASIN(SQRT( POWER(SIN(( :latitude - `gym_information`.`latitude`) *  pi()/180 / 2), 2) +COS( :latitude2 * pi()/180) * COS(`gym_information`.`latitude` * pi()/180) * POWER(SIN(( :longitude - `gym_information`.`longitude`) * pi()/180 / 2), 2) ))) as distance  
     from gym_activity JOIN gym_information ON gym_information.gym_id = gym_activity.gym_id  
     having  distance <= :distance 
     order by distance');
