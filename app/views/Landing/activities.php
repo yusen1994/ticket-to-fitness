@@ -98,6 +98,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                            <h6 class="card-title">' . $activity->gym_name . '</h6>
                             <h6 class="card-title">' . $activity->activity_name . '</h6>
                             <p class="card-subtitle mb-2 text-muted">' . $activity->category . '</p>
                             <img src
