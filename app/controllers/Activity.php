@@ -122,12 +122,15 @@ class Activity extends Controller
         $data['gym_info'] = $this->activityModel->fetchgymInfoByid($gymid);
         $data['activity_time'] = $this->activityModel->fetchActivityTimebyid($activityid, $gymid);
         $data['gym_activity'] = array_merge($data['activity'], $data['gym_info']);
+       // print "<pre>";
+        //print_r($data);
+     //  exit;
         $data['activity_id'] = $activityid;
         $this->view('Landing/activitydetails', $data);
     }
 
 
-    public function addActivity($activityid)
+    public function addActivity($activityid, $gymid)
     {
         $url = $_SERVER['HTTP_REFERER'];
         $url = explode("/", $url, 5); // so at second index rest of the string will come.
@@ -140,6 +143,7 @@ class Activity extends Controller
 
                 'user_id' => $_SESSION['user_id'],
                 'activity_id' => $activityid,
+                'gym_id'=>$gymid,
             ];
             $checkActivityExists = $this->activityModel->checkCart($data);
             if ($checkActivityExists) {
@@ -153,13 +157,13 @@ class Activity extends Controller
                     $data['error'] = "You already have this activity. Check My Activities";
                     $this->allactivity($data);
                 } else {
-                    $addActivity = $this->activityModel->addToCart($data);
-                    $_SESSION['CartCount'] += 1;
-                    if ($addActivity) {
-                        $data['success'] = "Activity Added To Cart";
+                    //Add Activity
+                    $addactivity = $this->userModel->addActivity($data);
+                    if($addactivity){
+                        $data['success'] = "Activity Added! Please check Myactivity on Dashboard!";
                         $this->allactivity($data);
-                    } else {
-                        $data['error'] = "Something'\s Wrong! Please try again later";
+                    }else{
+                        $data['error'] = "Server Error! Try again later";
                         $this->allactivity($data);
                     }
                 }

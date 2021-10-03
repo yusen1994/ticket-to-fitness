@@ -40,7 +40,7 @@
     </div>
     <div class="row justify-content-center d-none d-lg-flex" style="background-color: white; padding-top:20px;">
         <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 text-center">
-            <a style="text-decoration: none;" class="align-items-end" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>">
+            <a style="text-decoration: none;" class="align-items-end" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>/<?php echo $data['gym_activity'][1]->gym_id; ?>">
                 <button type="button" class="add-activity-btn">Add Activity</button>
             </a>
         </div>
@@ -107,11 +107,13 @@
         </div>
     </div>
 </div>
+
 <div class="btn-bottom">
     <div class="row justify-content-center d-flex d-lg-none">
         <div class="col-12 text-center" style=>
-            <a style="text-decoration: none;" class="align-items-end" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>">
+            <a style="text-decoration: none;" class="align-items-end" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>/<?php echo $data['gym_activity'][1]->gym_id; ?>">
                 <button type="button" class="add-activity-btn">Add Activity</button>
+                
             </a>
         </div>
     </div>
