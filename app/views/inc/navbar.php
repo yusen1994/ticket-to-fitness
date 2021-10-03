@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
 
-    <a class="navbar-brand d-flex px-0" href="<?php echo URLROOT; ?>/text">
+    <a class="navbar-brand d-flex px-0" href="<?php echo URLROOT; ?>/text" style="width:140px;">
       <img src="<?php echo URLROOT; ?>/images/t2f-logo.png" alt="logo" width="50" height="50" class="navbar-image">
       <h4 class="fitch-title">Fitch</h4>
     </a>
@@ -86,7 +86,7 @@
                 </g>
               </svg>
             </span>Register a Gym</a> </li>
-       <!-- <li class="nav-item px-lg-2"> <a class="nav-link" href="<?php echo URLROOT ?>/User/cart"><span class="d-inline-block d-lg-none icon-width"><svg xmlns="http://www.w3.org/2000/svg" width="20.657" height="20.807" viewBox="0 0 20.657 20.807">
+        <!-- <li class="nav-item px-lg-2"> <a class="nav-link" href="<?php echo URLROOT ?>/User/cart"><span class="d-inline-block d-lg-none icon-width"><svg xmlns="http://www.w3.org/2000/svg" width="20.657" height="20.807" viewBox="0 0 20.657 20.807">
                 <g id="_16744398191571183082" data-name="16744398191571183082" transform="translate(0 1)">
                   <path id="Path_133" data-name="Path 133" d="M8.552,14.649,5.2,4.092A1.486,1.486,0,0,0,3.747,3H2" transform="translate(-2 -3)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
                   <path id="Path_134" data-name="Path 134" d="M20.67,18.377H7.856A1.46,1.46,0,0,1,6.4,16.921h0a1.564,1.564,0,0,1,1.456-1.456l15-2.184V6H9.749" transform="translate(-3.197 -3.816)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
