@@ -7,22 +7,23 @@
 
 <div class="container-fluid">
 
+
     <div class="row justify-content-center p-0 m-0">
         <div class="col-sm-12 col-md-10 col-lg-6 col-xl-4 m-0 p-0">
-        <?php
+            <?php
 
-if (!empty($data['error'])) {
-    echo "<div class='alert alert-danger' role='alert'>";
-    echo $data['error'];
-    echo "</div>";
-}
-if (!empty($data['success'])) {
-    echo "<div class='alert alert-success' role='alert'>";
-    echo $data['success'];
-    echo "</div>";
-}
+            if (!empty($data['error'])) {
+                echo "<div class='alert alert-danger' role='alert'>";
+                echo $data['error'];
+                echo "</div>";
+            }
+            if (!empty($data['success'])) {
+                echo "<div class='alert alert-success' role='alert'>";
+                echo $data['success'];
+                echo "</div>";
+            }
 
-?>
+            ?>
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
                     <div class="user-name-background">
@@ -38,14 +39,18 @@ if (!empty($data['success'])) {
             <div class="row justify-content-center mt-3">
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
-                        <h3><b>2</b></h3>
-                        <p style="font-size: 12px;">activities this week</p>
+                        <h3><b><?php echo $data['num_activities']->num_activities; ?></b></h3>
+                        <p style="font-size: 12px;">saved <?php if ($data['num_activities']->num_activities = !1) {
+                                                                echo 'activities';
+                                                            } else {
+                                                                echo 'activity';
+                                                            } ?></p>
                     </div>
                 </div>
                 <div class="col-5 text-center pr-0">
                     <div class="content-background">
-                        <h3><b>3</b></h3>
-                        <p style="font-size: 12px;">activity streak</p>
+                        <h3><b><?php echo $data['num_allocation']->num_allocation; ?></b></h3>
+                        <p style="font-size: 12px;">in timetable</p>
                     </div>
                 </div>
             </div>

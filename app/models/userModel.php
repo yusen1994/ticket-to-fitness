@@ -192,6 +192,32 @@ class userModel
     }
   }
 
+  public function userActivityCount($data)
+  {
+    $this->db->query('SELECT COUNT(*) AS `num_activities` FROM `users_activity` WHERE user_id=:user_id');
+
+    $this->db->bind(':user_id', $data['user_id']);
+    $row = $this->db->single();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
+  public function userAllocatedCount($data)
+  {
+    $this->db->query('SELECT COUNT(*) AS `num_allocation` FROM `users_allocation` WHERE user_id=:user_id');
+
+    $this->db->bind(':user_id', $data['user_id']);
+    $row = $this->db->single();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
   public function allocation($data)
   {
     $this->db->query('INSERT INTO `users_allocation`(`user_id`, `timetable_id`, `activity_id`, `gym_id`) VALUES (:user_id, :timetable_id, :activity_id, :gym_id)');
@@ -224,14 +250,14 @@ class userModel
     }
   }
 
-  public function getSalesPrice($timetable_id){
+  public function getSalesPrice($timetable_id)
+  {
     $this->db->query('SELECT sale_percentage FROM gym_activity_timetable where id = :timetable_id');
     $this->db->bind(':timetable_id', $timetable_id);
-    $row=$this->db->single();
-    if($this->db->rowCount()>0){
+    $row = $this->db->single();
+    if ($this->db->rowCount() > 0) {
       return $row;
     }
-
   }
 
 
