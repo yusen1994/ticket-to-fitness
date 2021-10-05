@@ -11,7 +11,6 @@ class User extends Controller
         $this->userModel = $this->model('userModel');
         $this->gymModel = $this->model('GymModel');
         $this->adminModel = $this->model('Admin');
-
     }
 
     public function index($msg = NULL)
@@ -30,7 +29,11 @@ class User extends Controller
         }
 
         $user_credit = $this->userModel->userCredit($data);
+        $user_activity_count = $this->userModel->userActivityCount($data);
+        $user_allocation_count = $this->userModel->userAllocatedCount($data);
         $data['user_credit'] = $user_credit;
+        $data['num_activities'] = $user_activity_count;
+        $data['num_allocation'] = $user_allocation_count;
         if (isset($_SESSION['user_id'])) {
             $this->view('User/dashboard', $data);
         } else {
@@ -174,7 +177,7 @@ class User extends Controller
                         }
 
                         //Add credit to Admin
-                        
+
                     } else {
                         $data['error'] = "Something went wrong! Please try again later";
                         $this->timetable($day = "monday", $data);

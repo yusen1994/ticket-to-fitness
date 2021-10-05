@@ -11,6 +11,10 @@ if (!empty($data['message'])) {
 ?>
 
 <div class="container-fluid">
+    <?php
+    var_dump($data['gym_activity'][0]->num_gym_activities)
+
+    ?>
     <div class="row justify-content-center p-0 m-0">
         <div class="col-sm-12 col-md-8 col-lg-4 m-0 p-0">
             <div class="row justify-content-center">
@@ -24,28 +28,34 @@ if (!empty($data['message'])) {
             <div class="row justify-content-center mt-3">
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
-                        <h3><b>2</b></h3>
-                        <p style="font-size: 12px;">total members</p>
+                        <h3><b><?php echo count($data['members_count']); ?></b></h3>
+                        <p style="font-size: 12px;">total member<?php if (count($data['members_count']) != 1) {
+                                                                    echo 's';
+                                                                } ?></p>
                     </div>
                 </div>
                 <div class="col-5 text-center pr-0">
                     <div class="content-background">
-                        <h3><b>3</b></h3>
-                        <p style="font-size: 12px;">members/month</p>
+                        <h3><b><?php echo count($data['members_count']); ?></b></h3>
+                        <p style="font-size: 12px;">member<?php if (count($data['members_count']) != 1) {
+                                                                echo 's';
+                                                            } ?>/month</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
-                        <h3><b>100</b></h3>
-                        <p style="font-size: 12px;">$ this month</p>
+                        <h3><b><?php echo ($data['gym_earnings'][0]->total_credits / 2.5) ?></b></h3>
+                        <p style="font-size: 12px;">$ earned</p>
                     </div>
                 </div>
                 <div class="col-5 text-center pr-0">
                     <div class="content-background">
-                        <h3><b>8</b></h3>
-                        <p style="font-size: 12px;">activities</p>
+                        <h3><b><?php echo $data['gym_activity'][0]->num_gym_activities; ?></b></h3>
+                        <p style="font-size: 12px;">activitie<?php if ($data['gym_activity'][0]->num_gym_activities != 1) {
+                                                                    echo 's';
+                                                                } ?></p>
                     </div>
                 </div>
             </div>
