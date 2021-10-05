@@ -21,7 +21,7 @@
           <div class="row justify-content-center">
             <div class="col-12 justify-content-center">
               <a href="#">
-                <button type="button" class="land-learnmore-btn mt-3">Learn More</button>
+                <!-- <button type="button" class="land-learnmore-btn mt-3">Learn More</button>-->
               </a>
             </div>
           </div>
@@ -32,7 +32,7 @@
 
   <div class="row background-image-sml justify-content-center d-block d-lg-none vh-100">
     <div class="col-12 align-self-center">
-      <div class="row justify-content-center" style="padding-top: 100px; padding-left:15px; padding-right:15px;">
+      <div class="row justify-content-center" style="padding-top: 150px; padding-left:15px; padding-right:15px;">
         <div class="col-lg-6 col-xl-4 col text-center title-card-overlay pt-5 pb-5 ">
           <h2>The only place to get all your</h2>
           <h1><b><span class="text-orange">Fit</span>ness <span class="text-orange">Ch</span>oice</b></h1>
@@ -46,7 +46,7 @@
           <div class="row justify-content-center">
             <div class="col-12 justify-content-center">
               <a href="#">
-                <button type="button" class="land-learnmore-btn mt-3">Learn More</button>
+                <!-- <button type="button" class="land-learnmore-btn mt-3">Learn More</button> -->
               </a>
             </div>
           </div>
