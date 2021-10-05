@@ -119,8 +119,6 @@ class Account
         $this->db->bind(':user_email_status', $data['user_email_status']);
         $this->db->bind(':password_reset', $data['password_reset']);
 
-        var_dump($data['dob']);
-
         //Execute
         if ($this->db->execute()) {
             if (!empty($data['photo'])) {

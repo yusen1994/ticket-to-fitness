@@ -11,10 +11,6 @@ if (!empty($data['message'])) {
 ?>
 
 <div class="container-fluid">
-    <?php
-    var_dump($data['gym_activity'][0]->num_gym_activities)
-
-    ?>
     <div class="row justify-content-center p-0 m-0">
         <div class="col-sm-12 col-md-8 col-lg-4 m-0 p-0">
             <div class="row justify-content-center">

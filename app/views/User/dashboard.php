@@ -1,13 +1,7 @@
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
 
-
-
-
-
 <div class="container-fluid">
-
-
     <div class="row justify-content-center p-0 m-0">
         <div class="col-sm-12 col-md-10 col-lg-6 col-xl-4 m-0 p-0">
             <?php
@@ -33,7 +27,7 @@
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col text-center">
-                    <p style="font-size: 14px;">Time to smash your goals</p>
+                    <p id="motivational-quote" style="font-size: 14px;">Time to smash your goals</p>
                 </div>
             </div>
             <div class="row justify-content-center mt-3">
@@ -147,7 +141,33 @@
     </div>
 </div>
 
+<script>
+    let quotes = [
+        "‘The last three or four reps is what makes the muscle grow. This area of pain divides a champion from someone who is not a champion’ — Arnold Schwarzenegger",
+        "‘Success usually comes to those who are too busy to be looking for it’ — Henry David Thoreau",
+        "‘All progress takes place outside the comfort zone’ — Michael John Bobak",
+        "‘If you think lifting is dangerous, try being weak. Being weak is dangerous’ — Bret Contreras",
+        "‘The only place where success comes before work is in the dictionary’ Vidal Sassoon",
+        "‘The clock is ticking. Are you becoming the person you want to be?’ — Greg Plitt",
+        "‘Whether you think you can, or you think you can’t, you’re right’ — Henry Ford",
+        "‘The successful warrior is the average man, with laser-like focus’ — Bruce Lee",
+        "‘You must expect great things of yourself before you can do them’ — Michael Jordan",
+        "‘Action is the foundational key to all success’ — Pablo Picasso",
+        "‘Things may come to those who wait, but only the things left by those who hustle’ – Abraham Lincoln",
+        "‘Well done is better than well said’ — Benjamin Franklin",
+        "‘All our dreams can come true if we have the courage to pursue them’ — Walt Disney",
+        "‘A champion is someone who gets up when they can’t’ — Jack Dempsey",
+        "‘What hurts today makes you stronger tomorrow’ — Jay Cutler",
+        "‘If something stands between you and your success, move it. Never be denied’ — Dwayne ‘The Rock’ Johnson",
+        "‘If you want something you’ve never had, you must be willing to do something you’ve never done’ — Thomas Jefferson",
+        "‘You have to think it before you can do it. The mind is what makes it all possible’ — Kai Greene",
+        "‘Things work out best for those who make the best of how things work out’ — John Wooden",
+        "‘Success is walking from failure to failure with no loss of enthusiasm’ — Winston Churchill"
+    ]
 
+    let i = Math.floor(Math.random() * quotes.length);
+    document.getElementById('motivational-quote').innerHTML = quotes[i];
+</script>
 
 <?php
 
