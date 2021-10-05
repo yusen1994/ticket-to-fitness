@@ -40,13 +40,21 @@ class Gym extends Controller
 
             if (!empty($gyminfo)) {
                 $data = [
-
+                    'gym_id' => $_SESSION['user_id'],
                     'gym_name' => $gyminfo->gym_name,
                     'gym_address' => $gyminfo->gym_address,
                     'gym_email' => $gyminfo->gym_email,
                     'abn' => $gyminfo->abn,
 
                 ];
+
+                $gym_members = $this->gymModel->totalGymMembers($data);
+                $data['members_count'] = $gym_members;
+                $gym_earnings = $this->gymModel->totalEarnings($data);
+                $data['gym_earnings'] = $gym_earnings;
+                $gymactivity = $this->gymModel->numGymActivities($data);
+                $data['gym_activity'] = $gymactivity;
+
 
 
 

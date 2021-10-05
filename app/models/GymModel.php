@@ -159,6 +159,18 @@ class GymModel
     }
   }
 
+  public function numGymActivities($data)
+  {
+    $this->db->query('SELECT COUNT(*) AS `num_gym_activities` FROM `gym_activity` WHERE gym_id=:gym_id');
+    $this->db->bind(':gym_id', $data['gym_id']);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
   public function viewActivity($data)
   {
 
@@ -250,6 +262,18 @@ class GymModel
     }
   }
 
+  public function totalGymMembers($data)
+  {
+    $this->db->query('SELECT DISTINCT users.firstname, users.lastname FROM users_activity JOIN users ON users_activity.user_id = users.id where users_activity.gym_id=:gym_id');
+    $this->db->bind(':gym_id', $data['gym_id']);
+
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
 
 
   public function viewtimeTable($data)
@@ -282,7 +306,8 @@ class GymModel
     }
   }
 
-  public function allocatedusers($data){
+  public function allocatedusers($data)
+  {
     $this->db->query('SELECT DISTINCT users.firstname, users.lastname, users.contact_number, users.gender, gym_activity.max_capacity FROM users_allocation INNER JOIN users ON users_allocation.user_id = users.id INNER JOIN gym_activity ON gym_activity.id = users_allocation.activity_id WHERE users_allocation.timetable_id = :timetable_id');
     $this->db->bind(':timetable_id', $data['timetable_id']);
     $row = $this->db->resultSet();
@@ -345,6 +370,19 @@ class GymModel
     }
   }
 
+  public function totalEarnings($data)
+  {
+
+    $this->db->query('SELECT SUM(Credits) AS "total_credits" FROM gym_earnings WHERE gym_id = :gym_id');
+    $this->db->bind(':gym_id', $data['gym_id']);
+    $row = $this->db->resultSet();
+
+    if ($this->db->rowCount() > 0) {
+
+      return $row;
+    }
+  }
+
   public function earnings($data)
   {
 
@@ -359,7 +397,8 @@ class GymModel
     }
   }
 
-  public function apple_sales($data){
+  public function apple_sales($data)
+  {
 
     $this->db->query('UPDATE gym_activity_timetable SET sale_percentage=:sale_percentage where id = :timetable_id');
     $this->db->bind(':sale_percentage', $data['sale_percentage']);
