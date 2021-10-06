@@ -411,4 +411,17 @@ class GymModel
       return false;
     }
   }
+
+  public function remove_sales($data){
+
+    $this->db->query('UPDATE gym_activity_timetable SET sale_percentage=NULL where id = :timetable_id');
+    $this->db->bind(':timetable_id', $data['timetable_id']);
+
+    //Execute
+    if ($this->db->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

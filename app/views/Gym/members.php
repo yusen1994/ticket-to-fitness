@@ -34,7 +34,7 @@
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <div class="gym-member-list">
 
-                <?php foreach ($data['gym_members'] as $single) {
+                <?php if(!empty($data['gym_members'])) { foreach ($data['gym_members'] as $single) {
                     echo '            <div class="gym-member">
                                          <div class="gym-member-construct">
                                           <div class="gym-member-name">' . $single->firstname . " " . $single->lastname . '</div>
@@ -46,7 +46,7 @@
                                            </div>      
                                             <div class="gym-line"></div>
                                          </div>';
-                }
+                } }
                 ?>
             </div>
         </div>

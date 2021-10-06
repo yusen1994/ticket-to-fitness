@@ -84,6 +84,8 @@
                         <a href="' . URLROOT . '/Gym/applySales/25/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
                         <a href="' . URLROOT . '/Gym/applySales/50/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
                         <a href="' . URLROOT . '/Gym/applySales/75/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
+                        <a href="' . URLROOT . '/Gym/removeSales/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-remove-btn">Remove</button></a>
+
                             <div class="line-separator" style="margin-top:10px;"></div>
                         </div>
                     </div>';
@@ -184,6 +186,8 @@
                                 <a href="' . URLROOT . '/Gym/applySales/25/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-25%</button></a>
                                 <a href="' . URLROOT . '/Gym/applySales/50/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-50%</button></a>
                                 <a href="' . URLROOT . '/Gym/applySales/75/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-discount-btn">-75%</button></a>
+                                <a href="' . URLROOT . '/Gym/removeSales/' . $single->timetable_id . '" style="text-decoration:none;"> <button class="myactivity-remove-btn">Remove</button></a>
+
                                 <div class="line-separator" style="margin-top:10px;"></div>
                             </div>
                         </div>

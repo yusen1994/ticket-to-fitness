@@ -207,7 +207,7 @@
     }
 </style>
 
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBtWSTetYh3Y_zEDAgUK5k0FgssOuwZo7g"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBXLLkk-01k8l0ERjmzHFUImS0IRGtmlbw"></script>
 
 <script src="<?php echo URLROOT; ?>/js/address.js"></script>
 

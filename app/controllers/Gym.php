@@ -16,9 +16,12 @@ class Gym extends Controller
         if (isset($_SESSION['user_id'])) {
             if ($_SESSION['partnership_status'] == true) {
                 $gyminfo = $this->accountsModel->fetchGymInformation($_SESSION['user_id']);
-                $_SESSION['gym_name'] = $gyminfo->gym_name;
-                $_SESSION['gym_address'] = $gyminfo->gym_address;
-                return true;
+                if(!empty($gyminfo)){
+                    $_SESSION['gym_name'] = $gyminfo->gym_name;
+                    $_SESSION['gym_address'] = $gyminfo->gym_address;
+                    return true;
+
+                }
             }
         } else {
             return false;
@@ -496,6 +499,23 @@ class Gym extends Controller
 
             $apply_sales = $this->gymModel->apple_sales($data);
             $msg['success'] = 'Successfully applied!';
+            $this->manageActivities($msg);
+        } else {
+            $msg['error'] = "Something\'s wrong please try again later!";
+            $this->manageActivities($msg);
+        }
+    }
+
+    public function removeSales($timetable_id)
+    {
+        if ($this->isGymLoggedIn()) {
+            $data = [
+                'gym_id' => $_SESSION['user_id'],
+                'timetable_id' => $timetable_id,
+            ];
+
+            $remove_sales = $this->gymModel->remove_sales($data);
+            $msg['success'] = 'Successfully removed!';
             $this->manageActivities($msg);
         } else {
             $msg['error'] = "Something\'s wrong please try again later!";
