@@ -34,7 +34,7 @@
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
                         <h3><b><?php echo $data['num_activities']->num_activities; ?></b></h3>
-                        <p style="font-size: 12px;">saved <?php if ($data['num_activities']->num_activities = !1) {
+                        <p style="font-size: 12px;">saved <?php if ($data['num_activities']->num_activities = !1 || $data['num_activities']->num_activities == 0) {
                                                                 echo 'activities';
                                                             } else {
                                                                 echo 'activity';

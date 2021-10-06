@@ -10,6 +10,7 @@
 
 
 <div class="container-fluid">
+
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 align-self-center">
             <p>
@@ -23,7 +24,15 @@
         <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4 align-self-center">
             <div class="row">
                 <div class="col-4 pr-0">
-                    <img class="card-img-top" src="<?php echo URLROOT; ?>/images/golds_gym.png" alt="Card image cap" style="max-width: 200px;">
+                    <?php
+                    if ($data['gym_info'][0]->photo != NULL) {
+                        echo '<img class="card-img-top" src="' . URLROOT . '/uploads/' . $data['gym_info'][0]->photo . '" alt="Card image cap" style="max-width: 200px;">';
+                    } else {
+                        echo '<img class="card-img-top" src="' . URLROOT . '/images/gym-default.png" alt="Card image cap" style="max-width: 200px;">';
+                    }
+                    ?>
+
+
                 </div>
                 <div class="col-8">
                     <h4><b><?php //Array with two object, we need to access object 2 from index 0 that has gym info
@@ -113,7 +122,7 @@
         <div class="col-12 text-center" style=>
             <a style="text-decoration: none;" class="align-items-end" href="<?php echo URLROOT; ?>/Activity/addActivity/<?php echo $data['activity_id']; ?>/<?php echo $data['gym_activity'][1]->gym_id; ?>">
                 <button type="button" class="add-activity-btn">Add Activity</button>
-                
+
             </a>
         </div>
     </div>
