@@ -33,6 +33,8 @@ if (!empty($data['message'])) {
                                                                     if (count($data['members_count']) != 1) {
                                                                         echo 's';
                                                                     }
+                                                                } else {
+                                                                    echo 's';
                                                                 } ?></p>
                     </div>
                 </div>

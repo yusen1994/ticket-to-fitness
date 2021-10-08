@@ -122,9 +122,9 @@ class Activity extends Controller
         $data['gym_info'] = $this->activityModel->fetchgymInfoByid($gymid);
         $data['activity_time'] = $this->activityModel->fetchActivityTimebyid($activityid, $gymid);
         $data['gym_activity'] = array_merge($data['activity'], $data['gym_info']);
-       // print "<pre>";
+        // print "<pre>";
         //print_r($data);
-     //  exit;
+        //  exit;
         $data['activity_id'] = $activityid;
         $this->view('Landing/activitydetails', $data);
     }
@@ -143,7 +143,7 @@ class Activity extends Controller
 
                 'user_id' => $_SESSION['user_id'],
                 'activity_id' => $activityid,
-                'gym_id'=>$gymid,
+                'gym_id' => $gymid,
             ];
             $checkActivityExists = $this->activityModel->checkCart($data);
             if ($checkActivityExists) {
@@ -159,10 +159,10 @@ class Activity extends Controller
                 } else {
                     //Add Activity
                     $addactivity = $this->userModel->addActivity($data);
-                    if($addactivity){
-                        $data['success'] = "Activity Added! Please check Myactivity on Dashboard!";
+                    if ($addactivity) {
+                        $data['success'] = "Activity has been successfully added! Please check the My Activities tab in your dashboard!";
                         $this->allactivity($data);
-                    }else{
+                    } else {
                         $data['error'] = "Server Error! Try again later";
                         $this->allactivity($data);
                     }
