@@ -16,11 +16,10 @@ class Gym extends Controller
         if (isset($_SESSION['user_id'])) {
             if ($_SESSION['partnership_status'] == true) {
                 $gyminfo = $this->accountsModel->fetchGymInformation($_SESSION['user_id']);
-                if(!empty($gyminfo)){
+                if (!empty($gyminfo)) {
                     $_SESSION['gym_name'] = $gyminfo->gym_name;
                     $_SESSION['gym_address'] = $gyminfo->gym_address;
                     return true;
-
                 }
             }
         } else {
@@ -339,8 +338,11 @@ class Gym extends Controller
         $data = [
             'title' => 'Register a Gym'
         ];
-
-        $this->view('gym/registergym', $data);
+        if ($this->isGymLoggedIn()) {
+            $this->view('gym/registergym', $data);
+        } else {
+            redirect('Accounts/login');
+        }
     }
 
     public function activities()
