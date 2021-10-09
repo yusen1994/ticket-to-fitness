@@ -24,18 +24,34 @@ if (!empty($data['message'])) {
             <div class="row justify-content-center mt-3">
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
-                        <h3><b><?php if(!empty($data['members_count'])){ echo count($data['members_count']); } else{ echo '0'; }?></b></h3>
-                        <p style="font-size: 12px;">total member<?php if(!empty($data['members_count'])){ if (count($data['members_count']) != 1) {
+                        <h3><b><?php if (!empty($data['members_count'])) {
+                                    echo count($data['members_count']);
+                                } else {
+                                    echo '0';
+                                } ?></b></h3>
+                        <p style="font-size: 12px;">total member<?php if (!empty($data['members_count'])) {
+                                                                    if (count($data['members_count']) != 1) {
+                                                                        echo 's';
+                                                                    }
+                                                                } else {
                                                                     echo 's';
-                                                                } }?></p>
+                                                                } ?></p>
                     </div>
                 </div>
                 <div class="col-5 text-center pr-0">
                     <div class="content-background">
-                        <h3><b><?php if(!empty($data['members_count'])){  echo count($data['members_count']); } else {echo '0'; } ?></b></h3>
-                        <p style="font-size: 12px;">member<?php if(!empty($data['members_count'])){ if (count($data['members_count']) != 1) {
+                        <h3><b><?php if (!empty($data['members_count'])) {
+                                    echo count($data['members_count']);
+                                } else {
+                                    echo '0';
+                                } ?></b></h3>
+                        <p style="font-size: 12px;">member<?php if (!empty($data['members_count'])) {
+                                                                if (count($data['members_count']) != 1 || count($data['members_count']) == 0) {
+                                                                    echo 's';
+                                                                }
+                                                            } else {
                                                                 echo 's';
-                                                            } } ?>/month</p>
+                                                            } ?>/month</p>
                     </div>
                 </div>
             </div>
@@ -49,9 +65,11 @@ if (!empty($data['message'])) {
                 <div class="col-5 text-center pr-0">
                     <div class="content-background">
                         <h3><b><?php echo $data['gym_activity'][0]->num_gym_activities; ?></b></h3>
-                        <p style="font-size: 12px;">activity<?php if ($data['gym_activity'][0]->num_gym_activities != 1) {
-                                                                    echo 's';
-                                                                } ?></p>
+                        <p style="font-size: 12px;">activit<?php if ($data['gym_activity'][0]->num_gym_activities != 1 || $data['gym_activity'][0]->num_gym_activities == 0) {
+                                                                echo 'ies';
+                                                            } else {
+                                                                echo 'y';
+                                                            } ?></p>
                     </div>
                 </div>
             </div>
