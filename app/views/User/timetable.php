@@ -70,7 +70,6 @@
 	}
 	if (empty($data['error'])) {
 		foreach ($data['user_activity'] as $single) {
-
 			echo '
 					<div class="row justify-content-center mt-3">
 						<div class="col-sm-12 col-md-8 col-xl-4 align-self-center" style="flex-direction=row;">
@@ -82,44 +81,43 @@
 					</div>
 					<div class="row justify-content-center mt-3" style="background-color: white; padding:15px;">
 						<div class="col-sm-12 col-md-8 col-md-8 col-xl-4">
-							<div class="row">
-								<div class="col-4 text-center pl-0">
-									<img src="' . URLROOT . '/images/gym_icon.png" class="gym-logo-timetable" />
-								</div>
-								<div class="col-8 pl-md-0">
-									<div class="row">
-										<div class="col-12">
-											<h4><b>' . $single->gym_name . '</b></h4>
-										</div>
+							 <a href="' . URLROOT . '/Activity/activitydetails/' . $single->activity_id . '/' . $single->gym_id . '"style="text-decoration:none!important; color:black;">
+								<div class="row">
+									<div class="col-4 text-center pl-0">
+										<img src="' . URLROOT . '/images/gym_icon.png" class="gym-logo-timetable" />
 									</div>
-									<hr>
-									<div class="row">
-										<div class="col-12">
-											<h4><b>' . $single->category . '</b></h4>
+									<div class="col-8 pl-md-0">
+										<div class="row">
+											<div class="col-12">
+												<h4><b>' . $single->gym_name . '</b></h4>
+											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-									<div class="row justify-content-end mt-3">
-										<div class="col-sm-12 col-md-8">
-											<p>' . $single->activity_name . '</p>
-										</div>
-										<div class="col-sm-12 col-md-8">
-											<p>' . $single->gym_address . '</p>
-										</div>
-										<div class="col-sm-12 col-md-8">
-											<div class="row">
-										<div class="col-7 pr-0">
-											<p>Capacity: <b>' . $single->max_capacity . '</b></p>
-										</div>
-								
-									</div>
+										<hr>
+										<div class="row">
+											<div class="col-12">
+												<h4><b>' . $single->category . '</b></h4>
+											</div>
 										</div>
 									</div>
 								</div>
-							
-						
-					</div>';
+								<div class="row justify-content-end mt-3">
+									<div class="col-sm-12 col-md-8">
+										<p>' . $single->activity_name . '</p>
+									</div>
+									<div class="col-sm-12 col-md-8">
+										<p>' . $single->gym_address . '</p>
+									</div>
+									<div class="col-sm-12 col-md-8">
+										<div class="row">
+									<div class="col-7 pr-0">
+										<p>Capacity: <b>' . $single->max_capacity . '</b></p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>			
+			</div>';
 		}
 	} else {
 		echo '

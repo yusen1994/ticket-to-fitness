@@ -18,9 +18,9 @@ class userModel
   public function viewtimeTable($data)
   {
 
-    $this->db->query('SELECT DISTINCT gym_activity_timetable.day, gym_activity_timetable.time, gym_activity.activity_name, gym_activity.category, gym_activity.max_capacity,gym_information.gym_name, gym_information.gym_address FROM users_allocation 
+    $this->db->query('SELECT DISTINCT gym_activity_timetable.activity_id, gym_activity_timetable.gym_id, gym_activity_timetable.day, gym_activity_timetable.time, gym_activity.activity_name, gym_activity.category, gym_activity.max_capacity,gym_information.gym_name, gym_information.gym_address FROM users_allocation 
     INNER JOIN gym_activity_timetable ON users_allocation.timetable_id = gym_activity_timetable.id 
-    Inner join gym_activity ON users_allocation.activity_id = gym_activity.id 
+    INNER JOIN gym_activity ON users_allocation.activity_id = gym_activity.id 
     INNER JOIN gym_information ON users_allocation.gym_id = gym_information.gym_id 
     where users_allocation.user_id = :user_id 
      and gym_activity_timetable.day = :day');
