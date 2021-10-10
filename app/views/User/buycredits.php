@@ -27,11 +27,10 @@
                             <div class="row justify-content-center">
                                 <a href="' . URLROOT . '/user/checkout/' . $single->cost . '/' . $single->total_credit . '" style="text-decoration:none; color:black;">
                                     <div class="col-12 col-sm-8 col-lg-6 col-xl-5">
-                                        <div class="background-card">
+                                        <div class="background-card pt-3">
                                             <div class="d-flex justify-content-center">
                                                 <h4 class=" p-0 m-0"><b>' . $single->name . '</b></h4>
                                             </div>
-                                            <hr>
                                             <div class="bonus-row mt-3">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="27.559" height="31.468" viewBox="0 0 27.559 31.468">
                                                     <g id="ticket_1_" data-name="ticket (1)" transform="matrix(0.105, -0.995, 0.995, 0.105, -0.26, 28.871)">
@@ -68,10 +67,10 @@
                                                         </g>
                                                     </svg>
 
-                                                    <h1><b>' . $single->total_credit . '</b></h1>
+                                                    <h1 class="m-0"><b>' . $single->total_credit . '</b></h1>
                                                 </div>
                                                 <div class="dollars-container">
-                                                    <h1><b>$' . $single->cost . '</b></h1>
+                                                    <h1 class="m-0"><b>$' . $single->cost . '</b></h1>
                                                 </div>
                                             </div>
                                             <div class="d-flex mt-5">

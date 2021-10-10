@@ -146,7 +146,6 @@ class User extends Controller
         $activity_id = $this->gymModel->getActivityidfromtimetable($timetableid);
         //Check User Balance is enough to buy the activity
 
-
         if ($this->checkUserBalance($_SESSION['user_id'], $new_cost)) {
             if (!empty($timetableid)) {
                 $data['user_id'] = $_SESSION['user_id'];

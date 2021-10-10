@@ -174,10 +174,6 @@
 
 <br>
 
-<div style="height:200px;width:100%; position:absolute;">
-    <?php require APPROOT . '/views/inc/footer.php'; ?>
-</div>
-
 <!--Filter Modal-->
 
 <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
