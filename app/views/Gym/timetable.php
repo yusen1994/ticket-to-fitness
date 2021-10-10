@@ -5,58 +5,100 @@
 	<div class="row justify-content-center">
 		<div class="col-sm-12 col-md-8 col-xl-6">
 			<div class="btn-group btn-group-lg buttons_days_of_week " role="group" aria-label="buttons_days_of_week">
-				<a href="<?php echo URLROOT ?>/Gym/timetable/monday" class="btn btn-light  <?php
-																							$url = $_SERVER['REQUEST_URI'];
-																							$urlarray = explode("/", $url);
-																							$end = $urlarray[count($urlarray) - 1];
-																							if (
-																								strpos($end, 'monday') !== false ||
-																								strpos($end, 'Timetable') !== false
-																							) {
-																								echo 'active';
-																							} ?>">M</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/tuesday" class="btn btn-light <?php
-																							$url = $_SERVER['REQUEST_URI'];
-																							$urlarray = explode("/", $url);
-																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'tuesday') !== false) {
-																								echo 'active';
-																							} ?>">T</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/wednesday" class="btn btn-light <?php
+				<a href="<?php echo URLROOT ?>/Gym/timetable/monday" class="btn btn-light p-1 <?php
 																								$url = $_SERVER['REQUEST_URI'];
 																								$urlarray = explode("/", $url);
 																								$end = $urlarray[count($urlarray) - 1];
-																								if (strpos($end, 'wednesday') !== false) {
+																								if (
+																									strpos($end, 'monday') !== false ||
+																									strpos($end, 'Timetable') !== false
+																								) {
 																									echo 'active';
-																								} ?>">W</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/thursday" class="btn btn-light <?php
-																							$url = $_SERVER['REQUEST_URI'];
-																							$urlarray = explode("/", $url);
-																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'thursday') !== false) {
-																								echo 'active';
-																							} ?>">T</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/friday" class="btn btn-light <?php
-																							$url = $_SERVER['REQUEST_URI'];
-																							$urlarray = explode("/", $url);
-																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'friday') !== false) {
-																								echo 'active';
-																							} ?>">F</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/saturday" class="btn btn-light <?php
-																							$url = $_SERVER['REQUEST_URI'];
-																							$urlarray = explode("/", $url);
-																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'saturday') !== false) {
-																								echo 'active';
-																							} ?>">S</a>
-				<a href="<?php echo URLROOT ?>/Gym/timetable/sunday" class="btn btn-light <?php
-																							$url = $_SERVER['REQUEST_URI'];
-																							$urlarray = explode("/", $url);
-																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'sunday') !== false) {
-																								echo 'active';
-																							} ?>">S</a>
+																								} ?>">
+					<div>M
+						<p id="mon-date" class="p-0 m-0 timetable-date <?php if (date('w') == 1) {
+																			echo 'timetable-active';
+																		} ?>"></p>
+					</div>
+				</a>
+				<a href="<?php echo URLROOT ?>/Gym/timetable/tuesday" class="btn btn-light p-1 <?php
+																								$url = $_SERVER['REQUEST_URI'];
+																								$urlarray = explode("/", $url);
+																								$end = $urlarray[count($urlarray) - 1];
+																								if (strpos($end, 'tuesday') !== false) {
+																									echo 'active';
+																								} ?>">
+					<div>T
+						<p id="tue-date" class="p-0 m-0 timetable-date <?php if (date('w') == 2) {
+																			echo 'timetable-active';
+																		} ?>"></p>
+					</div>
+				</a>
+				<a href="<?php echo URLROOT ?>/Gym/timetable/wednesday" class="btn btn-light p-1 <?php
+																									$url = $_SERVER['REQUEST_URI'];
+																									$urlarray = explode("/", $url);
+																									$end = $urlarray[count($urlarray) - 1];
+																									if (strpos($end, 'wednesday') !== false) {
+																										echo 'active';
+																									} ?>">
+					<div>W
+						<p id="wed-date" class="p-0 m-0 timetable-date <?php if (date('w') == 3) {
+																			echo 'timetable-active';
+																		} ?>"></p>
+					</div>
+				</a>
+				<a href="<?php echo URLROOT ?>/Gym/timetable/thursday" class="btn btn-light p-1 <?php
+																								$url = $_SERVER['REQUEST_URI'];
+																								$urlarray = explode("/", $url);
+																								$end = $urlarray[count($urlarray) - 1];
+																								if (strpos($end, 'thursday') !== false) {
+																									echo 'active';
+																								} ?>">
+					<div>T
+						<p id="thur-date" class="p-0 m-0 timetable-date <?php if (date('w') == 4) {
+																			echo 'timetable-active';
+																		} ?>"></p>
+					</div>
+				</a>
+				<a href="<?php echo URLROOT ?>/Gym/timetable/friday" class="btn btn-light p-1 <?php
+																								$url = $_SERVER['REQUEST_URI'];
+																								$urlarray = explode("/", $url);
+																								$end = $urlarray[count($urlarray) - 1];
+																								if (strpos($end, 'friday') !== false) {
+																									echo 'active';
+																								} ?>">
+					<div>F
+						<p id="fri-date" class="p-0 m-0 timetable-date <?php if (date('w') == 5) {
+																			echo 'timetable-active';
+																		} ?>"></p>
+					</div>
+				</a>
+				<a href="<?php echo URLROOT ?>/Gym/timetable/saturday" class="btn btn-light p-1 <?php
+																								$url = $_SERVER['REQUEST_URI'];
+																								$urlarray = explode("/", $url);
+																								$end = $urlarray[count($urlarray) - 1];
+																								if (strpos($end, 'saturday') !== false) {
+																									echo 'active';
+																								} ?>">
+					<div>S
+						<p id="sat-date" class="p-0 m-0 timetable-date <?php if (date('w') == 6) {
+																			echo 'timetable-active';
+																		} ?>"></p>
+					</div>
+				</a>
+				<a href="<?php echo URLROOT ?>/Gym/timetable/sunday" class="btn btn-light p-1 <?php
+																								$url = $_SERVER['REQUEST_URI'];
+																								$urlarray = explode("/", $url);
+																								$end = $urlarray[count($urlarray) - 1];
+																								if (strpos($end, 'sunday') !== false) {
+																									echo 'active';
+																								} ?>">
+					<div>S
+						<p id="sun-date" class="p-0 m-0 timetable-date <?php if (date('w') == 0) {
+																			echo 'timetable-active';
+																		} ?>"></p>
+					</div>
+				</a>
 
 			</div>
 		</div>
@@ -160,4 +202,141 @@
 		width: 70%;
 		height: auto;
 	}
+
+	.timetable-date {
+		font-size: 12px;
+		font-weight: lighter;
+	}
+
+	.timetable-active {
+		color: #0B518D;
+		font-weight: bold;
+	}
 </style>
+
+<!-- Get current day and determine correct date to display -->
+<script>
+	function addDays(date, days) {
+		var result = new Date(date);
+		result.setDate(result.getDate() + days);
+		return result;
+	}
+
+	var dateToday = new Date();
+	let dayOfWeek = dateToday.getDay() - 1; //returns 0 (Sun) - 6 (Sat)
+	if (dayOfWeek < 0) {
+		dayOfWeek = 6;
+	}
+
+	let dayId = [
+		'mon-date',
+		'tue-date',
+		'wed-date',
+		'thur-date',
+		'fri-date',
+		'sat-date',
+		'sun-date',
+	]
+
+	switch (dayOfWeek) {
+		case 0: // Monday
+			for (let i = dayOfWeek; i < dayId.length; i++) {
+				let displayDate = addDays(dateToday, i - dayOfWeek);
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[i]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			for (let j = 0; j < dayOfWeek; j++) {
+				let displayDate = addDays(dateToday, (dayId.length - dayOfWeek + j));
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			break;
+		case 1: // Monday
+			for (let i = dayOfWeek; i < dayId.length; i++) {
+				let displayDate = addDays(dateToday, i - dayOfWeek);
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[i]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			for (let j = 0; j < dayOfWeek; j++) {
+				let displayDate = addDays(dateToday, (dayId.length - dayOfWeek + j));
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			break;
+		case 2: // Monday
+			for (let i = dayOfWeek; i < dayId.length; i++) {
+				let displayDate = addDays(dateToday, i - dayOfWeek);
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[i]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			for (let j = 0; j < dayOfWeek; j++) {
+				let displayDate = addDays(dateToday, (dayId.length - dayOfWeek + j));
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			break;
+		case 3: // Monday
+			for (let i = dayOfWeek; i < dayId.length; i++) {
+				let displayDate = addDays(dateToday, i - dayOfWeek);
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[i]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			for (let j = 0; j < dayOfWeek; j++) {
+				let displayDate = addDays(dateToday, (dayId.length - dayOfWeek + j));
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			break;
+		case 4: // Friday
+			for (let i = dayOfWeek; i < dayId.length; i++) {
+				let displayDate = addDays(dateToday, i - dayOfWeek);
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[i]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			for (let j = 0; j < dayOfWeek; j++) {
+				let displayDate = addDays(dateToday, (dayId.length - dayOfWeek + j));
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			break;
+		case 5: // Friday
+			for (let i = dayOfWeek; i < dayId.length; i++) {
+				let displayDate = addDays(dateToday, i - dayOfWeek);
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[i]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			for (let j = 0; j < dayOfWeek; j++) {
+				let displayDate = addDays(dateToday, (dayId.length - dayOfWeek + j));
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			break;
+		case 6: // Friday
+			for (let i = dayOfWeek; i < dayId.length; i++) {
+				let displayDate = addDays(dateToday, i - dayOfWeek);
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[i]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			for (let j = 0; j < dayOfWeek; j++) {
+				let displayDate = addDays(dateToday, (dayId.length - dayOfWeek + j));
+				let dayOfMonth = displayDate.getDate();
+				let monthOfYear = (displayDate.getMonth() + 1);
+				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
+			}
+			break;
+
+	}
+</script>

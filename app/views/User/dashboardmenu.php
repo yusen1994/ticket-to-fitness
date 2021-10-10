@@ -50,7 +50,7 @@
                                                 if (
                                                     strpos($end, 'MyActivity') !== false ||
                                                     strpos($urlsecondlast, 'confirmActivity') !== false ||
-                                                    strpos($urlsecondlast, 'allocation') !== false ||
+
                                                     strpos($urlsecondlast, 'removeActivity') !== false
                                                 ) {
                                                     echo 'userdashboard-menu-active';
@@ -78,7 +78,12 @@
                                                 $url = $_SERVER['REQUEST_URI'];
                                                 $urlarray = explode("/", $url);
                                                 $end = $urlarray[count($urlarray) - 1];
-                                                if (strpos($end, 'Timetable') !== false || strpos($urltimetable, 'timetable') !== false) {
+                                                $urlsecondlast = $urlarray[count($urlarray) - 2];
+                                                if (
+                                                    strpos($end, 'Timetable') !== false ||
+                                                    strpos($urltimetable, 'timetable') !== false ||
+                                                    strpos($urlsecondlast, 'allocation') !== false
+                                                ) {
                                                     echo 'userdashboard-menu-active';
                                                 } ?>" style="padding:0px !important; height:auto;">
 
