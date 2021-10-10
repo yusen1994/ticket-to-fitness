@@ -252,7 +252,11 @@ class GymModel
 
   public function fetchActiveActivity()
   {
-    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category,gym_activity.sessions_per_week,gym_activity.max_capacity, gym_activity.max_capacity, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.gym_name, gym_information.photo FROM gym_activity INNER JOIN gym_information ON gym_information.gym_id=gym_activity.gym_id WHERE status = :status');
+    $this->db->query('SELECT gym_activity.id, gym_activity.gym_id, gym_activity.activity_name, gym_activity.category,gym_activity.sessions_per_week,gym_activity.max_capacity, gym_activity.max_capacity, gym_activity.max_capacity, gym_activity.credit, gym_activity.description, gym_activity.status, gym_information.gym_name, gym_information.gym_address, gym_information.photo 
+    FROM gym_activity 
+    INNER JOIN gym_information 
+    ON gym_information.gym_id=gym_activity.gym_id WHERE status = :status');
+
     $this->db->bind(':status', 1);
     $row = $this->db->resultSet();
 
@@ -412,7 +416,8 @@ class GymModel
     }
   }
 
-  public function remove_sales($data){
+  public function remove_sales($data)
+  {
 
     $this->db->query('UPDATE gym_activity_timetable SET sale_percentage=NULL where id = :timetable_id');
     $this->db->bind(':timetable_id', $data['timetable_id']);

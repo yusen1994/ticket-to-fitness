@@ -54,7 +54,7 @@
 																							$url = $_SERVER['REQUEST_URI'];
 																							$urlarray = explode("/", $url);
 																							$end = $urlarray[count($urlarray) - 1];
-																							if (strpos($end, 'sundayx') !== false) {
+																							if (strpos($end, 'sunday') !== false) {
 																								echo 'active';
 																							} ?>">S</a>
 			</div>
