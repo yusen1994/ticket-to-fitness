@@ -92,9 +92,9 @@
                                         <div class="row">
                                             <div class="col-12 text-center" style="padding-top:10px;">';
                         if ($activity->photo != NULL) {
-                            echo '<img class="card-img-top" src="' . URLROOT . '/uploads/' . $activity->photo . '" alt="Card image cap" style="max-width: 190px;">';
+                            echo '<img class="card-img-top activity-gym-logo" src="' . URLROOT . '/uploads/' . $activity->photo . '" alt="Card image cap">';
                         } else {
-                            echo '<img class="card-img-top" src="' . URLROOT . '/images/gym-default.png" alt="Card image cap" style="max-width: 190px;">';
+                            echo '<img class="card-img-top activity-gym-logo" src="' . URLROOT . '/images/gym-default.png" alt="Card image cap">';
                         }
                         echo '
                                 </div>
@@ -425,6 +425,12 @@
         border-radius: 18px;
         border-color: #DDDDDD;
         border-style: solid;
+    }
+
+    .activity-gym-logo {
+        height: 145px !important;
+        width: 145px;
+        object-fit: scale-down;
     }
 </style>
 
