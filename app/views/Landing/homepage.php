@@ -77,7 +77,7 @@
               break;
             }
             echo '  
-                             <div class="col-6 col-md-4 col-lg-4 mt-3 mt-lg-5">
+                             <div class="col-6 col-md-4 col-lg-3 mt-3 mt-lg-5">
                              
                                 <a href="' . URLROOT . '/Activity/activitydetails/' . $activity->id . '/' . $activity->gym_id . '" class="card-link" style="text-decoration:none!important; color:black;">
                                  <div class="card-body p-0">
