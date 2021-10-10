@@ -3,7 +3,7 @@
 <?php require APPROOT . '/views/inc/navbar.php'; ?>
 
 
-<div class="container-fluid mt-2">
+<div class="container-fluid mt-2" style="background-color: white;">
   <!-- If screen => lg display this background image -->
   <div class="row background-image d-none d-lg-block d-xl-block vh-100">
     <div class="col-12 align-self-center">
@@ -58,10 +58,10 @@
 
 
 
-  <div class="row justify-content-center mt-5">
-    <div class="col-sm-12 col-lg-9 text-center align-items-center background-card p-lg-5 pb-5 pt-3">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-9 text-center align-items-center background-card p-lg-5 pb-5 pt-5">
 
-      <h4><span class="text-orange">Browse</span> Activities</h4>
+      <h3><b><span class="text-orange">Browse</span> Activities</b></h3>
 
       <div class="row justify-content-center mt-3">
         <?php
@@ -177,7 +177,7 @@
   <div class="row justify-content-center mt-5 mt-lg-5">
     <div class="col-sm-12 col-lg-8 text-center align-items-center background-card pt-3 pt-lg-5 pb-5">
 
-      <h4><span class="text-orange">Categories</span> for Everyone</h4>
+      <h3><b><span class="text-orange">Categories</span> for Everyone</b></h3>
 
       <div class="row justify-content-center mt-5">
         <div class="col-6 col-md-4 col-lg-2 pb-2">
@@ -266,7 +266,7 @@
   .background-card {
     width: 100%;
     background-color: white;
-    border-radius: 60px;
+    border-radius: 0px;
   }
 
   .img-flip {

@@ -203,7 +203,7 @@
                             $url = $_SERVER['REQUEST_URI'];
                             $urlarray = explode("/", $url);
                             $end = $urlarray[count($urlarray) - 1];
-                            if (strpos($end, 'Activity') == false) {
+                            if ($end != 'Activity') {
                                 echo
                                 '
                                         <a href="' ?><?php echo URLROOT ?><?php echo '/Activity">
@@ -227,12 +227,6 @@
                             <a class="remove-link" href="<?php echo URLROOT; ?>/Activity/filterby/credits/low">
                                 <h5>Credits (Low)</h5>
                             </a>
-                        </div>
-                    </div>
-                    <div class="line-separator"></div>
-                    <div class="row p-2 p-lg-3">
-                        <div class="col-12 align-self-center pl-3">
-                            <h5>Distance (Close)</h5>
                         </div>
                     </div>
                     <div class="line-separator"></div>
@@ -391,7 +385,7 @@
 
     .background-card {
         background-color: white;
-        border-radius: 60px;
+        border-radius: 0px;
         padding-bottom: 30px;
     }
 
