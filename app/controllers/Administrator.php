@@ -68,7 +68,8 @@ class Administrator extends Controller
             $admin = $this->adminModel->validateLogin($data);
             if (!empty($admin)) {
                 $this->createSession($admin);
-                $this->view('Admin/dashboard', $data);
+                //$this->view('Admin/dashboard', $data);
+                redirect('Administrator/dashboard');
             } else {
                 $data['login_err'] = 'Username or Password Incorrect';
                 $this->view('Admin/login', $data);
