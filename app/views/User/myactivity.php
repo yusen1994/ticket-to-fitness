@@ -1,6 +1,19 @@
 <?php require APPROOT . '/views/User/dashboardmenu.php'; ?>
 
+<?php
 
+if (!empty($data['error'])) {
+    echo "<div class='alert alert-danger' role='alert'>";
+    echo $data['error'];
+    echo "</div>";
+}
+if (!empty($data['success'])) {
+    echo "<div class='alert alert-success' role='alert'>";
+    echo $data['success'];
+    echo "</div>";
+}
+
+?>
 <div class="d-flex justify-content-center" style="margin-top: 20px;">
     <div class="col-sm-12 col-lg-6 col-xl-4">
         <h3><b>Manage Activities</b></h3>

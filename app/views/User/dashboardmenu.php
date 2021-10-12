@@ -18,7 +18,6 @@
 
                                                 if (
                                                     strpos($end, 'User') !== false ||
-                                                    strpos($end, 'activity') !== false ||
                                                     strpos($end, 'credits') !== false ||
                                                     strpos($end, 'userProfile') !== false ||
                                                     strpos($urlcheckout, 'checkout') !== false

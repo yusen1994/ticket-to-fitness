@@ -46,7 +46,7 @@
                 echo '
                     <div class="row" style="margin-top:10px; padding-left:10px;">
                         <div class="col-4 align-self-center" style="padding-right:0px;">
-                            <p style="font-size:16px; margin-bottom:0px">' . $single->day . '</p>
+                            <p style="font-size:16px; margin-bottom:0px; text-transform: capitalize;"">' . $single->day . '</p>
                         </div>
                         <div class="col-3 align-self-center" style="padding:0px;">
                             <p style="font-size:16px; margin-bottom:0px">' . $single->time . '</p>

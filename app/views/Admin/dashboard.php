@@ -1,6 +1,5 @@
-<?php require APPROOT . '/views/Admin/dashboardmenu.php'; ?>
-
-
+<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
 <!--Add Dashboard for Admin-->
 <?php
 
@@ -12,27 +11,27 @@ if (!empty($data['message'])) {
 ?>
 
 <div class="container-fluid">
-    <div class="row justify-content-center p-0 m-0">
+
+    <div class="row justify-content-center p-0 m-0 mt-3">
         <div class="col-sm-12 col-md-8 col-lg-4 m-0 p-0">
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
                     <h2 style="font-weight:bold">
                         <div class="gym_title"><?php echo $_SESSION['admin_name']; ?></div>
                     </h2>
-
                 </div>
             </div>
 
             <div class="row justify-content-center mt-3">
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
-                        <h3><b>2</b></h3>
+                        <h3><b><?php echo $data['mem_count'][0]->mem_count ?></b></h3>
                         <p style="font-size: 12px;">total members</p>
                     </div>
                 </div>
                 <div class="col-5 text-center pr-0">
                     <div class="content-background">
-                        <h3><b>3</b></h3>
+                        <h3><b><?php echo $data['mem_count'][0]->mem_count ?></b></h3>
                         <p style="font-size: 12px;">members/month</p>
                     </div>
                 </div>
@@ -40,16 +39,17 @@ if (!empty($data['message'])) {
             <div class="row justify-content-center mt-3">
                 <div class="col-5 text-center pl-0">
                     <div class="content-background">
-                        <h3><b>100</b></h3>
-                        <p style="font-size: 12px;">$ this month</p>
+                        <h3><b><?php echo $data['gym_count'][0]->gym_count ?></b></h3>
+                        <p style="font-size: 12px;">gyms</p>
                     </div>
                 </div>
                 <div class="col-5 text-center pr-0">
                     <div class="content-background">
-                        <h3><b>8</b></h3>
-                        <p style="font-size: 12px;">activities</p>
+                        <h3><b><?php echo $data['earnings'][0]->Credits / 2.5; ?></b></h3>
+                        <p style="font-size: 12px;">$ revenue</p>
                     </div>
                 </div>
+
             </div>
 
             <div class="row justify-content-center mt-5">
@@ -80,7 +80,7 @@ if (!empty($data['message'])) {
                     </a>
                 </div>
             </div>
-         
+
 
         </div>
     </div>
@@ -145,4 +145,3 @@ if (!empty($data['message'])) {
         align-items: center;
     }
 </style>
-
