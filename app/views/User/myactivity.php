@@ -54,6 +54,7 @@ if (!empty($data['myActivity'])) {
                                 </g>
                             </svg>
                             <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">';
+
             if ($single->sale_percentage != 0) {
                 $sale_credit_1 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
             }
@@ -129,17 +130,17 @@ if (!empty($data['myActivity'])) {
                                     </g>
                                 </svg>
                                 <p style="font-size:16px; margin-bottom:0px; margin-left:2px;">';
-            if ($single->sale_percentage != NULL) {
-                if ($single->sale_percentage != 0) {
-                    $sale_credit_2 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
-                }
 
-                if ($sale_credit_2 != NULL) {
-                    echo "<del style='color:red'>" . $single->credit . "</del>" . $sale_credit_2;
-                } else {
-                    echo $single->credit;
-                }
+            if ($single->sale_percentage != 0) {
+                $sale_credit_2 = $single->credit - ($single->sale_percentage / 100 * $single->credit);
             }
+
+            if ($sale_credit_2 != NULL) {
+                echo "<del style='color:red'>" . $single->credit . "</del>" . $sale_credit_2;
+            } else {
+                echo $single->credit;
+            }
+
             echo '</p>
                             </div>
         
