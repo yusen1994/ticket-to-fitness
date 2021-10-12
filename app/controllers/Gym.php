@@ -338,7 +338,7 @@ class Gym extends Controller
         $data = [
             'title' => 'Register a Gym'
         ];
-        if ($this->isGymLoggedIn()) {
+        if (!$this->isGymLoggedIn()) {
             $this->view('gym/registergym', $data);
         } else {
             redirect('Accounts/login');

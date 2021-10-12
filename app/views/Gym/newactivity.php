@@ -78,8 +78,8 @@
 
                     <div class="monday_time_wrapper mt-3" id="monday_time_wrapper" style="display:none;">
 
-                        <input type="text" class="monday_timepicker_start" name="monday_starttimeArray[]" /> to
-                        <input type="text" class="monday_timepicker_end" name="monday_endtimeArray[]" />
+                        <input type="text" autocomplete="off" class="monday_timepicker_start" name="monday_starttimeArray[]" /> to
+                        <input type="text" autocomplete="off" class="monday_timepicker_end" name="monday_endtimeArray[]" />
                         <button type="button" class="btn btn-primary mt-2 monday_addmore_Time" style="background-color:#EF8830; border-style:none; border-radius:18px;">Add More Times</button>
 
                     </div>
@@ -87,8 +87,8 @@
 
                     <div class="tuesday_time_wrapper mt-3" id="tuesday_time_wrapper" style="display:none;">
 
-                        <input type="text" class="tuesday_timepicker_start" name="tuesday_starttimeArray[]" /> to
-                        <input type="text" class="tuesday_timepicker_end" name="tuesday_endtimeArray[]" />
+                        <input type="text" autocomplete="off" class="tuesday_timepicker_start" name="tuesday_starttimeArray[]" /> to
+                        <input type="text" autocomplete="off" class="tuesday_timepicker_end" name="tuesday_endtimeArray[]" />
                         <button type="button" class="btn btn-primary mt-2 tuesday_addmore_Time" style="background-color:#EF8830; border-style:none; border-radius:18px;">Add More Times</button>
 
                     </div>
@@ -96,8 +96,8 @@
 
                     <div class="wednesday_time_wrapper mt-3" id="wednesday_time_wrapper" style="display:none;">
 
-                        <input type="text" class="wednesday_timepicker_start" name="wednesday_starttimeArray[]" /> to
-                        <input type="text" class="wednesday_timepicker_end" name="wednesday_endtimeArray[]" />
+                        <input type="text" autocomplete="off" class="wednesday_timepicker_start" name="wednesday_starttimeArray[]" /> to
+                        <input type="text" autocomplete="off" class="wednesday_timepicker_end" name="wednesday_endtimeArray[]" />
                         <button type="button" class="btn btn-primary mt-2 wednesday_addmore_Time" style="background-color:#EF8830; border-style:none; border-radius:18px;">Add More Times</button>
 
                     </div>
@@ -105,8 +105,8 @@
 
                     <div class="thursday_time_wrapper mt-3" id="thursday_time_wrapper" style="display:none;">
 
-                        <input type="text" class="thursday_timepicker_start" name="thursday_starttimeArray[]" /> to
-                        <input type="text" class="thursday_timepicker_end" name="thursday_endtimeArray[]" />
+                        <input type="text" autocomplete="off" class="thursday_timepicker_start" name="thursday_starttimeArray[]" /> to
+                        <input type="text" autocomplete="off" class="thursday_timepicker_end" name="thursday_endtimeArray[]" />
                         <button type="button" class="btn btn-primary mt-2 thursday_addmore_Time" style="background-color:#EF8830; border-style:none; border-radius:18px;">Add More Times</button>
 
                     </div>
@@ -114,8 +114,8 @@
 
                     <div class="friday_time_wrapper mt-3" id="friday_time_wrapper" style="display:none;">
 
-                        <input type="text" class="friday_timepicker_start" name="friday_starttimeArray[]" /> to
-                        <input type="text" class="friday_timepicker_end" name="friday_endtimeArray[]" />
+                        <input type="text" autocomplete="off" class="friday_timepicker_start" name="friday_starttimeArray[]" /> to
+                        <input type="text" autocomplete="off" class="friday_timepicker_end" name="friday_endtimeArray[]" />
                         <button type="button" class="btn btn-primary mt-2 friday_addmore_Time" style="background-color:#EF8830; border-style:none; border-radius:18px;">Add More Times</button>
 
                     </div>
@@ -123,8 +123,8 @@
 
                     <div class="saturday_time_wrapper mt-3" id="saturday_time_wrapper" style="display:none;">
 
-                        <input type="text" class="saturday_timepicker_start" name="saturday_starttimeArray[]" /> to
-                        <input type="text" class="saturday_timepicker_end" name="saturday_endtimeArray[]" />
+                        <input type="text" autocomplete="off" class="saturday_timepicker_start" name="saturday_starttimeArray[]" /> to
+                        <input type="text" autocomplete="off" class="saturday_timepicker_end" name="saturday_endtimeArray[]" />
                         <button type="button" class="btn btn-primary mt-2 saturday_addmore_Time" style="background-color:#EF8830; border-style:none; border-radius:18px;">Add More Times</button>
 
                     </div>
@@ -132,8 +132,8 @@
 
                     <div class="sunday_time_wrapper mt-3" id="sunday_time_wrapper" style="display:none;">
 
-                        <input type="text" class="sunday_timepicker_start" name="sunday_starttimeArray[]" /> to
-                        <input type="text" class="sunday_timepicker_end" name="sunday_endtimeArray[]" />
+                        <input type="text" autocomplete="off" class="sunday_timepicker_start" name="sunday_starttimeArray[]" /> to
+                        <input type="text" autocomplete="off" class="sunday_timepicker_end" name="sunday_endtimeArray[]" />
                         <button type="button" class="btn btn-primary mt-2 sunday_addmore_Time" style="background-color:#EF8830; border-style:none; border-radius:18px;">Add More Times</button>
 
                     </div>
@@ -191,7 +191,7 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <input type="text" class="form-control" id="credit" name="credit" placeholder="Dollars" required style="border-radius:18px;">
+                                <input type="text" class="form-control" onchange="updateCredits()" id="dollar" name="credit" placeholder="Dollars" required style="border-radius:18px;">
                             </div>
                             <div class="col-6 text-right">
                                 <input type="text" class="form-control" id="credit" name="credit" placeholder="Credits" required style="border-radius:18px;">
@@ -241,7 +241,14 @@
     }
 </style>
 
+<script>
+    function updateCredits() {
+        var dollarValue = document.getElementById("dollar").value;
 
+        document.getElementById("credit").value = (dollarValue * 2.5);
+
+    }
+</script>
 
 <?php
 /*$count = 1;
