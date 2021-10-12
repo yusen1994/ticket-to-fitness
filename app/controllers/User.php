@@ -36,7 +36,10 @@ class User extends Controller
         $data['num_allocation'] = $user_allocation_count;
 
         if (isset($_SESSION['user_id'])) {
+            
             $this->view('User/dashboard', $data);
+            
+
         } else {
             redirect('Accounts/login');
         }
@@ -201,7 +204,7 @@ class User extends Controller
     {
 
         $msg['error'] = "Not enough credits. Please buy more!";
-        $this->MyActivity($msg);
+        $this->index($msg);
     }
 
     public function cart()

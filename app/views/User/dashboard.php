@@ -10,6 +10,7 @@
                 echo "<div class='alert alert-danger' role='alert'>";
                 echo $data['error'];
                 echo "</div>";
+              
             }
             if (!empty($data['success'])) {
                 echo "<div class='alert alert-success' role='alert'>";
