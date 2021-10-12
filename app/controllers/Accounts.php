@@ -230,7 +230,7 @@ class Accounts extends Controller
             if ($this->accountsModel->registerAccount($data)) {
 
                 //Send email Verification
-                $this->verificationEmail($data);
+                # $this->verificationEmail($data);
                 // Redirect to login
                 $data['message'] = 'Please check your email for verification link!';
                 $this->view('Landing/login', $data);

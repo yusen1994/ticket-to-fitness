@@ -34,8 +34,12 @@ class User extends Controller
         $data['user_credit'] = $user_credit;
         $data['num_activities'] = $user_activity_count;
         $data['num_allocation'] = $user_allocation_count;
+
         if (isset($_SESSION['user_id'])) {
+            
             $this->view('User/dashboard', $data);
+            
+
         } else {
             redirect('Accounts/login');
         }
@@ -190,10 +194,17 @@ class User extends Controller
                 $this->timetable($day = "monday", $data);
             }
         } else {
-            $msg['error'] = "Not enough credits Please buy more credits";
-            $this->index($msg);
+            $this->creditsError();
+
             // $this->timetable($day = "monday", $data);
         }
+    }
+
+    public function creditsError()
+    {
+
+        $msg['error'] = "Not enough credits. Please buy more!";
+        $this->index($msg);
     }
 
     public function cart()
@@ -298,11 +309,14 @@ class User extends Controller
     {
         if (isset($_SESSION['user_id'])) {
 
-            $data = [
+            if (!empty($msg['error'])) {
+                $data['error'] = $msg['error'];
+            }
+            if (!empty($msg['success'])) {
+                $data['success'] = $msg['success'];
+            }
 
-                'user_id' => $_SESSION['user_id'],
-                'success' => $msg
-            ];
+            $data['user_id'] = $_SESSION['user_id'];
 
             $useractivity = $this->userModel->manageActivitiesList($data);
             $data['myActivity'] = $useractivity;

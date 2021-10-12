@@ -19,9 +19,7 @@
 																									echo 'active';
 																								} ?>">
 					<div>M
-						<p id="mon-date" class="p-0 m-0 timetable-date <?php if (date('w') == 1) {
-																			echo 'timetable-active';
-																		} ?>"></p>
+						<p id="mon-date" class="p-0 m-0 timetable-date"></p>
 					</div>
 				</a>
 				<a href="<?php echo URLROOT ?>/User/timetable/tuesday" class="btn btn-light p-1 <?php
@@ -32,9 +30,7 @@
 																									echo 'active';
 																								} ?>">
 					<div>T
-						<p id="tue-date" class="p-0 m-0 timetable-date <?php if (date('w') == 2) {
-																			echo 'timetable-active';
-																		} ?>"></p>
+						<p id="tue-date" class="p-0 m-0 timetable-date"></p>
 					</div>
 				</a>
 				<a href="<?php echo URLROOT ?>/User/timetable/wednesday" class="btn btn-light p-1 <?php
@@ -45,9 +41,7 @@
 																										echo 'active';
 																									} ?>">
 					<div>W
-						<p id="wed-date" class="p-0 m-0 timetable-date <?php if (date('w') == 3) {
-																			echo 'timetable-active';
-																		} ?>"></p>
+						<p id="wed-date" class="p-0 m-0 timetable-date"></p>
 					</div>
 				</a>
 				<a href="<?php echo URLROOT ?>/User/timetable/thursday" class="btn btn-light p-1 <?php
@@ -58,9 +52,7 @@
 																										echo 'active';
 																									} ?>">
 					<div>T
-						<p id="thur-date" class="p-0 m-0 timetable-date <?php if (date('w') == 4) {
-																			echo 'timetable-active';
-																		} ?>"></p>
+						<p id="thur-date" class="p-0 m-0 timetable-date"></p>
 					</div>
 				</a>
 				<a href="<?php echo URLROOT ?>/User/timetable/friday" class="btn btn-light p-1 <?php
@@ -71,9 +63,7 @@
 																									echo 'active';
 																								} ?>">
 					<div>F
-						<p id="fri-date" class="p-0 m-0 timetable-date <?php if (date('w') == 5) {
-																			echo 'timetable-active';
-																		} ?>"></p>
+						<p id="fri-date" class="p-0 m-0 timetable-date"></p>
 					</div>
 				</a>
 				<a href="<?php echo URLROOT ?>/User/timetable/saturday" class="btn btn-light p-1 <?php
@@ -84,9 +74,7 @@
 																										echo 'active';
 																									} ?>">
 					<div>S
-						<p id="sat-date" class="p-0 m-0 timetable-date <?php if (date('w') == 6) {
-																			echo 'timetable-active';
-																		} ?>"></p>
+						<p id="sat-date" class="p-0 m-0 timetable-date"></p>
 					</div>
 				</a>
 				<a href="<?php echo URLROOT ?>/User/timetable/sunday" class="btn btn-light p-1 <?php
@@ -97,9 +85,7 @@
 																									echo 'active';
 																								} ?>">
 					<div>S
-						<p id="sun-date" class="p-0 m-0 timetable-date <?php if (date('w') == 0) {
-																			echo 'timetable-active';
-																		} ?>"></p>
+						<p id="sun-date" class="p-0 m-0 timetable-date"></p>
 					</div>
 				</a>
 			</div>
@@ -224,6 +210,7 @@
 
 	switch (dayOfWeek) {
 		case 0: // Monday
+			document.getElementById(dayId[dayOfWeek]).className = "p-0 m-0 timetable-date timetable-active";
 			for (let i = dayOfWeek; i < dayId.length; i++) {
 				let displayDate = addDays(dateToday, i - dayOfWeek);
 				let dayOfMonth = displayDate.getDate();
@@ -237,7 +224,8 @@
 				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
 			}
 			break;
-		case 1: // Monday
+		case 1: // Tuesday
+			document.getElementById(dayId[dayOfWeek]).className = "p-0 m-0 timetable-date timetable-active";
 			for (let i = dayOfWeek; i < dayId.length; i++) {
 				let displayDate = addDays(dateToday, i - dayOfWeek);
 				let dayOfMonth = displayDate.getDate();
@@ -251,7 +239,8 @@
 				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
 			}
 			break;
-		case 2: // Monday
+		case 2: // Wednesday
+			document.getElementById(dayId[dayOfWeek]).className = "p-0 m-0 timetable-date timetable-active";
 			for (let i = dayOfWeek; i < dayId.length; i++) {
 				let displayDate = addDays(dateToday, i - dayOfWeek);
 				let dayOfMonth = displayDate.getDate();
@@ -265,7 +254,8 @@
 				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
 			}
 			break;
-		case 3: // Monday
+		case 3: // Thursday
+			document.getElementById(dayId[dayOfWeek]).className = "p-0 m-0 timetable-date timetable-active";
 			for (let i = dayOfWeek; i < dayId.length; i++) {
 				let displayDate = addDays(dateToday, i - dayOfWeek);
 				let dayOfMonth = displayDate.getDate();
@@ -280,6 +270,7 @@
 			}
 			break;
 		case 4: // Friday
+			document.getElementById(dayId[dayOfWeek]).className = "p-0 m-0 timetable-date timetable-active";
 			for (let i = dayOfWeek; i < dayId.length; i++) {
 				let displayDate = addDays(dateToday, i - dayOfWeek);
 				let dayOfMonth = displayDate.getDate();
@@ -293,7 +284,8 @@
 				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
 			}
 			break;
-		case 5: // Friday
+		case 5: // Saturday
+			document.getElementById(dayId[dayOfWeek]).className = "p-0 m-0 timetable-date timetable-active";
 			for (let i = dayOfWeek; i < dayId.length; i++) {
 				let displayDate = addDays(dateToday, i - dayOfWeek);
 				let dayOfMonth = displayDate.getDate();
@@ -307,7 +299,8 @@
 				document.getElementById(dayId[j]).innerHTML = `${dayOfMonth}/${monthOfYear}`;
 			}
 			break;
-		case 6: // Friday
+		case 6: // Sunday
+			document.getElementById(dayId[dayOfWeek]).className = "p-0 m-0 timetable-date timetable-active";
 			for (let i = dayOfWeek; i < dayId.length; i++) {
 				let displayDate = addDays(dateToday, i - dayOfWeek);
 				let dayOfMonth = displayDate.getDate();

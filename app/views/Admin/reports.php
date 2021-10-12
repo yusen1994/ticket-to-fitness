@@ -1,9 +1,16 @@
-<?php require APPROOT . '/views/Admin/dashboardmenu.php'; ?>
+<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/navbar.php'; ?>
 
-
-
-<div class="container-fluid"><span class="profile-heading"><i class="fas fa-arrow-left"></i> Reports</span>
-
+<div class="container-fluid pt-3">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="row mt-3">
+                <div class="col-8" style="flex-direction: row;">
+                    <h3><b><span><a href="<?php echo URLROOT; ?>/Administrator/dashboard"><i style="color:black;" class="fas fa-arrow-left"></i></a></span><span class="pl-2" style="color:black;">Reports</span></b></h3>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Styles -->
     <style>
         #chartdiv {
@@ -32,8 +39,9 @@
 
             <?php
             foreach ($data['admin_earnings'] as $single) {
+                $dollarValue = $single->Credits / 2.5;
                 echo "var date = '$single->Date';";
-                echo "value = '$single->Credits';";
+                echo "value = '$dollarValue';";
                 echo "console.log(date);";
             ?>
                 data.push({

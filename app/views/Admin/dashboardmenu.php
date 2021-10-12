@@ -1,8 +1,7 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
-<?php require APPROOT . '/views/inc/navbar.php'; ?>
-
 <!--Add Dashboard menu for admin-->
 <!-- Nav start -->
+
+
 <div class="container-fluid" style="margin-top:5px;">
 
     <div class="row justify-content-center" style="background-color:white;">
