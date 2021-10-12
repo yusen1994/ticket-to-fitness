@@ -80,8 +80,7 @@
                                                 $urlsecondlast = $urlarray[count($urlarray) - 2];
                                                 if (
                                                     strpos($end, 'Timetable') !== false ||
-                                                    strpos($urltimetable, 'timetable') !== false ||
-                                                    strpos($urlsecondlast, 'allocation') !== false
+                                                    strpos($urltimetable, 'timetable') !== false
                                                 ) {
                                                     echo 'userdashboard-menu-active';
                                                 } ?>" style="padding:0px !important; height:auto;">

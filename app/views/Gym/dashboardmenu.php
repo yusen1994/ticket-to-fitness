@@ -62,10 +62,12 @@
                 $url = $_SERVER['REQUEST_URI'];
                 $urlarray = explode("/", $url);
                 $end = $urlarray[count($urlarray) - 1];
+                $thirdend = $urlarray[count($urlarray) - 3];
 
                 if (
                     strpos($end, 'manageActivities') !== false ||
-                    strpos($end, 'activities') !== false
+                    strpos($end, 'activities') !== false ||
+                    strpos($thirdend, 'applySales') !== false
                 ) {
                     echo '
                      <div class="col-4 text-center gymdashboard-menu-active" style="padding:0px !important; height:auto;">
